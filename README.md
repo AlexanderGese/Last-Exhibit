@@ -1,4 +1,4 @@
-# Borrowed Time
+# Stolen Time
 ### Game Design Document v0.1
 
 > *A 2D Metroidvania with idle/clicker progression. You are a night watchman with a time machine in his basement. Every night you raid history. Every day the museum opens.*
