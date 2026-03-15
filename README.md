@@ -22,7 +22,7 @@
 
 ## 1. Concept
 
-You play as a night watchman at a tiny, half-empty museum on the verge of closure. In the third week on the job you found a time machine behind a false wall in the basement. There was a note on it: *"Please do not use."*
+You play as a History Student at a tiny, half-empty museum on the verge of closure. In the third week on the job you found a time machine behind a false wall in the basement. There was a note on it: *"Please do not use."*
 
 You used it immediately.
 
