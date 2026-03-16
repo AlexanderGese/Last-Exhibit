@@ -2,3 +2,7 @@ CanvaWhiteboard: https://www.canva.com/design/DAHD0gA2FpM/zx6TTWC3rXBEsN9B4U3QlQ
 
 
 Discord: https://discord.gg/DU29ufhM8F
+
+
+
+Scrum: scrumflow-app.vercel.app/
