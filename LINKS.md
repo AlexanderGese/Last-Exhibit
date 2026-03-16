@@ -5,4 +5,4 @@ Discord: https://discord.gg/DU29ufhM8F
 
 
 
-Scrum: scrumflow-app.vercel.app/
+Scrum: https://scrumflow-app.vercel.app/
