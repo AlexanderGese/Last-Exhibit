@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://djuq45va02yto"]
+
+[ext_resource type="Script" uid="uid://brmc8gtossxhd" path="res://scenes/GUI/main_gui.gd" id="1_q44kx"]
+
+[node name="GUI" type="Node2D" unique_id=778957439]
+script = ExtResource("1_q44kx")
+
+[node name="Play" type="Button" parent="." unique_id=382926049]
+offset_left = 294.0
+offset_top = 275.0
+offset_right = 830.0
+offset_bottom = 339.0
+text = "Play"
+
+[node name="Settings" type="Button" parent="." unique_id=664340069]
+offset_left = 294.0
+offset_top = 393.0
+offset_right = 830.0
+offset_bottom = 457.0
+action_mode = 0
+text = "Settings
+"
+
+[node name="Quit" type="Button" parent="." unique_id=447295924]
+offset_left = 294.0
+offset_top = 526.0
+offset_right = 830.0
+offset_bottom = 590.0
+text = "Quit"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1764068932]
+position = Vector2(575, 325)
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
