@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1773731686
+::res://::1773738885
 icon.svg::CompressedTexture2D::8722253281439306094::1773698566::1773698566::1::::<><><>0<>0<>de8cbab3a79cf7c27fcb3fd387f25121<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://assets/::1773701625
 icon.png::CompressedTexture2D::2824632996470407806::1773700386::1773700455::1::::<><><>0<>0<>14b2e50f8c59f21a1f301cf7cb46652e<>res://.godot/imported/icon.png-b6a7fb2db36edd3d95dc42f1dc8c1c5d.ctex::
@@ -8,8 +8,8 @@ MainMenuBackground.png::CompressedTexture2D::1698942682698049248::1773700848::17
 ::res://assets/music/::1773701605
 ::res://assets/sounds/::1773701610
 ::res://assets/spritesheets/::1773701630
-::res://scenes/::1773735507
-::res://scenes/GUI/::0
-MainGui.tscn::PackedScene::7833274066986190620::1773735584::0::1::::<><><>0<>0<><>::uid://brmc8gtossxhd::::res://scenes/main_gui.gd
-main_gui.gd::GDScript::3604584268925032445::1773735560::0::1::::<>Node2D<><>0<>0<><>::
+::res://scenes/::1773735584
+::res://scenes/GUI/::1773735759
+MainGui.tscn::PackedScene::7833274066986190620::1773735759::0::1::::<><><>0<>0<><>::uid://brmc8gtossxhd::::res://scenes/GUI/main_gui.gd
+main_gui.gd::GDScript::3604584268925032445::1773735720::0::1::::<>Node2D<><>0<>0<><>::
 ::res://test_assets/::1773698861
