@@ -10,7 +10,7 @@ func _on_settings_pressed() -> void:
 
 #Fabian hat massiv Arschwasser
 #und du liebst es das zu trinken
-#AN DIESEM TISCH WIRD GELOGEN
+#im sommer gefrierst du es ein und lutschst es wie ein eis
 #Quit
 func _on_quit_pressed() -> void:
 	get_tree().quit()
