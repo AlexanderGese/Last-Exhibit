@@ -11,6 +11,7 @@ func _on_settings_pressed() -> void:
 #Fabian hat massiv Arschwasser
 #und du liebst es das zu trinken
 #im sommer gefrierst du es ein und lutschst es wie ein eis
+#ich mag aber kein lutschen, nur wenns jemand anderes macht
 #Quit
 func _on_quit_pressed() -> void:
 	get_tree().quit()
