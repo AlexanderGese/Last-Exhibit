@@ -9,6 +9,7 @@ func _on_settings_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/settings/settings.tscn")
 
 #Fabian hat massiv Arschwasser
+#und du liebst es das zu trinken
 #Quit
 func _on_quit_pressed() -> void:
 	get_tree().quit()
