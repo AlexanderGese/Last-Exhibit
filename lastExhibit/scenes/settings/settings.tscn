@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cyevinltfk7rp"]
+
+[ext_resource type="Script" uid="uid://clb6yfx10ix28" path="res://scenes/settings/settings.gd" id="1_26ncd"]
+[ext_resource type="Script" uid="uid://jpweeggnaget" path="res://scenes/settings/h_slider.gd" id="2_vu5fi"]
+
+[node name="Settings" type="Node2D" unique_id=1587056552]
+script = ExtResource("1_26ncd")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=693654476]
+position = Vector2(577, 325)
+
+[node name="HSlider" type="HSlider" parent="." unique_id=989289929]
+offset_left = 410.0
+offset_top = 222.0
+offset_right = 740.0
+offset_bottom = 347.0
+script = ExtResource("2_vu5fi")
