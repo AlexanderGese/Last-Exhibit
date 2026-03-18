@@ -6,7 +6,7 @@
 
 **Setting:** Geheimer Forschungsbunker, Sibirien — 1960–1980
 
-Unterirdischer Sowjet-Bunker. Labore, Käfige, Röhren die in Wände verschwinden. Experimente die offensichtlich schiefgelaufen sind. Kein Tageslicht. Der Bunker lebt irgendwie noch.
+Unterirdischer Sowjet-Bunker (z.b. rakten silo). Labore, Käfige, Röhren die in Wände verschwinden. Experimente die offensichtlich schiefgelaufen sind. Kein Tageslicht. Der Bunker lebt irgendwie noch.
 
 **Vibe:**
 
@@ -57,7 +57,7 @@ Unterirdischer Sowjet-Bunker. Labore, Käfige, Röhren die in Wände verschwinde
 
 ## Epoche 2 — Zweiter Weltkrieg
 
-**Setting:** Amerikanische Airforce Base, England — 1943
+**Setting:** Amerikanische Airforce Base — 1943
 
 Aktive US-Airforce Base kurz vor Morgengrauen. Hangars, Rollbahnen, Kontrollturm, unterirdisches Archiv. Flugzeuge starten bald — Zeitdruck von Anfang an spürbar.
 
@@ -152,8 +152,8 @@ Große Burg bei Gewitter. Burghof, Türme, Verliese darunter, Waffenkammer, Scha
 | Armbrustbolzen-Bündel | Normal | Klein | — |
 | Giftflasche aus dem Verlies | Verboten | Klein | — |
 
-**Boss: Der Burgherr**
-- Typ: Wächtertyp
+**Boss: Der Tempelritter**
+- Typ: Tempelritter
 - Schwere Rüstung, langsam aber unaufhaltsam
 - Von vorne unverwundbar — Schwachstelle nur von hinten
 - Bei niedrigen HP ruft er Bogenschützen — Kampf wird zum Chaos
