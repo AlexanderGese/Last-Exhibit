@@ -10,10 +10,10 @@ Unterirdischer Sowjet-Bunker. Labore, Käfige, Röhren die in Wände verschwinde
 
 **Vibe:**
 
-![Soviet 1](SovietUnion/_.jpeg)
-![Soviet 2](SovietUnion/_ (1).jpeg)
-![Soviet 3](SovietUnion/_ (2).jpeg)
-![Soviet 4](SovietUnion/_ (3).jpeg)
+![Soviet 1](SovietUnion/abc.jpeg)
+![Soviet 2](SovietUnion/efg.jpeg)
+![Soviet 3](SovietUnion/hjk.jpeg)
+![Soviet 4](SovietUnion/lmn.jpeg)
 ![Bunker](SovietUnion/Renovated nuclear bunker.jpeg)
 ![Berlin Bunker](SovietUnion/underground bunker in Berlin.jpeg)
 
@@ -63,7 +63,7 @@ Aktive US-Airforce Base kurz vor Morgengrauen. Hangars, Rollbahnen, Kontrollturm
 
 **Vibe:**
 
-![WW2 1](2.Weltkrieg/_.jpeg)
+![WW2 1](2.Weltkrieg/abc.jpeg)
 ![WW2 2](2.Weltkrieg/alconbury.jpeg)
 ![WW2 3](2.Weltkrieg/Albania abandoned air base.jpeg)
 ![WW2 4](2.Weltkrieg/Alconbury England _ RAF Alconbury, United Kingdom_ My first duty assignment.jpeg)
@@ -86,18 +86,16 @@ Aktive US-Airforce Base kurz vor Morgengrauen. Hangars, Rollbahnen, Kontrollturm
 | Artefakt | Kategorie | Größe | Besonderheit |
 |----------|-----------|-------|--------------|
 | Beschlagnahmtes Gemälde | Normal | Groß | Höchster Ruhm der Epoche |
-| Kettenhemd — nein, falsche Epoche | — | — | — |
 | Fliegerjacke | Normal | Mittel | — |
 | Pilotenhelm | Normal | Mittel | — |
 | Bordkamera einer P-51 | Fragmentiert | Mittel | Set mit Feldtelefon |
 | Beschlagnahmte Geige aus Frankreich | Fragmentiert | Mittel | — |
-| Geheime Kriegskarte | Verboten | Mittel | — |
-| Militärische Geheimkarte | Verboten | Mittel | — |
 | Enigma-ähnliches Gerät | Fragmentiert | Mittel | Set mit Bordkamera |
+| Geheime Kriegskarte | Verboten | Mittel | — |
+| Feldtelefon | Fragmentiert | Mittel | Set mit Bordkamera |
 | Pilotenabzeichen | Normal | Klein | — |
 | Patronengürtel | Normal | Klein | — |
 | Medaille | Normal | Klein | — |
-| Feldtelefon | Fragmentiert | Mittel | Set mit Bordkamera |
 | Tarnanzug | Normal | Mittel | — |
 
 **Boss: Kampfjet — P-51 Mustang**
@@ -119,12 +117,12 @@ Große Burg bei Gewitter. Burghof, Türme, Verliese darunter, Waffenkammer, Scha
 
 **Vibe:**
 
-![Mittelalter 1](Mittelalter/_.jpeg)
-![Mittelalter 2](Mittelalter/_ (1).jpeg)
-![Mittelalter 3](Mittelalter/_ (2).jpeg)
-![Mittelalter 4](Mittelalter/_ (3).jpeg)
-![Mittelalter 5](Mittelalter/_ (4).jpeg)
-![Mittelalter 6](Mittelalter/_ (5).jpeg)
+![Mittelalter 1](Mittelalter/abc.jpeg)
+![Mittelalter 2](Mittelalter/efg.jpeg)
+![Mittelalter 3](Mittelalter/hjk.jpeg)
+![Mittelalter 4](Mittelalter/lmn.jpeg)
+![Mittelalter 5](Mittelalter/opg.jpeg)
+![Mittelalter 6](Mittelalter/rst.jpeg)
 ![Ritter](Mittelalter/Barbuta Ritter Rüstung Anzug Mittelalter LARP Reenactment Krieger Cosplay Kostüm Handmade Halloween _ Weihnachtsgeschenk.jpeg)
 
 **Tageszeit:** Mitternacht, Gewitter
@@ -172,14 +170,14 @@ Mächtiger abgelegener Tempel im Gebirge. Torii-Tore, Räucherstäbchen, Mondlic
 
 **Vibe:**
 
-![Samurai 1](Samurai/_.jpeg)
-![Samurai 2](Samurai/_ (1).jpeg)
-![Samurai 3](Samurai/_ (2).jpeg)
+![Samurai 1](Samurai/abc.jpeg)
+![Samurai 2](Samurai/efg.jpeg)
+![Samurai 3](Samurai/hjk.jpeg)
+![Forest](Samurai/forest.jpeg)
 ![Tempel 1](Samurai/Kenninji, Kyoto_ The old Zen temple.jpeg)
 ![Tempel 2](Samurai/nara _ todaji temple.jpeg)
 ![Paz](Samurai/Paz.jpeg)
 ![Samurai Art](Samurai/Samurai, Roelof van Wyk.jpeg)
-![Kyoto](Samurai/одна из моих мечт — побывать в храмах Киото, окунуться в эту атмосферу с головой.jpeg)
 
 **Tageszeit:** Vollmondnacht, dicker Nebel
 
@@ -228,11 +226,11 @@ Massiver mehrstöckiger Tempel. Goldsäle, Fallen überall, kein Ende sichtbar. 
 
 **Vibe:**
 
-![Inka 1](Inka/_.jpeg)
-![Inka 2](Inka/_ (1).jpeg)
-![Inka 3](Inka/_ (2).jpeg)
-![Inka 4](Inka/_ (3).jpeg)
-![Inka 5](Inka/_ (4).jpeg)
+![Inka 1](Inka/abc.jpeg)
+![Inka 2](Inka/efg.jpeg)
+![Inka 3](Inka/hjk.jpeg)
+![Inka 4](Inka/lmn.jpeg)
+![Inka 5](Inka/opq.jpeg)
 ![Maya 1](Inka/Ancient Mayan Temple_ Aerial View of Yaxchilan Ruins in Jungle.jpeg)
 ![Maya 2](Inka/Ancient Mayan Temple_ Aerial View of Yaxchilan Ruins in Jungle (1).jpeg)
 ![Woodland](Inka/Mystical Woodland Sanctuary Centered Around Ancient Pool.jpeg)
@@ -301,5 +299,5 @@ Massiver mehrstöckiger Tempel. Goldsäle, Fallen überall, kein Ende sichtbar. 
 
 ---
 
-*Last Exhibit — Epochen v0.3*
+*Last Exhibit — Epochen v0.4*
 *Weitere Epochen: TBD*
