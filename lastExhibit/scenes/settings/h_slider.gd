@@ -15,4 +15,3 @@ func _on_value_changed(value: float) -> void:
 	else:
 		AudioServer.set_bus_mute(bus_index, false)
 		AudioServer.set_bus_volume_db(bus_index, linear_to_db(linear))
-	print(linear)
