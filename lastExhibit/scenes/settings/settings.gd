@@ -1,6 +1,4 @@
-extends Node2D
-
-
+extends Control
 
 
 func rebind_action(action_name: String, keycode: int):
