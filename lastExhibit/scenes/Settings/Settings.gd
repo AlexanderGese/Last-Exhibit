@@ -19,4 +19,4 @@ func rebind_action(action_name: String, keycode: int):
 func _on_button_pressed() -> void:
 	settingsmenu.play("roll up")
 	await get_tree().create_timer(0.1).timeout
-	get_tree().chnge_scene_to_file("res://scenes/GUI/MainGui.tscn")
+	get_tree().change_scene_to_file("res://scenes/GUI/MainGui.tscn")

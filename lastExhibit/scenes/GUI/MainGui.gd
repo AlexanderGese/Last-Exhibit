@@ -7,15 +7,15 @@ extends Control
 # Play
 func _on_play_pressed() -> void:
 	playbutton.play("click")
-	await get_tree().create_timer(0.4).timeout
-	get_tree().change_scene_to_file("res://scenes/play/play.tscn")
+	await get_tree().create_timer(0.35).timeout
+	get_tree().change_scene_to_file("res://scenes/Main/Main.tscn")
 	
 
 # Settings
 func _on_settings_pressed() -> void:
 	settingsbutton.play("default")
 	await get_tree().create_timer(0.65).timeout
-	get_tree().change_scene_to_file("res://scenes/settings/settings.tscn")
+	get_tree().change_scene_to_file("res://scenes/Settings/Settings.tscn")
 
 #Quit
 func _on_quit_pressed() -> void:
