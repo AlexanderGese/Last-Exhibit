@@ -8,7 +8,7 @@ extends Control
 func _on_play_pressed() -> void:
 	playbutton.play("click")
 	await get_tree().create_timer(0.35).timeout
-	get_tree().change_scene_to_file("res://scenes/Main/Main.tscn")
+	get_tree().change_scene_to_file("res://scenes/Museum/Museum.tscn")
 	
 
 # Settings
