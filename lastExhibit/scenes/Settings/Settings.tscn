@@ -1,0 +1,212 @@
+[gd_scene format=3 uid="uid://cyevinltfk7rp"]
+
+[ext_resource type="Script" uid="uid://clb6yfx10ix28" path="res://scenes/Settings/Settings.gd" id="1_mg1om"]
+[ext_resource type="Texture2D" uid="uid://qe4wsppjhj76" path="res://assets/sprites/GUI/Background.png" id="2_yr6nw"]
+[ext_resource type="Script" uid="uid://jpweeggnaget" path="res://scenes/Settings/SliderMasterVolume.gd" id="3_5dapv"]
+[ext_resource type="FontFile" uid="uid://bafj0agrswp3j" path="res://assets/fonts/Pixuf.ttf" id="4_1nnp1"]
+[ext_resource type="Script" uid="uid://ca1p3vhekw00s" path="res://scenes/Settings/SliderVFXVolume.gd" id="5_jxbof"]
+[ext_resource type="Script" uid="uid://dsi6qdrxbi2wo" path="res://scenes/Settings/SliderMusicVolume.gd" id="6_glya8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1slea"]
+atlas = ExtResource("2_yr6nw")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1hle"]
+atlas = ExtResource("2_yr6nw")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vghtj"]
+atlas = ExtResource("2_yr6nw")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6son"]
+atlas = ExtResource("2_yr6nw")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vimye"]
+atlas = ExtResource("2_yr6nw")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7ghj"]
+atlas = ExtResource("2_yr6nw")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p57yh"]
+atlas = ExtResource("2_yr6nw")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgacw"]
+atlas = ExtResource("2_yr6nw")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kol0p"]
+atlas = ExtResource("2_yr6nw")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtcqk"]
+atlas = ExtResource("2_yr6nw")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flumg"]
+atlas = ExtResource("2_yr6nw")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k1aa"]
+atlas = ExtResource("2_yr6nw")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lahd3"]
+atlas = ExtResource("2_yr6nw")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gnmy5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1slea")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_v1hle")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_vghtj")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_h6son")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_vimye")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_p7ghj")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_p57yh")
+}],
+"loop": false,
+"name": &"roll down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_vgacw")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_kol0p")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_rtcqk")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_flumg")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_6k1aa")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_lahd3")
+}],
+"loop": false,
+"name": &"roll up",
+"speed": 5.0
+}]
+
+[node name="Settings" type="Control" unique_id=340900697]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_mg1om")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1784836218]
+position = Vector2(573, 320)
+scale = Vector2(17, 17)
+sprite_frames = SubResource("SpriteFrames_gnmy5")
+animation = &"roll up"
+
+[node name="Master Volume" type="Control" parent="." unique_id=790126585]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HSlider" type="HSlider" parent="Master Volume" unique_id=989289929]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 116.0
+offset_right = 605.0
+offset_bottom = 241.0
+script = ExtResource("3_5dapv")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Master Volume" unique_id=473784448]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 135.0
+offset_right = 540.0
+offset_bottom = 224.0
+theme_override_fonts/normal_font = ExtResource("4_1nnp1")
+theme_override_font_sizes/normal_font_size = 32
+text = "Master Volume"
+
+[node name="VFX Volume" type="Control" parent="." unique_id=118911656]
+anchors_preset = 0
+offset_top = 167.0
+offset_right = 40.0
+offset_bottom = 207.0
+
+[node name="HSlider" type="HSlider" parent="VFX Volume" unique_id=1669605480]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 116.0
+offset_right = 605.0
+offset_bottom = 241.0
+script = ExtResource("5_jxbof")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VFX Volume" unique_id=298653867]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 135.0
+offset_right = 540.0
+offset_bottom = 224.0
+theme_override_fonts/normal_font = ExtResource("4_1nnp1")
+theme_override_font_sizes/normal_font_size = 32
+text = "Music Volume"
+
+[node name="Music Volume" type="Control" parent="." unique_id=1081537513]
+anchors_preset = 0
+offset_top = 81.0
+offset_right = 40.0
+offset_bottom = 121.0
+
+[node name="HSlider" type="HSlider" parent="Music Volume" unique_id=1160200840]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 116.0
+offset_right = 605.0
+offset_bottom = 241.0
+script = ExtResource("6_glya8")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Music Volume" unique_id=337756165]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 135.0
+offset_right = 540.0
+offset_bottom = 224.0
+theme_override_fonts/normal_font = ExtResource("4_1nnp1")
+theme_override_font_sizes/normal_font_size = 32
+text = "VFX Volume"
+
+[node name="Button" type="Button" parent="." unique_id=178750617]
+layout_mode = 0
+offset_left = 691.0
+offset_top = 454.0
+offset_right = 855.0
+offset_bottom = 494.0
+theme_override_fonts/font = ExtResource("4_1nnp1")
+theme_override_font_sizes/font_size = 32
+text = "Save & Exit"
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
