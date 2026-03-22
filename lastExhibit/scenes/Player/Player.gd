@@ -18,6 +18,11 @@ func _physics_process(delta: float) -> void:
 	_handle_jump(delta)
 	_update_animation()
 	move_and_slide()
+	escape_menu()
+	
+func escape_menu() -> void:
+	if(Input.is_action_just_pressed("escape")):
+		get_tree().change_scene_to_file("res://scenes/EscapeMenu/EscapeMenu.tscn")
 
 func _apply_gravity(delta: float) -> void:
 	if is_on_floor():
