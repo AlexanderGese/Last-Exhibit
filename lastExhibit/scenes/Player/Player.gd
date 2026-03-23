@@ -8,9 +8,16 @@ const GRAVITY = 2500
 const JUMP_CUT_GRAVITY = 6000 
 const MAX_JUMP_TIME = 0.2       
 const FALL_GRAVITY_MULT = 1.4   
+@onready var ESCAPEMENU = preload("res://scenes/EscapeMenu/EscapeMenu.tscn")
+var ESCAPEMENUINSTANCE
+
 
 var is_jumping := false
 var jump_timer := 0.0
+
+func _ready():
+	ESCAPEMENUINSTANCE = ESCAPEMENU.instantiate()
+	add_child(ESCAPEMENUINSTANCE)
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
@@ -18,6 +25,14 @@ func _physics_process(delta: float) -> void:
 	_handle_jump(delta)
 	_update_animation()
 	move_and_slide()
+	escape_menu()
+	
+func escape_menu() -> void:
+	if(Input.is_action_just_pressed("escape")):
+		if get_tree().paused:
+			ESCAPEMENUINSTANCE.hide_menu()
+		else:
+			ESCAPEMENUINSTANCE.show_menu()
 
 func _apply_gravity(delta: float) -> void:
 	if is_on_floor():

@@ -118,7 +118,14 @@ animations = [{
 
 [node name="Settings" type="Control" unique_id=340900697]
 layout_mode = 3
-anchors_preset = 0
+anchor_left = 0.148
+anchor_top = 0.108
+anchor_right = 0.846
+anchor_bottom = 0.906
+offset_left = -170.496
+offset_top = -69.984
+offset_right = -974.59204
+offset_bottom = -587.088
 script = ExtResource("1_mg1om")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1784836218]
@@ -133,67 +140,88 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="HSlider" type="HSlider" parent="Master Volume" unique_id=989289929]
-layout_mode = 0
-offset_left = 275.0
-offset_top = 116.0
-offset_right = 605.0
-offset_bottom = 241.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 6.8750005
+anchor_top = 2.9
+anchor_right = 15.125001
+anchor_bottom = 6.025
+offset_left = -3.0517578e-05
+offset_right = -6.1035156e-05
 script = ExtResource("3_5dapv")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Master Volume" unique_id=473784448]
-layout_mode = 0
-offset_left = 283.0
-offset_top = 135.0
-offset_right = 540.0
-offset_bottom = 224.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 7.0750003
+anchor_top = 3.3750002
+anchor_right = 13.500001
+anchor_bottom = 5.6000004
+offset_top = -1.5258789e-05
+offset_right = -6.1035156e-05
+offset_bottom = -1.5258789e-05
 theme_override_fonts/normal_font = ExtResource("4_1nnp1")
 theme_override_font_sizes/normal_font_size = 32
 text = "Master Volume"
 
-[node name="VFX Volume" type="Control" parent="." unique_id=118911656]
+[node name="Music Volume" type="Control" parent="." unique_id=118911656]
 anchors_preset = 0
 offset_top = 167.0
 offset_right = 40.0
 offset_bottom = 207.0
 
-[node name="HSlider" type="HSlider" parent="VFX Volume" unique_id=1669605480]
-layout_mode = 0
-offset_left = 275.0
-offset_top = 116.0
-offset_right = 605.0
-offset_bottom = 241.0
+[node name="HSlider" type="HSlider" parent="Music Volume" unique_id=1669605480]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 6.8750005
+anchor_top = 2.9
+anchor_right = 15.125001
+anchor_bottom = 6.025
+offset_left = -3.0517578e-05
+offset_right = -6.1035156e-05
 script = ExtResource("5_jxbof")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VFX Volume" unique_id=298653867]
-layout_mode = 0
-offset_left = 283.0
-offset_top = 135.0
-offset_right = 540.0
-offset_bottom = 224.0
+[node name="RichTextLabel" type="RichTextLabel" parent="Music Volume" unique_id=298653867]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 7.0750003
+anchor_top = 3.3750002
+anchor_right = 13.500001
+anchor_bottom = 5.6000004
+offset_top = -1.5258789e-05
+offset_right = -6.1035156e-05
+offset_bottom = -1.5258789e-05
 theme_override_fonts/normal_font = ExtResource("4_1nnp1")
 theme_override_font_sizes/normal_font_size = 32
 text = "Music Volume"
 
-[node name="Music Volume" type="Control" parent="." unique_id=1081537513]
+[node name="VFX Volume" type="Control" parent="." unique_id=1081537513]
 anchors_preset = 0
 offset_top = 81.0
 offset_right = 40.0
 offset_bottom = 121.0
 
-[node name="HSlider" type="HSlider" parent="Music Volume" unique_id=1160200840]
-layout_mode = 0
-offset_left = 275.0
-offset_top = 116.0
-offset_right = 605.0
-offset_bottom = 241.0
+[node name="HSlider" type="HSlider" parent="VFX Volume" unique_id=1160200840]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 6.8750005
+anchor_top = 2.9
+anchor_right = 15.125001
+anchor_bottom = 6.025
+offset_left = -3.0517578e-05
+offset_right = -6.1035156e-05
 script = ExtResource("6_glya8")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Music Volume" unique_id=337756165]
-layout_mode = 0
-offset_left = 283.0
-offset_top = 135.0
-offset_right = 540.0
-offset_bottom = 224.0
+[node name="RichTextLabel" type="RichTextLabel" parent="VFX Volume" unique_id=337756165]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 7.0750003
+anchor_top = 3.3750002
+anchor_right = 13.500001
+anchor_bottom = 5.6000004
+offset_top = -1.5258789e-05
+offset_right = -6.1035156e-05
+offset_bottom = -1.5258789e-05
 theme_override_fonts/normal_font = ExtResource("4_1nnp1")
 theme_override_font_sizes/normal_font_size = 32
 text = "VFX Volume"

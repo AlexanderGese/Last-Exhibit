@@ -47,6 +47,11 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 1.5
+}, {
+"frames": [],
+"loop": false,
+"name": &"jump",
+"speed": 5.0
 }]
 
 [node name="Player" type="Node2D" unique_id=259051751]
@@ -59,7 +64,7 @@ shape = SubResource("CapsuleShape2D_h00vy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=491251229]
 sprite_frames = SubResource("SpriteFrames_fxc31")
-animation = &"idle"
+animation = &"jump"
 autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1917654855]
