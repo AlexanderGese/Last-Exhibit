@@ -19,6 +19,10 @@ config/icon="uid://bgijj7o7geore"
 
 buses/default_bus_layout="uid://drdicoamyv2ef"
 
+[autoload]
+
+Global="*uid://d2dq877xnil08"
+
 [input]
 
 jump={
