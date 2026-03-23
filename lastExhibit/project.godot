@@ -19,9 +19,9 @@ config/icon="uid://bgijj7o7geore"
 
 buses/default_bus_layout="uid://drdicoamyv2ef"
 
-[autoload]
+[display]
 
-Global="*uid://d2dq877xnil08"
+window/size/mode=2
 
 [input]
 

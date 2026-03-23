@@ -16,7 +16,7 @@ var is_jumping := false
 var jump_timer := 0.0
 
 func _ready():
-	ESCAPEMENUINSTANCE = ESCAPEMENU.instantiate()  # ✅ instantiate
+	ESCAPEMENUINSTANCE = ESCAPEMENU.instantiate()
 	add_child(ESCAPEMENUINSTANCE)
 
 func _physics_process(delta: float) -> void:
