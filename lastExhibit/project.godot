@@ -19,9 +19,18 @@ config/icon="uid://bgijj7o7geore"
 
 buses/default_bus_layout="uid://drdicoamyv2ef"
 
+[autoload]
+
+DialogueManager="*uid://c3rodes2l3gxb"
+PhantomCameraManager="*uid://duq6jhf6unyis"
+
 [display]
 
 window/size/mode=2
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/tnowe_extra_controls/plugin.cfg")
 
 [input]
 

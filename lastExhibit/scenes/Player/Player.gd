@@ -64,11 +64,10 @@ func _handle_jump(delta: float) -> void:
 
 func _update_animation() -> void:
 	if not is_on_floor():
-		PlayerSprite.play("jump")
-		'if velocity.y < 0:
+		if velocity.y < 0:
 			PlayerSprite.play("jump")
 		else:
-			PlayerSprite.play("fall")  '
+			PlayerSprite.play("fall")
 	elif velocity.x != 0:
 		PlayerSprite.play("jump")
 	else:

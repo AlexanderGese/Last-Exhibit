@@ -31,6 +31,8 @@ func _on_continue_pressed() -> void:
 	continuebutton.play("default")
 	await get_tree().create_timer(0.6).timeout
 	hide_menu()
+	continuebutton.frame = 0
+	continuebutton.stop()
 
 
 func _on_settings_pressed() -> void:
