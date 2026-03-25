@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://7rqyllfovq5j"]
 
+[ext_resource type="Script" uid="uid://fassw5kr27wl" path="res://scenes/Museum/Museum.gd" id="1_bicjn"]
 [ext_resource type="PackedScene" uid="uid://botawtk2laud8" path="res://scenes/Player/Player.tscn" id="1_f4n76"]
 [ext_resource type="Texture2D" uid="uid://c0ukgol7mu5gp" path="res://test_assets/craftpix-net-314143-free-industrial-zone-tileset-pixel-art/IndustrialTile_03.png" id="2_ccak7"]
 [ext_resource type="Texture2D" uid="uid://dtm6aw0ttnmox" path="res://test_assets/craftpix-net-314143-free-industrial-zone-tileset-pixel-art/IndustrialTile_75.png" id="3_bicjn"]
@@ -717,6 +718,7 @@ sources/80 = SubResource("TileSetAtlasSource_jtpvg")
 sources/81 = SubResource("TileSetAtlasSource_1m8tg")
 
 [node name="Museum" type="Node2D" unique_id=1707170176]
+script = ExtResource("1_bicjn")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=820971407]
 

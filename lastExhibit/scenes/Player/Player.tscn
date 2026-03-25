@@ -129,7 +129,6 @@ animation = &"jump"
 autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1917654855]
-zoom = Vector2(2, 2)
 
 [node name="HurtBox" type="Area2D" parent="CharacterBody2D" unique_id=2136354806]
 script = ExtResource("4_ved6o")
