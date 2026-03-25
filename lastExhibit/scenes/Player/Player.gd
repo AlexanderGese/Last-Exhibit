@@ -10,7 +10,7 @@ const MAX_JUMP_TIME = 0.2
 const FALL_GRAVITY_MULT = 1.4   
 @onready var ESCAPEMENU = preload("res://scenes/EscapeMenu/EscapeMenu.tscn")
 var ESCAPEMENUINSTANCE
-
+var save: PlayerSaveFile
 
 var is_jumping := false
 var jump_timer := 0.0
@@ -18,6 +18,9 @@ var jump_timer := 0.0
 func _ready():
 	ESCAPEMENUINSTANCE = ESCAPEMENU.instantiate()
 	add_child(ESCAPEMENUINSTANCE)
+	save = SaveFile.load_slot(0) as PlayerSaveFile
+	if save == null:
+		save = PlayerSaveFile.new()
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
@@ -72,3 +75,8 @@ func _update_animation() -> void:
 		PlayerSprite.play("jump")
 	else:
 		PlayerSprite.play("idle")
+
+
+func take_damage(damage: float) -> void:
+	save.hp = save.hp - damage
+	save.save(0)

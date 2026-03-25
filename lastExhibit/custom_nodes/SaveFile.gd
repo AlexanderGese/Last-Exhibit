@@ -22,9 +22,7 @@ const EXT := ".tres"  # zu .res ändern vor Release
 #        save = MuseumSaveFile.new()
 # save.("Name der variable in MuseumsSaveFile") = ....
 # save.save(0) "speichert es dann die 0 ist der spiel stand beleibt aber bei 0"
-#
-#
-#
+
 
 # Jeden Spielstand mit Slot-Nummer speichern
 func save(slot: int) -> void:
