@@ -136,3 +136,9 @@ metadata/_custom_type_script = "uid://girkef0kjxi4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HurtBox" unique_id=414255615]
 shape = SubResource("CapsuleShape2D_ved6o")
+
+[node name="Timer" type="Timer" parent="." unique_id=1452935183]
+process_callback = 0
+wait_time = 300.0
+
+[connection signal="timeout" from="Timer" to="CharacterBody2D" method="_on_timer_timeout"]

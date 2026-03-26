@@ -12,6 +12,7 @@ const FALL_GRAVITY_MULT = 1.4
 var ESCAPEMENUINSTANCE
 var save: PlayerSaveFile
 
+
 var is_jumping := false
 var jump_timer := 0.0
 
@@ -21,6 +22,7 @@ func _ready():
 	save = SaveFile.load_slot(0) as PlayerSaveFile
 	if save == null:
 		save = PlayerSaveFile.new()
+	$"../Timer".start()
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
@@ -79,4 +81,8 @@ func _update_animation() -> void:
 
 func take_damage(damage: float) -> void:
 	save.hp = save.hp - damage
+	save.save(0)
+
+
+func _on_timer_timeout() -> void:
 	save.save(0)
