@@ -12,6 +12,7 @@ const FALL_GRAVITY_MULT = 1.4
 var ESCAPEMENUINSTANCE
 var save: PlayerSaveFile
 
+@export var inv: Inv
 
 var is_jumping := false
 var jump_timer := 0.0
@@ -74,7 +75,7 @@ func _update_animation() -> void:
 		else:
 			PlayerSprite.play("fall")
 	elif velocity.x != 0:
-		PlayerSprite.play("jump")
+		PlayerSprite.play("")
 	else:
 		PlayerSprite.play("idle")
 

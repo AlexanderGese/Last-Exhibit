@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://brmc8gtossxhd" path="res://scenes/GUI/MainGui.gd" id="1_q44kx"]
 [ext_resource type="Texture2D" uid="uid://b4vfkgihxwvbd" path="res://assets/sprites/GUI/Play_Quit.png" id="2_ucjq8"]
 [ext_resource type="Texture2D" uid="uid://c8hdjocigux7s" path="res://assets/sprites/GUI/Settings.png" id="3_t0eap"]
+[ext_resource type="Texture2D" uid="uid://bcglsjh1wnkrw" path="res://assets/images/wallpaper.png" id="4_s0s6x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0eap"]
 atlas = ExtResource("2_ucjq8")
@@ -280,6 +281,12 @@ flat = true
 position = Vector2(157.42401, 54)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_f1svy")
+
+[node name="Wallpaper" type="Sprite2D" parent="." unique_id=1021768607]
+z_index = -1
+position = Vector2(579.37494, 323)
+scale = Vector2(1.1967255, 1.1957327)
+texture = ExtResource("4_s0s6x")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
