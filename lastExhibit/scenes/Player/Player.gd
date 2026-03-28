@@ -23,7 +23,7 @@ func _ready():
 	save = SaveFile.load_slot(0) as PlayerSaveFile
 	if save == null:
 		save = PlayerSaveFile.new()
-	$"../Timer".start()
+	$Timer.start()
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
