@@ -104,6 +104,7 @@ animations = [{
 height = 52.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=229592850]
+collision_layer = 255
 script = ExtResource("1_ky53y")
 inv = ExtResource("2_xcisb")
 
@@ -133,6 +134,7 @@ offset_right = 45.0
 offset_bottom = -31.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1879295484]
+position = Vector2(0, -16)
 zoom = Vector2(2.8, 2.8)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
