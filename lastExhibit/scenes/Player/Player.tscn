@@ -133,6 +133,8 @@ offset_right = 45.0
 offset_bottom = -31.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1879295484]
-zoom = Vector2(3, 3)
+zoom = Vector2(2.8, 2.8)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
