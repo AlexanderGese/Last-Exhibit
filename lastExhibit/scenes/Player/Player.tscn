@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://3hasun8i40q7" path="res://Inventory/PlayerInvententory.tres" id="2_xcisb"]
 [ext_resource type="Texture2D" uid="uid://choej2tfrqyib" path="res://assets/sprites/character/characterJump.png" id="3_bvqhm"]
 [ext_resource type="Script" uid="uid://girkef0kjxi4" path="res://custom_nodes/HurtBox.gd" id="4_ved6o"]
+[ext_resource type="Texture2D" uid="uid://ma326x4e8teg" path="res://assets/sprites/character/characterRun.png" id="5_fxc31"]
 [ext_resource type="PackedScene" uid="uid://c75bbir620joq" path="res://Inventory/InvUi.tscn" id="6_socpp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h00vy"]
@@ -54,6 +55,30 @@ region = Rect2(32, 64, 32, 64)
 atlas = ExtResource("3_bvqhm")
 region = Rect2(64, 64, 32, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqp0f"]
+atlas = ExtResource("5_fxc31")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8djf2"]
+atlas = ExtResource("5_fxc31")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbts4"]
+atlas = ExtResource("5_fxc31")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqefj"]
+atlas = ExtResource("5_fxc31")
+region = Rect2(0, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gcuk"]
+atlas = ExtResource("5_fxc31")
+region = Rect2(32, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afv41"]
+atlas = ExtResource("5_fxc31")
+region = Rect2(64, 64, 32, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_fxc31"]
 animations = [{
 "frames": [{
@@ -98,12 +123,35 @@ animations = [{
 "loop": false,
 "name": &"jump",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_dqp0f")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_8djf2")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_lbts4")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_dqefj")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_5gcuk")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_afv41")
+}],
+"loop": true,
+"name": &"run",
+"speed": 1.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ved6o"]
 height = 52.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=229592850]
+[node name="Player" type="CharacterBody2D" unique_id=229592850]
 collision_layer = 255
 script = ExtResource("1_ky53y")
 inv = ExtResource("2_xcisb")
@@ -113,8 +161,9 @@ shape = SubResource("CapsuleShape2D_h00vy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=491251229]
 sprite_frames = SubResource("SpriteFrames_fxc31")
-animation = &"jump"
+animation = &"run"
 autoplay = "idle"
+frame_progress = 0.003240291
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=2136354806]
 script = ExtResource("4_ved6o")

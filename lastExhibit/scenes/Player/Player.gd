@@ -75,7 +75,7 @@ func _update_animation() -> void:
 		else:
 			PlayerSprite.play("fall")
 	elif velocity.x != 0:
-		PlayerSprite.play("")
+		PlayerSprite.play("run")
 	else:
 		PlayerSprite.play("idle")
 
