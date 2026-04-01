@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @onready var PlayerSprite: AnimatedSprite2D = $AnimatedSprite2D
-
 const RUN_SPEED = 350
 const JUMP_FORCE = -750
 const GRAVITY = 2500
@@ -11,9 +10,7 @@ const FALL_GRAVITY_MULT = 1.4
 @onready var ESCAPEMENU = preload("res://scenes/EscapeMenu/EscapeMenu.tscn")
 var ESCAPEMENUINSTANCE
 var save: PlayerSaveFile
-
 @export var inv: Inv
-
 var is_jumping := false
 var jump_timer := 0.0
 
@@ -70,24 +67,18 @@ func _handle_jump(delta: float) -> void:
 
 func _update_animation() -> void:
 	if not is_on_floor():
-		if velocity.y < 0:
 			PlayerSprite.play("jump")
-		else:
-			PlayerSprite.play("fall")
 	elif velocity.x != 0:
 		PlayerSprite.play("run")
 	else:
 		PlayerSprite.play("idle")
 
-
 func take_damage(damage: float) -> void:
 	save.hp = save.hp - damage
 	save.save(0)
 
-
 func _on_timer_timeout() -> void:
 	save.save(0)
-
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.

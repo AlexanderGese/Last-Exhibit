@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 		else:
 			open()
 
+
 func close():
 	visible = false
 	is_open = false

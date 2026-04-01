@@ -163,7 +163,7 @@ shape = SubResource("CapsuleShape2D_h00vy")
 sprite_frames = SubResource("SpriteFrames_fxc31")
 animation = &"run"
 autoplay = "idle"
-frame_progress = 0.003240291
+frame_progress = 0.84588456
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=2136354806]
 script = ExtResource("4_ved6o")
