@@ -21,6 +21,8 @@ func _ready():
 	if save == null:
 		save = PlayerSaveFile.new()
 	$Timer.start()
+	add_to_group("player")
+
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)

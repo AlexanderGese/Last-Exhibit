@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://girkef0kjxi4" path="res://custom_nodes/HurtBox.gd" id="4_ved6o"]
 [ext_resource type="Texture2D" uid="uid://ma326x4e8teg" path="res://assets/sprites/character/characterRun.png" id="5_fxc31"]
 [ext_resource type="PackedScene" uid="uid://c75bbir620joq" path="res://Inventory/InvUi.tscn" id="6_socpp"]
+[ext_resource type="PackedScene" uid="uid://pq1sjpxa617a" path="res://scenes/Museum/elevator/ElevatorUI.tscn" id="8_puxyr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h00vy"]
 height = 56.0
@@ -187,5 +188,7 @@ position = Vector2(0, -16)
 zoom = Vector2(2.8, 2.8)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+
+[node name="ElevatorUI" parent="." unique_id=30502920 instance=ExtResource("8_puxyr")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
