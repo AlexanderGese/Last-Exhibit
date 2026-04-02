@@ -1,6 +1,114 @@
 [gd_scene format=3 uid="uid://pq1sjpxa617a"]
 
 [ext_resource type="Script" uid="uid://cod6nptb1pctu" path="res://scenes/Museum/elevator/elevator_ui.gd" id="1_fxopj"]
+[ext_resource type="Texture2D" uid="uid://cqrr7k0h8rp3k" path="res://assets/sprites/museum/AufzugButtons.png" id="2_eba4y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eba4y"]
+atlas = ExtResource("2_eba4y")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi3iw"]
+atlas = ExtResource("2_eba4y")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eudht"]
+atlas = ExtResource("2_eba4y")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82kb3"]
+atlas = ExtResource("2_eba4y")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m52n"]
+atlas = ExtResource("2_eba4y")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5785"]
+atlas = ExtResource("2_eba4y")
+region = Rect2(384, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lieng"]
+atlas = ExtResource("2_eba4y")
+region = Rect2(448, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t6o5"]
+atlas = ExtResource("2_eba4y")
+region = Rect2(512, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cws6m"]
+atlas = ExtResource("2_eba4y")
+region = Rect2(576, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgruc"]
+atlas = ExtResource("2_eba4y")
+region = Rect2(640, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p82b"]
+atlas = ExtResource("2_eba4y")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhixc"]
+atlas = ExtResource("2_eba4y")
+region = Rect2(64, 32, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eudht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eba4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi3iw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eudht")
+}],
+"loop": false,
+"name": &"basement",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82kb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m52n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5785")
+}],
+"loop": false,
+"name": &"floor0",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lieng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1t6o5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cws6m")
+}],
+"loop": false,
+"name": &"floor1",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgruc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p82b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhixc")
+}],
+"loop": false,
+"name": &"floor2",
+"speed": 4.0
+}]
 
 [node name="ElevatorUI" type="Control" unique_id=30502920]
 layout_mode = 3
@@ -11,24 +119,87 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fxopj")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1546761142]
+[node name="ElevatorPanel" type="Sprite2D" parent="." unique_id=2022694630]
+z_index = 2
+position = Vector2(18, 68)
+scale = Vector2(6, 7.001)
+texture = ExtResource("2_eba4y")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 32)
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1205985952]
+z_index = 3
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -104.0
+offset_top = 31.0
+offset_right = 138.0
+offset_bottom = 136.0
+columns = 2
 
-[node name="Floor2" type="Button" parent="VBoxContainer" unique_id=819178973]
+[node name="Basement" type="Button" parent="GridContainer" unique_id=1256162789]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_pressed_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_hover_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_hover_pressed_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/icon_normal_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/icon_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/icon_pressed_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/icon_hover_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+action_mode = 0
+flat = true
 
-[node name="Floor1" type="Button" parent="VBoxContainer" unique_id=1486738780]
+[node name="AnimatedSprite2D1" type="AnimatedSprite2D" parent="GridContainer/Basement" unique_id=675309559]
+position = Vector2(64, 28)
+scale = Vector2(3.8, 4.431)
+sprite_frames = SubResource("SpriteFrames_eudht")
+animation = &"basement"
+
+[node name="Floor0" type="Button" parent="GridContainer" unique_id=635981490]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+action_mode = 0
+flat = true
 
-[node name="Floor0" type="Button" parent="VBoxContainer" unique_id=635981490]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="GridContainer/Floor0" unique_id=1989688714]
+position = Vector2(62, 28)
+scale = Vector2(3.8, 4.431)
+sprite_frames = SubResource("SpriteFrames_eudht")
+animation = &"floor0"
+
+[node name="Floor1" type="Button" parent="GridContainer" unique_id=1486738780]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+action_mode = 0
+flat = true
 
-[node name="Basement" type="Button" parent="VBoxContainer" unique_id=1256162789]
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="GridContainer/Floor1" unique_id=749468665]
+position = Vector2(64, 28)
+scale = Vector2(3.8, 4.431)
+sprite_frames = SubResource("SpriteFrames_eudht")
+animation = &"floor1"
+
+[node name="Floor2" type="Button" parent="GridContainer" unique_id=819178973]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+action_mode = 0
+flat = true
 
-[connection signal="pressed" from="VBoxContainer/Floor2" to="." method="_on_floor_2_pressed"]
-[connection signal="pressed" from="VBoxContainer/Floor1" to="." method="_on_floor_1_pressed"]
-[connection signal="pressed" from="VBoxContainer/Floor0" to="." method="_on_floor_0_pressed"]
-[connection signal="pressed" from="VBoxContainer/Basement" to="." method="_on_basement_pressed"]
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="GridContainer/Floor2" unique_id=759526645]
+position = Vector2(62, 28)
+scale = Vector2(3.8, 4.431)
+sprite_frames = SubResource("SpriteFrames_eudht")
+animation = &"floor2"
+
+[connection signal="pressed" from="GridContainer/Basement" to="." method="_on_basement_pressed"]
+[connection signal="pressed" from="GridContainer/Floor0" to="." method="_on_floor_0_pressed"]
+[connection signal="pressed" from="GridContainer/Floor1" to="." method="_on_floor_1_pressed"]
+[connection signal="pressed" from="GridContainer/Floor2" to="." method="_on_floor_2_pressed"]

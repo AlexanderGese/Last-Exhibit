@@ -34,4 +34,4 @@ position = Vector2(94, -666)
 position = Vector2(-12, -1329)
 
 [node name="Floor2" parent="Mueseum Floors" unique_id=1827805727 instance=ExtResource("87_fy47d")]
-position = Vector2(6, -1963)
+position = Vector2(-12, -2001)

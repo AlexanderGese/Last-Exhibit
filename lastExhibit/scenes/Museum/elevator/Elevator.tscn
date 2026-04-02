@@ -1,16 +1,27 @@
 [gd_scene format=3 uid="uid://csnl13m4t8qro"]
 
 [ext_resource type="Script" uid="uid://c0wc2sqeycayu" path="res://scenes/Museum/elevator/elevator.gd" id="1_ta1t0"]
+[ext_resource type="FontFile" uid="uid://bafj0agrswp3j" path="res://assets/fonts/Pixuf.ttf" id="2_oxgth"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ta1t0"]
-size = Vector2(92.5, 97)
+size = Vector2(80.5, 92.5)
 
 [node name="Elevator" type="Area2D" unique_id=2086474353]
+collision_layer = 255
 script = ExtResource("1_ta1t0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1335951396]
-position = Vector2(45.75, 48)
+position = Vector2(39.75, 45.75)
 shape = SubResource("RectangleShape2D_ta1t0")
+
+[node name="ElevatorPrompt" type="Label" parent="." unique_id=865572821]
+offset_left = -5.0
+offset_right = 86.0
+offset_bottom = 9.0
+theme_override_colors/font_color = Color(0.000729342, 0.00034471275, 0.00015502091, 1)
+theme_override_fonts/font = ExtResource("2_oxgth")
+theme_override_font_sizes/font_size = 8
+text = "PRESS \"E\" FOR ELEVATOR"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
