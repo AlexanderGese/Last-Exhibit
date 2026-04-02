@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cjdiu5r3hf3t0" path="res://assets/sprites/museum/Aufzug.png" id="2_51jbl"]
 [ext_resource type="Texture2D" uid="uid://bmt6xg4qdap63" path="res://assets/sprites/museum/AccessoiresSmall1.png" id="3_7sfmk"]
 [ext_resource type="Texture2D" uid="uid://ct0ir5rmtb1gu" path="res://assets/sprites/museum/AccessoiresBig1.png" id="4_uf2ve"]
+[ext_resource type="PackedScene" uid="uid://csnl13m4t8qro" path="res://scenes/Museum/elevator/Elevator.tscn" id="5_q1lrg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4a2l"]
 texture = ExtResource("1_ubnql")
@@ -688,7 +689,7 @@ sources/1 = SubResource("TileSetAtlasSource_5prii")
 sources/2 = SubResource("TileSetAtlasSource_ci4ht")
 sources/3 = SubResource("TileSetAtlasSource_22kq6")
 
-[node name="Node2D" type="Node2D" unique_id=1388109781]
+[node name="Floor1" type="Node2D" unique_id=1388109781]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1775960511]
 tile_set = SubResource("TileSet_5prii")
@@ -706,3 +707,6 @@ layer_2/tile_data = PackedInt32Array(196691, 0, 4, 196692, 0, 4, 196693, 0, 4, 1
 layer_3/name = "Details"
 layer_3/z_index = -1
 layer_3/tile_data = PackedInt32Array(-65471, 196610, 0, 76, 589827, 6, 53, 589827, 6, 47, 196610, 0, 80, 196610, 0)
+
+[node name="Elevator" parent="." unique_id=2086474353 instance=ExtResource("5_q1lrg")]
+position = Vector2(2052, 0)

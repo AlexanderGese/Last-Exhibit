@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://csnl13m4t8qro"]
 
-[ext_resource type="Script" uid="uid://d0empss77m2en" path="res://scenes/Museum/floor0/elevator.gd" id="1_ta1t0"]
+[ext_resource type="Script" uid="uid://c0wc2sqeycayu" path="res://scenes/Museum/elevator/elevator.gd" id="1_ta1t0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ta1t0"]
 size = Vector2(92.5, 97)
@@ -11,3 +11,6 @@ script = ExtResource("1_ta1t0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1335951396]
 position = Vector2(45.75, 48)
 shape = SubResource("RectangleShape2D_ta1t0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

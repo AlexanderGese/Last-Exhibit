@@ -4,8 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cjdiu5r3hf3t0" path="res://assets/sprites/museum/Aufzug.png" id="2_w4a2l"]
 [ext_resource type="Texture2D" uid="uid://bmt6xg4qdap63" path="res://assets/sprites/museum/AccessoiresSmall1.png" id="3_hf1aj"]
 [ext_resource type="Texture2D" uid="uid://ct0ir5rmtb1gu" path="res://assets/sprites/museum/AccessoiresBig1.png" id="4_g3gpp"]
-[ext_resource type="Script" uid="uid://d0empss77m2en" path="res://scenes/Museum/floor0/elevator.gd" id="6_ci4ht"]
-[ext_resource type="FontFile" uid="uid://bafj0agrswp3j" path="res://assets/fonts/Pixuf.ttf" id="7_22kq6"]
+[ext_resource type="PackedScene" uid="uid://csnl13m4t8qro" path="res://scenes/Museum/elevator/Elevator.tscn" id="5_g3gpp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4a2l"]
 texture = ExtResource("1_lul3g")
@@ -690,10 +689,27 @@ sources/1 = SubResource("TileSetAtlasSource_5prii")
 sources/2 = SubResource("TileSetAtlasSource_ci4ht")
 sources/3 = SubResource("TileSetAtlasSource_22kq6")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3gpp"]
-size = Vector2(61, 86)
+[sub_resource type="GDScript" id="GDScript_g3gpp"]
+script/source = "extends Node2D
 
-[node name="Node2D" type="Node2D" unique_id=1388109781]
+var player_collided: bool = false
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == \"CharacterBody2D\":
+		player_collided = true
+		#print (\"colldide\")
+		#print (body.name)
+		$ElevatorPrompt.visible = true
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.name == \"CharacterBody2D\":
+		player_collided = false
+		#print (\"exit\")
+		$ElevatorPrompt.visible = false
+"
+
+[node name="Floor0" type="Node2D" unique_id=1388109781]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1775960511]
 tile_set = SubResource("TileSet_5prii")
@@ -714,7 +730,7 @@ layer_3/tile_data = PackedInt32Array(-65471, 131074, 0, 65591, 196611, 6, 65593,
 
 [node name="Elevator" type="Node2D" parent="." unique_id=1603900772]
 position = Vector2(2097, 55)
-script = ExtResource("6_ci4ht")
+script = SubResource("GDScript_g3gpp")
 
 [node name="Sprite2D" type="Sprite2D" parent="Elevator" unique_id=1069900257]
 z_index = -1
@@ -723,25 +739,5 @@ texture = ExtResource("2_w4a2l")
 region_enabled = true
 region_rect = Rect2(0, 96, 96, 96)
 
-[node name="Area2D" type="Area2D" parent="Elevator" unique_id=2001189208]
-collision_layer = 255
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Elevator/Area2D" unique_id=842088919]
-position = Vector2(-1.5, 0)
-shape = SubResource("RectangleShape2D_g3gpp")
-
-[node name="ElevatorPrompt" type="Label" parent="Elevator" unique_id=22995164]
-visible = false
-offset_left = -76.0
-offset_top = -87.0
-offset_right = 78.0
-offset_bottom = -71.0
-theme_override_colors/font_color = Color(0.30588236, 0.18039216, 0.11372549, 1)
-theme_override_fonts/font = ExtResource("7_22kq6")
-theme_override_font_sizes/font_size = 16
-text = "Press \"E\" for Elevator"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[connection signal="body_entered" from="Elevator/Area2D" to="Elevator" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Elevator/Area2D" to="Elevator" method="_on_area_2d_body_exited"]
+[node name="Elevator2" parent="." unique_id=2086474353 instance=ExtResource("5_g3gpp")]
+position = Vector2(2053, 2)
