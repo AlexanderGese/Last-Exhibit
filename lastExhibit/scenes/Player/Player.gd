@@ -8,8 +8,6 @@ const JUMP_CUT_GRAVITY = 6000
 const MAX_JUMP_TIME = 0.2       
 const FALL_GRAVITY_MULT = 1.4   
 @onready var ESCAPEMENU = preload("res://scenes/EscapeMenu/EscapeMenu.tscn")
-@onready var ELEVATORMENU = preload("res://scenes/Museum/elevator/ElevatorUI.tscn")
-var ELEVATORUIINSTANCE
 var ESCAPEMENUINSTANCE
 var save: PlayerSaveFile
 @export var inv: Inv
@@ -18,8 +16,6 @@ var jump_timer := 0.0
 
 func _ready():
 	ESCAPEMENUINSTANCE = ESCAPEMENU.instantiate()
-	ELEVATORUIINSTANCE = ELEVATORMENU.instantiate()
-	add_child(ELEVATORUIINSTANCE)
 	add_child(ESCAPEMENUINSTANCE)
 	save = SaveFile.load_slot(0) as PlayerSaveFile
 	if save == null:
@@ -85,10 +81,3 @@ func take_damage(damage: float) -> void:
 
 func _on_timer_timeout() -> void:
 	save.save(0)
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if(Input.is_action_just_pressed("interact")):
-		if get_tree().paused:
-			ELEVATORUIINSTANCE.hide_menu()
-		else:
-			ELEVATORUIINSTANCE.show_menu()

@@ -190,5 +190,9 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="ElevatorUI" parent="." unique_id=30502920 instance=ExtResource("8_puxyr")]
+offset_left = -22.0
+offset_top = -81.0
+offset_right = -22.0
+offset_bottom = -81.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
