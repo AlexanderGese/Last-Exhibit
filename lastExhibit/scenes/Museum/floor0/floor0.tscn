@@ -747,4 +747,3 @@ script = SubResource("GDScript_g3gpp")
 
 [node name="Elevator" parent="." unique_id=2086474353 instance=ExtResource("5_g3gpp")]
 position = Vector2(2056, 4)
-collision_layer = 255

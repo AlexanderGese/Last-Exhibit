@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://pq1sjpxa617a" path="res://scenes/Museum/elevator/ElevatorUI.tscn" id="8_puxyr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h00vy"]
-height = 56.0
+height = 62.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ky53y"]
 atlas = ExtResource("1_h00vy")
@@ -150,7 +150,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ved6o"]
-height = 52.0
+height = 54.0
 
 [node name="Player" type="CharacterBody2D" unique_id=229592850]
 collision_layer = 255
@@ -162,15 +162,15 @@ shape = SubResource("CapsuleShape2D_h00vy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=491251229]
 sprite_frames = SubResource("SpriteFrames_fxc31")
-animation = &"run"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.84588456
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=2136354806]
 script = ExtResource("4_ved6o")
 metadata/_custom_type_script = "uid://girkef0kjxi4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=414255615]
+position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_ved6o")
 
 [node name="Timer" type="Timer" parent="." unique_id=1452935183]
@@ -190,6 +190,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="ElevatorUI" parent="." unique_id=30502920 instance=ExtResource("8_puxyr")]
+visible = false
 offset_left = -22.0
 offset_top = -81.0
 offset_right = -22.0
