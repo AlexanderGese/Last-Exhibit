@@ -829,3 +829,15 @@ tile_set = SubResource("TileSet_5prii")
 
 [node name="Elevator" parent="." unique_id=2086474353 instance=ExtResource("8_qap31")]
 position = Vector2(2056, 4)
+
+[node name="Sprite2D" parent="Elevator" index="2" unique_id=365398284]
+visible = false
+position = Vector2(40, 44)
+texture = ExtResource("2_comit")
+region_enabled = true
+region_rect = Rect2(96, 0, 96, 96)
+
+[node name="AnimatedSprite2D" parent="Elevator" index="3" unique_id=2030788766]
+position = Vector2(40, 44)
+
+[editable path="Elevator"]

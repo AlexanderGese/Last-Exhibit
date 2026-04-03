@@ -2,9 +2,53 @@
 
 [ext_resource type="Script" uid="uid://c0wc2sqeycayu" path="res://scenes/Museum/elevator/elevator.gd" id="1_ta1t0"]
 [ext_resource type="FontFile" uid="uid://bafj0agrswp3j" path="res://assets/fonts/Pixuf.ttf" id="2_oxgth"]
+[ext_resource type="Texture2D" uid="uid://cjdiu5r3hf3t0" path="res://assets/sprites/museum/Aufzug.png" id="3_2q8rt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ta1t0"]
 size = Vector2(80.5, 92.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q8rt"]
+atlas = ExtResource("3_2q8rt")
+region = Rect2(384, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp72q"]
+atlas = ExtResource("3_2q8rt")
+region = Rect2(288, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dfcx"]
+atlas = ExtResource("3_2q8rt")
+region = Rect2(192, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82wio"]
+atlas = ExtResource("3_2q8rt")
+region = Rect2(96, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_172ai"]
+atlas = ExtResource("3_2q8rt")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dkjhh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q8rt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp72q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dfcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82wio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_172ai")
+}],
+"loop": false,
+"name": &"doors_closing",
+"speed": 6.0
+}]
 
 [node name="Elevator" type="Area2D" unique_id=2086474353]
 collision_layer = 255
@@ -15,6 +59,7 @@ position = Vector2(39.75, 45.75)
 shape = SubResource("RectangleShape2D_ta1t0")
 
 [node name="ElevatorPrompt" type="Label" parent="." unique_id=865572821]
+z_index = 2
 offset_left = -5.0
 offset_right = 86.0
 offset_bottom = 9.0
@@ -22,6 +67,18 @@ theme_override_colors/font_color = Color(0.000729342, 0.00034471275, 0.000155020
 theme_override_fonts/font = ExtResource("2_oxgth")
 theme_override_font_sizes/font_size = 8
 text = "PRESS \"E\" FOR ELEVATOR"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=365398284]
+position = Vector2(279, 46)
+region_rect = Rect2(0, 0, 768, 96.00003)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2030788766]
+z_index = 2
+position = Vector2(39, 44)
+sprite_frames = SubResource("SpriteFrames_dkjhh")
+animation = &"doors_closing"
+frame = 4
+frame_progress = 1.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -19,6 +19,7 @@ position = Vector2(0, 87)
 shape = SubResource("WorldBoundaryShape2D_f4n76")
 
 [node name="Player" parent="." unique_id=259051751 instance=ExtResource("1_f4n76")]
+z_index = 2
 position = Vector2(43, -272)
 
 [node name="Mueseum Floors" type="Node2D" parent="." unique_id=887392984]
