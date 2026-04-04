@@ -33,9 +33,9 @@ func _travel_to(floor_name: String, button: AnimatedSprite2D) -> void:
 		player.visible = false
 		current_elevator.visible = false
 
-	await Fader.fade_out()
+	await Fader.fade_out(1)
 	player.global_position = FLOOR_POSITIONS[floor_name]
-	await Fader.fade_in()
+	await Fader.fade_in(1)
 
 	var elevators = get_tree().get_nodes_in_group("elevator")
 	player.visible = true
