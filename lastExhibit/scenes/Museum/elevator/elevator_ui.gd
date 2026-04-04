@@ -30,6 +30,7 @@ func _travel_to(floor_name: String, button: AnimatedSprite2D) -> void:
 		await get_tree().create_timer(0.2).timeout
 		current_elevator.play_closing_animation()
 		await get_tree().create_timer(1.0).timeout
+		player.visible = false
 		current_elevator.visible = false
 
 	await Fader.fade_out()
@@ -37,6 +38,7 @@ func _travel_to(floor_name: String, button: AnimatedSprite2D) -> void:
 	await Fader.fade_in()
 
 	hide()
+	player.visible = true
 	player.set_physics_process(true)
 
 func _on_basement_pressed() -> void:
