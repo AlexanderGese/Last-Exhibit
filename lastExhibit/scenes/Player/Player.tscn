@@ -153,6 +153,7 @@ animations = [{
 height = 54.0
 
 [node name="Player" type="CharacterBody2D" unique_id=229592850]
+position = Vector2(0, -32)
 collision_layer = 255
 script = ExtResource("1_ky53y")
 inv = ExtResource("2_xcisb")
@@ -166,6 +167,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=2136354806]
+visible = false
 script = ExtResource("4_ved6o")
 metadata/_custom_type_script = "uid://girkef0kjxi4"
 

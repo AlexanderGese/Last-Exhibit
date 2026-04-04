@@ -9,10 +9,10 @@ extends Control
 var current_elevator: Node2D = null
 
 const FLOOR_POSITIONS = {
-	"basement": Vector2(47.0, -246.0),
-	"floor0":   Vector2(-9.0, -923.0),
-	"floor1":   Vector2(-115.0, -1591.0),
-	"floor2":   Vector2(-98.0, -2227.0),
+	"basement": Vector2(50.0, -242.0 -31),
+	"floor0":   Vector2(-9.0, -920.0 +-31),
+	"floor1":   Vector2(-115.0, -1582.0 -31),
+	"floor2":   Vector2(-115.0, -2255.0 -31),
 }
 
 func _ready() -> void:
@@ -30,21 +30,24 @@ func _travel_to(floor_name: String, button: AnimatedSprite2D) -> void:
 		await get_tree().create_timer(0.2).timeout
 		current_elevator.play_closing_animation()
 		await get_tree().create_timer(1.0).timeout
-		player.visible = false
 		current_elevator.visible = false
 
-	await Fader.fade_out(1)
+	await Fader.fade_out(1.0)
+	player.visible = false
+	player.get_node("Camera2D").position_smoothing_enabled = false
 	player.global_position = FLOOR_POSITIONS[floor_name]
-	await Fader.fade_in(1)
-
-	var elevators = get_tree().get_nodes_in_group("elevator")
+	await get_tree().create_timer(0.05).timeout
+	player.get_node("Camera2D").position_smoothing_enabled = true
 	player.visible = true
+	
+	var elevators = get_tree().get_nodes_in_group("elevator")
 	for elevator in elevators:
 		if elevator.floor_name == floor_name:
 			elevator.visible = true
 			elevator.play_opening_animation()
 			break
 
+	await Fader.fade_in(2.0)
 	hide()
 	player.set_physics_process(true)
 
