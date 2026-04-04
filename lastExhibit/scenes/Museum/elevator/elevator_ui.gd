@@ -30,10 +30,10 @@ func _travel_to(floor_name: String, button: AnimatedSprite2D) -> void:
 		await get_tree().create_timer(0.2).timeout
 		current_elevator.play_closing_animation()
 		await get_tree().create_timer(1.0).timeout
+		player.visible = false
 		current_elevator.visible = false
 
 	await Fader.fade_out(1.0)
-	player.visible = false
 	player.get_node("Camera2D").position_smoothing_enabled = false
 	player.global_position = FLOOR_POSITIONS[floor_name]
 	await get_tree().create_timer(0.05).timeout
