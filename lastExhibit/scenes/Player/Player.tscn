@@ -178,6 +178,7 @@ process_callback = 0
 wait_time = 300.0
 
 [node name="Inv_UI" parent="." unique_id=1483500768 instance=ExtResource("6_socpp")]
+visible = false
 offset_left = -42.0
 offset_top = -95.0
 offset_right = 45.0
