@@ -17,38 +17,35 @@ const FLOOR_POSITIONS = {
 
 func _ready() -> void:
 	hide()
-	
+
 func _travel_to(floor_name: String, button: AnimatedSprite2D) -> void:
 	player.set_physics_process(false)
 	button.play(floor_name)
 	await get_tree().create_timer(0.75).timeout
 	hide()
+
 	if current_elevator:
 		current_elevator.visible = true
 		current_elevator.show_inside(1.5)
 		await get_tree().create_timer(0.2).timeout
 		current_elevator.play_closing_animation()
-		await get_tree().create_timer(1).timeout
-		visibility_layer = 20
+		await get_tree().create_timer(1.0).timeout
 		current_elevator.visible = false
 
 	await Fader.fade_out()
 	player.global_position = FLOOR_POSITIONS[floor_name]
 	await Fader.fade_in()
 
-	# NEU — hier
 	var elevators = get_tree().get_nodes_in_group("elevator")
-	print("Gefundene Aufzüge: ", elevators.size())
 	for elevator in elevators:
-		print("Elevator floor_name: ", elevator.floor_name)
 		if elevator.floor_name == floor_name:
-			print("Treffer — spiele Animation")
 			elevator.visible = true
 			elevator.play_opening_animation()
 			break
 
 	hide()
 	player.set_physics_process(true)
+
 func _on_basement_pressed() -> void:
 	await _travel_to("basement", basementbutton)
 
