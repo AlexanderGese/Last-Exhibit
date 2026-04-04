@@ -1,13 +1,14 @@
 extends Area2D
 
 var player_collided: bool = false
-
+@export var floor_name: String =""
 @export var display_texture: Texture2D:
 	set(value):
 		display_texture = value
 		$Sprite2D.texture = value
 
 func _ready() -> void:
+	add_to_group("elevator")
 	$Sprite2D.visible = false
 	$AnimatedSprite2D.visible = false
 
@@ -40,3 +41,10 @@ func show_inside(duration: float):
 	$Sprite2D.visible = true
 	await get_tree().create_timer(2).timeout
 	$Sprite2D.visible = false
+
+func play_opening_animation() -> void:
+	visible = true
+	$AnimatedSprite2D.visible = true
+	$AnimatedSprite2D.play_backwards("doors_closing")
+	await $AnimatedSprite2D.animation_finished
+	$AnimatedSprite2D.visible = false

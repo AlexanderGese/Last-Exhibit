@@ -723,6 +723,7 @@ tile_set = SubResource("TileSet_5prii")
 
 [node name="Elevator" parent="." unique_id=2086474353 instance=ExtResource("5_q1lrg")]
 position = Vector2(2056, 4)
+floor_name = "floor1"
 
 [node name="Sprite2D" parent="Elevator" index="2" unique_id=365398284]
 position = Vector2(40, 44)
