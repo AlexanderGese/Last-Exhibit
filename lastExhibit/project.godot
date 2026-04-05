@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://drdicoamyv2ef"
 DialogueManager="*uid://c3rodes2l3gxb"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 Fader="*uid://x8jcrlwqlsc4"
+SaveManager="*uid://c677jtwo1s62"
 
 [display]
 

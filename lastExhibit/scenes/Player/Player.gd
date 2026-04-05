@@ -3,23 +3,22 @@ extends CharacterBody2D
 @onready var PlayerSprite: AnimatedSprite2D = $AnimatedSprite2D
 const RUN_SPEED = 350
 const JUMP_FORCE = -750
-const GRAVITY = 2500
+const GRAVITY = 3000
 const JUMP_CUT_GRAVITY = 6000 
-const MAX_JUMP_TIME = 0.2       
-const FALL_GRAVITY_MULT = 1.4   
+const MAX_JUMP_TIME = 0.2    
+const FALL_GRAVITY_MULT = 1.6   
 @onready var ESCAPEMENU = preload("res://scenes/EscapeMenu/EscapeMenu.tscn")
 var ESCAPEMENUINSTANCE
 var save: PlayerSaveFile
 @export var inv: Inv
 var is_jumping := false
 var jump_timer := 0.0
+var is_attacking: bool = false
 
 func _ready():
 	ESCAPEMENUINSTANCE = ESCAPEMENU.instantiate()
 	add_child(ESCAPEMENUINSTANCE)
-	save = SaveFile.load_slot(0) as PlayerSaveFile
-	if save == null:
-		save = PlayerSaveFile.new()
+	save = SaveManager.player
 	$Timer.start()
 	add_to_group("player")
 
@@ -31,6 +30,7 @@ func _physics_process(delta: float) -> void:
 	_update_animation()
 	move_and_slide()
 	escape_menu()
+	_handle_attack()
 	
 func escape_menu() -> void:
 	if(Input.is_action_just_pressed("escape")):
@@ -68,8 +68,10 @@ func _handle_jump(delta: float) -> void:
 			is_jumping = false 
 
 func _update_animation() -> void:
+	if is_attacking:
+		return
 	if not is_on_floor():
-			PlayerSprite.play("jump")
+		PlayerSprite.play("jump")
 	elif velocity.x != 0:
 		PlayerSprite.play("run")
 	else:
@@ -80,4 +82,17 @@ func take_damage(damage: float) -> void:
 	save.save(0)
 
 func _on_timer_timeout() -> void:
+	
 	save.save(0)
+
+func _handle_attack() -> void:
+	if Input.is_action_just_pressed("left_click") and not is_attacking:
+		if $ZeitmaschinenUI.visible:
+			return
+		is_attacking = true
+		PlayerSprite.play("hit")
+		var hitbox: CollisionShape2D = $HurtBox/CollisionShape2D
+		hitbox.disabled = false
+		await PlayerSprite.animation_finished
+		hitbox.disabled = true
+		is_attacking = false

@@ -46,3 +46,5 @@ func _process(_delta: float) -> void:
 		var ui = get_tree().get_first_node_in_group("player").get_node("ElevatorUI")
 		ui.current_elevator = self
 		ui.show()
+		
+		

@@ -5,3 +5,7 @@ extends SaveFile
 @export var hp: float = 0
 @export var max_hp: float = 100.0
 @export var money: int = 0
+
+
+# -- Epochen --------------------------------
+@export var unlocked_epochs: Array[String] = ["sowjet"] 

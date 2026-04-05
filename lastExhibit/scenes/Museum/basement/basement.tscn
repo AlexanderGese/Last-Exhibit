@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cd275vr6mwreu" path="res://assets/sprites/museum/MuseumBasement.png" id="6_gs05m"]
 [ext_resource type="Texture2D" uid="uid://olhbtsh35wqr" path="res://assets/sprites/museum/AccessoiresBig2.png" id="7_anir1"]
 [ext_resource type="PackedScene" uid="uid://csnl13m4t8qro" path="res://scenes/Museum/elevator/Elevator.tscn" id="8_qap31"]
+[ext_resource type="PackedScene" uid="uid://bicc4naattwqs" path="res://scenes/Zeitmaschine/Zeitmaschine.tscn" id="9_w5p2k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4a2l"]
 texture = ExtResource("1_r8rfs")
@@ -824,7 +825,7 @@ tile_set = SubResource("TileSet_5prii")
 [node name="Details" type="TileMapLayer" parent="TileMap" unique_id=704556368]
 z_index = -1
 use_parent_material = true
-tile_map_data = PackedByteArray("AABBAP//AgABAAAAAABfAAEABAAAAAAAAABfAAIABAAAAAEAAABgAAEABAABAAAAAABgAAIABAABAAEAAAAsAAAAAwAJAAYAAAAoAAAAAwAJAAYAAAAkAAAAAwAJAAYAAAAgAAAAAwAJAAYAAABYAAIAAwAAAAgAAABQAAAAAgABAAAAAAA0AAIAAwAAAAgAAABRAAEABgADAAAAAABUAAEABgAAAAAAAABPAAAABgAIAAAAAAA8AAAABgAIAAAAABA5AAAABgAMAAAAAABFAAIABgAHAAIAAABWAAIABgAGAAIAAABKAAIABgAGAAIAAABPAAIABgAHAAIAAAA7AAIABgAHAAIAABAyAAIABgAGAAIAABAqAAIABgAGAAIAAAA8AAIABgAGAAIAABBJAAIABgAHAAIAABBaAAIABgAGAAIAABBmAAIABgAGAAIAAAA=")
+tile_map_data = PackedByteArray("AABBAP//AgABAAAAAAAsAAAAAwAJAAYAAAAoAAAAAwAJAAYAAAAkAAAAAwAJAAYAAAAgAAAAAwAJAAYAAABYAAIAAwAAAAgAAABQAAAAAgABAAAAAAA0AAIAAwAAAAgAAABRAAEABgADAAAAAABUAAEABgAAAAAAAABPAAAABgAIAAAAAAA8AAAABgAIAAAAABA5AAAABgAMAAAAAABFAAIABgAHAAIAAABWAAIABgAGAAIAAABKAAIABgAGAAIAAABPAAIABgAHAAIAAAA7AAIABgAHAAIAABAyAAIABgAGAAIAABAqAAIABgAGAAIAAAA8AAIABgAGAAIAABBJAAIABgAHAAIAABBaAAIABgAGAAIAABBmAAIABgAGAAIAAAA=")
 tile_set = SubResource("TileSet_5prii")
 
 [node name="Elevator" parent="." unique_id=2086474353 instance=ExtResource("8_qap31")]
@@ -840,5 +841,8 @@ region_rect = Rect2(96, 0, 96, 96)
 
 [node name="AnimatedSprite2D" parent="Elevator" index="3" unique_id=2030788766]
 position = Vector2(40, 44)
+
+[node name="Zeitmaschine" parent="." unique_id=911869066 instance=ExtResource("9_w5p2k")]
+position = Vector2(3241, 94)
 
 [editable path="Elevator"]
