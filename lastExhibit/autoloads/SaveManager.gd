@@ -11,10 +11,9 @@ func save_all(slot: int) -> void:
 	museum.save(slot)
 
 func load_all(slot: int) -> void:
-	player = SaveFile.load_slot(slot) as PlayerSaveFile
+	player = SaveFile.load_slot(slot, "PlayerSaveFile") as PlayerSaveFile
 	if player == null:
 		player = PlayerSaveFile.new()
-
-	museum = SaveFile.load_slot(slot) as MuseumsSaveFile
+	museum = SaveFile.load_slot(slot, "MuseumsSaveFile") as MuseumsSaveFile
 	if museum == null:
 		museum = MuseumsSaveFile.new()

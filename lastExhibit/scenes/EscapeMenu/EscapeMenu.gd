@@ -22,6 +22,7 @@ func hide_menu():
 
 
 func _on_quit_pressed():
+	SaveManager.save_all(0)
 	quitbutton.play("default")
 	await get_tree().create_timer(0.5).timeout
 	get_tree().quit()

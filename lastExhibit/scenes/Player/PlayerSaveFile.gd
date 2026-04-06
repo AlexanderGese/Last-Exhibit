@@ -1,11 +1,23 @@
 class_name PlayerSaveFile
 extends SaveFile
 
-# -- Player-Stats ------------------------
-@export var hp: float = 0
+# -- Time ------------------
+@export var game_minutes: int = 1320
+
+# -- Player-Stats -----------------------
+@export var hp: float = 100.0
 @export var max_hp: float = 100.0
 @export var money: int = 0
+@export var time_shards: int = 0
+# -- Epochen ------------------------------
+@export var unlocked_epochs: Array[String] = ["sowjet"]
+
+# -- Inventory ---------------
+@export var equipped: Dictionary = {}
 
 
-# -- Epochen --------------------------------
-@export var unlocked_epochs: Array[String] = ["sowjet"] 
+
+
+func save(slot: int) -> void:
+	DirAccess.make_dir_absolute(SAVE_DIR)
+	ResourceSaver.save(self, SAVE_DIR + "slot_%d_PlayerSaveFile" % slot + EXT)

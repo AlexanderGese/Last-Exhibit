@@ -10,7 +10,6 @@ const FALL_GRAVITY_MULT = 1.6
 @onready var ESCAPEMENU = preload("res://scenes/EscapeMenu/EscapeMenu.tscn")
 var ESCAPEMENUINSTANCE
 var save: PlayerSaveFile
-@export var inv: Inv
 var is_jumping := false
 var jump_timer := 0.0
 var is_attacking: bool = false
@@ -22,7 +21,6 @@ func _ready():
 	$Timer.start()
 	add_to_group("player")
 
-
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
 	_handle_movement()
@@ -31,9 +29,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	escape_menu()
 	_handle_attack()
-	
+
 func escape_menu() -> void:
-	if(Input.is_action_just_pressed("escape")):
+	if Input.is_action_just_pressed("escape"):
 		if get_tree().paused:
 			ESCAPEMENUINSTANCE.hide_menu()
 		else:
@@ -61,11 +59,10 @@ func _handle_jump(delta: float) -> void:
 		velocity.y = JUMP_FORCE
 		is_jumping = true
 		jump_timer = 0.0
-
 	if is_jumping:
 		jump_timer += delta
 		if jump_timer >= MAX_JUMP_TIME:
-			is_jumping = false 
+			is_jumping = false
 
 func _update_animation() -> void:
 	if is_attacking:
@@ -78,12 +75,11 @@ func _update_animation() -> void:
 		PlayerSprite.play("idle")
 
 func take_damage(damage: float) -> void:
-	save.hp = save.hp - damage
-	save.save(0)
+	save.hp -= damage
+	SaveManager.save_all(0)
 
 func _on_timer_timeout() -> void:
-	
-	save.save(0)
+	SaveManager.save_all(0)
 
 func _handle_attack() -> void:
 	if Input.is_action_just_pressed("left_click") and not is_attacking:

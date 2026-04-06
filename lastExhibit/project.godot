@@ -21,10 +21,11 @@ buses/default_bus_layout="uid://drdicoamyv2ef"
 
 [autoload]
 
-DialogueManager="*uid://c3rodes2l3gxb"
-PhantomCameraManager="*uid://duq6jhf6unyis"
-Fader="*uid://x8jcrlwqlsc4"
 SaveManager="*uid://c677jtwo1s62"
+GameClock="*uid://bm5jpfmf2t48u"
+Inventory="*uid://du1522di2ds6d"
+DialogueManager="*uid://c3rodes2l3gxb"
+Fader="*uid://x8jcrlwqlsc4"
 
 [display]
 

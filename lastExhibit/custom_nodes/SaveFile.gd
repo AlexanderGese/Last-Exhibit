@@ -27,20 +27,19 @@ const EXT := ".tres"  # zu .res ändern vor Release
 # Jeden Spielstand mit Slot-Nummer speichern
 func save(slot: int) -> void:
 	DirAccess.make_dir_absolute(SAVE_DIR)
-	ResourceSaver.save(self, _path(slot))
+	var path = SAVE_DIR + "slot_%d_%s" % [slot, resource_path.get_file().get_basename()] + EXT
+	ResourceSaver.save(self, path)
 
-# Statische Ladefunktion — gibt die Resource zurück
-static func load_slot(slot: int) -> SaveFile:
-	var path := SAVE_DIR + "slot_%d" % slot + EXT
+func _path(slot: int) -> String:
+	return SAVE_DIR + "slot_%d_%s" % [slot, get_class()] + EXT
+
+static func load_slot(slot: int, type: String) -> SaveFile:
+	var path := SAVE_DIR + "slot_%d_%s" % [slot, type] + EXT
 	if not FileAccess.file_exists(path):
 		return null
 	return ResourceLoader.load(path) as SaveFile
-
 static func slot_exists(slot: int) -> bool:
 	return FileAccess.file_exists(SAVE_DIR + "slot_%d" % slot + EXT)
 
 static func delete_slot(slot: int) -> void:
 	DirAccess.open(SAVE_DIR).remove("slot_%d" % slot + EXT)
-
-func _path(slot: int) -> String:
-	return SAVE_DIR + "slot_%d" % slot + EXT

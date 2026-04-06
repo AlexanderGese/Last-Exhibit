@@ -1,13 +1,8 @@
 extends Node2D
 
-var save : MuseumsSaveFile
-
 func _ready() -> void:
-	save = SaveFile.load_slot(0) as MuseumsSaveFile
-	if (save == null):
-		save = MuseumsSaveFile.new()
-	print(save.number)
-	
+	print(SaveManager.museum.number)
+
 func _physics_process(delta: float) -> void:
-	save.number = 15
-	save.save(0)
+	SaveManager.museum.number = 15
+	SaveManager.save_all(0)

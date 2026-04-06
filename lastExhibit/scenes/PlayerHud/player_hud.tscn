@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://bmra50q86feb7"]
+
+[ext_resource type="Script" uid="uid://cv48ljtvmn5fk" path="res://scenes/PlayerHud/PlayerHUD.gd" id="1_nvhkk"]
+[ext_resource type="Texture2D" uid="uid://dsvtx001x7vsc" path="res://assets/sprites/PlayerHUD/healthbar.png" id="1_vlqwr"]
+[ext_resource type="Texture2D" uid="uid://b4ot5j5gt2piq" path="res://assets/sprites/PlayerHUD/healthbarfill.png" id="2_nvhkk"]
+[ext_resource type="Texture2D" uid="uid://eqpch5w0upga" path="res://assets/sprites/PlayerHUD/coin.png" id="3_xjwmk"]
+[ext_resource type="Texture2D" uid="uid://cd468pjsuhutb" path="res://assets/sprites/PlayerHUD/timeshard.png" id="4_jxoht"]
+[ext_resource type="FontFile" uid="uid://bafj0agrswp3j" path="res://assets/fonts/Pixuf.ttf" id="4_xjwmk"]
+[ext_resource type="Texture2D" uid="uid://fhm4dxlgagwi" path="res://assets/sprites/PlayerHUD/clock.png" id="5_nhy35"]
+
+[node name="PlayerHUD" type="Control" unique_id=329821112]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nvhkk")
+
+[node name="BottomLeft" type="VBoxContainer" parent="." unique_id=1308566450]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -22.0
+offset_right = 175.0
+grow_vertical = 0
+theme_override_constants/separation = 4
+
+[node name="HealthBarContainer" type="Control" parent="BottomLeft" unique_id=735935151]
+layout_mode = 2
+
+[node name="HealthBarBG" type="TextureRect" parent="BottomLeft/HealthBarContainer" unique_id=1106096239]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 129.0
+offset_bottom = 16.0
+scale = Vector2(1.1, 1)
+texture = ExtResource("1_vlqwr")
+
+[node name="HealthBarFill" type="TextureRect" parent="BottomLeft/HealthBarContainer" unique_id=1271739743]
+z_index = 1
+layout_mode = 0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 137.0
+offset_bottom = 19.0
+scale = Vector2(1, 0.6)
+texture = ExtResource("2_nvhkk")
+
+[node name="Label" type="Label" parent="BottomLeft/HealthBarContainer" unique_id=1667007837]
+layout_mode = 0
+offset_left = 75.0
+offset_top = -21.0
+offset_right = 137.0
+offset_bottom = 2.0
+theme_override_fonts/font = ExtResource("4_xjwmk")
+text = "100/100"
+
+[node name="TopRight" type="VBoxContainer" parent="." unique_id=525773073]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -154.0
+offset_top = 2.0
+offset_right = -68.0
+offset_bottom = 79.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+
+[node name="TimeContainer" type="HBoxContainer" parent="TopRight" unique_id=386742598]
+layout_mode = 2
+
+[node name="ClockIcon" type="TextureRect" parent="TopRight/TimeContainer" unique_id=1431095895]
+layout_mode = 2
+texture = ExtResource("5_nhy35")
+stretch_mode = 2
+
+[node name="TimeLabel" type="Label" parent="TopRight/TimeContainer" unique_id=1233240556]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_xjwmk")
+text = "12:10am"
+
+[node name="TopLeft" type="VBoxContainer" parent="." unique_id=1080734212]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+
+[node name="MoneyContainer" type="HBoxContainer" parent="TopLeft" unique_id=1364451347]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="MoneyIcon" type="TextureRect" parent="TopLeft/MoneyContainer" unique_id=1219481146]
+layout_mode = 2
+texture = ExtResource("3_xjwmk")
+stretch_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="TopLeft/MoneyContainer" unique_id=411299789]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_xjwmk")
+text = "100"
+
+[node name="ShardsContainer" type="HBoxContainer" parent="TopLeft" unique_id=1119522478]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ShardsIcon" type="TextureRect" parent="TopLeft/ShardsContainer" unique_id=1841971647]
+layout_mode = 2
+texture = ExtResource("4_jxoht")
+stretch_mode = 2
+
+[node name="ShardsLabel" type="Label" parent="TopLeft/ShardsContainer" unique_id=933670029]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_xjwmk")
+text = "100"
