@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://d0j77fyu8kd0t"]
 
+[ext_resource type="Script" uid="uid://confox6w8mm1x" path="res://showcase.gd" id="1_5ivm5"]
 [ext_resource type="Texture2D" uid="uid://dklwaetmc45b8" path="res://assets/sprites/museum/kleineVitrineUnten.png" id="1_d33x0"]
 [ext_resource type="Texture2D" uid="uid://do6oi8vmfneur" path="res://demo/assets/icon.svg" id="1_qir3i"]
 [ext_resource type="Texture2D" uid="uid://c8qv6hdmgpnh1" path="res://assets/sprites/museum/kleineVitrinoben.png" id="2_qir3i"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ivm5"]
+size = Vector2(32, 64)
+
 [node name="SmallShowcase" type="Node2D" unique_id=165779673]
+script = ExtResource("1_5ivm5")
 
 [node name="Item" type="Sprite2D" parent="." unique_id=283990889]
 visible = false
@@ -19,3 +24,11 @@ texture = ExtResource("1_d33x0")
 [node name="Top" type="Sprite2D" parent="." unique_id=659803491]
 position = Vector2(16, -48)
 texture = ExtResource("2_qir3i")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1319882267]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1242227952]
+position = Vector2(16, -32)
+shape = SubResource("RectangleShape2D_5ivm5")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

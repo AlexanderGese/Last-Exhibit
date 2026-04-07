@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://do6oi8vmfneur" path="res://demo/assets/icon.svg" id="1_ptgbv"]
 [ext_resource type="Texture2D" uid="uid://dyqnu0506lc33" path="res://assets/sprites/museum/großeVitrineoben.png" id="2_ptgbv"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptgbv"]
+size = Vector2(64, 62)
+
 [node name="BigShowcase" type="Node2D" unique_id=1665285686]
 position = Vector2(32, -47)
 
@@ -19,3 +22,9 @@ texture = ExtResource("1_oqj76")
 
 [node name="Top" type="Sprite2D" parent="." unique_id=1042219239]
 texture = ExtResource("2_ptgbv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1407346533]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1112468954]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_ptgbv")
