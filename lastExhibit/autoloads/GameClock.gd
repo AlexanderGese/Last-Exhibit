@@ -35,6 +35,7 @@ func _check_phase() -> void:
 		SaveManager.save_all(0)
 	elif (game_minutes >= 1320 or game_minutes < 360) and not is_night:
 		is_night = true
+		SaveManager.museum.current_night += 1
 		night_started.emit()
 		SaveManager.save_all(0)
 

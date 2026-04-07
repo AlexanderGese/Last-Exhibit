@@ -1,0 +1,63 @@
+[gd_scene format=4 uid="uid://b2pdjc074gdvt"]
+
+[ext_resource type="Texture2D" uid="uid://cdb3eqh7ju6xb" path="res://assets/sprites/worlds/japan/tilemap/background accent.png" id="1_7xj81"]
+[ext_resource type="Texture2D" uid="uid://dyriru3wnileq" path="res://assets/sprites/worlds/japan/tilemap/blackwood.png" id="2_vg4ey"]
+[ext_resource type="Texture2D" uid="uid://crl2wpudqfl5c" path="res://assets/sprites/worlds/japan/tilemap/mossybrick.png" id="3_hi4ih"]
+[ext_resource type="Texture2D" uid="uid://cjqhorjsl73t4" path="res://assets/sprites/worlds/japan/tilemap/woodenplattform.png" id="4_x2wcf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_owcel"]
+texture = ExtResource("1_7xj81")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.903114, -16.01773, -15.649753, -16.12853, 16.409485, -15.772224, 16.09085, 15.45359, 16.09085, 16.409485, -16.728119, 15.45359)
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fu02u"]
+texture = ExtResource("2_vg4ey")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.903114, -16.01773, -15.649753, -16.12853, 16.409485, -15.772224, 16.09085, 15.45359, 16.09085, 16.409485, -16.728119, 15.45359)
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ytwie"]
+texture = ExtResource("3_hi4ih")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.903114, -16.01773, -15.649753, -16.12853, 16.409485, -15.772224, 16.09085, 15.45359, 16.09085, 16.409485, -16.728119, 15.45359)
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4s2vj"]
+texture = ExtResource("4_x2wcf")
+texture_region_size = Vector2i(64, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32.177723, 5.999235, -32.09382, -9.271548, 32.177727, -9.019832, 32.00991, 6.0831413, 15.3127365, 5.8314247, -16.487411, 5.8314247)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_m4ds8"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_owcel")
+sources/2 = SubResource("TileSetAtlasSource_fu02u")
+sources/3 = SubResource("TileSetAtlasSource_ytwie")
+sources/4 = SubResource("TileSetAtlasSource_4s2vj")
+
+[node name="SamuraiTemple" type="Node2D" unique_id=1455462413]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=727346166]
+tile_map_data = PackedByteArray("AAABABUABAAAAAAAAAACABUABAAAAAAAAAADABUABAAAAAAAAAAEABUABAAAAAAAAAAFABUABAAAAAAAAAAGABUABAAAAAAAAAAHABUABAAAAAAAAAAIABUABAAAAAAAAAAJABUABAAAAAAAAAARABUABAAAAAAAAAASABUABAAAAAAAAAATABUABAAAAAAAAAAUABUABAAAAAAAAAAVABUABAAAAAAAAAAWABUABAAAAAAAAAAXABUABAAAAAAAAAAQABUABAAAAAAAAAAPABUABAAAAAAAAAAOABUABAAAAAAAAAANABUABAAAAAAAAAAMABUABAAAAAAAAAAbABUABAAAAAAAAAAcABUABAAAAAAAAAAdABUABAAAAAAAAAAeABUABAAAAAAAAAAfABUABAAAAAAAAAAgABUABAAAAAAAAAAhABUABAAAAAAAAAAiABUABAAAAAAAAAAjABUABAAAAAAAAAAkABUABAAAAAAAAAAlABUABAAAAAAAAAAmABUABAAAAAAAAAAnABUABAAAAAAAAAAoABUABAAAAAAAAAApABUABAAAAAAAAAAqABUABAAAAAAAAAArABUABAAAAAAAAAAsABUABAAAAAAAAAAuABUABAAAAAAAAAA2ABUABAAAAAAAAAA3ABUABAAAAAAAAAA4ABUABAAAAAAAAAA1ABUABAAAAAAAAAA0ABUABAAAAAAAAAAwABUABAAAAAAAAAA6ABUABAAAAAAAAAA7ABUABAAAAAAAAAA8ABUABAAAAAAAAAA9ABUABAAAAAAAAAA+ABUABAAAAAAAAAA/ABUABAAAAAAAAABAABUABAAAAAAAAABBABUABAAAAAAAAABCABUABAAAAAAAAAA=")
+tile_set = SubResource("TileSet_m4ds8")
+
+[node name="Props" type="Node2D" parent="." unique_id=1191521984]
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1210137646]

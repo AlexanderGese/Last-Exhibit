@@ -1,41 +1,66 @@
 extends CharacterBody2D
 
-@onready var PlayerSprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var hitbox_shape: CollisionShape2D = $HitBox/CollisionShape2D
+@onready var hitbox_node: Area2D = $HitBox
+@onready var ESCAPEMENUINSTANCE = preload("res://scenes/EscapeMenu/EscapeMenu.tscn").instantiate()
+
+# ── Movement ──
 const RUN_SPEED = 350
+const ACCELERATION = 2500.0
+const DECELERATION = 3000.0
+const AIR_MULT = 0.65
+
+# ── Jump ──
 const JUMP_FORCE = -750
 const GRAVITY = 3000
-const JUMP_CUT_GRAVITY = 6000 
-const MAX_JUMP_TIME = 0.2    
-const FALL_GRAVITY_MULT = 1.6   
-@onready var ESCAPEMENU = preload("res://scenes/EscapeMenu/EscapeMenu.tscn")
-var ESCAPEMENUINSTANCE
+const JUMP_CUT_GRAVITY = 6000
+const MAX_JUMP_TIME = 0.2
+const FALL_GRAVITY_MULT = 1.6
+const COYOTE_TIME = 0.1
+const JUMP_BUFFER_TIME = 0.1
+
+# ── Combat ──
+const MAX_COMBO = 3
+const COMBO_RESET_TIME = 0.35
+const HITSTOP_TIME = 0.04
+const ATTACK_SLIDE = 120.0
+
 var save: PlayerSaveFile
+var facing_right := true
+
+# Jump state
 var is_jumping := false
 var jump_timer := 0.0
-var is_attacking: bool = false
+var coyote_timer := 0.0
+var jump_buffer_timer := 0.0
+
+# Combat state
+var is_attacking := false
+var combo_count := 0
+var combo_queued := false
+var combo_reset_timer := 0.0
 
 func _ready():
-	ESCAPEMENUINSTANCE = ESCAPEMENU.instantiate()
 	add_child(ESCAPEMENUINSTANCE)
 	save = SaveManager.player
 	$Timer.start()
 	add_to_group("player")
+	hitbox_shape.disabled = true
+	sprite.animation_finished.connect(_on_animation_finished)
+	hitbox_node.area_entered.connect(_on_hitbox_connected)
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
-	_handle_movement()
 	_handle_jump(delta)
+	_handle_movement(delta)
+	_handle_attack(delta)
 	_update_animation()
+	_flip_hitbox()
 	move_and_slide()
-	escape_menu()
-	_handle_attack()
+	_handle_escape()
 
-func escape_menu() -> void:
-	if Input.is_action_just_pressed("escape"):
-		if get_tree().paused:
-			ESCAPEMENUINSTANCE.hide_menu()
-		else:
-			ESCAPEMENUINSTANCE.show_menu()
+# ── Gravity ──
 
 func _apply_gravity(delta: float) -> void:
 	if is_on_floor():
@@ -48,31 +73,108 @@ func _apply_gravity(delta: float) -> void:
 		is_jumping = false
 	velocity.y += grav * delta
 
-func _handle_movement() -> void:
+# ── Movement ──
+
+func _handle_movement(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
-	velocity.x = direction * RUN_SPEED
+
+	if is_attacking:
+		velocity.x = move_toward(velocity.x, 0, DECELERATION * delta)
+		return
+
+	var mult := 1.0 if is_on_floor() else AIR_MULT
 	if direction != 0:
-		PlayerSprite.flip_h = direction < 0
+		velocity.x = move_toward(velocity.x, direction * RUN_SPEED, ACCELERATION * mult * delta)
+		facing_right = direction > 0
+		sprite.flip_h = not facing_right
+	else:
+		velocity.x = move_toward(velocity.x, 0, DECELERATION * mult * delta)
+
+# ── Jump ──
 
 func _handle_jump(delta: float) -> void:
-	if is_on_floor() and Input.is_action_just_pressed("jump"):
+	if is_on_floor():
+		coyote_timer = COYOTE_TIME
+	else:
+		coyote_timer -= delta
+
+	if Input.is_action_just_pressed("jump"):
+		jump_buffer_timer = JUMP_BUFFER_TIME
+	else:
+		jump_buffer_timer -= delta
+
+	if jump_buffer_timer > 0.0 and coyote_timer > 0.0:
 		velocity.y = JUMP_FORCE
 		is_jumping = true
 		jump_timer = 0.0
+		coyote_timer = 0.0
+		jump_buffer_timer = 0.0
+
 	if is_jumping:
 		jump_timer += delta
 		if jump_timer >= MAX_JUMP_TIME:
 			is_jumping = false
 
+# ── Combat ──
+
+func _handle_attack(delta: float) -> void:
+	# Combo-Reset Timer
+	if combo_reset_timer > 0.0:
+		combo_reset_timer -= delta
+		if combo_reset_timer <= 0.0:
+			combo_count = 0
+
+	if Input.is_action_just_pressed("left_click"):
+		if $ZeitmaschinenUI.visible or $Inventory.visible:
+			return
+		if not is_attacking:
+			_start_attack()
+		elif combo_count < MAX_COMBO:
+			combo_queued = true
+
+func _start_attack() -> void:
+	is_attacking = true
+	combo_count += 1
+	combo_queued = false
+	combo_reset_timer = 0.0
+	hitbox_shape.disabled = false
+	sprite.play("hit")
+
+func _on_animation_finished() -> void:
+	if sprite.animation != "hit":
+		return
+	hitbox_shape.disabled = true
+	if combo_queued and combo_count < MAX_COMBO:
+		# Nächster Combo-Schlag
+		_start_attack()
+	else:
+		# Combo vorbei
+		is_attacking = false
+		combo_queued = false
+		combo_reset_timer = COMBO_RESET_TIME
+
+func _on_hitbox_connected(_area: Area2D) -> void:
+	# Hitstop: kurzer Freeze für Impact-Gefühl
+	Engine.time_scale = 0.05
+	await get_tree().create_timer(HITSTOP_TIME, true, false, true).timeout
+	Engine.time_scale = 1.0
+
+func _flip_hitbox() -> void:
+	hitbox_node.scale.x = 1.0 if facing_right else -1.0
+
+# ── Animation ──
+
 func _update_animation() -> void:
 	if is_attacking:
 		return
 	if not is_on_floor():
-		PlayerSprite.play("jump")
+		sprite.play("jump")
 	elif velocity.x != 0:
-		PlayerSprite.play("run")
+		sprite.play("run")
 	else:
-		PlayerSprite.play("idle")
+		sprite.play("idle")
+
+# ── Damage / Save ──
 
 func take_damage(damage: float) -> void:
 	save.hp -= damage
@@ -81,14 +183,9 @@ func take_damage(damage: float) -> void:
 func _on_timer_timeout() -> void:
 	SaveManager.save_all(0)
 
-func _handle_attack() -> void:
-	if Input.is_action_just_pressed("left_click") and not is_attacking:
-		if $ZeitmaschinenUI.visible:
-			return
-		is_attacking = true
-		PlayerSprite.play("hit")
-		var hitbox: CollisionShape2D = $HurtBox/CollisionShape2D
-		hitbox.disabled = false
-		await PlayerSprite.animation_finished
-		hitbox.disabled = true
-		is_attacking = false
+func _handle_escape() -> void:
+	if Input.is_action_just_pressed("escape"):
+		if get_tree().paused:
+			ESCAPEMENUINSTANCE.hide_menu()
+		else:
+			ESCAPEMENUINSTANCE.show_menu()

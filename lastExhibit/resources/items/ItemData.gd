@@ -1,9 +1,9 @@
-# res://resources/items/ItemData.gd
-class_name ItemData
-extends Resource
+class_name ArtifactData
+extends ItemData
 
-@export var id: String = ""
-@export var display_name: String = ""
-@export var icon: Texture2D = null
-@export var category: String = "normal"
-@export var equip_slot: String = ""  # "waffe", "helm", "oberteil", "hose", "schmuck" oder ""
+
+@export var epoch: String = ""
+@export var reputation_value: int = 0
+@export var set_id: String = ""
+@export var black_market_value: int = 0
+@export var requires_special_vitrine: bool = false

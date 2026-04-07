@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d0j77fyu8kd0t"]
+
+[ext_resource type="Texture2D" uid="uid://dklwaetmc45b8" path="res://assets/sprites/museum/kleineVitrineUnten.png" id="1_d33x0"]
+[ext_resource type="Texture2D" uid="uid://do6oi8vmfneur" path="res://demo/assets/icon.svg" id="1_qir3i"]
+[ext_resource type="Texture2D" uid="uid://c8qv6hdmgpnh1" path="res://assets/sprites/museum/kleineVitrinoben.png" id="2_qir3i"]
+
+[node name="SmallShowcase" type="Node2D" unique_id=165779673]
+
+[node name="Item" type="Sprite2D" parent="." unique_id=283990889]
+visible = false
+position = Vector2(16, -47.75)
+scale = Vector2(0.109375, 0.107421875)
+texture = ExtResource("1_qir3i")
+
+[node name="Bottom" type="Sprite2D" parent="." unique_id=1555914987]
+position = Vector2(16, -16)
+texture = ExtResource("1_d33x0")
+
+[node name="Top" type="Sprite2D" parent="." unique_id=659803491]
+position = Vector2(16, -48)
+texture = ExtResource("2_qir3i")

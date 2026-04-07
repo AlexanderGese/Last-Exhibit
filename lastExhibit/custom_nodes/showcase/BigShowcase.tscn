@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bdk8b4av4mw77"]
+
+[ext_resource type="Texture2D" uid="uid://b4ahanvs7e70a" path="res://assets/sprites/museum/großeVitrineunten.png" id="1_oqj76"]
+[ext_resource type="Texture2D" uid="uid://do6oi8vmfneur" path="res://demo/assets/icon.svg" id="1_ptgbv"]
+[ext_resource type="Texture2D" uid="uid://dyqnu0506lc33" path="res://assets/sprites/museum/großeVitrineoben.png" id="2_ptgbv"]
+
+[node name="BigShowcase" type="Node2D" unique_id=1665285686]
+position = Vector2(32, -47)
+
+[node name="Item" type="Sprite2D" parent="." unique_id=380561336]
+visible = false
+position = Vector2(-0.25, 0)
+scale = Vector2(0.22070314, 0.09765625)
+texture = ExtResource("1_ptgbv")
+
+[node name="Bottom" type="Sprite2D" parent="." unique_id=1620084953]
+position = Vector2(0, 31)
+texture = ExtResource("1_oqj76")
+
+[node name="Top" type="Sprite2D" parent="." unique_id=1042219239]
+texture = ExtResource("2_ptgbv")
