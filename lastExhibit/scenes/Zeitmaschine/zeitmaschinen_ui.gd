@@ -74,7 +74,9 @@ func _on_pin_clicked(epoch: String) -> void:
 	await get_tree().create_timer(0.8).timeout
 	do_hide()
 	await Fader.fade_out(1.0)
-	get_tree().change_scene_to_file("res://scenes/Epochs/" + epoch + ".tscn")
+	print("res://scenes/Epochs/" +epoch +"/" + epoch + ".tscn")
+	get_tree().change_scene_to_file("res://scenes/Epochs/" +epoch +"/" + epoch + ".tscn")
+	
 
 func _on_pin_sowjet_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
