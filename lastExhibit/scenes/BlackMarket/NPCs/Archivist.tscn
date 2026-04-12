@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b8m67uwfft6en"]
+
+[ext_resource type="Texture2D" uid="uid://d2517pa8hld6n" path="res://assets/blackmarket/libarien.png" id="1_4e63i"]
+[ext_resource type="Script" uid="uid://wdgbwf5ui662" path="res://scenes/BlackMarket/NPCs/Archivist.gd" id="1_ltp6o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4e63i"]
+size = Vector2(40, 65)
+
+[node name="Archivist" type="Area2D" unique_id=1676760631]
+script = ExtResource("1_ltp6o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1708034035]
+texture = ExtResource("1_4e63i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1263761300]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_4e63i")

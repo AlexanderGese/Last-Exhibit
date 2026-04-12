@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://v1d8v3hvgtut"]
+
+[ext_resource type="Texture2D" uid="uid://brsj4kcvt4whb" path="res://assets/blackmarket/oldwoman.png" id="1_03420"]
+[ext_resource type="Script" uid="uid://ceygwgv4ku06f" path="res://scenes/BlackMarket/NPCs/Clockmaker.gd" id="1_x527w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03420"]
+size = Vector2(43, 63)
+
+[node name="Clockmaker" type="Area2D" unique_id=1676760631]
+script = ExtResource("1_x527w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1708034035]
+texture = ExtResource("1_03420")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1263761300]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_03420")

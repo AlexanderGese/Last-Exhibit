@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b277de3qadne3"]
+
+[ext_resource type="Texture2D" uid="uid://c2n0pd263x6v6" path="res://assets/blackmarket/curator.png" id="1_6lild"]
+[ext_resource type="Script" uid="uid://cxo5gse3uddpo" path="res://scenes/BlackMarket/NPCs/Curator.gd" id="1_m7aws"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvscg"]
+size = Vector2(41, 63)
+
+[node name="Curator" type="Area2D" unique_id=1676760631]
+script = ExtResource("1_m7aws")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1708034035]
+texture = ExtResource("1_6lild")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1263761300]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_qvscg")

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://tqas7w8l0d2k"]
+
+[ext_resource type="Script" uid="uid://cjrgmo80o57bj" path="res://scenes/BlackMarket/NPCs/Weaponsmith.gd" id="1_gim60"]
+[ext_resource type="Texture2D" uid="uid://1sryu1mooxe3" path="res://assets/blackmarket/weaponsmith.png" id="1_k401c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kuoay"]
+size = Vector2(41, 61)
+
+[node name="Weaponsmith" type="Area2D" unique_id=1676760631]
+script = ExtResource("1_gim60")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1708034035]
+texture = ExtResource("1_k401c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1263761300]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_kuoay")
