@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://douxaxx2krle2"]
+
+[node name="Control" type="HBoxContainer" unique_id=1555835205]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1807850355]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=491741041]
+layout_mode = 2

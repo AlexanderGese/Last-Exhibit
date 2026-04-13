@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dj7q5kxvcqkfr"]
+
+[node name="BG" type="NinePatchRect" unique_id=1852671075]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Fill" type="NinePatchRect" parent="." unique_id=758025585]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Fill" unique_id=1715199090]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

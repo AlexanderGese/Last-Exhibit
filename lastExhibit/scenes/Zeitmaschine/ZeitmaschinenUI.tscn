@@ -39,58 +39,57 @@ offset_right = 930.0
 offset_bottom = 507.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 texture = ExtResource("1_6jawc")
 stretch_mode = 3
-
-[node name="Pin_Sowjet" type="TextureRect" parent="NinePatchRect/MapTexture" unique_id=107600605]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.49857143
-anchor_top = 0.26842105
-anchor_right = 0.5442857
-anchor_bottom = 0.35263157
-mouse_filter = 0
-texture = ExtResource("2_ektvh")
-stretch_mode = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="Pin_WW2" type="TextureRect" parent="NinePatchRect/MapTexture" unique_id=1667893377]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.10714286
-anchor_top = 0.29473683
+anchor_top = 0.30921054
 anchor_right = 0.16428572
-anchor_bottom = 0.4
+anchor_bottom = 0.41447368
+texture = ExtResource("2_ektvh")
+metadata/_edit_use_anchors_ = true
+
+[node name="Pin_Sowjet" type="TextureRect" parent="NinePatchRect/MapTexture" unique_id=875108023]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.49071428
+anchor_top = 0.23289473
+anchor_right = 0.5478571
+anchor_bottom = 0.3381579
 texture = ExtResource("2_ektvh")
 metadata/_edit_use_anchors_ = true
 
 [node name="Pin_Mittelalter" type="TextureRect" parent="NinePatchRect/MapTexture" unique_id=1845550646]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.34
-anchor_top = 0.25526315
-anchor_right = 0.39714286
-anchor_bottom = 0.36052632
+anchor_left = 0.3507143
+anchor_top = 0.2631579
+anchor_right = 0.40785715
+anchor_bottom = 0.36842105
 texture = ExtResource("2_ektvh")
 metadata/_edit_use_anchors_ = true
 
 [node name="Pin_Samurai" type="TextureRect" parent="NinePatchRect/MapTexture" unique_id=1971682692]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.56714284
-anchor_top = 0.30789474
-anchor_right = 0.6242857
-anchor_bottom = 0.41315788
+anchor_left = 0.5692857
+anchor_top = 0.30526316
+anchor_right = 0.62642854
+anchor_bottom = 0.4105263
 texture = ExtResource("2_ektvh")
 metadata/_edit_use_anchors_ = true
 
 [node name="Pin_Inka" type="TextureRect" parent="NinePatchRect/MapTexture" unique_id=1639275546]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.17142858
-anchor_top = 0.42894736
-anchor_right = 0.22857143
-anchor_bottom = 0.5342105
+anchor_left = 0.18928571
+anchor_top = 0.44473684
+anchor_right = 0.24642856
+anchor_bottom = 0.54999995
 offset_bottom = 1.5258789e-05
 texture = ExtResource("2_ektvh")
 metadata/_edit_use_anchors_ = true
@@ -98,23 +97,24 @@ metadata/_edit_use_anchors_ = true
 [node name="TimeLabel" type="Label" parent="NinePatchRect" unique_id=66434912]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 938.0
-offset_top = 152.0
-offset_right = 970.0
-offset_bottom = 175.0
+offset_left = 1700.0
+offset_top = 150.0
+offset_right = 1732.0
+offset_bottom = 173.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(2, 2)
 text = "###"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TimeSlider" type="VSlider" parent="NinePatchRect" unique_id=1457840005]
 layout_mode = 1
-offset_left = 940.0
-offset_top = 182.0
-offset_right = 969.0
-offset_bottom = 471.0
-grow_horizontal = 2
+offset_left = 1700.0
+offset_top = 225.0
+offset_right = 1729.0
+offset_bottom = 514.0
+scale = Vector2(2, 2)
 theme_override_icons/grabber = ExtResource("3_10gfm")
 theme_override_icons/grabber_highlight = ExtResource("3_10gfm")
 theme_override_styles/slider = SubResource("StyleBoxTexture_ektvh")
@@ -123,8 +123,11 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_ektvh"
 value = 50.0
 metadata/_edit_use_anchors_ = true
 
-[connection signal="gui_input" from="NinePatchRect/MapTexture/Pin_Sowjet" to="." method="_on_pin_sowjet_gui_input"]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1172095452]
+position = Vector2(960, 543)
+
 [connection signal="gui_input" from="NinePatchRect/MapTexture/Pin_WW2" to="." method="_on_pin_ww_2_gui_input"]
+[connection signal="gui_input" from="NinePatchRect/MapTexture/Pin_Sowjet" to="." method="_on_pin_sowjet_gui_input"]
 [connection signal="gui_input" from="NinePatchRect/MapTexture/Pin_Mittelalter" to="." method="_on_pin_mittelalter_gui_input"]
 [connection signal="gui_input" from="NinePatchRect/MapTexture/Pin_Samurai" to="." method="_on_pin_samurai_gui_input"]
 [connection signal="gui_input" from="NinePatchRect/MapTexture/Pin_Inka" to="." method="_on_pin_inka_gui_input"]

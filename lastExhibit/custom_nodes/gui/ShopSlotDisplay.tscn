@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cf6s4lu3j8a41"]
+
+[ext_resource type="PackedScene" uid="uid://d1dddvdvff4vn" path="res://custom_nodes/gui/GameSlot.tscn" id="1_swxp0"]
+
+[node name="Node" type="Control" unique_id=263251447]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="NinePatchRect" parent="." unique_id=954808636 instance=ExtResource("1_swxp0")]
+layout_mode = 0
+
+[node name="PriceTag" type="NinePatchRect" parent="NinePatchRect" unique_id=1337211499]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="NinePatchRect/PriceTag" unique_id=2074632863]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

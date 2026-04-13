@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bcg5cbtkffj8g"]
+
+[node name="NinePatchRect" type="NinePatchRect" unique_id=1833390329]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1263167176]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer" unique_id=1570453352]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=279705699]
+layout_mode = 2
