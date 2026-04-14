@@ -1,17 +1,24 @@
 [gd_scene format=3 uid="uid://d1dddvdvff4vn"]
 
-[ext_resource type="Texture2D" uid="uid://d24xprqp2d6if" path="res://assets/kenney_ui/Border/panel-border-001.png" id="1_ikdlq"]
+[ext_resource type="Texture2D" uid="uid://d24xprqp2d6if" path="res://assets/kenney_ui/Border/panel-border-001.png" id="1_p4tul"]
+[ext_resource type="Script" uid="uid://b1wglyphhal3t" path="res://custom_nodes/gui/GameSlot.gd" id="2_vvqmi"]
 
-[node name="GameSlot" type="NinePatchRect" unique_id=954808636]
-offset_right = 64.0
-offset_bottom = 64.0
-texture = ExtResource("1_ikdlq")
+[node name="GameSlot" type="NinePatchRect" unique_id=1703440773]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1856.0
+offset_bottom = -1016.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p4tul")
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
+script = ExtResource("2_vvqmi")
 
-[node name="Icon" type="TextureRect" parent="." unique_id=845061241]
+[node name="Icon" type="TextureRect" parent="." unique_id=380944610]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -19,14 +26,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -24.0
+offset_top = -20.0
 offset_right = 20.0
-offset_bottom = 16.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 5
 
-[node name="PriceLabel" type="Label" parent="." unique_id=65278962]
+[node name="Label" type="Label" parent="." unique_id=1295697129]
 visible = false
 layout_mode = 1
 anchors_preset = 3
@@ -38,10 +45,10 @@ offset_left = -40.0
 offset_top = -23.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.83137256, 0.627451, 0.09019608, 1)
 theme_override_font_sizes/font_size = 10
 
-[node name="NameLabel" type="Label" parent="." unique_id=39243766]
+[node name="NameLabel" type="Label" parent="." unique_id=157912257]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0

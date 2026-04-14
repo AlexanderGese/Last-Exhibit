@@ -1,14 +1,18 @@
 [gd_scene format=3 uid="uid://douxaxx2krle2"]
 
-[node name="Control" type="HBoxContainer" unique_id=1555835205]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Script" uid="uid://b4dj2snv6atic" path="res://custom_nodes/gui/CurrencyDisplay.gd" id="1_4b8vg"]
 
-[node name="Icon" type="TextureRect" parent="." unique_id=1807850355]
+[node name="CurrencyDisplay" type="HBoxContainer" unique_id=565537177]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 4
+script = ExtResource("1_4b8vg")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1451675313]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="." unique_id=491741041]
+[node name="ValueLabel" type="Label" parent="." unique_id=1176191356]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.8627451, 0.78431374, 1)
+theme_override_font_sizes/font_size = 14
+vertical_alignment = 1
