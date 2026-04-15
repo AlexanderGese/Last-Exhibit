@@ -245,10 +245,10 @@ offset_bottom = -81.0
 
 [node name="ZeitmaschinenUI" parent="." unique_id=779630959 instance=ExtResource("11_tl8lu")]
 visible = false
-offset_left = -230.0
-offset_top = -132.0
-offset_right = 209.0
-offset_bottom = 9.0
+offset_left = -396.0
+offset_top = -216.0
+offset_right = 43.0
+offset_bottom = -75.0
 scale = Vector2(0.4, 0.4)
 
 [node name="Inventory" parent="." unique_id=141059072 instance=ExtResource("11_qt7jd")]

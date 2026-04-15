@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://daw8q1mkn3fcc"]
+
+[node name="NinePatchRect" type="NinePatchRect" unique_id=617365963]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=426257875]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NameLabel" type="Label" parent="VBoxContainer" unique_id=65287778]
+layout_mode = 2
+
+[node name="CategoryLabel" type="Label" parent="VBoxContainer" unique_id=2125609563]
+layout_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="VBoxContainer" unique_id=1048089570]
+layout_mode = 2

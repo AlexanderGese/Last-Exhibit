@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://q3uy7i6j85cy"]
+
+[ext_resource type="Script" uid="uid://dmmu4358qnog8" path="res://scenes/BlackMarket/NPCs/TheChild.gd" id="1_kseyq"]
+[ext_resource type="Texture2D" uid="uid://ddrk8128ch5js" path="res://assets/blackmarket/child.png" id="1_x8a51"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kseyq"]
+size = Vector2(43, 64)
+
+[node name="TheChild" type="Area2D" unique_id=1676760631]
+script = ExtResource("1_kseyq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1708034035]
+texture = ExtResource("1_x8a51")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1263761300]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_kseyq")

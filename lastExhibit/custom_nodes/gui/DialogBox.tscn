@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://m7u25ypdd7d8"]
+
+[node name="NinePatchRect" type="NinePatchRect" unique_id=1800582652]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=163372312]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NameLabel" type="Label" parent="." unique_id=2090400087]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="TextLabel" type="Label" parent="." unique_id=874654861]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

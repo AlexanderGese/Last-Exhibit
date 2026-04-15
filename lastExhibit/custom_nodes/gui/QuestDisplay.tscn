@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cau8ls7twgsk7"]
+
+[ext_resource type="PackedScene" uid="uid://douxaxx2krle2" path="res://custom_nodes/gui/CurrencyDisplay.tscn" id="1_3fbiq"]
+
+[node name="NinePatchRect" type="NinePatchRect" unique_id=1812490776]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2009422087]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="QuestTitle" type="Label" parent="VBoxContainer" unique_id=742546361]
+layout_mode = 2
+
+[node name="QuestDescription" type="Label" parent="VBoxContainer" unique_id=1167883993]
+layout_mode = 2
+
+[node name="Control" parent="VBoxContainer" unique_id=1555835205 instance=ExtResource("1_3fbiq")]
+layout_mode = 2
