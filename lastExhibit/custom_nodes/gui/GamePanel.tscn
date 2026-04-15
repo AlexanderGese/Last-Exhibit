@@ -1,17 +1,22 @@
 [gd_scene format=3 uid="uid://cw1t88uliq21a"]
 
-[ext_resource type="Texture2D" uid="uid://di3jb8st7q7oh" path="res://assets/kenney_ui/Panel/panel-001.png" id="1_0aqf4"]
+[ext_resource type="Texture2D" uid="uid://bja8feqh5dwg3" path="res://assets/kenney_ui/Panel/panel-010.png" id="1_8h8fx"]
+[ext_resource type="Script" uid="uid://dbic7hdrcc4ak" path="res://custom_nodes/gui/GamePanel.gd" id="2_eh0wi"]
 
-[node name="GamePanel" type="NinePatchRect" unique_id=1740934577]
-offset_right = 550.0
-offset_bottom = 333.0
-texture = ExtResource("1_0aqf4")
+[node name="GamePanel" type="NinePatchRect" unique_id=1056203744]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8h8fx")
 patch_margin_left = 12
 patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
+script = ExtResource("2_eh0wi")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=287292915]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=620250068]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,6 +28,6 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="Content" type="VBoxContainer" parent="MarginContainer" unique_id=1933107089]
+[node name="Content" type="VBoxContainer" parent="MarginContainer" unique_id=2057170075]
 layout_mode = 2
 theme_override_constants/separation = 8
