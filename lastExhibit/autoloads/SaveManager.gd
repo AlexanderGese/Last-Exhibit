@@ -2,6 +2,8 @@ extends Node
 
 var player: PlayerSaveFile
 var museum: MuseumsSaveFile
+var achievements: AchievmentSaveFile
+
 
 func _ready() -> void:
 	load_all(0)

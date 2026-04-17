@@ -27,6 +27,7 @@ const HITSTOP_TIME = 0.04
 const ATTACK_SLIDE = 120.0
 
 var save: PlayerSaveFile
+var save_achiev: AchievmentSaveFile
 var facing_right := true
 
 # Jump state

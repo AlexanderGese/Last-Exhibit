@@ -20,6 +20,6 @@ func _ready() -> void:
 	$HBoxContainer/ButtonLabel.text = text
 	$HBoxContainer/Icon.visible = icon_texture != null
 
-func _gui_input(event: InputEvent) -> void:
+func _dgui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		pressed.emit()
