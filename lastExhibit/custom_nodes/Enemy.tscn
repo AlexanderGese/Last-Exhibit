@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://gilnovoapg1u"]
+
+[ext_resource type="Script" uid="uid://68xk8qcmdf22" path="res://custom_nodes/Enemy.gd" id="1_djmjn"]
+[ext_resource type="Script" uid="uid://dntc3c582m5w8" path="res://demo/agents/scripts/hitbox.gd" id="2_f47uc"]
+[ext_resource type="Script" uid="uid://dq5h6yydckjc1" path="res://demo/agents/scripts/hurtbox.gd" id="3_4bhls"]
+[ext_resource type="BehaviorTree" uid="uid://sjg3e4nrtxjd" path="res://enemy_bh.tres" id="4_f47uc"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_q1rjd"]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=2103518514]
+script = ExtResource("1_djmjn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1558918742]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1910218178]
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2056143775]
+script = ExtResource("2_f47uc")
+metadata/_custom_type_script = "uid://dntc3c582m5w8"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=924929511]
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1979729581]
+script = ExtResource("3_4bhls")
+metadata/_custom_type_script = "uid://dq5h6yydckjc1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=364984338]
+
+[node name="DetectionScene" type="Area2D" parent="." unique_id=74553995]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionScene" unique_id=756658647]
+
+[node name="Links" type="Marker2D" parent="." unique_id=1495800989]
+
+[node name="Rechts" type="Marker2D" parent="." unique_id=1483014708]
+
+[node name="ProjectilSpawn" type="Marker2D" parent="." unique_id=375802181]
+
+[node name="BTPlayer" type="BTPlayer" parent="." unique_id=842588275]
+behavior_tree = ExtResource("4_f47uc")
+blackboard_plan = SubResource("BlackboardPlan_q1rjd")

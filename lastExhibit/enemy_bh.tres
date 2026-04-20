@@ -1,0 +1,123 @@
+[gd_resource type="BehaviorTree" format=3 uid="uid://sjg3e4nrtxjd"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_2wq5p"]
+
+[sub_resource type="BBVariant" id="BBVariant_2wq5p"]
+type = 1
+saved_value = true
+resource_name = "true"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_s3lyk"]
+variable = &"dead"
+value = SubResource("BBVariant_2wq5p")
+
+[sub_resource type="BBNode" id="BBNode_ctom5"]
+saved_value = NodePath(".")
+resource_name = "."
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_x060r"]
+node = SubResource("BBNode_ctom5")
+method = &"stop"
+
+[sub_resource type="BTSequence" id="BTSequence_3rut4"]
+custom_name = "dead"
+children = [SubResource("BTCheckVar_s3lyk"), SubResource("BTCallMethod_x060r")]
+
+[sub_resource type="BBVariant" id="BBVariant_dm6hv"]
+type = 1
+saved_value = true
+resource_name = "true"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_3pnmy"]
+variable = &"player_detected"
+value = SubResource("BBVariant_dm6hv")
+
+[sub_resource type="BBVariant" id="BBVariant_27s0w"]
+type = 1
+saved_value = true
+resource_name = "true"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_07fno"]
+variable = &"in_melee_range"
+value = SubResource("BBVariant_27s0w")
+
+[sub_resource type="BBNode" id="BBNode_wnfo3"]
+saved_value = NodePath(".")
+resource_name = "."
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_nsvdp"]
+node = SubResource("BBNode_wnfo3")
+method = &"do_melee"
+
+[sub_resource type="BTSequence" id="BTSequence_co6i4"]
+custom_name = "melle attack"
+children = [SubResource("BTCheckVar_3pnmy"), SubResource("BTCheckVar_07fno"), SubResource("BTCallMethod_nsvdp")]
+
+[sub_resource type="BBVariant" id="BBVariant_jh4io"]
+type = 1
+saved_value = true
+resource_name = "true"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_2dmfw"]
+variable = &"player_detected"
+value = SubResource("BBVariant_jh4io")
+
+[sub_resource type="BBVariant" id="BBVariant_p2fkx"]
+type = 1
+saved_value = true
+resource_name = "true"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_omilc"]
+variable = &"in_ranged_range"
+value = SubResource("BBVariant_p2fkx")
+
+[sub_resource type="BBNode" id="BBNode_fbvu8"]
+saved_value = NodePath(".")
+resource_name = "."
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_xs22o"]
+node = SubResource("BBNode_fbvu8")
+method = &"do_ranged"
+
+[sub_resource type="BTSequence" id="BTSequence_xlv5f"]
+custom_name = "ranged attack"
+children = [SubResource("BTCheckVar_2dmfw"), SubResource("BTCheckVar_omilc"), SubResource("BTCallMethod_xs22o")]
+
+[sub_resource type="BBVariant" id="BBVariant_41n8i"]
+type = 1
+saved_value = true
+resource_name = "true"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_psnr5"]
+variable = &"player_detected"
+value = SubResource("BBVariant_41n8i")
+
+[sub_resource type="BBNode" id="BBNode_rlvyc"]
+saved_value = NodePath(".")
+resource_name = "."
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_tbsi7"]
+node = SubResource("BBNode_rlvyc")
+method = &"chase_player"
+
+[sub_resource type="BTSequence" id="BTSequence_e4i0i"]
+custom_name = "chase"
+children = [SubResource("BTCheckVar_psnr5"), SubResource("BTCallMethod_tbsi7")]
+
+[sub_resource type="BBNode" id="BBNode_2wq5p"]
+saved_value = null
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_s3lyk"]
+node = SubResource("BBNode_2wq5p")
+method = &"patrol_tick"
+
+[sub_resource type="BTSequence" id="BTSequence_ll7e0"]
+custom_name = "patrol"
+children = [SubResource("BTCallMethod_s3lyk")]
+
+[sub_resource type="BTSelector" id="BTSelector_s3lyk"]
+children = [SubResource("BTSequence_3rut4"), SubResource("BTSequence_co6i4"), SubResource("BTSequence_xlv5f"), SubResource("BTSequence_e4i0i"), SubResource("BTSequence_ll7e0")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_2wq5p")
+root_task = SubResource("BTSelector_s3lyk")
