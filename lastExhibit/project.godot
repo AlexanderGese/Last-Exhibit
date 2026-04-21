@@ -26,6 +26,7 @@ GameClock="*uid://bm5jpfmf2t48u"
 Inventory="*uid://du1522di2ds6d"
 DialogueManager="*uid://c3rodes2l3gxb"
 Fader="*uid://x8jcrlwqlsc4"
+SoundManager="*uid://vqnqvndpsftt"
 
 [display]
 
@@ -41,7 +42,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/GameGUI/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/editor_theme_explorer/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/tnowe_extra_controls/plugin.cfg")
+enabled=PackedStringArray("res://addons/GameGUI/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/editor_theme_explorer/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/sound_manager/plugin.cfg", "res://addons/tnowe_extra_controls/plugin.cfg")
 
 [gui]
 

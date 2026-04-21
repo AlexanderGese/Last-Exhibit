@@ -4,9 +4,7 @@
 [ext_resource type="Script" uid="uid://tincn5rwi2v7" path="res://scenes/Player/Player.gd" id="1_ky53y"]
 [ext_resource type="Texture2D" uid="uid://choej2tfrqyib" path="res://assets/sprites/character/characterJump.png" id="3_bvqhm"]
 [ext_resource type="Texture2D" uid="uid://cgbaj0cgbxqtd" path="res://assets/sprites/character/characterHit.png" id="3_mmokv"]
-[ext_resource type="Script" uid="uid://girkef0kjxi4" path="res://custom_nodes/HurtBox.gd" id="4_ved6o"]
 [ext_resource type="Texture2D" uid="uid://ma326x4e8teg" path="res://assets/sprites/character/characterRun.png" id="5_fxc31"]
-[ext_resource type="Script" uid="uid://c4xj8tppmyqu7" path="res://custom_nodes/HitBox.gd" id="7_dqp0f"]
 [ext_resource type="PackedScene" uid="uid://pq1sjpxa617a" path="res://scenes/Museum/elevator/ElevatorUI.tscn" id="8_puxyr"]
 [ext_resource type="PackedScene" uid="uid://hps2hecwvfmi" path="res://scenes/Inventory/Inventory.tscn" id="11_qt7jd"]
 [ext_resource type="PackedScene" uid="uid://qd0flrd01ahf" path="res://scenes/Zeitmaschine/ZeitmaschinenUI.tscn" id="11_tl8lu"]
@@ -184,13 +182,6 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqp0f"]
-radius = 4.03269
-height = 19.997236
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ved6o"]
-height = 54.0
-
 [node name="Player" type="CharacterBody2D" unique_id=229592850]
 position = Vector2(0, -32)
 collision_layer = 255
@@ -203,23 +194,6 @@ shape = SubResource("CapsuleShape2D_h00vy")
 sprite_frames = SubResource("SpriteFrames_fxc31")
 animation = &"hit"
 autoplay = "idle"
-
-[node name="HitBox" type="Area2D" parent="." unique_id=877077439]
-script = ExtResource("7_dqp0f")
-metadata/_custom_type_script = "uid://c4xj8tppmyqu7"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1567030910]
-position = Vector2(4.000001, -7)
-rotation = -1.5541754
-shape = SubResource("CapsuleShape2D_dqp0f")
-
-[node name="HurtBox" type="Area2D" parent="." unique_id=2136354806]
-script = ExtResource("4_ved6o")
-metadata/_custom_type_script = "uid://girkef0kjxi4"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=414255615]
-position = Vector2(0, 4)
-shape = SubResource("CapsuleShape2D_ved6o")
 
 [node name="Timer" type="Timer" parent="." unique_id=1452935183]
 process_callback = 0

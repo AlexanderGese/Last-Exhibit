@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dng2ce1ptc8r4"]
 
 [ext_resource type="Script" uid="uid://bm8x3ry6s2cgh" path="res://scenes/Epochs/sowjet/sowjet.gd" id="1_pcuah"]
-[ext_resource type="Texture2D" uid="uid://sqe2xflm3oqe" path="res://test_assets/Soviet temp.png" id="1_ticl5"]
+[ext_resource type="Texture2D" uid="uid://sqe2xflm3oqe" path="res://test_assets/TempSpriteSheet.png" id="1_ticl5"]
 [ext_resource type="PackedScene" uid="uid://botawtk2laud8" path="res://scenes/Player/Player.tscn" id="2_l0vm2"]
 [ext_resource type="PackedScene" uid="uid://5uk7cbbfxv25" path="res://scenes/Epochs/sowjet/lasten aufzug/lastenaufzug.tscn" id="3_l0vm2"]
 [ext_resource type="PackedScene" uid="uid://p601uv7xjfyc" path="res://custom_nodes/Ladder.tscn" id="4_iyr3m"]

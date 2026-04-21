@@ -105,7 +105,7 @@ custom_name = "chase"
 children = [SubResource("BTCheckVar_psnr5"), SubResource("BTCallMethod_tbsi7")]
 
 [sub_resource type="BBNode" id="BBNode_2wq5p"]
-saved_value = null
+saved_value = NodePath("")
 
 [sub_resource type="BTCallMethod" id="BTCallMethod_s3lyk"]
 node = SubResource("BBNode_2wq5p")
