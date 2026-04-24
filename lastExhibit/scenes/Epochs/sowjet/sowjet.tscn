@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://botawtk2laud8" path="res://scenes/Player/Player.tscn" id="2_l0vm2"]
 [ext_resource type="PackedScene" uid="uid://5uk7cbbfxv25" path="res://scenes/Epochs/sowjet/lasten aufzug/lastenaufzug.tscn" id="3_l0vm2"]
 [ext_resource type="PackedScene" uid="uid://p601uv7xjfyc" path="res://custom_nodes/Ladder.tscn" id="4_iyr3m"]
+[ext_resource type="Texture2D" uid="uid://bqa2lxfapaeg0" path="res://test_assets/Sputnik_Laucher-2.png" id="6_j1bp2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l0vm2"]
 texture = ExtResource("1_ticl5")
@@ -106,5 +107,9 @@ position = Vector2(-2581, 1694)
 
 [node name="CollisionShape2D" parent="Node2D" index="0" unique_id=325765296]
 position = Vector2(4.5, -129.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=563273526]
+position = Vector2(-475, -532)
+texture = ExtResource("6_j1bp2")
 
 [editable path="Node2D"]
