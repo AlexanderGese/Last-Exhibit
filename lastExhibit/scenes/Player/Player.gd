@@ -47,9 +47,7 @@ func _ready():
 	save = SaveManager.player
 	$Timer.start()
 	add_to_group("player")
-	hitbox_shape.disabled = true
 	sprite.animation_finished.connect(_on_animation_finished)
-	hitbox_node.area_entered.connect(_on_hitbox_connected)
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
@@ -57,7 +55,6 @@ func _physics_process(delta: float) -> void:
 	_handle_movement(delta)
 	_handle_attack(delta)
 	_update_animation()
-	_flip_hitbox()
 	move_and_slide()
 	_handle_escape()
 
@@ -138,13 +135,11 @@ func _start_attack() -> void:
 	combo_count += 1
 	combo_queued = false
 	combo_reset_timer = 0.0
-	hitbox_shape.disabled = false
 	sprite.play("hit")
 
 func _on_animation_finished() -> void:
 	if sprite.animation != "hit":
 		return
-	hitbox_shape.disabled = true
 	if combo_queued and combo_count < MAX_COMBO:
 		# Nächster Combo-Schlag
 		_start_attack()
@@ -154,14 +149,6 @@ func _on_animation_finished() -> void:
 		combo_queued = false
 		combo_reset_timer = COMBO_RESET_TIME
 
-func _on_hitbox_connected(_area: Area2D) -> void:
-	# Hitstop: kurzer Freeze für Impact-Gefühl
-	Engine.time_scale = 0.05
-	await get_tree().create_timer(HITSTOP_TIME, true, false, true).timeout
-	Engine.time_scale = 1.0
-
-func _flip_hitbox() -> void:
-	hitbox_node.scale.x = 1.0 if facing_right else -1.0
 
 # ── Animation ──
 
