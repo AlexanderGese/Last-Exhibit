@@ -4,6 +4,10 @@ extends Control
 @onready var settingsbutton = $Settings/AnimatedSprite2D
 @onready var quitbutton = $Quit/AnimatedSprite2D
 
+func _ready() ->void:
+	AudioManager.play("trailer")
+
+
 # Play
 func _on_play_pressed() -> void:
 	playbutton.play("click")

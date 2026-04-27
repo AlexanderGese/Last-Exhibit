@@ -1,9 +1,6 @@
-# res://autoloads/AudioManager.gd
 extends Node
 
-@onready var music_player = $MusicPlayer
-@onready var sfx_player = $SFXPlayer
-
+var current_player: AudioStreamPlayer
 var current_track: String = ""
 
 const TRACKS = {
@@ -20,30 +17,40 @@ const TRACKS = {
 	"inka":          "res://assets/music/InkaLevel.ogg",
 	"inka_boss":     "res://assets/music/InkaBoss.ogg",
 	"blackmarket":   "res://assets/music/BlackMarketMusic.ogg",
+	"trailer" :      "res://assets/music/TrailerMusic.ogg",
 }
 
-func play(track_name: String, fade: bool = true) -> void:
+func _ready() -> void:
+	current_player = AudioStreamPlayer.new()
+	add_child(current_player)
+
+func play(track_name: String, crossfade: float = 2.0) -> void:
 	if current_track == track_name:
 		return
 	current_track = track_name
-	if fade:
-		await _fade_out()
-	music_player.stream = load(TRACKS[track_name])
-	music_player.play()
-	if fade:
-		await _fade_in()
+
+	# Neuen Player erstellen
+	var new_player = AudioStreamPlayer.new()
+	add_child(new_player)
+	new_player.stream = load(TRACKS[track_name])
+	new_player.volume_db = -80
+	new_player.play()
+
+	# Crossfade
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(current_player, "volume_db", -80, crossfade)
+	tween.tween_property(new_player, "volume_db", 0, crossfade)
+	await tween.finished
+
+	# Alten entfernen
+	current_player.queue_free()
+	current_player = new_player
 
 func play_sfx(path: String) -> void:
-	sfx_player.stream = load(path)
-	sfx_player.play()
-
-func _fade_out(duration: float = 1.0) -> void:
-	var tween = create_tween()
-	tween.tween_property(music_player, "volume_db", -80, duration)
-	await tween.finished
-
-func _fade_in(duration: float = 1.0) -> void:
-	music_player.volume_db = -80
-	var tween = create_tween()
-	tween.tween_property(music_player, "volume_db", 0, duration)
-	await tween.finished
+	var sfx = AudioStreamPlayer.new()
+	add_child(sfx)
+	sfx.stream = load(path)
+	sfx.play()
+	await sfx.finished
+	sfx.queue_free()

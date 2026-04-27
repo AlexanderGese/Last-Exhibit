@@ -6,6 +6,7 @@ var player_collided: bool = true
 func _ready() -> void:
 	add_to_group("sowjet")
 	await Fader.fade_in(1.0)
+	AudioManager.play("soviet")
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
