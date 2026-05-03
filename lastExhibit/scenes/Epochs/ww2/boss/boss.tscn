@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cra08mvtdb7vu" path="res://assets/sprites/USBase/crash.png" id="2_vysda"]
 [ext_resource type="Texture2D" uid="uid://bospp33btjdd7" path="res://assets/sprites/USBase/p51.png" id="3_44lkb"]
 [ext_resource type="BehaviorTree" uid="uid://mlh1klka07qf" path="res://scenes/Epochs/ww2/boss/p51.tres" id="4_0j7ph"]
+[ext_resource type="Script" uid="uid://5byn62y1oa76" path="res://demo/agents/scripts/health.gd" id="7_44lkb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vysda"]
 size = Vector2(170, 60)
@@ -85,3 +86,6 @@ shape = SubResource("RectangleShape2D_b8bga")
 [node name="BTPlayer" type="BTPlayer" parent="." unique_id=786219169]
 behavior_tree = ExtResource("4_0j7ph")
 blackboard_plan = SubResource("BlackboardPlan_n5rrv")
+
+[node name="Health" type="Node2D" parent="." unique_id=1452947369]
+script = ExtResource("7_44lkb")
