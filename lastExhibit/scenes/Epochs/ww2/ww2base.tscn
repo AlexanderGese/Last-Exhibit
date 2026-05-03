@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cm56bihfme4m1" path="res://assets/sprites/USBase/UsBase_1.png" id="2_8qf3h"]
 [ext_resource type="Texture2D" uid="uid://b2lureln3la06" path="res://assets/sprites/USBase/WatchtowerUSBase.png" id="3_a8ufs"]
 [ext_resource type="PackedScene" uid="uid://botawtk2laud8" path="res://scenes/Player/Player.tscn" id="5_a8ufs"]
+[ext_resource type="PackedScene" uid="uid://dh08xk8e7w730" path="res://scenes/Epochs/ww2/boss/boss.tscn" id="6_62r1w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_62r1w"]
 texture = ExtResource("1_7ccri")
@@ -123,3 +124,6 @@ tile_set = SubResource("TileSet_7ccri")
 
 [node name="Player" parent="." unique_id=229592850 instance=ExtResource("5_a8ufs")]
 position = Vector2(0, -73)
+
+[node name="P51Boss" parent="." unique_id=2112756969 instance=ExtResource("6_62r1w")]
+position = Vector2(-981, -237)

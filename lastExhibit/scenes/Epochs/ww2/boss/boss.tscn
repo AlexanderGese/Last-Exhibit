@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://dh08xk8e7w730"]
+
+[ext_resource type="Script" uid="uid://dntc3c582m5w8" path="res://demo/agents/scripts/hitbox.gd" id="1_ke5fl"]
+[ext_resource type="Script" uid="uid://cd0r7bxj6iqjc" path="res://scenes/Epochs/ww2/boss/boss.gd" id="1_n5rrv"]
+[ext_resource type="Script" uid="uid://dq5h6yydckjc1" path="res://demo/agents/scripts/hurtbox.gd" id="2_uwpb3"]
+[ext_resource type="Texture2D" uid="uid://cra08mvtdb7vu" path="res://assets/sprites/USBase/crash.png" id="2_vysda"]
+[ext_resource type="Texture2D" uid="uid://bospp33btjdd7" path="res://assets/sprites/USBase/p51.png" id="3_44lkb"]
+[ext_resource type="BehaviorTree" uid="uid://mlh1klka07qf" path="res://scenes/Epochs/ww2/boss/p51.tres" id="4_0j7ph"]
+[ext_resource type="Script" uid="uid://5byn62y1oa76" path="res://demo/agents/scripts/health.gd" id="7_44lkb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vysda"]
+size = Vector2(170, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8bga"]
+atlas = ExtResource("2_vysda")
+region = Rect2(0, 0, 192, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbp8q"]
+atlas = ExtResource("3_44lkb")
+region = Rect2(0, 0, 192, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n5rrv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8bga")
+}],
+"loop": true,
+"name": &"crash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbp8q")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44lkb"]
+size = Vector2(171, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8bga"]
+size = Vector2(1299, 905)
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_n5rrv"]
+
+[node name="P51Boss" type="CharacterBody2D" unique_id=2112756969]
+script = ExtResource("1_n5rrv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=293068402]
+position = Vector2(4, -1)
+shape = SubResource("RectangleShape2D_vysda")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=450402897]
+sprite_frames = SubResource("SpriteFrames_n5rrv")
+animation = &"fly"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1494307741]
+script = ExtResource("1_ke5fl")
+metadata/_custom_type_script = "uid://dntc3c582m5w8"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1687144417]
+position = Vector2(4, -1)
+shape = SubResource("RectangleShape2D_vysda")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1684921097]
+script = ExtResource("2_uwpb3")
+metadata/_custom_type_script = "uid://dq5h6yydckjc1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=568544349]
+position = Vector2(3.5, -1)
+shape = SubResource("RectangleShape2D_44lkb")
+
+[node name="ProjectileSpawn" type="Marker2D" parent="." unique_id=1761667892]
+
+[node name="BombSpawn" type="Marker2D" parent="." unique_id=1648658986]
+
+[node name="FlightZone" type="Area2D" parent="." unique_id=1310662683]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlightZone" unique_id=2030130461]
+position = Vector2(4, 1)
+shape = SubResource("RectangleShape2D_b8bga")
+
+[node name="BTPlayer" type="BTPlayer" parent="." unique_id=786219169]
+behavior_tree = ExtResource("4_0j7ph")
+blackboard_plan = SubResource("BlackboardPlan_n5rrv")
+
+[node name="Health" type="Node2D" parent="." unique_id=1452947369]
+script = ExtResource("7_44lkb")

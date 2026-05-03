@@ -1,0 +1,115 @@
+[gd_resource type="BehaviorTree" format=3 uid="uid://mlh1klka07qf"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_ws18a"]
+
+[sub_resource type="BBVariant" id="BBVariant_g2g6v"]
+type = 3
+saved_value = 0.0
+resource_name = "0"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_ws1aq"]
+variable = &"hp "
+check_type = 2
+value = SubResource("BBVariant_g2g6v")
+
+[sub_resource type="BBNode" id="BBNode_jgutf"]
+saved_value = NodePath(".")
+resource_name = "."
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_536ec"]
+node = SubResource("BBNode_jgutf")
+method = &"die"
+
+[sub_resource type="BTSequence" id="BTSequence_v8h7y"]
+custom_name = "dead"
+children = [SubResource("BTCheckVar_ws1aq"), SubResource("BTCallMethod_536ec")]
+
+[sub_resource type="BBVariant" id="BBVariant_u1tcf"]
+type = 2
+saved_value = 2
+resource_name = "2"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_1ol74"]
+variable = &"phase"
+check_type = 4
+value = SubResource("BBVariant_u1tcf")
+
+[sub_resource type="BBVariant" id="BBVariant_hmimk"]
+type = 2
+saved_value = 0
+resource_name = "<null>"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_jv7g2"]
+variable = &"attack_timer"
+check_type = 2
+value = SubResource("BBVariant_hmimk")
+
+[sub_resource type="BBNode" id="BBNode_cjlqg"]
+saved_value = NodePath(".")
+resource_name = "."
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_jqs0p"]
+node = SubResource("BBNode_cjlqg")
+method = &"drop_bomb"
+
+[sub_resource type="BTSequence" id="BTSequence_mtbbp"]
+custom_name = "attackbombs"
+children = [SubResource("BTCheckVar_1ol74"), SubResource("BTCheckVar_jv7g2"), SubResource("BTCallMethod_jqs0p")]
+
+[sub_resource type="BBVariant" id="BBVariant_r8pql"]
+type = 2
+saved_value = 0
+resource_name = "0"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_ud1pt"]
+variable = &"attack_timer"
+check_type = 2
+value = SubResource("BBVariant_r8pql")
+
+[sub_resource type="BBNode" id="BBNode_bjquo"]
+saved_value = NodePath(".")
+resource_name = "."
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_1hmot"]
+node = SubResource("BBNode_bjquo")
+method = &"shoot_bullets"
+
+[sub_resource type="BTSequence" id="BTSequence_a6gt7"]
+custom_name = "attackbullets"
+children = [SubResource("BTCheckVar_ud1pt"), SubResource("BTCallMethod_1hmot")]
+
+[sub_resource type="BBVariant" id="BBVariant_oi5jg"]
+type = 1
+saved_value = true
+resource_name = "true"
+
+[sub_resource type="BTCheckVar" id="BTCheckVar_ex3de"]
+variable = &"player_detected"
+value = SubResource("BBVariant_oi5jg")
+
+[sub_resource type="BBNode" id="BBNode_s3fdb"]
+saved_value = NodePath(".")
+resource_name = "."
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_4xnei"]
+node = SubResource("BBNode_s3fdb")
+method = &"chase_player"
+
+[sub_resource type="BTSequence" id="BTSequence_v0iq1"]
+custom_name = "chaseplayer"
+children = [SubResource("BTCheckVar_ex3de"), SubResource("BTCallMethod_4xnei")]
+
+[sub_resource type="BBNode" id="BBNode_on754"]
+saved_value = NodePath(".")
+resource_name = "."
+
+[sub_resource type="BTCallMethod" id="BTCallMethod_lcp54"]
+node = SubResource("BBNode_on754")
+method = &"patrol_flight"
+
+[sub_resource type="BTSelector" id="BTSelector_jkuvr"]
+children = [SubResource("BTSequence_v8h7y"), SubResource("BTSequence_mtbbp"), SubResource("BTSequence_a6gt7"), SubResource("BTSequence_v0iq1"), SubResource("BTCallMethod_lcp54")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_ws18a")
+root_task = SubResource("BTSelector_jkuvr")
