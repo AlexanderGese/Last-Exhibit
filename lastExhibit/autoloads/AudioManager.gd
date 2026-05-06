@@ -25,6 +25,7 @@ func _ready() -> void:
 	add_child(current_player)
 
 func play(track_name: String, crossfade: float = 2.0) -> void:
+	return
 	if current_track == track_name:
 		return
 	current_track = track_name

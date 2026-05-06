@@ -1,22 +1,37 @@
 extends Area2D
 
-@export var item_data: ItemData
+@export var item: Item
+
+var player_nearby: bool = false
 var can_pickup: bool = true
+
+@onready var sprite: Sprite2D = $Sprite2D
+
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
+	body_exited.connect(_on_body_exited)
+	if item:
+		sprite.texture = item.icon
 
-func disable_pickup_temporarily(duration: float = 5.0) -> void:
-	can_pickup = false
-	monitoring = false
-	await get_tree().create_timer(duration).timeout
-	can_pickup = true
-	monitoring = true
 
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("player") and can_pickup:
-		if Inventory.add(item_data):
-			get_tree().get_first_node_in_group("inventory_ui").refresh()
+	if body.is_in_group("player"):
+		player_nearby = true
+
+
+func _on_body_exited(body: Node) -> void:
+	if body.is_in_group("player"):
+		player_nearby = false
+
+
+func _process(_delta: float) -> void:
+	if player_nearby and can_pickup and Input.is_action_just_pressed("interact"):
+		if SaveManager.try_pickup(item):
 			queue_free()
-		else:
-			print("Inventar voll")
+
+
+func disable_pickup_temporarily(duration: float = 0.5) -> void:
+	can_pickup = false
+	await get_tree().create_timer(duration).timeout
+	can_pickup = true

@@ -1,0 +1,300 @@
+[gd_scene format=3 uid="uid://cj4fhyw1r08ai"]
+
+[ext_resource type="Script" uid="uid://coiiobqrryfbt" path="res://scenes/Inventory/inventory_ui.gd" id="1_m73i6"]
+[ext_resource type="Script" uid="uid://bcr7nf8jvvbca" path="res://scenes/Inventory/inventory_slot.gd" id="2_djd00"]
+[ext_resource type="Script" uid="uid://caa80387onryn" path="res://scenes/Inventory/equipment_slot.gd" id="3_tlfcg"]
+
+[node name="InventoryUI" type="Control" unique_id=1969334238]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_m73i6")
+
+[node name="InventoryPanel" type="PanelContainer" parent="." unique_id=969834088]
+custom_minimum_size = Vector2(56, 380)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -190.0
+offset_right = 56.0
+offset_bottom = 190.0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryPanel" unique_id=449567947]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="InventoryPanel/VBoxContainer" unique_id=1068500669]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "INV"
+horizontal_alignment = 1
+
+[node name="Slot1" type="PanelContainer" parent="InventoryPanel/VBoxContainer" unique_id=429346278]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+script = ExtResource("2_djd00")
+
+[node name="Icon" type="TextureRect" parent="InventoryPanel/VBoxContainer/Slot1" unique_id=1466868231]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="HotkeyLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot1" unique_id=1157933983]
+modulate = Color(0.33660764, 0.3366076, 0.3366076, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "1"
+
+[node name="QuantityLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot1" unique_id=1348990315]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 9
+
+[node name="Slot2" type="PanelContainer" parent="InventoryPanel/VBoxContainer" unique_id=1188823358]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+script = ExtResource("2_djd00")
+slot_index = 1
+
+[node name="Icon" type="TextureRect" parent="InventoryPanel/VBoxContainer/Slot2" unique_id=883953561]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="HotkeyLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot2" unique_id=1625852641]
+modulate = Color(0.33660764, 0.3366076, 0.3366076, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "1"
+
+[node name="QuantityLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot2" unique_id=47220687]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 9
+
+[node name="Slot3" type="PanelContainer" parent="InventoryPanel/VBoxContainer" unique_id=502394163]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+script = ExtResource("2_djd00")
+slot_index = 2
+
+[node name="Icon" type="TextureRect" parent="InventoryPanel/VBoxContainer/Slot3" unique_id=1269494955]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="HotkeyLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot3" unique_id=842420258]
+modulate = Color(0.33660764, 0.3366076, 0.3366076, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "1"
+
+[node name="QuantityLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot3" unique_id=889972501]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 9
+
+[node name="Slot4" type="PanelContainer" parent="InventoryPanel/VBoxContainer" unique_id=1741593034]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+script = ExtResource("2_djd00")
+slot_index = 3
+
+[node name="Icon" type="TextureRect" parent="InventoryPanel/VBoxContainer/Slot4" unique_id=962755917]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="HotkeyLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot4" unique_id=1745787033]
+modulate = Color(0.33660764, 0.3366076, 0.3366076, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "1"
+
+[node name="QuantityLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot4" unique_id=919545724]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 9
+
+[node name="Slot5" type="PanelContainer" parent="InventoryPanel/VBoxContainer" unique_id=1740301894]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+script = ExtResource("2_djd00")
+slot_index = 4
+
+[node name="Icon" type="TextureRect" parent="InventoryPanel/VBoxContainer/Slot5" unique_id=926368198]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="HotkeyLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot5" unique_id=1538957834]
+modulate = Color(0.33660764, 0.3366076, 0.3366076, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "1"
+
+[node name="QuantityLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot5" unique_id=118425344]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 9
+
+[node name="Slot6" type="PanelContainer" parent="InventoryPanel/VBoxContainer" unique_id=17206896]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+script = ExtResource("2_djd00")
+slot_index = 5
+
+[node name="Icon" type="TextureRect" parent="InventoryPanel/VBoxContainer/Slot6" unique_id=2055428656]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="HotkeyLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot6" unique_id=263226237]
+modulate = Color(0.33660764, 0.3366076, 0.3366076, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "1"
+
+[node name="QuantityLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot6" unique_id=591270720]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 9
+
+[node name="Slot7" type="PanelContainer" parent="InventoryPanel/VBoxContainer" unique_id=1460460599]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+script = ExtResource("2_djd00")
+slot_index = 6
+
+[node name="Icon" type="TextureRect" parent="InventoryPanel/VBoxContainer/Slot7" unique_id=927321352]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="HotkeyLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot7" unique_id=9927828]
+modulate = Color(0.33660764, 0.3366076, 0.3366076, 1)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "1"
+
+[node name="QuantityLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot7" unique_id=1812540488]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 9
+
+[node name="EquipmentPanel" type="PanelContainer" parent="." unique_id=327265177]
+custom_minimum_size = Vector2(100, 300)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -232.5
+offset_bottom = 232.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EquipmentPanel" unique_id=183912385]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="EquipmentPanel/VBoxContainer" unique_id=1593313875]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "EQUIPMENT"
+horizontal_alignment = 1
+
+[node name="HeadSlot" type="PanelContainer" parent="EquipmentPanel/VBoxContainer" unique_id=409553176]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+script = ExtResource("3_tlfcg")
+
+[node name="Icon" type="TextureRect" parent="EquipmentPanel/VBoxContainer/HeadSlot" unique_id=696292890]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EquipmentPanel/VBoxContainer/HeadSlot" unique_id=117844474]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "HUT"
+
+[node name="BodySlot" type="PanelContainer" parent="EquipmentPanel/VBoxContainer" unique_id=1889273093]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+script = ExtResource("3_tlfcg")
+
+[node name="Icon" type="TextureRect" parent="EquipmentPanel/VBoxContainer/BodySlot" unique_id=183910318]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EquipmentPanel/VBoxContainer/BodySlot" unique_id=227764456]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "JCK"
+
+[node name="LegsSlot" type="PanelContainer" parent="EquipmentPanel/VBoxContainer" unique_id=252250948]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+script = ExtResource("3_tlfcg")
+
+[node name="Icon" type="TextureRect" parent="EquipmentPanel/VBoxContainer/LegsSlot" unique_id=1395651782]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EquipmentPanel/VBoxContainer/LegsSlot" unique_id=19493]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "HSE"
+
+[node name="FeetSlot" type="PanelContainer" parent="EquipmentPanel/VBoxContainer" unique_id=862080965]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+script = ExtResource("3_tlfcg")
+
+[node name="Icon" type="TextureRect" parent="EquipmentPanel/VBoxContainer/FeetSlot" unique_id=146807253]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EquipmentPanel/VBoxContainer/FeetSlot" unique_id=2100463949]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "STF"
+
+[node name="HSeparator" type="HSeparator" parent="EquipmentPanel/VBoxContainer" unique_id=126459695]
+layout_mode = 2
+
+[node name="WeaponSlot" type="PanelContainer" parent="EquipmentPanel/VBoxContainer" unique_id=1262942824]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+script = ExtResource("3_tlfcg")
+
+[node name="Icon" type="TextureRect" parent="EquipmentPanel/VBoxContainer/WeaponSlot" unique_id=997093824]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EquipmentPanel/VBoxContainer/WeaponSlot" unique_id=376132533]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "WAFFE"

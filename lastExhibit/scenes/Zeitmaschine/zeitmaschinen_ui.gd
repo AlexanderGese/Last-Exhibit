@@ -77,6 +77,12 @@ func _on_pin_clicked(epoch: String) -> void:
 	match epoch:
 		"sowjet":
 			get_tree().change_scene_to_file("res://scenes/Epochs/sowjet/sowjet.tscn")
+		"ww2":
+			get_tree().change_scene_to_file("res://scenes/Epochs/ww2/ww2base.tscn")
+		"samurai":
+			get_tree().change_scene_to_file("res://scenes/Epochs/Japan/samurai.tscn")
+		_:
+			push_warning("Keine Scene für Epoche: %s" % epoch)
 
 func _on_pin_sowjet_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:

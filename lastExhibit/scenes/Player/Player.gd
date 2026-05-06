@@ -4,7 +4,9 @@ extends CharacterBody2D
 @onready var hitbox_shape: CollisionShape2D = $HitBox/CollisionShape2D
 @onready var hitbox_node: Area2D = $HitBox
 @onready var ESCAPEMENUINSTANCE = preload("res://scenes/EscapeMenu/EscapeMenu.tscn").instantiate()
+@onready var inventory: Inventory = SaveManager.inventory
 
+const ITEM_PICKUP_SCENE = preload("res://custom_nodes/ItemPickUp/ItemPickup.tscn")
 # ── Movement ──
 const RUN_SPEED = 350
 const ACCELERATION = 2500.0
@@ -48,6 +50,18 @@ func _ready():
 	$Timer.start()
 	add_to_group("player")
 	sprite.animation_finished.connect(_on_animation_finished)
+	if inventory == null:
+		push_error("Player: kein Inventory zugewiesen!")
+	SaveManager.item_dropped.connect(_on_item_dropped)
+
+
+func _on_item_dropped(item: Item) -> void:
+	var pickup := ITEM_PICKUP_SCENE.instantiate()
+	pickup.item = item
+	var parent := get_parent()
+	parent.add_child(pickup)
+	pickup.global_position = global_position
+	pickup.disable_pickup_temporarily(0.5)
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
@@ -57,6 +71,11 @@ func _physics_process(delta: float) -> void:
 	_update_animation()
 	move_and_slide()
 	_handle_escape()
+
+func heal(amount: float) -> void:
+	save.hp = min(save.hp + amount, save.max_hp)
+	SaveManager.save_all(0)
+
 
 # ── Gravity ──
 
@@ -123,7 +142,7 @@ func _handle_attack(delta: float) -> void:
 			combo_count = 0
 
 	if Input.is_action_just_pressed("left_click"):
-		if $ZeitmaschinenUI.visible or $Inventory.visible:
+		if $ZeitmaschinenUI.visible:
 			return
 		if not is_attacking:
 			_start_attack()
