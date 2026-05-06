@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dng2ce1ptc8r4"]
 
-[ext_resource type="Texture2D" uid="uid://bwvfsincawtq1" path="res://assets/sprites/Sovjet/sovjet5.png" id="2_iyr3m"]
+[ext_resource type="Texture2D" uid="uid://cw34gyrhojs6b" path="res://assets/sprites/Sovjet/sovjet5.png" id="2_iyr3m"]
 [ext_resource type="Texture2D" uid="uid://cm56bihfme4m1" path="res://assets/sprites/USBase/UsBase_1.png" id="2_j1bp2"]
 [ext_resource type="PackedScene" uid="uid://botawtk2laud8" path="res://scenes/Player/Player.tscn" id="2_l0vm2"]
 [ext_resource type="Texture2D" uid="uid://rvo5ilw70vlq" path="res://assets/sprites/Sovjet/green.png" id="2_pcuah"]
