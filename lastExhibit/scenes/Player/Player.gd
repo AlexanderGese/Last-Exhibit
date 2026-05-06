@@ -72,6 +72,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	_handle_escape()
 
+func heal(amount: float) -> void:
+	save.hp = min(save.hp + amount, save.max_hp)
+	SaveManager.save_all(0)
+
+
 # ── Gravity ──
 
 func _apply_gravity(delta: float) -> void:

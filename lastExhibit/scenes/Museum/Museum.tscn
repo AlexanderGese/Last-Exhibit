@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://fassw5kr27wl" path="res://scenes/Museum/Museum.gd" id="1_bicjn"]
 [ext_resource type="PackedScene" uid="uid://botawtk2laud8" path="res://scenes/Player/Player.tscn" id="1_f4n76"]
+[ext_resource type="PackedScene" uid="uid://c2xp0jmnqddkc" path="res://custom_nodes/ItemPickUp/ItemPickup.tscn" id="7_du6iq"]
+[ext_resource type="Resource" uid="uid://cyowi2xut030q" path="res://inventory/items/beverage/test_drink.tres" id="8_lfxre"]
 [ext_resource type="PackedScene" uid="uid://c6ltpf5bt0im1" path="res://scenes/Museum/basement/basement.tscn" id="84_nwe6r"]
 [ext_resource type="PackedScene" uid="uid://cu8hje1itntum" path="res://scenes/Museum/floor0/floor0.tscn" id="85_5p4s7"]
 [ext_resource type="PackedScene" uid="uid://3pkqx4vhy7r" path="res://scenes/Museum/floor1/floor1.tscn" id="86_02od8"]
@@ -36,3 +38,7 @@ position = Vector2(-12, -1329)
 
 [node name="Floor2" parent="Mueseum Floors" unique_id=1827805727 instance=ExtResource("87_fy47d")]
 position = Vector2(-12, -2001)
+
+[node name="ItemPickup" parent="." unique_id=1858323732 instance=ExtResource("7_du6iq")]
+position = Vector2(-318, -258)
+item = ExtResource("8_lfxre")

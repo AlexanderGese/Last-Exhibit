@@ -28,6 +28,28 @@ func load_all(slot: int) -> void:
 
 # ── Inventory façade — alle Mutationen laufen hier durch und emiten Node-Signal ──
 
+func use_item(index: int) -> bool:
+	var slot = inventory.slots[index]
+	if slot == null:
+		return false
+	
+	var item: Item = slot.item
+	if item.type != Item.Type.CONSUMABLE:
+		return false
+	
+	if item.heal_amount > 0:
+		var player = get_tree().get_first_node_in_group("player")
+		if player and player.has_method("heal"):
+			player.heal(item.heal_amount)
+	
+	slot.qty -= 1
+	if slot.qty <= 0:
+		inventory.slots[index] = null
+	
+	inventory_changed.emit()
+	return true
+
+
 func add_item(item: Item, qty: int = 1) -> bool:
 	var ok := inventory.add_item(item, qty)
 	if ok:

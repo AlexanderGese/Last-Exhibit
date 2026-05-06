@@ -31,4 +31,11 @@ func refresh() -> void:
 func _input(event: InputEvent) -> void:
 	for i in 7:
 		if event.is_action_pressed("hotkey_%d" % (i + 1)):
-			SaveManager.equip(i)
+			var slot = SaveManager.inventory.slots[i]
+			if slot == null:
+				continue
+			# Consumable → trinken, sonst → equippen
+			if slot.item.type == Item.Type.CONSUMABLE:
+				SaveManager.use_item(i)
+			else:
+				SaveManager.equip_from_inventory(i)
