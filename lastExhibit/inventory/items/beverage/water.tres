@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cfiu1pgt5kg7p"]
+
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_5xl2w"]
+
+[resource]
+script = ExtResource("1_5xl2w")
+id = "water"
+name = "Water"
+type = 6
+stackable = true
+max_stack = 10
+heal_amount = 10.0
+metadata/_custom_type_script = "uid://d4c671jpgfict"
