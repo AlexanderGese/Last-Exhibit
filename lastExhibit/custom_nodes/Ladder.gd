@@ -2,6 +2,7 @@ extends Area2D
 
 var is_in_area: bool = false
 var player_ref: CharacterBody2D = null
+var size
 
 func _process(delta: float) -> void:
 	if is_in_area and player_ref:

@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://bb6jnixjtju7k" path="res://custom_nodes/Ladder.gd" id="1_8sj1e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ju4t5"]
-size = Vector2(29, 327)
+size = Vector2(29, 176.5)
 
-[node name="Node2D" type="Area2D" unique_id=993070367]
+[node name="Ladder" type="Area2D" unique_id=993070367]
 script = ExtResource("1_8sj1e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=325765296]
-position = Vector2(4.5, 12)
+position = Vector2(15, -87)
 shape = SubResource("RectangleShape2D_ju4t5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

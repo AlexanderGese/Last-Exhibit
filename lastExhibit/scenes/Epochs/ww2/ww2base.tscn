@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c8dirsjl2w5r4" path="res://assets/sprites/USBase/USBase5.png" id="11_gnth1"]
 [ext_resource type="Texture2D" uid="uid://bwdanmko38dy4" path="res://assets/sprites/USBase/USBaseBuilding.png" id="12_qe73m"]
 [ext_resource type="Texture2D" uid="uid://dlax8y5q06jsd" path="res://assets/sprites/USBase/USBaseDetails2.png" id="13_gnth1"]
+[ext_resource type="PackedScene" uid="uid://p601uv7xjfyc" path="res://custom_nodes/Ladder.tscn" id="17_erw15"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ys555"]
 texture = ExtResource("2_r5ffj")
@@ -734,3 +735,50 @@ tile_set = SubResource("TileSet_7ccri")
 
 [node name="Player" parent="." unique_id=229592850 instance=ExtResource("5_a8ufs")]
 position = Vector2(0, -73)
+
+[node name="Ladders" type="Node2D" parent="." unique_id=120280735]
+
+[node name="Ladder" parent="Ladders" unique_id=993070367 instance=ExtResource("17_erw15")]
+position = Vector2(4949, -33)
+
+[node name="Ladder6" parent="Ladders" unique_id=2103101669 instance=ExtResource("17_erw15")]
+position = Vector2(5516, -12)
+
+[node name="Ladder7" parent="Ladders" unique_id=1372446499 instance=ExtResource("17_erw15")]
+position = Vector2(5621, -170)
+
+[node name="Ladder8" parent="Ladders" unique_id=1548762409 instance=ExtResource("17_erw15")]
+position = Vector2(5621, -237)
+
+[node name="Ladder9" parent="Ladders" unique_id=467115891 instance=ExtResource("17_erw15")]
+position = Vector2(5584, 138)
+
+[node name="Ladder11" parent="Ladders" unique_id=1049325016 instance=ExtResource("17_erw15")]
+position = Vector2(5426, 375)
+
+[node name="Ladder12" parent="Ladders" unique_id=1347930580 instance=ExtResource("17_erw15")]
+position = Vector2(5426, 550)
+
+[node name="Ladder10" parent="Ladders" unique_id=234532560 instance=ExtResource("17_erw15")]
+position = Vector2(5586, 317)
+
+[node name="Ladder2" parent="Ladders" unique_id=341174557 instance=ExtResource("17_erw15")]
+position = Vector2(4206, 372)
+
+[node name="Ladder13" parent="Ladders" unique_id=934316306 instance=ExtResource("17_erw15")]
+position = Vector2(4307, 560)
+
+[node name="Ladder14" parent="Ladders" unique_id=474549441 instance=ExtResource("17_erw15")]
+position = Vector2(4304, 736)
+
+[node name="Ladder3" parent="Ladders" unique_id=2025048443 instance=ExtResource("17_erw15")]
+position = Vector2(4755, 140)
+
+[node name="Ladder4" parent="Ladders" unique_id=353410689 instance=ExtResource("17_erw15")]
+position = Vector2(4753, 294)
+
+[node name="Ladder5" parent="Ladders" unique_id=1573186728 instance=ExtResource("17_erw15")]
+position = Vector2(5135, 647)
+
+[node name="Ladder15" parent="Ladders" unique_id=908006439 instance=ExtResource("17_erw15")]
+position = Vector2(804, -43)
