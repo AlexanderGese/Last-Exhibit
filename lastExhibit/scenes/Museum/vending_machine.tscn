@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://jvkbbr8xytdv"]
+
+[ext_resource type="Script" uid="uid://c1ev761egf8wg" path="res://scenes/Museum/vending_machine.gd" id="1_d6dp8"]
+[ext_resource type="Texture2D" uid="uid://ra3mo8ealrrt" path="res://assets/sprites/museum/Verkaufsautomat.png" id="1_g1u6r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6dp8"]
+atlas = ExtResource("1_g1u6r")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we7h4"]
+atlas = ExtResource("1_g1u6r")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh1ag"]
+atlas = ExtResource("1_g1u6r")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suntt"]
+atlas = ExtResource("1_g1u6r")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wowa"]
+atlas = ExtResource("1_g1u6r")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysw6u"]
+atlas = ExtResource("1_g1u6r")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cof3"]
+atlas = ExtResource("1_g1u6r")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gnyop"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6dp8")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we7h4")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh1ag")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suntt")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wowa")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysw6u")
+}],
+"loop": true,
+"name": &"6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7cof3")
+}],
+"loop": true,
+"name": &"7",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1u6r"]
+size = Vector2(42, 63)
+
+[node name="VendingMachine" type="Node2D" unique_id=201981395]
+script = ExtResource("1_d6dp8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1378586849]
+position = Vector2(16, -32)
+sprite_frames = SubResource("SpriteFrames_gnyop")
+animation = &"7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D" unique_id=163615467]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_g1u6r")
