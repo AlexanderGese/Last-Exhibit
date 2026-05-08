@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dsdagtqf14q7l"]
+
+[ext_resource type="Texture2D" uid="uid://bhc086a7e1vjd" path="res://assets/sprites/museum/vendingmachine/redbull.png" id="1_c6l38"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_hyc5p"]
+
+[resource]
+script = ExtResource("1_hyc5p")
+id = "redbull"
+name = "Redbull"
+icon = ExtResource("1_c6l38")
+type = 6
+stackable = true
+max_stack = 5
+heal_amount = 25.0
+metadata/_custom_type_script = "uid://d4c671jpgfict"

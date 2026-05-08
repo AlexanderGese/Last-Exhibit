@@ -7,15 +7,15 @@ var hold_start := 0.0
 var is_holding := false
 var hold_completed := false
 var current:= 0
-var water
-var cola
-var spezi
-var redbull
-var monster
-var penner
-var player = SaveManager.player
 
-var items = [water,cola,spezi,redbull,monster,penner]
+const COLA = preload("res://inventory/items/beverage/cola.tres")
+const PENNER = preload("res://inventory/items/beverage/penner.tres")
+const REDBULL = preload("res://inventory/items/beverage/redbull.tres")
+const SPEZI = preload("res://inventory/items/beverage/spezi.tres")
+const WHITEMONSTER = preload("res://inventory/items/beverage/whitemonster.tres")
+const WATER = preload("res://inventory/items/beverage/water.tres")
+
+var items = [WATER,COLA,SPEZI,REDBULL,WHITEMONSTER,PENNER]
 var price = [10, 10, 15 , 20, 25, 50]
 
 
@@ -48,9 +48,10 @@ func _scrollen() -> void:
 	
 
 func _kaufen() -> void:
-	if player.money < price[current]:
+	SaveManager.player.money = 1000000
+	if SaveManager.player.money < price[current -1]:
 		return
-	var sold = SaveManager.add_item(items[current],1)
+	var sold = SaveManager.add_item(items[current -1],1)
 	if sold == true:
-		player.money =- price[current]
+		SaveManager.player.money =- price[current -1]
 	pass

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://b85h0iv4c1n16"]
+
+[ext_resource type="Texture2D" uid="uid://dn2h0rr6bh0an" path="res://assets/sprites/museum/vendingmachine/penner.png" id="1_jfa3d"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_ww4ta"]
+
+[resource]
+script = ExtResource("1_ww4ta")
+id = "penner"
+name = "Penner Granate"
+icon = ExtResource("1_jfa3d")
+type = 6
+stackable = true
+max_stack = 6
+heal_amount = 50.0
+metadata/_custom_type_script = "uid://d4c671jpgfict"
