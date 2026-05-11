@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://27ahgrkfcfg4"]
+
+[sub_resource type="GDScript" id="GDScript_84btl"]
+script/source = "
+@export var climb_speed: float = 100.0
+
+var on_ladder: bool = false
+var  player_collided: bool = false
+
+func _ready() -> void:
+	Area2D.body_entered.connect(_on_body_entered)
+	Area2D.body_exited.connect(_on_body_exited)
+	
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group(\"player\"):
+		player_collided = true
+
+
+func _on_body_exited(body: Node) -> void:
+	if body.is_in_group(\"player\"):
+		player_collided = false
+
+func _process(delta: float) -> void:
+	if not on_ladder:
+		return
+	
+	if player_collided and Input.is_action_just_pressed(\"up\"):
+		player.
+		
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yk0t4"]
+size = Vector2(25, 32)
+
+[node name="Leiter" type="Node2D" unique_id=1322786630]
+script = SubResource("GDScript_84btl")
+climb_speed = null
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1680777892]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=947912293]
+shape = SubResource("RectangleShape2D_yk0t4")

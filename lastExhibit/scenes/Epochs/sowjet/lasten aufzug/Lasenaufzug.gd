@@ -3,13 +3,13 @@ extends Area2D
 @export var floor_name: String = ""
 var player_collided: bool = false
 var aufzug: int = 0 
-var aufzugziel: int = 0
+var aufzugziel: int = 1
 const FLOOR_PX := {
-0: 0,     # ground
-1: 384,   # first
-2: 768,    # second
-3: 1152,   # third
-4: 1536    # fourth
+0: 1,     # ground
+1: 385,   # first
+2: 769,    # second
+3: 1153,   # third
+4: 1537    # fourth
 }
 
 var floor := 0
