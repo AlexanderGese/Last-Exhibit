@@ -48,10 +48,6 @@ func _scrollen() -> void:
 	
 
 func _kaufen() -> void:
-	SaveManager.player.money = 1000000
-	if SaveManager.player.money < price[current -1]:
-		return
-	var sold = SaveManager.add_item(items[current -1],1)
-	if sold == true:
-		SaveManager.player.money =- price[current -1]
-	pass
+	var ok = SaveManager.buy(price[current -1])
+	if ok:
+		SaveManager.add_item(items[current -1],1)

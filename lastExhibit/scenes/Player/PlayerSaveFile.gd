@@ -20,3 +20,9 @@ extends SaveFile
 func save(slot: int) -> void:
 	DirAccess.make_dir_absolute(SAVE_DIR)
 	ResourceSaver.save(self, SAVE_DIR + "slot_%d_PlayerSaveFile" % slot + EXT)
+
+func unlock(epoch: String) -> bool:
+	unlocked_epochs.append(epoch)
+	print("Unlocked: ")
+	print(epoch)
+	return true

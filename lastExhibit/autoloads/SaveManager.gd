@@ -6,8 +6,7 @@ signal item_dropped(item: Item)
 var player: PlayerSaveFile
 var museum: MuseumsSaveFile
 var achievements: AchievmentSaveFile
-
-var inventory: Inventory = preload("res://player_inventory.tres")
+var inventory: Inventory = preload("res://saves/player_inventory.tres")
 
 
 func _ready() -> void:
@@ -24,6 +23,16 @@ func load_all(slot: int) -> void:
 	museum = SaveFile.load_slot(slot, "MuseumsSaveFile") as MuseumsSaveFile
 	if museum == null:
 		museum = MuseumsSaveFile.new()
+
+func buy(price: float)-> bool:
+	if (price > player.money):
+		print("not enough money")
+		return false
+	else:
+		player.money -= price
+		save_all(0)
+		return true
+
 
 
 # ── Inventory façade — alle Mutationen laufen hier durch und emiten Node-Signal ──
@@ -48,23 +57,17 @@ func use_item(index: int) -> bool:
 	
 	inventory_changed.emit()
 	return true
-
-
 func add_item(item: Item, qty: int = 1) -> bool:
 	var ok := inventory.add_item(item, qty)
 	if ok:
 		inventory_changed.emit()
 	return ok
-
 func remove_item(index: int) -> void:
 	inventory.remove_item(index)
 	inventory_changed.emit()
-
 func equip(index: int) -> void:
 	inventory.equip(index)
 	inventory_changed.emit()
-
-
 # Pickup-Logik:
 # - Equipment-Typ → wird sofort angelegt; ein bereits angelegtes Item gleichen Slots droppt.
 # - sonst → normal ins Inventar; wenn voll = false (Pickup bleibt liegen).
@@ -82,8 +85,6 @@ func try_pickup(item: Item) -> bool:
 	if ok:
 		inventory_changed.emit()
 	return ok
-
-
 # Wirft 1 Stück aus Slot. Spawnt es als Pickup (Player hört auf item_dropped).
 func drop_item(slot_index: int) -> void:
 	var slot = inventory.slots[slot_index]
