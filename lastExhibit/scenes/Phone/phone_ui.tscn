@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://brb5y8ajuwh3o"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xju7q"]
+
+[node name="PhoneUI" type="CanvasLayer" unique_id=661383744]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1222517584]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.654902)
+
+[node name="PhoneFrame" type="TextureRect" parent="." unique_id=1702211997]
+anchors_preset = -1
+anchor_left = 0.3625
+anchor_top = 0.08148148
+anchor_right = 0.6375
+anchor_bottom = 0.8962963
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_xju7q")
+metadata/_edit_use_anchors_ = true
+
+[node name="Screen" type="Control" parent="PhoneFrame" unique_id=1993539718]
+layout_mode = 1
+anchor_left = 0.09090909
+anchor_top = 0.027272727
+anchor_right = 0.92424244
+anchor_bottom = 0.90909094
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HomeButton" type="Button" parent="PhoneFrame" unique_id=404873099]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.37500003
+anchor_bottom = 0.6
+offset_left = 232.0
+offset_top = 792.0
+offset_right = 97.999985
+offset_bottom = 320.0
