@@ -190,6 +190,12 @@ func take_damage(damage: float) -> void:
 func _on_timer_timeout() -> void:
 	SaveManager.save_all(0)
 
+func bounce(force: float) -> void:
+	velocity.y = force
+	is_jumping = false 
+	jump_timer = 0.0
+	coyote_timer = 0.0
+
 func _handle_escape() -> void:
 	if Input.is_action_just_pressed("escape"):
 		if get_tree().paused:

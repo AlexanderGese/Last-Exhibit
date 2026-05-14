@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://caw1d3m3xhedi" path="res://assets/sprites/USBase/USBase_DetailsSmall.png" id="1_7ccri"]
 [ext_resource type="Script" uid="uid://bp783kopg6swf" path="res://scenes/Epochs/ww2/ww_2_base.gd" id="1_8qf3h"]
 [ext_resource type="Texture2D" uid="uid://cm56bihfme4m1" path="res://assets/sprites/USBase/UsBase_1.png" id="2_8qf3h"]
-[ext_resource type="PackedScene" path="res://scenes/Epochs/ww2/barrel_platform.tscn" id="2_ihxpt"]
+[ext_resource type="PackedScene" uid="uid://ddsqjcnxmar1u" path="res://scenes/Epochs/ww2/barrel_platform.tscn" id="2_ihxpt"]
 [ext_resource type="Texture2D" uid="uid://bvtieqj62nfvw" path="res://assets/sprites/USBase/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 1/1.png" id="2_r5ffj"]
 [ext_resource type="Texture2D" uid="uid://68kqx2l6mp2j" path="res://assets/sprites/USBase/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 1/2.png" id="3_xrwat"]
 [ext_resource type="Texture2D" uid="uid://cr58uehvyfno3" path="res://assets/sprites/USBase/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 1/4.png" id="4_30mvp"]
@@ -991,6 +991,12 @@ position = Vector2(5135, 647)
 [node name="Ladder15" parent="Ladders" unique_id=908006439 instance=ExtResource("17_erw15")]
 position = Vector2(804, -43)
 
-[node name="Bouncy" parent="." unique_id=1794826131 instance=ExtResource("19_1nqjq")]
-position = Vector2(908, -43)
-bounce_force = -1000
+[node name="Bouncys" type="Node2D" parent="." unique_id=1162307801]
+
+[node name="Bouncy" parent="Bouncys" unique_id=593938528 instance=ExtResource("19_1nqjq")]
+position = Vector2(913, -39)
+bounce_force = -900.0
+
+[node name="Bouncy2" parent="Bouncys" unique_id=1567697815 instance=ExtResource("19_1nqjq")]
+position = Vector2(1967, -37)
+bounce_force = -900.0

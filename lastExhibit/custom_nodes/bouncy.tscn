@@ -3,13 +3,21 @@
 [ext_resource type="Script" uid="uid://bhev23nq6yir3" path="res://custom_nodes/bouncy.gd" id="1_esurm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ju5as"]
-size = Vector2(27, 7)
+size = Vector2(30, 3)
 
-[node name="Bouncy" type="Area2D" unique_id=1794826131]
+[node name="Bouncy" type="Node2D" unique_id=593938528]
 script = ExtResource("1_esurm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=589079878]
-position = Vector2(3.5, -3.5)
+[node name="LowerArea" type="Area2D" parent="." unique_id=1220679317]
+
+[node name="LowerShape" type="CollisionShape2D" parent="LowerArea" unique_id=1618252045]
 shape = SubResource("RectangleShape2D_ju5as")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="UpperArea" type="Area2D" parent="." unique_id=3315957]
+
+[node name="UpperArea" type="CollisionShape2D" parent="UpperArea" unique_id=13534556]
+position = Vector2(0, -69)
+shape = SubResource("RectangleShape2D_ju5as")
+
+[connection signal="body_entered" from="LowerArea" to="LowerArea" method="_on_body_entered"]
+[connection signal="body_entered" from="UpperArea" to="UpperArea" method="_on_body_entered"]
