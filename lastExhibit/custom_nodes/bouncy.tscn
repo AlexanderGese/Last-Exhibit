@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bcmucfj6jywxl"]
+
+[ext_resource type="Script" uid="uid://bhev23nq6yir3" path="res://custom_nodes/bouncy.gd" id="1_esurm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ju5as"]
+size = Vector2(27, 7)
+
+[node name="Bouncy" type="Area2D" unique_id=1794826131]
+script = ExtResource("1_esurm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=589079878]
+position = Vector2(3.5, -3.5)
+shape = SubResource("RectangleShape2D_ju5as")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
