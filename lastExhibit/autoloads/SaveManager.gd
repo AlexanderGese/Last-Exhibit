@@ -11,6 +11,7 @@ var inventory: Inventory = preload("res://saves/player_inventory.tres")
 
 func _ready() -> void:
 	load_all(0)
+	player.money = 100000
 
 func save_all(slot: int) -> void:
 	player.save(slot)
