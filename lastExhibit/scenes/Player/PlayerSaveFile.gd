@@ -10,7 +10,7 @@ extends SaveFile
 @export var money: int = 100
 @export var time_shards: int = 0
 # -- Epochen ------------------------------
-@export var unlocked_epochs: Array[String] = ["sowjet"]
+@export var unlocked_epochs: Array[String] = ["sowjet","ww2"]
 
 # -- Inventory ---------------
 @export var equipped: Dictionary = {}

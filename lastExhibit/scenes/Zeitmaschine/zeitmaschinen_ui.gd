@@ -64,7 +64,6 @@ func _update_pins(value: float) -> void:
 				pin.texture = PIN_LOCKED
 		else:
 			pin.visible = false
-
 func _on_pin_clicked(epoch: String) -> void:
 	var unlocked = SaveManager.player.unlocked_epochs
 	if not epoch in unlocked:
@@ -83,12 +82,15 @@ func _on_pin_clicked(epoch: String) -> void:
 			get_tree().change_scene_to_file("res://scenes/Epochs/Japan/samurai.tscn")
 		_:
 			push_warning("Keine Scene für Epoche: %s" % epoch)
-
+			
+			
+			
 func _on_pin_sowjet_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		_on_pin_clicked("sowjet")
 
 func _on_pin_ww2_gui_input(event: InputEvent) -> void:
+	print("WW2 input received: ", event)
 	if event is InputEventMouseButton and event.pressed:
 		_on_pin_clicked("ww2")
 
