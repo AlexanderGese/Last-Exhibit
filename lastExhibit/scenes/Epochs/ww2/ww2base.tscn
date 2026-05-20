@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bwdanmko38dy4" path="res://assets/sprites/USBase/USBaseBuilding.png" id="12_qe73m"]
 [ext_resource type="Texture2D" uid="uid://dlax8y5q06jsd" path="res://assets/sprites/USBase/USBaseDetails2.png" id="13_gnth1"]
 [ext_resource type="PackedScene" uid="uid://p601uv7xjfyc" path="res://custom_nodes/Ladder.tscn" id="17_erw15"]
-[ext_resource type="PackedScene" uid="uid://bcmucfj6jywxl" path="res://custom_nodes/bouncy.tscn" id="19_1nqjq"]
+[ext_resource type="PackedScene" path="res://custom_nodes/bouncy.tscn" id="19_1nqjq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ys555"]
 texture = ExtResource("2_r5ffj")
