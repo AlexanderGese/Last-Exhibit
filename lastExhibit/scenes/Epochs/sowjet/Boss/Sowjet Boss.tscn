@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://d7gek8sbldnx"]
+
+[ext_resource type="Texture2D" uid="uid://dhkistt88j8p3" path="res://test_assets/New Piskel.png" id="1_g8lfv"]
+[ext_resource type="Script" uid="uid://b1gwad4p2ogo8" path="res://scenes/Epochs/sowjet/Boss/Sowjet Boss.gd" id="1_o84lr"]
+[ext_resource type="Script" uid="uid://dq5h6yydckjc1" path="res://demo/agents/scripts/hurtbox.gd" id="2_yns5m"]
+[ext_resource type="Script" uid="uid://dntc3c582m5w8" path="res://demo/agents/scripts/hitbox.gd" id="3_7tabu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnu86"]
+size = Vector2(24, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fkpll"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_g8lfv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8lfv"]
+size = Vector2(24, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca7mp"]
+size = Vector2(24, 58)
+
+[node name="Sovjet Boss" type="CharacterBody2D" unique_id=1713070893]
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("1_o84lr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=573528024]
+position = Vector2(-2, 3)
+shape = SubResource("RectangleShape2D_xnu86")
+one_way_collision = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=956624141]
+sprite_frames = SubResource("SpriteFrames_fkpll")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=2137356085]
+script = ExtResource("2_yns5m")
+metadata/_custom_type_script = "uid://dq5h6yydckjc1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1966787450]
+position = Vector2(-2, 2.5)
+shape = SubResource("RectangleShape2D_g8lfv")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=701809213]
+script = ExtResource("3_7tabu")
+metadata/_custom_type_script = "uid://dntc3c582m5w8"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=461521331]
+position = Vector2(-2, 3)
+shape = SubResource("RectangleShape2D_ca7mp")
+
+[node name="Molotov spawn" type="Marker2D" parent="." unique_id=517232758]
+position = Vector2(19, -14)
+
+[node name="Vodka atem Spawn" type="Marker2D" parent="." unique_id=1470432380]
+position = Vector2(6, -20)
+
+[node name="Bullet spawn" type="Marker2D" parent="." unique_id=891704831]
+position = Vector2(21, -7)
+
+[node name="Granaten spawn" type="Marker2D" parent="." unique_id=2001713722]
+position = Vector2(21, -7)

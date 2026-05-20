@@ -1,0 +1,390 @@
+[gd_scene format=3 uid="uid://brb5y8ajuwh3o"]
+
+[ext_resource type="Script" uid="uid://jdu8cpa0p32s" path="res://scenes/Phone/phone_ui.gd" id="1_5rf7t"]
+[ext_resource type="Texture2D" uid="uid://dkqdmp18t82x8" path="res://assets/ui/phone/phone.png" id="1_udvll"]
+[ext_resource type="Script" uid="uid://d1tyei1arrqql" path="res://scenes/Phone/phone_frame.gd" id="2_3swiv"]
+[ext_resource type="Texture2D" uid="uid://dq6gm2srva4u6" path="res://assets/kenney_ui/Panel/panel-014.png" id="2_q0gno"]
+[ext_resource type="Texture2D" uid="uid://drw35krbsrbu0" path="res://assets/ui/phone/großanzeigen_icon.png" id="2_tf1yw"]
+[ext_resource type="Texture2D" uid="uid://bor4xyr0q0qow" path="res://assets/ui/phone/flappy_icon.png" id="3_5cgul"]
+[ext_resource type="Texture2D" uid="uid://bv6wmv7dccbmm" path="res://assets/ui/phone/tor_icon.png" id="4_1g3al"]
+[ext_resource type="Texture2D" uid="uid://br5m11380jvnr" path="res://assets/ui/phone/museum_icon.png" id="6_to23u"]
+[ext_resource type="Texture2D" uid="uid://dx206sh5r57vc" path="res://assets/ui/phone/revolut_icon.png" id="7_gf06w"]
+[ext_resource type="Texture2D" uid="uid://6jiq1rt404ug" path="res://assets/ui/phone/messages_icon.png" id="8_s5pjt"]
+[ext_resource type="Texture2D" uid="uid://bo0d6ueufe6w1" path="res://assets/ui/phone/settings_icon.png" id="9_115e8"]
+[ext_resource type="Texture2D" uid="uid://cpbbbe5oooy5" path="res://assets/ui/phone/phoneversions/großanzeigen.png" id="10_dptkc"]
+[ext_resource type="Texture2D" uid="uid://bmx2rj4lq70c6" path="res://assets/ui/phone/phoneversions/flappy.png" id="11_3swiv"]
+[ext_resource type="Texture2D" uid="uid://b7g4giq1e0cn5" path="res://assets/ui/phone/phoneversions/tor.png" id="12_5rf7t"]
+[ext_resource type="Texture2D" uid="uid://d1qp1uasg4x5n" path="res://assets/ui/phone/phoneversions/museum.png" id="13_lsvv5"]
+[ext_resource type="Texture2D" uid="uid://p835bqrw2ep5" path="res://assets/ui/phone/phoneversions/revolut.png" id="14_v3rhe"]
+[ext_resource type="Texture2D" uid="uid://bqwjcc8ks62pb" path="res://assets/ui/phone/phoneversions/messages.png" id="15_pft75"]
+[ext_resource type="Texture2D" uid="uid://0ftnyj4hx7yo" path="res://assets/ui/phone/phoneversions/settings.png" id="16_isa1o"]
+
+[node name="PhoneUI" type="CanvasLayer" unique_id=661383744]
+script = ExtResource("1_5rf7t")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1222517584]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.654902)
+
+[node name="PhoneFrame" type="TextureRect" parent="." unique_id=1702211997]
+anchors_preset = -1
+anchor_left = 0.2625
+anchor_top = 0.014814815
+anchor_right = 0.6875
+anchor_bottom = 0.9851851
+offset_left = 3.0517578e-05
+offset_right = -163.19995
+offset_bottom = -209.59998
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_udvll")
+script = ExtResource("2_3swiv")
+metadata/_edit_use_anchors_ = true
+
+[node name="HomeScreen" type="Control" parent="PhoneFrame" unique_id=1993539718]
+layout_mode = 1
+anchor_left = 0.17524508
+anchor_top = 0.08874047
+anchor_right = 0.83088213
+anchor_bottom = 0.7891222
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PhoneFrame/HomeScreen" unique_id=251240167]
+layout_mode = 0
+anchor_left = 0.052336454
+anchor_top = 0.1280654
+anchor_right = 0.9495329
+anchor_bottom = 0.794278
+offset_right = -230.4
+offset_bottom = -234.72
+scale = Vector2(2.5, 2.5)
+metadata/_edit_use_anchors_ = true
+
+[node name="FirstRow" type="HBoxContainer" parent="PhoneFrame/HomeScreen/VBoxContainer" unique_id=924802112]
+layout_mode = 2
+
+[node name="Grossanzeigen" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/FirstRow" unique_id=1061513453]
+layout_mode = 2
+texture = ExtResource("2_tf1yw")
+expand_mode = 3
+
+[node name="Button" type="Button" parent="PhoneFrame/HomeScreen/VBoxContainer/FirstRow/Grossanzeigen" unique_id=282595881]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Flappy" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/FirstRow" unique_id=1400346126]
+layout_mode = 2
+texture = ExtResource("3_5cgul")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="PhoneFrame/HomeScreen/VBoxContainer/FirstRow/Flappy" unique_id=2037604730]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tor" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/FirstRow" unique_id=121335644]
+layout_mode = 2
+texture = ExtResource("4_1g3al")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="PhoneFrame/HomeScreen/VBoxContainer/FirstRow/Tor" unique_id=677593016]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect4" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/FirstRow" unique_id=1559583531]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("2_q0gno")
+
+[node name="SecondRow" type="HBoxContainer" parent="PhoneFrame/HomeScreen/VBoxContainer" unique_id=1783907982]
+layout_mode = 2
+
+[node name="Museum" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/SecondRow" unique_id=375567449]
+layout_mode = 2
+texture = ExtResource("6_to23u")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="PhoneFrame/HomeScreen/VBoxContainer/SecondRow/Museum" unique_id=944819654]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Revolut" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/SecondRow" unique_id=711502145]
+layout_mode = 2
+texture = ExtResource("7_gf06w")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="PhoneFrame/HomeScreen/VBoxContainer/SecondRow/Revolut" unique_id=949799975]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Messages" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/SecondRow" unique_id=555262028]
+layout_mode = 2
+texture = ExtResource("8_s5pjt")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="PhoneFrame/HomeScreen/VBoxContainer/SecondRow/Messages" unique_id=1668688315]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect4" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/SecondRow" unique_id=471978773]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("2_q0gno")
+
+[node name="ThirdRow" type="HBoxContainer" parent="PhoneFrame/HomeScreen/VBoxContainer" unique_id=1096086799]
+layout_mode = 2
+
+[node name="Settings" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/ThirdRow" unique_id=1656210291]
+layout_mode = 2
+texture = ExtResource("9_115e8")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="PhoneFrame/HomeScreen/VBoxContainer/ThirdRow/Settings" unique_id=498616592]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/ThirdRow" unique_id=1720285501]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("2_q0gno")
+
+[node name="TextureRect3" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/ThirdRow" unique_id=1776799769]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("2_q0gno")
+
+[node name="TextureRect4" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/ThirdRow" unique_id=502080228]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("2_q0gno")
+
+[node name="Großanzeigen" type="TextureRect" parent="." unique_id=929139565]
+visible = false
+anchors_preset = -1
+anchor_left = 0.2625
+anchor_top = 0.014814815
+anchor_right = 0.6875
+anchor_bottom = 0.9851851
+offset_left = 3.0517578e-05
+offset_right = -163.19995
+offset_bottom = -209.59998
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("10_dptkc")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Großanzeigen" unique_id=1013552329]
+layout_mode = 0
+offset_left = 124.799995
+offset_top = 196.79999
+offset_right = 524.8
+offset_bottom = 606.39996
+
+[node name="Label" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=993775881]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label" unique_id=1155004095]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Label2" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=2018676573]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label2" unique_id=73738716]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Label3" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=1479849202]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label3" unique_id=696019784]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Label4" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=439696550]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label4" unique_id=1761536252]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Label5" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=1206361604]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label5" unique_id=1093662990]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Label6" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=848545475]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label6" unique_id=282727784]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Label7" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=1431744656]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label7" unique_id=1949852387]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Flappybird" type="TextureRect" parent="." unique_id=1603299996]
+visible = false
+anchors_preset = -1
+anchor_left = 0.2625
+anchor_top = 0.014814815
+anchor_right = 0.6875
+anchor_bottom = 0.9851851
+offset_left = 3.0517578e-05
+offset_right = -163.19995
+offset_bottom = -209.59998
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("11_3swiv")
+metadata/_edit_use_anchors_ = true
+
+[node name="Tor" type="TextureRect" parent="." unique_id=1653846611]
+visible = false
+anchors_preset = -1
+anchor_left = 0.2625
+anchor_top = 0.014814815
+anchor_right = 0.6875
+anchor_bottom = 0.9851851
+offset_left = 3.0517578e-05
+offset_right = -163.19995
+offset_bottom = -209.59998
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("12_5rf7t")
+metadata/_edit_use_anchors_ = true
+
+[node name="Museum" type="TextureRect" parent="." unique_id=898865952]
+visible = false
+anchors_preset = -1
+anchor_left = 0.2625
+anchor_top = 0.014814815
+anchor_right = 0.6875
+anchor_bottom = 0.9851851
+offset_left = 3.0517578e-05
+offset_right = -163.19995
+offset_bottom = -209.59998
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("13_lsvv5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Revolut" type="TextureRect" parent="." unique_id=576615957]
+visible = false
+anchors_preset = -1
+anchor_left = 0.2625
+anchor_top = 0.014814815
+anchor_right = 0.6875
+anchor_bottom = 0.9851851
+offset_left = 3.0517578e-05
+offset_right = -163.19995
+offset_bottom = -209.59998
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("14_v3rhe")
+metadata/_edit_use_anchors_ = true
+
+[node name="Messages" type="TextureRect" parent="." unique_id=2076542719]
+visible = false
+anchors_preset = -1
+anchor_left = 0.2625
+anchor_top = 0.014814815
+anchor_right = 0.6875
+anchor_bottom = 0.9851851
+offset_left = 3.0517578e-05
+offset_right = -163.19995
+offset_bottom = -209.59998
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("15_pft75")
+metadata/_edit_use_anchors_ = true
+
+[node name="Settings" type="TextureRect" parent="." unique_id=2075006464]
+visible = false
+anchors_preset = -1
+anchor_left = 0.2625
+anchor_top = 0.014814815
+anchor_right = 0.6875
+anchor_bottom = 0.9851851
+offset_left = 3.0517578e-05
+offset_right = -163.19995
+offset_bottom = -209.59998
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("16_isa1o")
+metadata/_edit_use_anchors_ = true
+
+[node name="HomeButton" type="Button" parent="." unique_id=404873099]
+anchors_preset = -1
+anchor_left = 0.45989582
+anchor_top = 0.8037037
+anchor_right = 0.49114582
+anchor_bottom = 0.86572653
+offset_left = -1.0
+offset_top = 21.0
+offset_right = -1.0
+offset_bottom = 21.0
+text = "Press"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="PhoneFrame/HomeScreen/VBoxContainer/FirstRow/Grossanzeigen/Button" to="PhoneFrame" method="großanzeigen"]
+[connection signal="pressed" from="PhoneFrame/HomeScreen/VBoxContainer/FirstRow/Flappy/Button" to="PhoneFrame" method="flappy"]
+[connection signal="pressed" from="PhoneFrame/HomeScreen/VBoxContainer/FirstRow/Tor/Button" to="PhoneFrame" method="button"]
+[connection signal="pressed" from="PhoneFrame/HomeScreen/VBoxContainer/SecondRow/Museum/Button" to="PhoneFrame" method="museum"]
+[connection signal="pressed" from="PhoneFrame/HomeScreen/VBoxContainer/SecondRow/Revolut/Button" to="PhoneFrame" method="revolut"]
+[connection signal="pressed" from="PhoneFrame/HomeScreen/VBoxContainer/SecondRow/Messages/Button" to="PhoneFrame" method="messages"]
+[connection signal="pressed" from="PhoneFrame/HomeScreen/VBoxContainer/ThirdRow/Settings/Button" to="PhoneFrame" method="settings"]
+[connection signal="pressed" from="HomeButton" to="." method="_on_home_button_pressed"]

@@ -197,6 +197,8 @@ func bounce(force: float) -> void:
 	coyote_timer = 0.0
 
 func _handle_escape() -> void:
+	if Input.is_action_just_pressed("phone"):
+		$PhoneUI.visible = !$PhoneUI.visible
 	if Input.is_action_just_pressed("escape"):
 		if get_tree().paused:
 			ESCAPEMENUINSTANCE.hide_menu()
