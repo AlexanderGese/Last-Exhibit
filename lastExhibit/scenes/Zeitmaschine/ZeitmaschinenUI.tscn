@@ -43,16 +43,6 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_6jawc")
 stretch_mode = 3
 
-[node name="Pin_WW2" type="TextureRect" parent="NinePatchRect/MapTexture" unique_id=1667893377]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.10714286
-anchor_top = 0.30921054
-anchor_right = 0.16428572
-anchor_bottom = 0.41447368
-texture = ExtResource("2_ektvh")
-metadata/_edit_use_anchors_ = true
-
 [node name="Pin_Sowjet" type="TextureRect" parent="NinePatchRect/MapTexture" unique_id=875108023]
 layout_mode = 1
 anchors_preset = -1
@@ -60,6 +50,16 @@ anchor_left = 0.49071428
 anchor_top = 0.23289473
 anchor_right = 0.5478571
 anchor_bottom = 0.3381579
+texture = ExtResource("2_ektvh")
+metadata/_edit_use_anchors_ = true
+
+[node name="Pin_WW2" type="TextureRect" parent="NinePatchRect/MapTexture" unique_id=1678650895]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.102142856
+anchor_top = 0.3026316
+anchor_right = 0.15928566
+anchor_bottom = 0.40789473
 texture = ExtResource("2_ektvh")
 metadata/_edit_use_anchors_ = true
 
@@ -126,8 +126,8 @@ metadata/_edit_use_anchors_ = true
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1172095452]
 position = Vector2(960, 543)
 
-[connection signal="gui_input" from="NinePatchRect/MapTexture/Pin_WW2" to="." method="_on_pin_ww_2_gui_input"]
 [connection signal="gui_input" from="NinePatchRect/MapTexture/Pin_Sowjet" to="." method="_on_pin_sowjet_gui_input"]
+[connection signal="gui_input" from="NinePatchRect/MapTexture/Pin_WW2" to="." method="_on_pin_ww2_gui_input"]
 [connection signal="gui_input" from="NinePatchRect/MapTexture/Pin_Mittelalter" to="." method="_on_pin_mittelalter_gui_input"]
 [connection signal="gui_input" from="NinePatchRect/MapTexture/Pin_Samurai" to="." method="_on_pin_samurai_gui_input"]
 [connection signal="gui_input" from="NinePatchRect/MapTexture/Pin_Inka" to="." method="_on_pin_inka_gui_input"]
