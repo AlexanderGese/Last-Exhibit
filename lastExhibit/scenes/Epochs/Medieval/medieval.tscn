@@ -1039,4 +1039,4 @@ autoplay = "default"
 frame_progress = 0.045151908
 
 [node name="Player" parent="." unique_id=229592850 instance=ExtResource("17_nklcl")]
-position = Vector2(-1155, -83)
+position = Vector2(3900, -187)
