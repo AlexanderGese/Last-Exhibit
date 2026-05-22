@@ -5,7 +5,6 @@ const JUMP_VELOCITY := -400.0
 const PIPE_SPEED := 200.0
 const PIPE_GAP := 190
 const PIPE_SCENE := preload("res://scenes/Phone/pipe.tscn")
-@onready var money:int 
 
 @onready var bird: Control = $Bird
 @onready var pipes_container: Node2D = $Pipes
@@ -26,6 +25,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not is_playing or is_dead:
 		return
+		
 	
 	# Bird physics
 	bird_velocity += GRAVITY * delta
@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 	# Move pipes
 	for pipe in pipes_container.get_children():
 		pipe.position.x -= PIPE_SPEED * delta
-		if pipe.position.x < -100:
+		if pipe.position.x < 5:
 			pipe.queue_free()
 	
 	# Check bounds (top and bottom of screen)
@@ -74,9 +74,7 @@ func _die() -> void:
 	score_label.visible = false
 	pipe_spawn_timer.stop()
 	game_over_label.text = "Game Over!\nScore: %d\n[Leertaste] , for each 10 points you get 1 coin" % score
-	money = score / 10
-	SaveManager.player.money += money
-	money = 0
+	SaveManager.player.money += score / 10
 	game_over_label.visible = true
 
 func _reset_game() -> void:
@@ -99,6 +97,6 @@ func _add_score() -> void:
 func _spawn_pipe() -> void:
 	var pipe = PIPE_SCENE.instantiate()
 	pipes_container.add_child(pipe)
-	pipe.position.x = size.x + 50
+	pipe.position.x = size.x - 35
 	var gap_center = randf_range(80, size.y - 80)
 	pipe.setup(gap_center, PIPE_GAP, size.y)

@@ -302,11 +302,6 @@ metadata/_edit_use_anchors_ = true
 [node name="Pipes" type="Node2D" parent="Flappybird/App" unique_id=1212480017]
 scale = Vector2(0.99999994, 0.99999994)
 
-[node name="Background" type="TextureRect" parent="Flappybird/App" unique_id=199570413]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Bird" type="Control" parent="Flappybird/App" unique_id=629496153]
 anchors_preset = 0
 offset_right = 40.0
