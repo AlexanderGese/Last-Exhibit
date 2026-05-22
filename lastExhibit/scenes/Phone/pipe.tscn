@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c86sckol7nuqv"]
+
+[ext_resource type="Script" uid="uid://cp0awx3vsoup2" path="res://scenes/Phone/pipe.gd" id="1_k7qp5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_623ka"]
+size = Vector2(46, 44)
+
+[node name="Pipe" type="Node2D" unique_id=858298629]
+script = ExtResource("1_k7qp5")
+
+[node name="TopPipe" type="ColorRect" parent="." unique_id=1163447125]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BottomPipe" type="ColorRect" parent="." unique_id=265945172]
+offset_top = 73.0
+offset_right = 40.0
+offset_bottom = 113.0
+
+[node name="ScoreArea" type="Area2D" parent="." unique_id=1278239512]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea" unique_id=699899072]
+position = Vector2(22, 56)
+shape = SubResource("RectangleShape2D_623ka")

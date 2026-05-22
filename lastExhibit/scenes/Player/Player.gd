@@ -44,6 +44,9 @@ var combo_count := 0
 var combo_queued := false
 var combo_reset_timer := 0.0
 
+# ui
+var is_inui:= false
+
 func _ready():
 	add_child(ESCAPEMENUINSTANCE)
 	save = SaveManager.player
@@ -65,7 +68,8 @@ func _on_item_dropped(item: Item) -> void:
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
-	_handle_jump(delta)
+	if !is_inui:
+		_handle_jump(delta)
 	_handle_movement(delta)
 	_handle_attack(delta)
 	_update_animation()
@@ -199,6 +203,7 @@ func bounce(force: float) -> void:
 func _handle_escape() -> void:
 	if Input.is_action_just_pressed("phone"):
 		$PhoneUI.visible = !$PhoneUI.visible
+		is_inui = !is_inui
 	if Input.is_action_just_pressed("escape"):
 		if get_tree().paused:
 			ESCAPEMENUINSTANCE.hide_menu()
