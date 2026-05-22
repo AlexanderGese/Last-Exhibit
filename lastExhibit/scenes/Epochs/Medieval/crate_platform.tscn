@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://btw85e87tyb71"]
+
+[ext_resource type="Texture2D" uid="uid://vhy4816qj3ej" path="res://assets/sprites/medieval/GandalfHardcore FREE Platformer Assets/GandalfHardcore FREE Platformer Assets/Decor.png" id="1_beq10"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kw14s"]
+size = Vector2(26, 6)
+
+[node name="CratePlatform" type="StaticBody2D" unique_id=752080552]
+
+[node name="Barrel" type="Sprite2D" parent="." unique_id=2012084114]
+position = Vector2(12, -16.5)
+texture = ExtResource("1_beq10")
+region_enabled = true
+region_rect = Rect2(34, 0, 27, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=542543517]
+position = Vector2(12, -29.5)
+shape = SubResource("RectangleShape2D_kw14s")
+one_way_collision = true
