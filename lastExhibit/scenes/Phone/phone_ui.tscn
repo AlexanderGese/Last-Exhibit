@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://p835bqrw2ep5" path="res://assets/ui/phone/phoneversions/revolut.png" id="14_v3rhe"]
 [ext_resource type="Texture2D" uid="uid://bqwjcc8ks62pb" path="res://assets/ui/phone/phoneversions/messages.png" id="15_pft75"]
 [ext_resource type="Texture2D" uid="uid://0ftnyj4hx7yo" path="res://assets/ui/phone/phoneversions/settings.png" id="16_isa1o"]
+[ext_resource type="Script" uid="uid://bb3yee78tsvqi" path="res://scenes/Phone/museum.gd" id="18_pft75"]
 
 [node name="PhoneUI" type="CanvasLayer" unique_id=661383744]
 script = ExtResource("1_5rf7t")
@@ -194,6 +195,62 @@ self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 texture = ExtResource("2_q0gno")
 
+[node name="Flappybird" type="TextureRect" parent="." unique_id=1603299996]
+visible = false
+anchors_preset = -1
+anchor_left = 0.2625
+anchor_top = 0.014814815
+anchor_right = 0.6875
+anchor_bottom = 0.9851851
+offset_left = 3.0517578e-05
+offset_right = -163.19995
+offset_bottom = -209.59998
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("11_3swiv")
+metadata/_edit_use_anchors_ = true
+
+[node name="App" type="Control" parent="Flappybird" unique_id=61106138]
+layout_mode = 1
+anchor_left = 0.17892149
+anchor_top = 0.21851145
+anchor_right = 0.82720584
+anchor_bottom = 0.7814886
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_pft75")
+metadata/_edit_use_anchors_ = true
+
+[node name="Pipes" type="Node2D" parent="Flappybird/App" unique_id=1212480017]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Bird" type="Control" parent="Flappybird/App" unique_id=629496153]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BirdTexture" type="TextureRect" parent="Flappybird/App/Bird" unique_id=957907068]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("14_lsvv5")
+expand_mode = 2
+
+[node name="Pipetimer" type="Timer" parent="Flappybird/App" unique_id=388359926]
+
+[node name="Gameover" type="Label" parent="Flappybird/App" unique_id=599185538]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Count" type="Label" parent="Flappybird/App" unique_id=1698572030]
+layout_mode = 0
+offset_right = 156.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 50
+
 [node name="Großanzeigen" type="TextureRect" parent="." unique_id=929139565]
 visible = false
 anchors_preset = -1
@@ -273,61 +330,6 @@ layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 
-[node name="Flappybird" type="TextureRect" parent="." unique_id=1603299996]
-anchors_preset = -1
-anchor_left = 0.2625
-anchor_top = 0.014814815
-anchor_right = 0.6875
-anchor_bottom = 0.9851851
-offset_left = 3.0517578e-05
-offset_right = -163.19995
-offset_bottom = -209.59998
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("11_3swiv")
-metadata/_edit_use_anchors_ = true
-
-[node name="App" type="Control" parent="Flappybird" unique_id=61106138]
-layout_mode = 1
-anchor_left = 0.17892149
-anchor_top = 0.21851145
-anchor_right = 0.82720584
-anchor_bottom = 0.7814886
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("14_pft75")
-metadata/_edit_use_anchors_ = true
-
-[node name="Pipes" type="Node2D" parent="Flappybird/App" unique_id=1212480017]
-scale = Vector2(0.99999994, 0.99999994)
-
-[node name="Bird" type="Control" parent="Flappybird/App" unique_id=629496153]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="BirdTexture" type="TextureRect" parent="Flappybird/App/Bird" unique_id=957907068]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("14_lsvv5")
-expand_mode = 2
-
-[node name="Pipetimer" type="Timer" parent="Flappybird/App" unique_id=388359926]
-
-[node name="Gameover" type="Label" parent="Flappybird/App" unique_id=599185538]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Count" type="Label" parent="Flappybird/App" unique_id=1698572030]
-layout_mode = 0
-offset_right = 156.0
-offset_bottom = 68.0
-theme_override_font_sizes/font_size = 50
-
 [node name="Tor" type="TextureRect" parent="." unique_id=1653846611]
 visible = false
 anchors_preset = -1
@@ -358,10 +360,121 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("13_lsvv5")
+script = ExtResource("18_pft75")
+metadata/_edit_use_anchors_ = true
+
+[node name="Gui" type="VBoxContainer" parent="Museum" unique_id=1512430612]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19240196
+anchor_top = 0.22041984
+anchor_right = 0.82107836
+anchor_bottom = 0.78721374
+theme_override_constants/separation = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="Dailymoney" type="ColorRect" parent="Museum/Gui" unique_id=685236629]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Museum/Gui/Dailymoney" unique_id=2116091492]
+layout_mode = 0
+anchor_left = 0.03317073
+anchor_top = 0.27200046
+anchor_right = 0.40878052
+anchor_bottom = 0.7320004
+theme_override_colors/font_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
+theme_override_font_sizes/font_size = 16
+text = "Your Daily Income:"
+metadata/_edit_use_anchors_ = true
+
+[node name="money" type="Label" parent="Museum/Gui/Dailymoney" unique_id=496552876]
+layout_mode = 0
+anchor_left = 0.40780488
+anchor_top = 0.32000047
+anchor_right = 0.50536585
+anchor_bottom = 0.78000045
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Dailyvisitors" type="ColorRect" parent="Museum/Gui" unique_id=533090642]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Museum/Gui/Dailyvisitors" unique_id=901610289]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03317073
+anchor_top = 0.27200046
+anchor_right = 0.40878052
+anchor_bottom = 0.7320004
+theme_override_colors/font_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
+theme_override_font_sizes/font_size = 16
+text = "Visitors per day:"
+metadata/_edit_use_anchors_ = true
+
+[node name="visitors" type="Label" parent="Museum/Gui/Dailyvisitors" unique_id=629868015]
+layout_mode = 0
+anchor_left = 0.3512195
+anchor_top = 0.3280005
+anchor_right = 0.44878048
+anchor_bottom = 0.78800046
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Reputation" type="ColorRect" parent="Museum/Gui" unique_id=1043450186]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Museum/Gui/Reputation" unique_id=1806934412]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035121918
+anchor_top = 0.27200046
+anchor_right = 0.4497561
+anchor_bottom = 0.7320004
+offset_right = -4.0
+theme_override_colors/font_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
+theme_override_font_sizes/font_size = 16
+text = "Museums Reputation:"
+metadata/_edit_use_anchors_ = true
+
+[node name="reputation" type="Label" parent="Museum/Gui/Reputation" unique_id=741287840]
+layout_mode = 0
+anchor_left = 0.46048778
+anchor_top = 0.30400047
+anchor_right = 0.5580487
+anchor_bottom = 0.76400054
+offset_right = 1.5258789e-05
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TicketPrice" type="ColorRect" parent="Museum/Gui" unique_id=1473588954]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Museum/Gui/TicketPrice" unique_id=1733324472]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03317073
+anchor_top = 0.27200046
+anchor_right = 0.40878052
+anchor_bottom = 0.7320004
+theme_override_colors/font_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
+theme_override_font_sizes/font_size = 16
+text = "Price per Ticket:"
+metadata/_edit_use_anchors_ = true
+
+[node name="price" type="Label" parent="Museum/Gui/TicketPrice" unique_id=665141229]
+layout_mode = 0
+anchor_left = 0.34731707
+anchor_top = 0.31200045
+anchor_right = 0.44487804
+anchor_bottom = 0.7720005
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Revolut" type="TextureRect" parent="." unique_id=576615957]
-visible = false
 anchors_preset = -1
 anchor_left = 0.2625
 anchor_top = 0.014814815
@@ -375,6 +488,31 @@ grow_vertical = 2
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("14_v3rhe")
 metadata/_edit_use_anchors_ = true
+
+[node name="gui" type="Control" parent="Revolut" unique_id=632488967]
+anchors_preset = 0
+offset_left = 115.99997
+offset_top = 190.4
+offset_right = 540.0
+offset_bottom = 652.8
+
+[node name="Label" type="Label" parent="Revolut/gui" unique_id=1876746271]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Grey" type="ColorRect" parent="Revolut/gui" unique_id=1263564397]
+layout_mode = 0
+offset_left = 21.599989
+offset_top = 209.6
+offset_right = 409.59998
+offset_bottom = 451.19998
+color = Color(0.2520276, 0.25202766, 0.25202763, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Revolut/gui/Grey" unique_id=395043217]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Messages" type="TextureRect" parent="." unique_id=2076542719]
 visible = false
@@ -414,10 +552,10 @@ anchor_left = 0.45989582
 anchor_top = 0.8037037
 anchor_right = 0.49114582
 anchor_bottom = 0.86572653
-offset_left = -1.0
-offset_top = 21.0
-offset_right = -1.0
-offset_bottom = 21.0
+offset_left = -2.0
+offset_top = -4.0
+offset_right = -2.0
+offset_bottom = -4.0
 text = "Press"
 metadata/_edit_use_anchors_ = true
 
