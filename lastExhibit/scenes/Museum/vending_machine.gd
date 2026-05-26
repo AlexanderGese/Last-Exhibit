@@ -16,6 +16,7 @@ const WHITEMONSTER = preload("res://inventory/items/beverage/whitemonster.tres")
 const WATER = preload("res://inventory/items/beverage/water.tres")
 
 var items = [WATER,COLA,SPEZI,REDBULL,WHITEMONSTER,PENNER]
+var item_names = ["Water", "Cola", "Spezi", "Redbull", "Monster", "Penner"]
 var price = [10, 10, 15 , 20, 25, 50]
 
 
@@ -48,6 +49,6 @@ func _scrollen() -> void:
 	
 
 func _kaufen() -> void:
-	var ok = SaveManager.buy(price[current -1])
+	var ok = SaveManager.buy(price[current -1], item_names[current -1], "coins")
 	if ok:
 		SaveManager.add_item(items[current -1],1)

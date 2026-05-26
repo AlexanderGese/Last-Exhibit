@@ -25,14 +25,10 @@ func load_all(slot: int) -> void:
 	if museum == null:
 		museum = MuseumsSaveFile.new()
 
-func buy(price: float)-> bool:
-	if (price > player.money):
-		print("not enough money")
-		return false
-	else:
-		player.money -= price
-		save_all(0)
-		return true
+func buy(price: float, item: String, currency: String)-> bool:
+	var this: bool = player.buy(int(price), item, currency)
+	save_all(0)
+	return this
 
 
 

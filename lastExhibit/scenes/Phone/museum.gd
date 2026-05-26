@@ -9,7 +9,6 @@ extends TextureRect
 @onready var reputatio: Label = $Gui/Reputation/reputation
 @onready var price: Label = $Gui/TicketPrice/price
 @onready var monei: Label = $Gui/Dailymoney/money
-
 func _ready() -> void:
 	pass # Replace with function body.
 
