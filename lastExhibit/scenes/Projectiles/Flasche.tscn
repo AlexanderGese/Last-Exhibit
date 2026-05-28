@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bm24sbmu6cio0"]
+
+[ext_resource type="Texture2D" uid="uid://dqee1godq88b8" path="res://assets/sprites/Sovjet/Molotov.png" id="1_a8n7b"]
+[ext_resource type="Script" uid="uid://drl7hoal1mxgh" path="res://scenes/Projectiles/Flasche.gd" id="1_pe5ng"]
+[ext_resource type="PackedScene" uid="uid://vwbefmnrha6c" path="res://scenes/Projectiles/Fire.tscn" id="2_6vvsc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6vvsc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pe5ng"]
+radius = 12.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vvsc"]
+atlas = ExtResource("1_a8n7b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw66y"]
+atlas = ExtResource("1_a8n7b")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptuae"]
+atlas = ExtResource("1_a8n7b")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4alj"]
+atlas = ExtResource("1_a8n7b")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_infvf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vvsc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw66y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptuae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4alj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Flasche" type="RigidBody2D" unique_id=1023678170]
+collision_layer = 4278190080
+collision_mask = 4278190080
+physics_material_override = SubResource("PhysicsMaterial_6vvsc")
+continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_pe5ng")
+fire_scene = ExtResource("2_6vvsc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=618475943]
+shape = SubResource("CircleShape2D_pe5ng")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=618826355]
+sprite_frames = SubResource("SpriteFrames_infvf")
+autoplay = "default"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

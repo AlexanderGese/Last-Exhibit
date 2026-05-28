@@ -189,6 +189,7 @@ func _update_animation() -> void:
 
 func take_damage(damage: float) -> void:
 	save.hp -= damage
+	print(save.hp)
 	SaveManager.save_all(0)
 
 func _on_timer_timeout() -> void:

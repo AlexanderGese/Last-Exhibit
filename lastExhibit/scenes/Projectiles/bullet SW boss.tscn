@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c8ievjnyh6akx"]
+
+[ext_resource type="Script" uid="uid://c8op8xn7fx7ci" path="res://scenes/Projectiles/bullet_sw_boss.gd" id="1_tgi7h"]
+[ext_resource type="Texture2D" uid="uid://c82073pe522x6" path="res://test_assets/BulletSWboss.png" id="2_t0fnj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwef2"]
+size = Vector2(9, 3)
+
+[node name="bullet_SW_boss" type="Area2D" unique_id=1837771080]
+collision_layer = 4278190335
+collision_mask = 4278190335
+script = ExtResource("1_tgi7h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1861877524]
+position = Vector2(2, 2.5)
+texture = ExtResource("2_t0fnj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1364621438]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_xwef2")

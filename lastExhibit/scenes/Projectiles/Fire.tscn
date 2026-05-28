@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://vwbefmnrha6c"]
+
+[ext_resource type="Script" uid="uid://b5xig5rq6am8k" path="res://scenes/Projectiles/Fire.gd" id="1_0yti2"]
+[ext_resource type="Texture2D" uid="uid://duypa3nqp8twb" path="res://test_assets/Molotov temp.png" id="1_pteij"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_verjt"]
+atlas = ExtResource("1_pteij")
+region = Rect2(0, 0, 80, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wdvs"]
+atlas = ExtResource("1_pteij")
+region = Rect2(0, 40, 80, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1poan"]
+atlas = ExtResource("1_pteij")
+region = Rect2(0, 80, 80, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4fo5"]
+atlas = ExtResource("1_pteij")
+region = Rect2(0, 120, 80, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6puea"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_verjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wdvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1poan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4fo5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50wjy"]
+size = Vector2(80, 20)
+
+[node name="Area2D" type="Area2D" unique_id=1048191831]
+script = ExtResource("1_0yti2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=341451553]
+position = Vector2(0, 2)
+scale = Vector2(1, 0.5)
+sprite_frames = SubResource("SpriteFrames_6puea")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1323408954]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_50wjy")
+
+[node name="Timer" type="Timer" parent="." unique_id=1933902611]
+
+[node name="DamageTick" type="Timer" parent="." unique_id=882734850]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DamageTick" to="." method="_on_damage_tick_timeout"]
