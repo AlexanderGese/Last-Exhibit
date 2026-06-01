@@ -2,7 +2,132 @@
 
 [ext_resource type="Script" uid="uid://coiiobqrryfbt" path="res://scenes/Inventory/inventory_ui.gd" id="1_m73i6"]
 [ext_resource type="Script" uid="uid://bcr7nf8jvvbca" path="res://scenes/Inventory/inventory_slot.gd" id="2_djd00"]
+[ext_resource type="Texture2D" uid="uid://dy4lw3v0ixlfr" path="res://assets/sprites/Inventory /Inventory Slot.png" id="2_txddu"]
 [ext_resource type="Script" uid="uid://caa80387onryn" path="res://scenes/Inventory/equipment_slot.gd" id="3_tlfcg"]
+[ext_resource type="Texture2D" uid="uid://egyedgss4c43" path="res://assets/sprites/Inventory /Equipment/Hut Slot.png" id="4_8faus"]
+[ext_resource type="Texture2D" uid="uid://b71yngfcxtxr4" path="res://assets/sprites/Inventory /Equipment/Jacke Slot.png" id="6_0hb5n"]
+[ext_resource type="Texture2D" uid="uid://bc70oxf0hj6yj" path="res://assets/sprites/Inventory /Equipment/Hose Slot.png" id="7_y258h"]
+[ext_resource type="Texture2D" uid="uid://h2drupxa6d7u" path="res://assets/sprites/Inventory /Equipment/Stiefel Slot.png" id="8_3uau8"]
+[ext_resource type="Texture2D" uid="uid://dor3sakkcescn" path="res://assets/sprites/Inventory /Equipment/Waffe Slot.png" id="9_2s2pa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_txddu"]
+bg_color = Color(0.5921569, 0.37254903, 0.21176471, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_txddu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_txddu"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 8.0
+content_margin_bottom = 3.0
+texture = ExtResource("2_txddu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_txddu"]
+font_size = 13
+font_color = Color(18.892157, 18.892157, 18.892157, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vkjja"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 8.0
+content_margin_bottom = 3.0
+texture = ExtResource("2_txddu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_vkjja"]
+font_size = 13
+font_color = Color(18.892157, 18.892157, 18.892157, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2l2c6"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 8.0
+content_margin_bottom = 3.0
+texture = ExtResource("2_txddu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_irya2"]
+font_size = 13
+font_color = Color(18.892157, 18.892157, 18.892157, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e3oc6"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 8.0
+content_margin_bottom = 3.0
+texture = ExtResource("2_txddu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_8faus"]
+font_size = 13
+font_color = Color(18.892157, 18.892157, 18.892157, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0hb5n"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 8.0
+content_margin_bottom = 3.0
+texture = ExtResource("2_txddu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_y258h"]
+font_size = 13
+font_color = Color(18.892157, 18.892157, 18.892157, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3uau8"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 8.0
+content_margin_bottom = 3.0
+texture = ExtResource("2_txddu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_2s2pa"]
+font_size = 13
+font_color = Color(18.892157, 18.892157, 18.892157, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_043bo"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 8.0
+content_margin_bottom = 3.0
+texture = ExtResource("2_txddu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_y4t5h"]
+font_size = 13
+font_color = Color(18.892157, 18.892157, 18.892157, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_043bo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y4t5h"]
+texture = ExtResource("4_8faus")
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q133r"]
+texture = ExtResource("6_0hb5n")
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ljgg"]
+texture = ExtResource("7_y258h")
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lmqty"]
+texture = ExtResource("8_3uau8")
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cbhwy"]
+texture = ExtResource("9_2s2pa")
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
 
 [node name="InventoryUI" type="Control" unique_id=1969334238]
 layout_mode = 3
@@ -14,34 +139,63 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_m73i6")
 
+[node name="Title Equip" type="PanelContainer" parent="." unique_id=900056281]
+layout_mode = 0
+offset_left = 1840.77
+offset_top = 285.095
+offset_right = 1894.77
+offset_bottom = 299.09503
+scale = Vector2(1.13, 1.13)
+theme_override_styles/panel = SubResource("StyleBoxFlat_txddu")
+
+[node name="Label" type="Label" parent="Title Equip" unique_id=280657742]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "EQUIP"
+horizontal_alignment = 1
+
+[node name="Title Inv" type="PanelContainer" parent="." unique_id=724582056]
+layout_mode = 0
+offset_left = 7.34
+offset_top = 236.615
+offset_right = 63.339993
+offset_bottom = 250.615
+scale = Vector2(1.13, 1.13)
+theme_override_styles/panel = SubResource("StyleBoxFlat_txddu")
+
+[node name="Label" type="Label" parent="Title Inv" unique_id=1068500669]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "INV"
+horizontal_alignment = 1
+
 [node name="InventoryPanel" type="PanelContainer" parent="." unique_id=969834088]
 custom_minimum_size = Vector2(56, 380)
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -190.0
+offset_top = -282.27
 offset_right = 56.0
-offset_bottom = 190.0
+offset_bottom = 132.729
 grow_vertical = 2
+scale = Vector2(1.395, 1.395)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_txddu")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="InventoryPanel" unique_id=449567947]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="InventoryPanel/VBoxContainer" unique_id=1068500669]
-layout_mode = 2
-theme_override_font_sizes/font_size = 8
-text = "INV"
-horizontal_alignment = 1
-
 [node name="Slot1" type="PanelContainer" parent="InventoryPanel/VBoxContainer" unique_id=429346278]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_txddu")
 script = ExtResource("2_djd00")
 
 [node name="Icon" type="TextureRect" parent="InventoryPanel/VBoxContainer/Slot1" unique_id=1466868231]
+z_index = 5
 layout_mode = 2
+expand_mode = 4
 stretch_mode = 5
 
 [node name="HotkeyLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot1" unique_id=1157933983]
@@ -51,6 +205,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 8
 text = "1"
+label_settings = SubResource("LabelSettings_txddu")
 
 [node name="QuantityLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot1" unique_id=1348990315]
 layout_mode = 2
@@ -61,11 +216,13 @@ theme_override_font_sizes/font_size = 9
 [node name="Slot2" type="PanelContainer" parent="InventoryPanel/VBoxContainer" unique_id=1188823358]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vkjja")
 script = ExtResource("2_djd00")
 slot_index = 1
 
 [node name="Icon" type="TextureRect" parent="InventoryPanel/VBoxContainer/Slot2" unique_id=883953561]
 layout_mode = 2
+expand_mode = 4
 stretch_mode = 5
 
 [node name="HotkeyLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot2" unique_id=1625852641]
@@ -74,7 +231,8 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 8
-text = "1"
+text = "2"
+label_settings = SubResource("LabelSettings_vkjja")
 
 [node name="QuantityLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot2" unique_id=47220687]
 layout_mode = 2
@@ -85,6 +243,7 @@ theme_override_font_sizes/font_size = 9
 [node name="Slot3" type="PanelContainer" parent="InventoryPanel/VBoxContainer" unique_id=502394163]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2l2c6")
 script = ExtResource("2_djd00")
 slot_index = 2
 
@@ -98,7 +257,8 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 8
-text = "1"
+text = "3"
+label_settings = SubResource("LabelSettings_irya2")
 
 [node name="QuantityLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot3" unique_id=889972501]
 layout_mode = 2
@@ -109,6 +269,7 @@ theme_override_font_sizes/font_size = 9
 [node name="Slot4" type="PanelContainer" parent="InventoryPanel/VBoxContainer" unique_id=1741593034]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_e3oc6")
 script = ExtResource("2_djd00")
 slot_index = 3
 
@@ -122,7 +283,8 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 8
-text = "1"
+text = "4"
+label_settings = SubResource("LabelSettings_8faus")
 
 [node name="QuantityLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot4" unique_id=919545724]
 layout_mode = 2
@@ -133,6 +295,7 @@ theme_override_font_sizes/font_size = 9
 [node name="Slot5" type="PanelContainer" parent="InventoryPanel/VBoxContainer" unique_id=1740301894]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0hb5n")
 script = ExtResource("2_djd00")
 slot_index = 4
 
@@ -146,7 +309,8 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 8
-text = "1"
+text = "5"
+label_settings = SubResource("LabelSettings_y258h")
 
 [node name="QuantityLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot5" unique_id=118425344]
 layout_mode = 2
@@ -157,6 +321,7 @@ theme_override_font_sizes/font_size = 9
 [node name="Slot6" type="PanelContainer" parent="InventoryPanel/VBoxContainer" unique_id=17206896]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3uau8")
 script = ExtResource("2_djd00")
 slot_index = 5
 
@@ -170,7 +335,8 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 8
-text = "1"
+text = "6"
+label_settings = SubResource("LabelSettings_2s2pa")
 
 [node name="QuantityLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot6" unique_id=591270720]
 layout_mode = 2
@@ -181,6 +347,7 @@ theme_override_font_sizes/font_size = 9
 [node name="Slot7" type="PanelContainer" parent="InventoryPanel/VBoxContainer" unique_id=1460460599]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_043bo")
 script = ExtResource("2_djd00")
 slot_index = 6
 
@@ -194,7 +361,8 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 8
-text = "1"
+text = "7"
+label_settings = SubResource("LabelSettings_y4t5h")
 
 [node name="QuantityLabel" type="Label" parent="InventoryPanel/VBoxContainer/Slot7" unique_id=1812540488]
 layout_mode = 2
@@ -215,26 +383,23 @@ offset_top = -232.5
 offset_bottom = 232.5
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_043bo")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="EquipmentPanel" unique_id=183912385]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Label" type="Label" parent="EquipmentPanel/VBoxContainer" unique_id=1593313875]
-layout_mode = 2
-theme_override_font_sizes/font_size = 9
-text = "EQUIPMENT"
-horizontal_alignment = 1
-
 [node name="HeadSlot" type="PanelContainer" parent="EquipmentPanel/VBoxContainer" unique_id=409553176]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_y4t5h")
 script = ExtResource("3_tlfcg")
 
 [node name="Icon" type="TextureRect" parent="EquipmentPanel/VBoxContainer/HeadSlot" unique_id=696292890]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="EquipmentPanel/VBoxContainer/HeadSlot" unique_id=117844474]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -243,12 +408,14 @@ text = "HUT"
 [node name="BodySlot" type="PanelContainer" parent="EquipmentPanel/VBoxContainer" unique_id=1889273093]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_q133r")
 script = ExtResource("3_tlfcg")
 
 [node name="Icon" type="TextureRect" parent="EquipmentPanel/VBoxContainer/BodySlot" unique_id=183910318]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="EquipmentPanel/VBoxContainer/BodySlot" unique_id=227764456]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -257,12 +424,14 @@ text = "JCK"
 [node name="LegsSlot" type="PanelContainer" parent="EquipmentPanel/VBoxContainer" unique_id=252250948]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8ljgg")
 script = ExtResource("3_tlfcg")
 
 [node name="Icon" type="TextureRect" parent="EquipmentPanel/VBoxContainer/LegsSlot" unique_id=1395651782]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="EquipmentPanel/VBoxContainer/LegsSlot" unique_id=19493]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -271,29 +440,34 @@ text = "HSE"
 [node name="FeetSlot" type="PanelContainer" parent="EquipmentPanel/VBoxContainer" unique_id=862080965]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_lmqty")
 script = ExtResource("3_tlfcg")
 
 [node name="Icon" type="TextureRect" parent="EquipmentPanel/VBoxContainer/FeetSlot" unique_id=146807253]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="EquipmentPanel/VBoxContainer/FeetSlot" unique_id=2100463949]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "STF"
 
 [node name="HSeparator" type="HSeparator" parent="EquipmentPanel/VBoxContainer" unique_id=126459695]
+visible = false
 layout_mode = 2
 
 [node name="WeaponSlot" type="PanelContainer" parent="EquipmentPanel/VBoxContainer" unique_id=1262942824]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_cbhwy")
 script = ExtResource("3_tlfcg")
 
 [node name="Icon" type="TextureRect" parent="EquipmentPanel/VBoxContainer/WeaponSlot" unique_id=997093824]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="EquipmentPanel/VBoxContainer/WeaponSlot" unique_id=376132533]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
