@@ -12,8 +12,8 @@ extends SaveFile
 @export var btc: int = 0
 @export var level: int = 1
 # -- Epochen ------------------------------
-@export var unlocked_epochs: Array[String] = ["sowjet","ww2"]
-
+@export var unlocked_epochs: Array[String] = ["sowjet"]
+@export var level_time = 30
 # -- Inventory ---------------
 @export var equipped: Dictionary = {}
 

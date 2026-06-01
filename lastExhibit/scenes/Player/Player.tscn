@@ -231,4 +231,7 @@ scale = Vector2(0.4, 0.4)
 [node name="PhoneUI" parent="." unique_id=661383744 instance=ExtResource("8_dqp0f")]
 visible = false
 
+[node name="LevelTimer" type="Timer" parent="." unique_id=1086503190]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]

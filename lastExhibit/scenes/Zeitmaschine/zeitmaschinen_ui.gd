@@ -72,6 +72,7 @@ func _on_pin_clicked(epoch: String) -> void:
 	pins[epoch].texture = PIN_SELECTED
 	await get_tree().create_timer(0.8).timeout
 	do_hide()
+	emit_signal("LevelEnter")
 	await Fader.fade_out(1.0)
 	match epoch:
 		"sowjet":

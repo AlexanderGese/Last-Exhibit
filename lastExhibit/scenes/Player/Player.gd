@@ -200,6 +200,17 @@ func bounce(force: float) -> void:
 	is_jumping = false 
 	jump_timer = 0.0
 	coyote_timer = 0.0
+	
+	
+
+
+func enterlevel() -> void:
+	$LevelTimer.wait_time = SaveManager.player.level_time
+	$LevelTimer.start()
+	
+func _on_level_timer_timeout() -> void:
+	print("Level Vorbei")
+
 
 func _handle_escape() -> void:
 	if Input.is_action_just_pressed("phone"):

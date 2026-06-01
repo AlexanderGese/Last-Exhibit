@@ -413,6 +413,60 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_cacfq")
 icon = ExtResource("17_k6u4c")
 flat = true
 
+[node name="Label8" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=103372381]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_26ifj")
+theme_override_font_sizes/font_size = 35
+text = "Update Preis =  10000€"
+
+[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label8" unique_id=885941893]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 0
+offset_left = 345.59998
+offset_top = 2.4
+offset_right = 405.59998
+offset_bottom = 32.4
+theme_override_styles/normal = SubResource("StyleBoxTexture_q3c8s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cacfq")
+icon = ExtResource("17_k6u4c")
+flat = true
+
+[node name="Label9" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=1841289547]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_26ifj")
+theme_override_font_sizes/font_size = 35
+text = "Update Preis =  10000€"
+
+[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label9" unique_id=68033109]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 0
+offset_left = 345.59998
+offset_top = 2.4
+offset_right = 405.59998
+offset_bottom = 32.4
+theme_override_styles/normal = SubResource("StyleBoxTexture_q3c8s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cacfq")
+icon = ExtResource("17_k6u4c")
+flat = true
+
+[node name="Label10" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=1350805026]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_26ifj")
+theme_override_font_sizes/font_size = 35
+text = "Update Preis =  10000€"
+
+[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label10" unique_id=104726846]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 0
+offset_left = 345.59998
+offset_top = 2.4
+offset_right = 405.59998
+offset_bottom = 32.4
+theme_override_styles/normal = SubResource("StyleBoxTexture_q3c8s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cacfq")
+icon = ExtResource("17_k6u4c")
+flat = true
+
 [node name="Tor" type="TextureRect" parent="." unique_id=1653846611]
 visible = false
 anchors_preset = -1
@@ -802,4 +856,7 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Großanzeigen/VBoxContainer/Label5/Button" to="Großanzeigen" method="button_5"]
 [connection signal="pressed" from="Großanzeigen/VBoxContainer/Label6/Button" to="Großanzeigen" method="button_6"]
 [connection signal="pressed" from="Großanzeigen/VBoxContainer/Label7/Button" to="Großanzeigen" method="button_7"]
+[connection signal="pressed" from="Großanzeigen/VBoxContainer/Label8/Button" to="Großanzeigen" method="button_8"]
+[connection signal="pressed" from="Großanzeigen/VBoxContainer/Label9/Button" to="Großanzeigen" method="button_9"]
+[connection signal="pressed" from="Großanzeigen/VBoxContainer/Label10/Button" to="Großanzeigen" method="button_10"]
 [connection signal="pressed" from="HomeButton" to="." method="_on_home_button_pressed"]
