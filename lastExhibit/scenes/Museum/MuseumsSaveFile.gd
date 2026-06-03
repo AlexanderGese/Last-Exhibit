@@ -7,7 +7,10 @@ extends SaveFile
 @export var daily_visitors: int = 0
 @export var ticket_price: int = 10
 @export var artifacts: Array
-@export var reputation: int = 0
+@export var reputation: int =  0
+@export var ground_used: bool = false
+@export var first_used: bool = true
+@export var second_used: bool = true
 
 
 func _process(delta: float) -> void:

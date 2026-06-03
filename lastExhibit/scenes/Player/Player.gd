@@ -212,6 +212,7 @@ func _on_level_timer_timeout() -> void:
 	print("Level Vorbei")
 
 
+
 func _handle_escape() -> void:
 	if Input.is_action_just_pressed("phone"):
 		$PhoneUI.visible = !$PhoneUI.visible

@@ -57,3 +57,5 @@ item = SubResource("Resource_vcqe2")
 [node name="VendingMachine" parent="." unique_id=201981395 instance=ExtResource("9_lfxre")]
 position = Vector2(-195, -923)
 scale = Vector2(1.25, 1.25)
+
+[node name="Visitors" type="Node2D" parent="." unique_id=260117361]

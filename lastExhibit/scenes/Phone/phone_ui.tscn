@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bkg7r1umy8sup" path="res://assets/ui/phone/button_pressed.png" id="18_j73o0"]
 [ext_resource type="Script" uid="uid://bb3yee78tsvqi" path="res://scenes/Phone/museum.gd" id="18_pft75"]
 [ext_resource type="Script" uid="uid://bvikuwgfw78lu" path="res://scenes/Phone/revolut.gd" id="21_26ifj"]
+[ext_resource type="Script" uid="uid://c5eskgt6fq7fx" path="res://scenes/Phone/messages.gd" id="26_q3c8s"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q3c8s"]
 texture = ExtResource("17_k6u4c")
@@ -223,7 +224,6 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("11_3swiv")
-metadata/_edit_use_anchors_ = true
 
 [node name="App" type="Control" parent="Flappybird" unique_id=61106138]
 layout_mode = 1
@@ -265,6 +265,17 @@ offset_right = 156.0
 offset_bottom = 68.0
 theme_override_font_sizes/font_size = 50
 
+[node name="Name" type="Label" parent="Flappybird" unique_id=880112395]
+layout_mode = 0
+anchor_left = 0.21446075
+anchor_top = 0.09541985
+anchor_right = 0.7794117
+anchor_bottom = 0.18702291
+theme_override_fonts/font = ExtResource("16_26ifj")
+theme_override_font_sizes/font_size = 70
+text = "Flappybird"
+metadata/_edit_use_anchors_ = true
+
 [node name="Großanzeigen" type="TextureRect" parent="." unique_id=929139565]
 visible = false
 anchors_preset = -1
@@ -295,7 +306,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
-text = "Update Preis =  10000€"
+text = "WW2 Unlock           10TS"
 
 [node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label" unique_id=1155004095]
 custom_minimum_size = Vector2(60, 30)
@@ -313,7 +324,7 @@ flat = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
-text = "Update Preis =  10000€"
+text = "Middleage Unlock 25TS"
 
 [node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label2" unique_id=73738716]
 custom_minimum_size = Vector2(60, 30)
@@ -331,7 +342,7 @@ flat = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
-text = "Update Preis =  10000€"
+text = "Extend Leveltime 250$"
 
 [node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label3" unique_id=696019784]
 custom_minimum_size = Vector2(60, 30)
@@ -349,7 +360,7 @@ flat = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
-text = "Update Preis =  10000€"
+text = "Extend Leveltime 250$"
 
 [node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label4" unique_id=1761536252]
 custom_minimum_size = Vector2(60, 30)
@@ -367,7 +378,7 @@ flat = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
-text = "Update Preis =  10000€"
+text = "Museum app          100$"
 
 [node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label5" unique_id=1093662990]
 custom_minimum_size = Vector2(60, 30)
@@ -385,7 +396,7 @@ flat = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
-text = "Update Preis =  10000€"
+text = "Darknet  app          100$"
 
 [node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label6" unique_id=282727784]
 custom_minimum_size = Vector2(60, 30)
@@ -403,7 +414,7 @@ flat = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
-text = "Update Preis =  10000€"
+text = "Flappybird app      100$"
 
 [node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label7" unique_id=1949852387]
 custom_minimum_size = Vector2(60, 30)
@@ -418,6 +429,7 @@ icon = ExtResource("17_k6u4c")
 flat = true
 
 [node name="Label8" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=103372381]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
@@ -436,6 +448,7 @@ icon = ExtResource("17_k6u4c")
 flat = true
 
 [node name="Label9" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=1841289547]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
@@ -454,6 +467,7 @@ icon = ExtResource("17_k6u4c")
 flat = true
 
 [node name="Label10" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=1350805026]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
@@ -471,6 +485,18 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_cacfq")
 icon = ExtResource("17_k6u4c")
 flat = true
 
+[node name="Name" type="Label" parent="Großanzeigen" unique_id=148584952]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.21200976
+anchor_top = 0.10019085
+anchor_right = 0.79718125
+anchor_bottom = 0.1917939
+theme_override_fonts/font = ExtResource("16_26ifj")
+theme_override_font_sizes/font_size = 65
+text = "Großanzeigen"
+metadata/_edit_use_anchors_ = true
+
 [node name="Tor" type="TextureRect" parent="." unique_id=1653846611]
 visible = false
 anchors_preset = -1
@@ -485,6 +511,18 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("12_5rf7t")
+metadata/_edit_use_anchors_ = true
+
+[node name="Name" type="Label" parent="Tor" unique_id=1016991360]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.21200976
+anchor_top = 0.10019085
+anchor_right = 0.79718125
+anchor_bottom = 0.1917939
+theme_override_fonts/font = ExtResource("16_26ifj")
+theme_override_font_sizes/font_size = 65
+text = "Tor (Darknet)"
 metadata/_edit_use_anchors_ = true
 
 [node name="Museum" type="TextureRect" parent="." unique_id=898865952]
@@ -617,6 +655,18 @@ anchor_top = 0.31200045
 anchor_right = 0.44487804
 anchor_bottom = 0.7720005
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Name" type="Label" parent="Museum" unique_id=354780503]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.21200976
+anchor_top = 0.10019085
+anchor_right = 0.79718125
+anchor_bottom = 0.1917939
+theme_override_fonts/font = ExtResource("16_26ifj")
+theme_override_font_sizes/font_size = 65
+text = "Museum"
 metadata/_edit_use_anchors_ = true
 
 [node name="Revolut" type="TextureRect" parent="." unique_id=576615957]
@@ -777,11 +827,12 @@ theme_override_font_sizes/font_size = 30
 text = "10000"
 
 [node name="MainMessage" type="Label" parent="Revolut/gui" unique_id=49690843]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.2660377
 anchor_top = -0.012110727
-anchor_right = 0.72358483
-anchor_bottom = 0.13840829
+anchor_right = 0.6471698
+anchor_bottom = 0.062283725
 theme_override_colors/font_color = Color(0.008202022, 0.008202025, 0.008202025, 1)
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 30
@@ -801,8 +852,19 @@ theme_override_font_sizes/font_size = 30
 text = "Transactions"
 metadata/_edit_use_anchors_ = true
 
+[node name="Name" type="Label" parent="Revolut" unique_id=1464706488]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.21200976
+anchor_top = 0.10019085
+anchor_right = 0.79718125
+anchor_bottom = 0.1917939
+theme_override_fonts/font = ExtResource("16_26ifj")
+theme_override_font_sizes/font_size = 65
+text = "Revolut"
+metadata/_edit_use_anchors_ = true
+
 [node name="Messages" type="TextureRect" parent="." unique_id=2076542719]
-visible = false
 anchors_preset = -1
 anchor_left = 0.2625
 anchor_top = 0.014814815
@@ -815,6 +877,27 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("15_pft75")
+script = ExtResource("26_q3c8s")
+metadata/_edit_use_anchors_ = true
+
+[node name="Name" type="Label" parent="Messages" unique_id=2024162523]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.21200976
+anchor_top = 0.10019085
+anchor_right = 0.79718125
+anchor_bottom = 0.1917939
+theme_override_fonts/font = ExtResource("16_26ifj")
+theme_override_font_sizes/font_size = 65
+text = "Messages"
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Messages" unique_id=333528040]
+layout_mode = 0
+anchor_left = 0.18259801
+anchor_top = 0.21851145
+anchor_right = 0.8137255
+anchor_bottom = 0.7862596
 metadata/_edit_use_anchors_ = true
 
 [node name="Settings" type="TextureRect" parent="." unique_id=2075006464]
@@ -831,6 +914,18 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("16_isa1o")
+metadata/_edit_use_anchors_ = true
+
+[node name="Name" type="Label" parent="Settings" unique_id=1212736841]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.21200976
+anchor_top = 0.10019085
+anchor_right = 0.79718125
+anchor_bottom = 0.1917939
+theme_override_fonts/font = ExtResource("16_26ifj")
+theme_override_font_sizes/font_size = 65
+text = "Settings"
 metadata/_edit_use_anchors_ = true
 
 [node name="HomeButton" type="Button" parent="." unique_id=404873099]
