@@ -1,27 +1,28 @@
 [gd_scene format=4 uid="uid://dng2ce1ptc8r4"]
 
 [ext_resource type="Texture2D" uid="uid://cqkq3n5x4b60c" path="res://assets/sprites/Sovjet/Himmel 1.png.png" id="1_qsbqj"]
-[ext_resource type="Texture2D" uid="uid://bwvfsincawtq1" path="res://assets/sprites/Sovjet/sovjet5.png" id="2_iyr3m"]
+[ext_resource type="Texture2D" uid="uid://cw34gyrhojs6b" path="res://assets/sprites/Sovjet/sovjet5.png" id="2_iyr3m"]
 [ext_resource type="Texture2D" uid="uid://cm56bihfme4m1" path="res://assets/sprites/USBase/UsBase_1.png" id="2_j1bp2"]
 [ext_resource type="PackedScene" uid="uid://botawtk2laud8" path="res://scenes/Player/Player.tscn" id="2_l0vm2"]
 [ext_resource type="Texture2D" uid="uid://rvo5ilw70vlq" path="res://assets/sprites/Sovjet/green.png" id="2_pcuah"]
 [ext_resource type="Texture2D" uid="uid://b8umtdrf0cija" path="res://assets/sprites/Sovjet/Himmel 2.png.png" id="2_qci4w"]
 [ext_resource type="Texture2D" uid="uid://dnft44xuemmsr" path="res://assets/sprites/Sovjet/Bett.png" id="3_3a46g"]
 [ext_resource type="PackedScene" uid="uid://5uk7cbbfxv25" path="res://scenes/Epochs/sowjet/lasten aufzug/lastenaufzug.tscn" id="3_l0vm2"]
-[ext_resource type="Texture2D" uid="uid://crbbh1jli4xak" path="res://assets/sprites/Sovjet/Raketensilo.png" id="3_lpeei"]
+[ext_resource type="Texture2D" uid="uid://ck3mii4k15lro" path="res://assets/sprites/Sovjet/Raketensilo.png" id="3_lpeei"]
 [ext_resource type="Texture2D" uid="uid://cb40n44opab6u" path="res://assets/sprites/Sovjet/Kaffeteria.png" id="4_lpeei"]
 [ext_resource type="Texture2D" uid="uid://bk4ms536b3j16" path="res://assets/sprites/Sovjet/Küche.png" id="5_iv56b"]
 [ext_resource type="Script" uid="uid://cpmij1cb745jv" path="res://scenes/Epochs/sowjet/floor_1.gd" id="6_j1bp2"]
 [ext_resource type="Texture2D" uid="uid://ct0ir5rmtb1gu" path="res://assets/sprites/museum/AccessoiresBig1.png" id="6_qsbqj"]
 [ext_resource type="Script" uid="uid://de4w6hcfinijr" path="res://scenes/Epochs/sowjet/floor_2.gd" id="7_b7p42"]
 [ext_resource type="Texture2D" uid="uid://b2jffye83rr2g" path="res://assets/sprites/Sovjet/Maschine.png" id="7_qci4w"]
-[ext_resource type="Texture2D" uid="uid://d1ery08k72gfp" path="res://assets/sprites/Sovjet/pixilart-sprite 3.png" id="8_ogquc"]
+[ext_resource type="Texture2D" uid="uid://b1ak8s3qc7m1n" path="res://assets/sprites/Sovjet/pixilart-sprite 3.png" id="8_ogquc"]
 [ext_resource type="Script" uid="uid://batxurkmg7ryk" path="res://scenes/Epochs/sowjet/floor_3.gd" id="8_oxd6m"]
-[ext_resource type="Texture2D" uid="uid://bib63854qmctl" path="res://assets/sprites/Sovjet/Soviuet tische.png" id="9_f78tm"]
+[ext_resource type="Texture2D" uid="uid://dd7x55scxab6s" path="res://assets/sprites/Sovjet/Soviuet tische.png" id="9_f78tm"]
 [ext_resource type="Script" uid="uid://b6xs62edb3ora" path="res://scenes/Epochs/sowjet/floor_0.gd" id="9_oxd6m"]
 [ext_resource type="PackedScene" uid="uid://p601uv7xjfyc" path="res://custom_nodes/Ladder.tscn" id="19_qsbqj"]
 [ext_resource type="PackedScene" uid="uid://d7gek8sbldnx" path="res://scenes/Epochs/sowjet/Boss/Sowjet Boss.tscn" id="21_ogquc"]
 [ext_resource type="PackedScene" uid="uid://csd40r3e70bcy" path="res://scenes/Epochs/sowjet/Tür/Tür.tscn" id="22_f78tm"]
+[ext_resource type="PackedScene" uid="uid://dync8fw1rrta4" path="res://scenes/Epochs/sowjet/dmitri/dmitri.tscn" id="22_ri2k7"]
 [ext_resource type="Script" uid="uid://k5km1d14fwqu" path="res://scenes/Epochs/sowjet/arena.gd" id="23_q28o7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l0vm2"]
@@ -673,6 +674,9 @@ b = Vector2(4, -312)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q28o7"]
 size = Vector2(960, 576)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ri2k7"]
+size = Vector2(397, 23)
+
 [node name="SovietUnion" type="Node2D" unique_id=405401211]
 
 [node name="Himmel" type="Sprite2D" parent="." unique_id=1004557045]
@@ -825,6 +829,11 @@ tuer3 = NodePath("../Tuer3")
 
 [node name="Player" parent="." unique_id=229592850 instance=ExtResource("2_l0vm2")]
 position = Vector2(3, -56)
+collision_layer = 253
+
+[node name="Dmitri" parent="." unique_id=1572758150 instance=ExtResource("22_ri2k7")]
+position = Vector2(-2066, 345)
+collision_layer = 2
 
 [node name="Lastenaufzug" parent="." unique_id=2086474353 node_paths=PackedStringArray("player") instance=ExtResource("3_l0vm2")]
 position = Vector2(-1504, -38)
@@ -837,4 +846,16 @@ position = Vector2(-1971, 831.00006)
 scale = Vector2(268.59393, 174.40634)
 texture = ExtResource("2_pcuah")
 
+[node name="Area2D" type="Area2D" parent="." unique_id=902453235]
+position = Vector2(-2067, 396)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1854941433]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_ri2k7")
+
 [connection signal="body_entered" from="Arena" to="Arena" method="_on_body_entered"]
+[connection signal="pause" from="Player" to="Dmitri" method="_on_player_pause"]
+[connection signal="dialogue_ended" from="Dmitri" to="Player" method="_on_dmitri_dialogue_ended"]
+[connection signal="dialogue_started" from="Dmitri" to="Player" method="_on_dmitri_dialogue_started"]

@@ -47,6 +47,10 @@ var combo_reset_timer := 0.0
 # ui
 var is_inui:= false
 
+# dialogue
+var is_in_dialogue : bool = false
+signal pause
+
 func _ready():
 	add_child(ESCAPEMENUINSTANCE)
 	save = SaveManager.player
@@ -120,6 +124,8 @@ func _handle_jump(delta: float) -> void:
 		coyote_timer -= delta
 
 	if Input.is_action_just_pressed("jump"):
+		if is_in_dialogue == true:
+			return
 		jump_buffer_timer = JUMP_BUFFER_TIME
 	else:
 		jump_buffer_timer -= delta
@@ -218,7 +224,16 @@ func _handle_escape() -> void:
 		$PhoneUI.visible = !$PhoneUI.visible
 		is_inui = !is_inui
 	if Input.is_action_just_pressed("escape"):
+		emit_signal("pause")
 		if get_tree().paused:
 			ESCAPEMENUINSTANCE.hide_menu()
 		else:
 			ESCAPEMENUINSTANCE.show_menu()
+
+
+func _on_dmitri_dialogue_started() -> void:
+	is_in_dialogue = true
+
+
+func _on_dmitri_dialogue_ended() -> void:
+	is_in_dialogue = false

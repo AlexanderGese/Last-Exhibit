@@ -1,0 +1,71 @@
+~ start
+Dmitri: [wave]*Rmpf*[/wave]
+Dmitri: Wer bist du denn?
+David: Mein Name ist David!
+Dmitri: David? [wait=1] Komischer Name... [wait=1] Wo ich herkomme, Männer haben gescheite Namen
+David: Wo bist du denn her?
+Dmitri: Du stellst zu viele Fragen junger Mann! 
+Dmitri: Was treibt dich hierher?
+
+- Ich habe eine Zeitmaschine gefunden und bin damit hergekommen
+	=> Alien
+- Ich bin zufällig hier vorbeigekommen, die Tür stand offen
+	=> Tuer
+
+~ Alien
+$> set_alien()
+Dmitri: Zeitmaschine? [wait=1] Bist du Außerirdischer?[wait=1] Damit möchte ich nichts zu tun haben!!
+=> END
+
+~ Tuer
+Dmitri: Komisch[wait=1], Tür sollte zu sein.
+Dmitri: Gut, du siehst nicht gefährlich aus  für mich...
+Dmitri: Weißt du überhaupt wo du bist?
+David: Nein, sieht mir nach einem Bunker aus...
+Dmitri: Schlauer Junge!! [wait=1]Willst du Nobelpreis?
+David: ...
+Dmitri: Nur Spaß, nur Spaß!
+Dmitri: Wir sind Kontrollstützpunkt der Sowjetunion! [wait=2] Ich bin hier einzige Kontrolle...
+Dmitri: ...heißt aber nicht, dass ich dich nicht im Auge behalte!
+David: Keine Sorge, ich werde nicht rumstöbern.
+David: Aber was machst du hier sonst so?
+Dmitri: Seit Vaterländische Krieg, ich werde nur eingesetzt als Opfer
+Dmitri: Hier seh 
+#Gibt den Orden
+Dmitri: Ich war mal große Soldat, abber bin ich lange nicht mehr... 
+David: 
+- WOW, der sieht toll aus! 
+	=> Behalt
+- Was soll ich mit dem Müll?
+	=> Muell
+
+
+~ Behalt
+Dmitri: Ja, aber ist wertlos jetzt. [wait=2] Behalt ihn einfach.
+David: Cool, vielen Dank!
+David: Kann ich mich noch ein bisschen umsehen?
+Dmitri: Wie gesagt, du siehst nicht aus wie Gefahr
+Dmitri: Aber du brauchst Waffe...[speed=0.5] nicht dass du hier noch [speed=0.1]stirbst
+David: Oh...
+David: Wo bekomme ich die her?
+Dmitri: Ich geb dir meine AK47... [wait=2] wenn du mich in Boxkampf besiegst!
+David: 
+- Schaff ich nicht, vergiss es
+	=> Abgelehnt
+- Okay, lets go!
+	=> Angenommen
+~ Muell
+$> set_beleidigt()
+Dmitri: Unverschämt! Verzieh dich!
+=> END
+
+~ Abgelehnt
+Dmitri: Dann nicht, viel Glück ohne [speed=0.2] HAHAHA
+=> END
+
+~ Angenommen
+Dmitri: Komm her! 
+#Start Boxkampf
+=> END
+
+=> END
