@@ -26,6 +26,7 @@ GameClock="*uid://bm5jpfmf2t48u"
 DialogueManager="*uid://c3rodes2l3gxb"
 Fader="*uid://x8jcrlwqlsc4"
 AudioManager="*uid://c080hlqgbar8c"
+Events="*uid://ds7t6si0crlf4"
 
 [display]
 

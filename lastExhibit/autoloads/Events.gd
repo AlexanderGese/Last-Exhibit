@@ -1,4 +1,4 @@
 extends Node
 
 
-signal purchase()
+signal purchase_großanzeigen(type: String)

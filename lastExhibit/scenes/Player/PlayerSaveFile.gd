@@ -13,6 +13,9 @@ extends SaveFile
 @export var level: int = 1
 # -- Epochen ------------------------------
 @export var unlocked_epochs: Array[String] = ["sowjet"]
+@export var tor_app: bool = false
+@export var museum_app: bool = false
+@export var flappy_app: bool = false
 @export var level_time = 30
 # -- Inventory ---------------
 @export var equipped: Dictionary = {}
