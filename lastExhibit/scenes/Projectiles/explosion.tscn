@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://383rfo77w2gg"]
+
+[ext_resource type="Script" uid="uid://dpge5aa1mqldy" path="res://scenes/Projectiles/explosion.gd" id="1_cpb1e"]
+[ext_resource type="Texture2D" uid="uid://duhjgppjarknj" path="res://assets/sprites/Sovjet/Explosion/Explosion1.png" id="2_vkcr5"]
+[ext_resource type="Texture2D" uid="uid://chf5rgao68r4j" path="res://assets/sprites/Sovjet/Explosion/Explosion2.png" id="3_md1j2"]
+[ext_resource type="Texture2D" uid="uid://bs4ure3m3t3nt" path="res://assets/sprites/Sovjet/Explosion/Explosion3.png" id="4_mabqs"]
+[ext_resource type="Texture2D" uid="uid://lp2vmfe34lv3" path="res://assets/sprites/Sovjet/Explosion/Explosion4.png" id="5_a8k1e"]
+[ext_resource type="Texture2D" uid="uid://dacek588qdjww" path="res://assets/sprites/Sovjet/Explosion/Explosion5.png" id="6_sve2w"]
+[ext_resource type="Texture2D" uid="uid://c45ifh8mphxtm" path="res://assets/sprites/Sovjet/Explosion/Explosion6.png" id="7_h26vj"]
+[ext_resource type="Texture2D" uid="uid://c0fleib5kqa53" path="res://assets/sprites/Sovjet/Explosion/Explosion7.png" id="8_qqnqp"]
+[ext_resource type="Texture2D" uid="uid://ca2dojst21km7" path="res://assets/sprites/Sovjet/Explosion/Explosion8.png" id="9_ohe0j"]
+[ext_resource type="Texture2D" uid="uid://cr68nug76co6p" path="res://assets/sprites/Sovjet/Explosion/Explosion9.png" id="10_2wn5x"]
+[ext_resource type="Texture2D" uid="uid://b47kab41nntql" path="res://assets/sprites/Sovjet/Explosion/Explosion10.png" id="11_km60t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_to5yp"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vkcr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_md1j2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mabqs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a8k1e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sve2w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_h26vj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qqnqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ohe0j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2wn5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_km60t")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cpb1e"]
+radius = 64.00781
+
+[node name="Area2D" type="Area2D" unique_id=2057928728]
+script = ExtResource("1_cpb1e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=852154851]
+position = Vector2(-9, -21)
+sprite_frames = SubResource("SpriteFrames_to5yp")
+animation = &"explosion"
+autoplay = "explosion"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1452992200]
+shape = SubResource("CircleShape2D_cpb1e")

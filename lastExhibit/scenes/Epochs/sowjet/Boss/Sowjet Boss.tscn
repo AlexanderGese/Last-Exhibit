@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b1gwad4p2ogo8" path="res://scenes/Epochs/sowjet/Boss/Sowjet Boss.gd" id="1_o84lr"]
 [ext_resource type="PackedScene" uid="uid://bm24sbmu6cio0" path="res://scenes/Projectiles/Flasche.tscn" id="2_o84lr"]
 [ext_resource type="PackedScene" uid="uid://c8ievjnyh6akx" path="res://scenes/Projectiles/bullet SW boss.tscn" id="3_j884p"]
+[ext_resource type="PackedScene" uid="uid://ci3g66mb3ohls" path="res://scenes/Projectiles/Granate.tscn" id="4_j884p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnu86"]
 size = Vector2(31, 60)
@@ -25,6 +26,7 @@ collision_mask = 256
 script = ExtResource("1_o84lr")
 flasche_scene = ExtResource("2_o84lr")
 bullet_scene = ExtResource("3_j884p")
+granate_scene = ExtResource("4_j884p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=573528024]
 position = Vector2(0, 2)

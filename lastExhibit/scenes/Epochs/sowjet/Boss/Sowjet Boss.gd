@@ -3,25 +3,28 @@ extends CharacterBody2D
 
 @export var flasche_scene : PackedScene
 @export var bullet_scene : PackedScene
+@export var granate_scene : PackedScene
+@export var atem_scene : PackedScene
 @export var move_speed : float = 180.0
 @export var sprint_speed : float = 400.0
 @export var max_hp : int = 300
 @export var tuer1 : AnimatedSprite2D
 @export var tuer2 : AnimatedSprite2D
 @export var tuer3 : AnimatedSprite2D
-
+var attack_timer : float = 0.0
+@export var attack_cooldown : float = 3.0
 var player : CharacterBody2D
 var is_cornered : bool = false
 var is_sprinting : bool = false
 var sprint_ziel_x : float = 0.0
 var player_collided : bool = false
-enum State { WALK, SPRINT }
+enum State { WALK, SPRINT, SPRINT2}
 var state : State = State.WALK
 var facing_right : bool = true
 var old_facing_right : bool = true
-var countdown : int=200 
-var enraged : bool = false
 var hp : int 
+var current_atem : Node = null
+var is_attacking : bool = false
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -32,31 +35,31 @@ func _ready() -> void:
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
-	tuer1.open()
-	tuer2.open()
+
 
 func _physics_process(delta: float) -> void:
 	if player == null:
 		return
 	
-	if  hp<250 and enraged== false :
-		enraged =true
+
+	attack_timer -= delta
 	
-	countdown =countdown-1
-	
-	if countdown < 1 :
-		atk_AK47()
-		countdown=200
-	
+
 	if state == State.WALK:
+		
+	
+	
+		if attack_timer <= 0.0 and not is_attacking:
+			_pick_attack()
+			attack_timer = attack_cooldown
+		
 		velocity.x = move_toward(velocity.x, 0.0, 20.0)
 		var dist = _distx()
 		var dir  = sign(player.global_position.x - global_position.x)
 		
-		var left_wall  = global_position.x <= -650.0
-		var right_wall = global_position.x >= 205.0
+		
 		var too_close = _distx() < 100.0
-		if too_close and (left_wall or right_wall) and state != State.SPRINT:
+		if too_close and state != State.SPRINT:
 			state         = State.SPRINT
 		elif dist > 350.0:
 			velocity.x = dir * move_speed
@@ -74,6 +77,22 @@ func _physics_process(delta: float) -> void:
 		if abs(global_position.x - sprint_ziel_x) < 10.0:
 			state = State.WALK
 	
+	if state == State.SPRINT2:
+		var richtung_ziel = sign(sprint_ziel_x - global_position.x)
+		velocity.x       = richtung_ziel * sprint_speed
+		
+		if current_atem == null:
+			current_atem = atem_scene.instantiate()
+			add_child(current_atem)
+			current_atem.position = Vector2(8.0 if facing_right else -8.0, -25)
+			current_atem.start(facing_right)
+		
+		if abs(global_position.x - sprint_ziel_x) < 10.0:
+			if is_instance_valid(current_atem):
+				current_atem.ende()
+			current_atem = null
+			state = State.WALK
+		
 	move_and_slide()
 	
 	if velocity.x > 5:
@@ -97,6 +116,15 @@ func _distx() -> float:
 func _get_spawn(offset_x: float, offset_y: float) -> Vector2:
 	return global_position + Vector2(offset_x if facing_right else -offset_x, offset_y)
 
+func _pick_attack() -> void:
+	var r = randf()
+	if r < 0.30:
+		atk_molotov()
+	elif r < 0.75:
+		atk_AK47()
+	else:
+		atk_granate()
+
 func atk_molotov() -> void:
 	var flasche = flasche_scene.instantiate()
 	get_parent().add_child(flasche)
@@ -108,4 +136,8 @@ func atk_AK47() -> void:
 		get_parent().add_child(bullet)
 		bullet.setup(_get_spawn(15,-15), Vector2(1.0 if facing_right else -1.0, 0.0))
 		await get_tree().create_timer(0.15).timeout
-	
+
+func atk_granate() -> void:
+	var granate = granate_scene.instantiate()
+	get_parent().add_child(granate)
+	granate.setup(_get_spawn(15,-20), player.global_position)

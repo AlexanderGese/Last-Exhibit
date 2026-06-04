@@ -5,11 +5,9 @@ extends Area2D
 @export var duration        : float = 5.0
 
 func _ready() -> void:
-	# Lebens-Timer
 	$Timer.wait_time = duration
 	$Timer.start()
-	
-	# Schaden-Timer
+
 	$DamageTick.wait_time = tick_rate
 	$DamageTick.one_shot  = false
 	$DamageTick.start()

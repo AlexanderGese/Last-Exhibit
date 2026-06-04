@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://b5xig5rq6am8k" path="res://scenes/Projectiles/Fire.gd" id="1_0yti2"]
 [ext_resource type="Texture2D" uid="uid://duypa3nqp8twb" path="res://test_assets/Molotov temp.png" id="1_pteij"]
+[ext_resource type="Texture2D" uid="uid://2vgtcdkecak2" path="res://assets/sprites/Sovjet/Fire/Fire1.png" id="3_al2o3"]
+[ext_resource type="Texture2D" uid="uid://6gpliclvilb4" path="res://assets/sprites/Sovjet/Fire/Fire2.png" id="4_w8x5y"]
+[ext_resource type="Texture2D" uid="uid://dj6sjwhxu18mq" path="res://assets/sprites/Sovjet/Fire/Fire3.png" id="5_fo55i"]
+[ext_resource type="Texture2D" uid="uid://bokljl0iwn6pu" path="res://assets/sprites/Sovjet/Fire/Fire4.png" id="6_v7dea"]
+[ext_resource type="Texture2D" uid="uid://bfllugljx3osq" path="res://assets/sprites/Sovjet/Fire/Fire5.png" id="7_o326q"]
+[ext_resource type="Texture2D" uid="uid://bag5u3de1gaaj" path="res://assets/sprites/Sovjet/Fire/Fire6.png" id="8_nq135"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_verjt"]
 atlas = ExtResource("1_pteij")
@@ -37,22 +43,46 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_al2o3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w8x5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fo55i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_v7dea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_o326q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nq135")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_50wjy"]
-size = Vector2(80, 20)
+size = Vector2(80, 13)
 
 [node name="Area2D" type="Area2D" unique_id=1048191831]
 script = ExtResource("1_0yti2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=341451553]
-position = Vector2(0, 2)
-scale = Vector2(1, 0.5)
+position = Vector2(0, -21)
+scale = Vector2(0.8359375, 0.5)
 sprite_frames = SubResource("SpriteFrames_6puea")
-autoplay = "default"
+animation = &"new_animation"
+autoplay = "new_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1323408954]
-position = Vector2(0, 1)
+position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_50wjy")
 
 [node name="Timer" type="Timer" parent="." unique_id=1933902611]

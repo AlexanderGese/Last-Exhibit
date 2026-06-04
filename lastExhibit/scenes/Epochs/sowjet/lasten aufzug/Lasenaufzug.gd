@@ -42,12 +42,14 @@ func _process(_delta: float) -> void:
 	if aufzug < aufzugziel:
 		aufzug = aufzug +2
 		move_local_y(2)
-		player_teleport(0,2)
+		if player_collided:
+			player_teleport(0,2)
 
 	if aufzug > aufzugziel:
 		aufzug = aufzug -2
 		move_local_y(-2)
-		player_teleport(0,-2)
+		if player_collided:
+			player_teleport(0,-2)
 	
 	if player_collided and Input.is_action_just_pressed("up") and floor>0:
 		floor=floor-1
