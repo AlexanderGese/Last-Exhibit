@@ -24,6 +24,15 @@
 [ext_resource type="PackedScene" uid="uid://csd40r3e70bcy" path="res://scenes/Epochs/sowjet/Tür/Tür.tscn" id="22_f78tm"]
 [ext_resource type="PackedScene" uid="uid://dync8fw1rrta4" path="res://scenes/Epochs/sowjet/dmitri/dmitri.tscn" id="22_ri2k7"]
 [ext_resource type="Script" uid="uid://k5km1d14fwqu" path="res://scenes/Epochs/sowjet/arena.gd" id="23_q28o7"]
+[ext_resource type="PackedScene" uid="uid://c2xp0jmnqddkc" path="res://custom_nodes/ItemPickUp/ItemPickup.tscn" id="25_c2x4g"]
+[ext_resource type="Resource" uid="uid://belwc53615wwd" path="res://scenes/Epochs/sowjet/artifacts/matrjoschka.tres" id="26_326wy"]
+[ext_resource type="Resource" uid="uid://cbbiyjrkerre6" path="res://scenes/Epochs/sowjet/artifacts/soljanka.tres" id="27_326wy"]
+[ext_resource type="Resource" uid="uid://cbyo7vtrv0640" path="res://scenes/Epochs/sowjet/artifacts/gasmaske.tres" id="28_1ohby"]
+[ext_resource type="Resource" uid="uid://3kravj1b3fru" path="res://scenes/Epochs/sowjet/artifacts/nowitschok.tres" id="29_plx8r"]
+[ext_resource type="Resource" uid="uid://bt6kxovuhmkjo" path="res://scenes/Epochs/sowjet/artifacts/Laika.tres" id="29_shqr1"]
+[ext_resource type="Texture2D" uid="uid://dmik3sdetg2kf" path="res://assets/sprites/artifacts/Sputnik_Laucher-2.png" id="30_2ff1g"]
+[ext_resource type="Resource" uid="uid://dq4c46xavbldb" path="res://scenes/Epochs/sowjet/artifacts/lada.tres" id="30_85h02"]
+[ext_resource type="Resource" uid="uid://d24rtn1phc1fa" path="res://scenes/Epochs/sowjet/artifacts/sputnik.tres" id="32_shqr1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l0vm2"]
 texture = ExtResource("2_iyr3m")
@@ -823,6 +832,7 @@ position = Vector2(248, 720)
 rotation = 3.1415927
 
 [node name="Player" parent="." unique_id=229592850 instance=ExtResource("2_l0vm2")]
+z_index = 1
 position = Vector2(3, -56)
 collision_layer = 253
 
@@ -849,6 +859,47 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1854941433]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_ri2k7")
+
+[node name="Matrjoschka" parent="." unique_id=1858323732 instance=ExtResource("25_c2x4g")]
+position = Vector2(-2868, 296)
+item = ExtResource("26_326wy")
+
+[node name="Soljanka1" parent="." unique_id=1324315741 instance=ExtResource("25_c2x4g")]
+position = Vector2(-2648, 722)
+item = ExtResource("27_326wy")
+
+[node name="Soljanka2" parent="." unique_id=2044059026 instance=ExtResource("25_c2x4g")]
+position = Vector2(-2695, 722)
+item = ExtResource("27_326wy")
+
+[node name="Soljanka3" parent="." unique_id=1266629590 instance=ExtResource("25_c2x4g")]
+position = Vector2(-2887, 722)
+item = ExtResource("27_326wy")
+
+[node name="Gasmaske" parent="." unique_id=713933494 instance=ExtResource("25_c2x4g")]
+position = Vector2(-2414, 1174)
+item = ExtResource("28_1ohby")
+
+[node name="Laika" parent="." unique_id=1080063882 instance=ExtResource("25_c2x4g")]
+position = Vector2(-2089, 1521)
+item = ExtResource("29_shqr1")
+
+[node name="Nowitschok" parent="." unique_id=2124461683 instance=ExtResource("25_c2x4g")]
+position = Vector2(-2097, 1180)
+item = ExtResource("29_plx8r")
+
+[node name="Sputnik Rakete" type="Sprite2D" parent="." unique_id=1403419711]
+position = Vector2(469.00003, 546.24994)
+scale = Vector2(0.73, 0.8375)
+texture = ExtResource("30_2ff1g")
+
+[node name="Lada" parent="." unique_id=1044354130 instance=ExtResource("25_c2x4g")]
+position = Vector2(-965, 388)
+item = ExtResource("30_85h02")
+
+[node name="Sputnik Satellit" parent="." unique_id=1580298503 instance=ExtResource("25_c2x4g")]
+position = Vector2(466, 169)
+item = ExtResource("32_shqr1")
 
 [connection signal="body_entered" from="Arena" to="Arena" method="_on_body_entered"]
 [connection signal="pause" from="Player" to="Dmitri" method="_on_player_pause"]

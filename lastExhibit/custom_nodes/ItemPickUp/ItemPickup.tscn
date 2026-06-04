@@ -1,8 +1,19 @@
 [gd_scene format=3 uid="uid://c2xp0jmnqddkc"]
 
 [ext_resource type="Script" uid="uid://cga1fyxcqnx4w" path="res://custom_nodes/ItemPickUp/ItemPickup.gd" id="1_2f8f3"]
+[ext_resource type="Texture2D" uid="uid://cch5u3tinl6gc" path="res://assets/sprites/dialogue/dialoguefenster.png" id="2_n3nam"]
+[ext_resource type="FontFile" uid="uid://bafj0agrswp3j" path="res://assets/fonts/Pixuf.ttf" id="3_6q14s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53201"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6fafm"]
+font = ExtResource("3_6q14s")
+font_size = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_n3nam"]
+line_spacing = 0.5
+font = ExtResource("3_6q14s")
+font_size = 5
 
 [node name="ItemPickup" type="Area2D" unique_id=1858323732]
 script = ExtResource("1_2f8f3")
@@ -11,3 +22,36 @@ script = ExtResource("1_2f8f3")
 shape = SubResource("RectangleShape2D_53201")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1685151323]
+
+[node name="Info" type="Sprite2D" parent="." unique_id=1630559654]
+position = Vector2(97.625, -32.750004)
+scale = Vector2(2.730469, 4.7857146)
+texture = ExtResource("2_n3nam")
+
+[node name="Label2" type="Label" parent="Info" unique_id=1690694604]
+anchors_preset = -1
+anchor_left = -0.625
+anchor_top = -0.0952381
+anchor_right = -0.9876163
+anchor_bottom = -0.13788205
+offset_left = 13.402006
+offset_top = -6.2014923
+offset_right = 71.40201
+offset_bottom = 1.7985077
+label_settings = SubResource("LabelSettings_6fafm")
+vertical_alignment = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Beschreibung" type="Label" parent="Info" unique_id=1030818206]
+anchors_preset = -1
+anchor_top = -0.16632411
+anchor_right = 0.8312991
+anchor_bottom = 0.12363752
+offset_left = -26.597994
+offset_top = -0.52958035
+offset_right = -25.597994
+offset_bottom = 5.47042
+label_settings = SubResource("LabelSettings_n3nam")
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
