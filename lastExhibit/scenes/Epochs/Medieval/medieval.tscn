@@ -1277,7 +1277,7 @@ position = Vector2(5106, -56)
 position = Vector2(5010, 41)
 
 [node name="Ladder9" parent="Ladders" unique_id=56398928 instance=ExtResource("22_fm6t7")]
-position = Vector2(4032, 58)
+position = Vector2(4080, 42)
 
 [node name="Ladder10" parent="Ladders" unique_id=331655579 instance=ExtResource("22_fm6t7")]
 position = Vector2(4080, 42)
