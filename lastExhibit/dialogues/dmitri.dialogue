@@ -65,7 +65,7 @@ Dmitri: Dann nicht, viel Glück ohne [speed=0.2] HAHAHA
 
 ~ Angenommen
 Dmitri: Komm her! 
-#Start Boxkampf
+$> set_kampf()
 => END
 
 => END

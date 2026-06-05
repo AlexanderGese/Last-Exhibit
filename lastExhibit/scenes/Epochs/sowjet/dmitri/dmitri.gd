@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var angesprochen : bool = false
 @onready var alien : bool = false
 @onready var beleidigt : bool = false
+@onready var kampf : bool = false
 @onready var balloon_scene = preload("res://dialogues/balloon.tscn")
 @onready var balloon_scene_alien = preload("res://dialogues/balloon_alien.tscn")
 @onready var balloon_scene_beleidigt = preload("res://dialogues/balloon_beleidigt.tscn")
@@ -60,6 +61,9 @@ func set_beleidigt():
 	
 func set_orden(): 
 	orden.visible = true
+	
+func set_kampf(): 
+	kampf = true
 
 func _on_area_2d_body_entered(body: Node) -> void:
 	if body.is_in_group("player"): 
