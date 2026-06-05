@@ -12,6 +12,8 @@ extends CharacterBody2D
 @onready var balloon_scene_beleidigt = preload("res://dialogues/balloon_beleidigt.tscn")
 @onready var collision1 = $CollisionShape2D
 @onready var collision2 = $Area2D/CollisionShape2D
+@onready var orden : ItemPickup = $Orden
+
 
 var current_balloon = null
 
@@ -24,10 +26,11 @@ const JUMP_VELOCITY = -400.0
 
 
 func _ready(): 
-	pass
+	orden.visible = false
 
 func _process(delta: float) -> void:
-	pass
+	if beleidigt == true:
+		orden.visible = false
 
 
 func _physics_process(delta: float) -> void:
@@ -54,6 +57,9 @@ func set_alien():
 
 func set_beleidigt():
 	beleidigt = true
+	
+func set_orden(): 
+	orden.visible = true
 
 func _on_area_2d_body_entered(body: Node) -> void:
 	if body.is_in_group("player"): 
@@ -90,6 +96,7 @@ func abort_dialogue():
 		set_collision_mask_value(1, true)
 		current_balloon.queue_free()
 		current_balloon = null
+		orden.visible = false
 
 
 func _on_player_pause() -> void:

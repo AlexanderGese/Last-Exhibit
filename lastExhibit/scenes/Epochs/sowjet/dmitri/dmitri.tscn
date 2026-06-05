@@ -7,6 +7,8 @@
 [ext_resource type="Resource" uid="uid://b43di2kkn7428" path="res://dialogues/dmitri_alien.dialogue" id="3_7o6bi"]
 [ext_resource type="Texture2D" uid="uid://drxvqyxm5qcpv" path="res://assets/sprites/dmitri/SowjetNPC_run.png" id="3_n30nw"]
 [ext_resource type="Resource" uid="uid://dcqhrdxd5gho0" path="res://dialogues/dmitri_beleidigt.dialogue" id="4_4kc0g"]
+[ext_resource type="PackedScene" uid="uid://c2xp0jmnqddkc" path="res://custom_nodes/ItemPickUp/ItemPickup.tscn" id="8_rocik"]
+[ext_resource type="Resource" uid="uid://chjowffsc6bly" path="res://scenes/Epochs/sowjet/artifacts/orden.tres" id="9_m45b8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n30nw"]
 radius = 13.0
@@ -166,6 +168,10 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=540255289]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_sqcp0")
+
+[node name="Orden" parent="." unique_id=1858323732 instance=ExtResource("8_rocik")]
+position = Vector2(45, 13)
+item = ExtResource("9_m45b8")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

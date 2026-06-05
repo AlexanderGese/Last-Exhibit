@@ -1,3 +1,4 @@
+class_name ItemPickup
 extends Area2D
 
 @export var item: Item
@@ -35,7 +36,7 @@ func _on_body_exited(body: Node) -> void:
 
 
 func _process(_delta: float) -> void:
-	if player_nearby and can_pickup and Input.is_action_just_pressed("interact"):
+	if player_nearby and can_pickup and Input.is_action_just_pressed("interact") and self.visible == true:
 		if SaveManager.try_pickup(item):
 			queue_free()
 
