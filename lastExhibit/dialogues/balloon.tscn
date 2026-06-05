@@ -5,7 +5,6 @@
 [ext_resource type="Resource" uid="uid://icubfr3ffps5" path="res://dialogues/dmitri.dialogue" id="2_ooonl"]
 [ext_resource type="Texture2D" uid="uid://cch5u3tinl6gc" path="res://assets/sprites/dialogue/dialoguefenster.png" id="3_7c2jb"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
-[ext_resource type="Resource" uid="uid://b43di2kkn7428" path="res://dialogues/dmitri_alien.dialogue" id="3_m00rr"]
 [ext_resource type="Texture2D" uid="uid://bhwsdfdy0v6pi" path="res://assets/sprites/dialogue/dialoguefenstersmall.png" id="6_rvrp7"]
 [ext_resource type="Texture2D" uid="uid://bphag38xc050d" path="res://assets/sprites/dialogue/dialoguefenstersmall_selected.png" id="7_m00rr"]
 
@@ -130,7 +129,6 @@ expand_margin_bottom = 5.0
 layer = 100
 script = ExtResource("1_36de5")
 dialogue_resource = ExtResource("2_ooonl")
-dialogue_alternative = ExtResource("3_m00rr")
 
 [node name="Balloon" type="Control" parent="." unique_id=539643963]
 unique_name_in_owner = true
@@ -215,9 +213,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -290.5
-offset_top = -35.0
+offset_top = 181.09003
 offset_right = 290.49805
-offset_bottom = 35.000366
+offset_bottom = 251.09033
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8

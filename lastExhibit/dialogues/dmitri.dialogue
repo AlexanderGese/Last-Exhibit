@@ -31,7 +31,7 @@ David: Keine Sorge, ich werde nicht rumstöbern.
 David: Aber was machst du hier sonst so?
 Dmitri: Seit Vaterländische Krieg, ich werde nur eingesetzt als Opfer
 Dmitri: Hier seh 
-#Gibt den Orden
+$> set_orden()
 Dmitri: Ich war mal große Soldat, abber bin ich lange nicht mehr... 
 David: 
 - WOW, der sieht toll aus! 
@@ -65,7 +65,7 @@ Dmitri: Dann nicht, viel Glück ohne [speed=0.2] HAHAHA
 
 ~ Angenommen
 Dmitri: Komm her! 
-#Start Boxkampf
+$> set_kampf()
 => END
 
 => END

@@ -7,11 +7,14 @@ extends CharacterBody2D
 @onready var angesprochen : bool = false
 @onready var alien : bool = false
 @onready var beleidigt : bool = false
+@onready var kampf : bool = false
 @onready var balloon_scene = preload("res://dialogues/balloon.tscn")
 @onready var balloon_scene_alien = preload("res://dialogues/balloon_alien.tscn")
 @onready var balloon_scene_beleidigt = preload("res://dialogues/balloon_beleidigt.tscn")
 @onready var collision1 = $CollisionShape2D
 @onready var collision2 = $Area2D/CollisionShape2D
+@onready var orden : ItemPickup = $Orden
+
 
 var current_balloon = null
 
@@ -22,12 +25,20 @@ const leben : int = 5
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+@export var gravity    : float = 980.0
+@export var kampf_dist : float = 16.0
+var player : CharacterBody2D
 
 func _ready(): 
-	pass
+	orden.visible = false
+	await get_tree().process_frame
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		player = players[0]
 
 func _process(delta: float) -> void:
-	pass
+	if beleidigt == true:
+		orden.visible = false
 
 
 func _physics_process(delta: float) -> void:
@@ -46,7 +57,19 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		
+		if kampf:
+			if player == null:
+				return
+			var ziel_x = player.global_position.x - kampf_dist
+			var dist   = global_position.x - ziel_x
+			if abs(dist) > 5.0&& global_position.x<-1700 && global_position.x>-2300:
+				velocity.x = -sign(dist) * SPEED
+				$AnimatedSprite2D.play("run")
+			else:
+				velocity.x = move_toward(velocity.x, 0.0, 20.0)
+				$AnimatedSprite2D.play("idle")
+		
 	move_and_slide()
 
 func set_alien():
@@ -54,6 +77,12 @@ func set_alien():
 
 func set_beleidigt():
 	beleidigt = true
+	
+func set_orden(): 
+	orden.visible = true
+	
+func set_kampf(): 
+	kampf = true
 
 func _on_area_2d_body_entered(body: Node) -> void:
 	if body.is_in_group("player"): 
@@ -90,6 +119,7 @@ func abort_dialogue():
 		set_collision_mask_value(1, true)
 		current_balloon.queue_free()
 		current_balloon = null
+		#orden.visible = false
 
 
 func _on_player_pause() -> void:
