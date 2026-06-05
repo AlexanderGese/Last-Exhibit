@@ -25,9 +25,16 @@ const leben : int = 5
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+@export var gravity    : float = 980.0
+@export var kampf_dist : float = 16.0
+var player : CharacterBody2D
 
 func _ready(): 
 	orden.visible = false
+	await get_tree().process_frame
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		player = players[0]
 
 func _process(delta: float) -> void:
 	if beleidigt == true:
@@ -50,7 +57,19 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		
+		if kampf:
+			if player == null:
+				return
+			var ziel_x = player.global_position.x - kampf_dist
+			var dist   = global_position.x - ziel_x
+			if abs(dist) > 5.0&& global_position.x<-1700 && global_position.x>-2300:
+				velocity.x = -sign(dist) * SPEED
+				$AnimatedSprite2D.play("run")
+			else:
+				velocity.x = move_toward(velocity.x, 0.0, 20.0)
+				$AnimatedSprite2D.play("idle")
+		
 	move_and_slide()
 
 func set_alien():
@@ -100,7 +119,7 @@ func abort_dialogue():
 		set_collision_mask_value(1, true)
 		current_balloon.queue_free()
 		current_balloon = null
-		orden.visible = false
+		#orden.visible = false
 
 
 func _on_player_pause() -> void:

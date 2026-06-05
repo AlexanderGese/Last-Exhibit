@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://bfohj7o7r0ohn" path="res://assets/sprites/dmitri/characterHit.png" id="1_mjp3d"]
 [ext_resource type="Script" uid="uid://cro4mfyx7uxew" path="res://scenes/Epochs/sowjet/dmitri/dmitri.gd" id="1_sqcp0"]
-[ext_resource type="Resource" uid="uid://icubfr3ffps5" path="res://dialogues/dmitri.dialogue" id="2_n30nw"]
+[ext_resource type="Resource" uid="uid://b388bywf56hof" path="res://dialogues/dmitri.dialogue" id="2_n30nw"]
 [ext_resource type="Texture2D" uid="uid://dedrmkpog0imn" path="res://assets/sprites/dmitri/SowjetNPC_idle.png" id="2_sqcp0"]
-[ext_resource type="Resource" uid="uid://b43di2kkn7428" path="res://dialogues/dmitri_alien.dialogue" id="3_7o6bi"]
+[ext_resource type="Resource" uid="uid://bjltg8tykl8fm" path="res://dialogues/dmitri_alien.dialogue" id="3_7o6bi"]
 [ext_resource type="Texture2D" uid="uid://drxvqyxm5qcpv" path="res://assets/sprites/dmitri/SowjetNPC_run.png" id="3_n30nw"]
-[ext_resource type="Resource" uid="uid://dcqhrdxd5gho0" path="res://dialogues/dmitri_beleidigt.dialogue" id="4_4kc0g"]
+[ext_resource type="Resource" uid="uid://d3ooh5akdbvvp" path="res://dialogues/dmitri_beleidigt.dialogue" id="4_4kc0g"]
 [ext_resource type="PackedScene" uid="uid://c2xp0jmnqddkc" path="res://custom_nodes/ItemPickUp/ItemPickup.tscn" id="8_rocik"]
 [ext_resource type="Resource" uid="uid://chjowffsc6bly" path="res://scenes/Epochs/sowjet/artifacts/orden.tres" id="9_m45b8"]
 
