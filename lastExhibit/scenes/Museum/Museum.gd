@@ -21,5 +21,4 @@ func start_day():
 	for i in range(SaveManager.museum.daily_visitors):
 		print("Spawning Visitor")
 		print(i)
-		get_tree().get_first_node_in_group().attach
 	pass
