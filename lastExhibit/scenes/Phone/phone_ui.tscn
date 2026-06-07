@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://drw35krbsrbu0" path="res://assets/ui/phone/großanzeigen_icon.png" id="2_tf1yw"]
 [ext_resource type="Texture2D" uid="uid://bor4xyr0q0qow" path="res://assets/ui/phone/flappy_icon.png" id="3_5cgul"]
 [ext_resource type="Texture2D" uid="uid://bv6wmv7dccbmm" path="res://assets/ui/phone/tor_icon.png" id="4_1g3al"]
+[ext_resource type="Shader" uid="uid://l57etkk775tm" path="res://shaders/rounded_corners.gdshader" id="4_cacfq"]
+[ext_resource type="Script" uid="uid://cvrpd6gcvi327" path="res://shader_apply.gd" id="6_11xny"]
 [ext_resource type="Texture2D" uid="uid://br5m11380jvnr" path="res://assets/ui/phone/museum_icon.png" id="6_to23u"]
 [ext_resource type="Texture2D" uid="uid://dx206sh5r57vc" path="res://assets/ui/phone/revolut_icon.png" id="7_gf06w"]
 [ext_resource type="Texture2D" uid="uid://6jiq1rt404ug" path="res://assets/ui/phone/messages_icon.png" id="8_s5pjt"]
@@ -27,6 +29,11 @@
 [ext_resource type="Script" uid="uid://bb3yee78tsvqi" path="res://scenes/Phone/museum.gd" id="18_pft75"]
 [ext_resource type="Script" uid="uid://bvikuwgfw78lu" path="res://scenes/Phone/revolut.gd" id="21_26ifj"]
 [ext_resource type="Script" uid="uid://c5eskgt6fq7fx" path="res://scenes/Phone/messages.gd" id="26_q3c8s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_11xny"]
+shader = ExtResource("4_cacfq")
+shader_parameter/size = Vector2(100, 100)
+shader_parameter/radius = 20.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q3c8s"]
 texture = ExtResource("17_k6u4c")
@@ -86,9 +93,11 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 
 [node name="Grossanzeigen" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/FirstRow" unique_id=1061513453]
+material = SubResource("ShaderMaterial_11xny")
 layout_mode = 2
 texture = ExtResource("2_tf1yw")
 expand_mode = 3
+script = ExtResource("6_11xny")
 
 [node name="Button" type="Button" parent="PhoneFrame/HomeScreen/VBoxContainer/FirstRow/Grossanzeigen" unique_id=282595881]
 layout_mode = 1
@@ -97,11 +106,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="Messages" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/FirstRow" unique_id=555262028]
+material = SubResource("ShaderMaterial_11xny")
 layout_mode = 2
 texture = ExtResource("8_s5pjt")
 expand_mode = 2
+script = ExtResource("6_11xny")
 
 [node name="Button" type="Button" parent="PhoneFrame/HomeScreen/VBoxContainer/FirstRow/Messages" unique_id=1668688315]
 layout_mode = 1
@@ -110,11 +122,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="Revolut" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/FirstRow" unique_id=711502145]
+material = SubResource("ShaderMaterial_11xny")
 layout_mode = 2
 texture = ExtResource("7_gf06w")
 expand_mode = 2
+script = ExtResource("6_11xny")
 
 [node name="Button" type="Button" parent="PhoneFrame/HomeScreen/VBoxContainer/FirstRow/Revolut" unique_id=949799975]
 layout_mode = 1
@@ -123,6 +138,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="TextureRect4" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/FirstRow" unique_id=1559583531]
 self_modulate = Color(1, 1, 1, 0)
@@ -133,9 +149,11 @@ texture = ExtResource("2_q0gno")
 layout_mode = 2
 
 [node name="Settings" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/SecondRow" unique_id=1656210291]
+material = SubResource("ShaderMaterial_11xny")
 layout_mode = 2
 texture = ExtResource("9_115e8")
 expand_mode = 2
+script = ExtResource("6_11xny")
 
 [node name="Button" type="Button" parent="PhoneFrame/HomeScreen/VBoxContainer/SecondRow/Settings" unique_id=498616592]
 layout_mode = 1
@@ -144,12 +162,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="Tor" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/SecondRow" unique_id=121335644]
 visible = false
+material = SubResource("ShaderMaterial_11xny")
 layout_mode = 2
 texture = ExtResource("4_1g3al")
 expand_mode = 2
+script = ExtResource("6_11xny")
 
 [node name="Button" type="Button" parent="PhoneFrame/HomeScreen/VBoxContainer/SecondRow/Tor" unique_id=677593016]
 layout_mode = 1
@@ -158,12 +179,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="Museum" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/SecondRow" unique_id=375567449]
 visible = false
+material = SubResource("ShaderMaterial_11xny")
 layout_mode = 2
 texture = ExtResource("6_to23u")
 expand_mode = 2
+script = ExtResource("6_11xny")
 
 [node name="Button" type="Button" parent="PhoneFrame/HomeScreen/VBoxContainer/SecondRow/Museum" unique_id=944819654]
 layout_mode = 1
@@ -172,6 +196,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="TextureRect4" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/SecondRow" unique_id=471978773]
 self_modulate = Color(1, 1, 1, 0)
@@ -183,9 +208,11 @@ layout_mode = 2
 
 [node name="Flappy" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/ThirdRow" unique_id=1400346126]
 visible = false
+material = SubResource("ShaderMaterial_11xny")
 layout_mode = 2
 texture = ExtResource("3_5cgul")
 expand_mode = 2
+script = ExtResource("6_11xny")
 
 [node name="Button" type="Button" parent="PhoneFrame/HomeScreen/VBoxContainer/ThirdRow/Flappy" unique_id=2037604730]
 layout_mode = 1
@@ -194,6 +221,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="TextureRect2" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/ThirdRow" unique_id=1720285501]
 self_modulate = Color(1, 1, 1, 0)
