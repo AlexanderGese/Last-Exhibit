@@ -59,3 +59,12 @@ position = Vector2(-195, -923)
 scale = Vector2(1.25, 1.25)
 
 [node name="Visitors" type="Node2D" parent="." unique_id=260117361]
+
+[node name="spawn_second" type="Marker2D" parent="." unique_id=1643174107]
+position = Vector2(50, -2271)
+
+[node name="spawn_first" type="Marker2D" parent="." unique_id=977125183]
+position = Vector2(55, -1600)
+
+[node name="spawn_ground" type="Marker2D" parent="." unique_id=1427321838]
+position = Vector2(136, -956)

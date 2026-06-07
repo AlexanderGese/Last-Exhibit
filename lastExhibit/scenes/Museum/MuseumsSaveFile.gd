@@ -4,7 +4,7 @@ extends SaveFile
 @export var number: int = 0
 @export var current_night: int = 1
 @export var daily_money: int = 0
-@export var daily_visitors: int = 0
+@export var daily_visitors: int = 10
 @export var ticket_price: int = 10
 @export var artifacts: Array
 @export var reputation: int =  0

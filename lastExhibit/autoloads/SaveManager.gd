@@ -42,6 +42,8 @@ func use_item(index: int) -> bool:
 	var item: Item = slot.item
 	if item.type == Item.Type.CONSUMABLE:
 		return consumable(item, slot, index)
+	elif item.type == Item.Type.ARTIFACT:
+		return artifact(item,slot,index)
 	return false
 	
 func consumable(item: Item, slot, index: int) -> bool:
@@ -58,6 +60,11 @@ func consumable(item: Item, slot, index: int) -> bool:
 	return true
 	
 	
+func artifact(item: Item, slot, index:int) -> bool:
+	
+	return true
+	pass
+	
 func add_item(item: Item, qty: int = 1) -> bool:
 	var ok := inventory.add_item(item, qty)
 	if ok:
@@ -72,6 +79,8 @@ func equip(index: int) -> void:
 # Pickup-Logik:
 # - Equipment-Typ → wird sofort angelegt; ein bereits angelegtes Item gleichen Slots droppt.
 # - sonst → normal ins Inventar; wenn voll = false (Pickup bleibt liegen).
+
+
 func try_pickup(item: Item) -> bool:
 	var key := inventory.equip_key(item.type)
 	if key != "":

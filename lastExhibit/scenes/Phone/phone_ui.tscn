@@ -865,6 +865,7 @@ text = "Revolut"
 metadata/_edit_use_anchors_ = true
 
 [node name="Messages" type="TextureRect" parent="." unique_id=2076542719]
+visible = false
 anchors_preset = -1
 anchor_left = 0.2625
 anchor_top = 0.014814815
@@ -899,6 +900,51 @@ anchor_top = 0.21851145
 anchor_right = 0.8137255
 anchor_bottom = 0.7862596
 metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Messages/VBoxContainer" unique_id=876070590]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_26ifj")
+theme_override_font_sizes/font_size = 48
+
+[node name="Label2" type="Label" parent="Messages/VBoxContainer" unique_id=1815523098]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_26ifj")
+theme_override_font_sizes/font_size = 48
+
+[node name="Label3" type="Label" parent="Messages/VBoxContainer" unique_id=1264465196]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_26ifj")
+theme_override_font_sizes/font_size = 48
+
+[node name="Label4" type="Label" parent="Messages/VBoxContainer" unique_id=1792416384]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_26ifj")
+theme_override_font_sizes/font_size = 48
+
+[node name="Label5" type="Label" parent="Messages/VBoxContainer" unique_id=657456403]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_26ifj")
+theme_override_font_sizes/font_size = 48
+
+[node name="Label6" type="Label" parent="Messages/VBoxContainer" unique_id=2118007435]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_26ifj")
+theme_override_font_sizes/font_size = 48
+
+[node name="Label7" type="Label" parent="Messages/VBoxContainer" unique_id=58275868]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_26ifj")
+theme_override_font_sizes/font_size = 48
+
+[node name="Label8" type="Label" parent="Messages/VBoxContainer" unique_id=35101155]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_26ifj")
+theme_override_font_sizes/font_size = 48
+
+[node name="Label9" type="Label" parent="Messages/VBoxContainer" unique_id=529212450]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_26ifj")
+theme_override_font_sizes/font_size = 48
 
 [node name="Settings" type="TextureRect" parent="." unique_id=2075006464]
 visible = false

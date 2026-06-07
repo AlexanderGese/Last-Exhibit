@@ -4,7 +4,11 @@ var game_minutes: int = 1320
 var is_night: bool = true
 var timer: float = 0.0
 var _loaded: bool = false
+
 const REAL_SECONDS_PER_GAME_10MIN = 18.75
+const NIGHT_START_MINUTES = 1320  # 22:00
+const DAY_START_MINUTES = 360     # 06:00
+const MINUTES_PER_DAY = 1440
 
 signal time_changed(formatted: String)
 signal day_started
@@ -16,28 +20,38 @@ func _process(delta: float) -> void:
 			print("Lade game_minutes: ", SaveManager.player.game_minutes)
 			game_minutes = SaveManager.player.game_minutes
 			_loaded = true
+			# Phase initial korrekt setzen ohne Signal zu spammen
+			is_night = _is_night_time(game_minutes)
 		return
+	
 	timer += delta
-	if timer >= REAL_SECONDS_PER_GAME_10MIN:
-		timer = 0.0
-		game_minutes += 10
-		if game_minutes >= 1440:
-			game_minutes = 0
-		SaveManager.player.game_minutes = game_minutes
-		SaveManager.save_all(0)  # jeden 10-Minuten-Schritt
-		_check_phase()
-		time_changed.emit(get_formatted_time())
+	if timer < REAL_SECONDS_PER_GAME_10MIN:
+		return
+	
+	timer = 0.0
+	game_minutes += 10
+	if game_minutes >= MINUTES_PER_DAY:
+		game_minutes = 0
+	
+	SaveManager.player.game_minutes = game_minutes
+	_check_phase()  # checkt ob Phase wechselt
+	time_changed.emit(get_formatted_time())
+	SaveManager.save_all(0)  # einmal pro 10-Min-Schritt, am Ende
+
+func _is_night_time(minutes: int) -> bool:
+	return minutes >= NIGHT_START_MINUTES or minutes < DAY_START_MINUTES
 
 func _check_phase() -> void:
-	if game_minutes >= 360 and game_minutes < 1320 and is_night:
-		is_night = false
-		day_started.emit()
-		SaveManager.save_all(0)
-	elif (game_minutes >= 1320 or game_minutes < 360) and not is_night:
-		is_night = true
+	var should_be_night = _is_night_time(game_minutes)
+	if should_be_night == is_night:
+		return  # keine Änderung
+	
+	is_night = should_be_night
+	if is_night:
 		SaveManager.museum.current_night += 1
 		night_started.emit()
-		SaveManager.save_all(0)
+	else:
+		day_started.emit()
 
 func get_formatted_time() -> String:
 	var h = game_minutes / 60 % 12
