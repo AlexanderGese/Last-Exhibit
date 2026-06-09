@@ -4,6 +4,8 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 @export var number:int
 var detected_player:bool = false
+@export var artifact:Item
+
 
 func _ready() -> void:
 	pass

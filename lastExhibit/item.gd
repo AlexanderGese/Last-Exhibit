@@ -14,3 +14,6 @@ enum Type { ARTIFACT, WEAPON, HEAD, BODY, LEGS, FEET, CONSUMABLE, AMMO, KEY, CUR
 
 @export_group("Consumable")
 @export var heal_amount: float = 0.0
+
+@export_group("Artifact")
+@export var big_artifact: bool #true = big, false = small
