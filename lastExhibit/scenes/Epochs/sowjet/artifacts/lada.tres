@@ -9,4 +9,5 @@ id = "lada"
 name = "Lada Niva"
 beschreibung = "Populärstes KFZ der Firma Lada"
 icon = ExtResource("1_gb17h")
+big_artifact = true
 metadata/_custom_type_script = "uid://d4c671jpgfict"

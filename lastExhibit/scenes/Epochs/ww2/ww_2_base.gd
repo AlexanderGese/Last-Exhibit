@@ -9,3 +9,15 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func end_level():
+	spawn_returnpad()
+	reset_level()
+	pass
+
+func spawn_returnpad():
+	pass
+
+func reset_level():
+	pass

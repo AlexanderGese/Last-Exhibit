@@ -13,4 +13,5 @@ stackable = true
 max_stack = 3
 value = 5
 heal_amount = 15.0
+big_artifact = true
 metadata/_custom_type_script = "uid://d4c671jpgfict"

@@ -19,6 +19,7 @@ extends SaveFile
 @export var level_time = 30
 # -- Inventory ---------------
 @export var equipped: Dictionary = {}
+@export var messages: Array[String] = ["/","/","/","/","/","/","/","/","/"]
 
 # -- DAta -------
 @export var past_five_transactions: Array[String] = ["/", "/", "/","/","/"]
@@ -30,7 +31,10 @@ func add_transcation(item: String, price: int, currency: String) -> void:
 	if past_five_transactions.size() > 5:
 		past_five_transactions.pop_front() 
 
-
+func add_message(text: String)-> void:
+	messages.push_back(text)
+	if messages.size() > 9:
+		messages.pop_front()
 
 
 func buy(price: int, item: String, currency: String) -> bool:
