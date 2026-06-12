@@ -44,7 +44,7 @@ func _travel_to(floor_name: String, button: AnimatedSprite2D) -> void:
 	for elevator in elevators:
 		if elevator.floor_name == floor_name:
 			elevator.visible = true
-			elevator.play_opening_animation()
+			#elevator.play_opening_animation()
 			break
 
 	await Fader.fade_in(2.0)

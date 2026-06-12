@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://b3wlhgt03ouqc" path="res://scenes/Epochs/Medieval/boat.tscn" id="19_pk5u7"]
 [ext_resource type="PackedScene" uid="uid://p601uv7xjfyc" path="res://custom_nodes/Ladder.tscn" id="22_fm6t7"]
 [ext_resource type="PackedScene" uid="uid://bcmucfj6jywxl" path="res://custom_nodes/bouncy.tscn" id="22_kiqwy"]
+[ext_resource type="Script" uid="uid://cbte7p8eny7sk" path="res://scenes/Epochs/Medieval/killzone_water.gd" id="25_vijm0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lljqo"]
 texture = ExtResource("1_v1uj4")
@@ -1085,6 +1086,9 @@ _data = {
 &"move": SubResource("Animation_qsvli")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82gt7"]
+size = Vector2(672, 96)
+
 [node name="Medieval" type="Node2D" unique_id=625818030]
 
 [node name="Scenic1" type="TileMapLayer" parent="." unique_id=1899726484]
@@ -1422,5 +1426,12 @@ position = Vector2(-5903, 448)
 
 [node name="Ladder57" parent="Ladders" unique_id=1969587418 instance=ExtResource("22_fm6t7")]
 position = Vector2(-5903, 526)
+
+[node name="KillzoneWater" type="Area2D" parent="." unique_id=1137969974]
+script = ExtResource("25_vijm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillzoneWater" unique_id=806170188]
+position = Vector2(3318, 410)
+shape = SubResource("RectangleShape2D_82gt7")
 
 [editable path="Ladders/Ladder"]

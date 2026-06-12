@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c1ev761egf8wg" path="res://scenes/Museum/vending_machine.gd" id="1_d6dp8"]
 [ext_resource type="Texture2D" uid="uid://ra3mo8ealrrt" path="res://assets/sprites/museum/Verkaufsautomat.png" id="1_g1u6r"]
+[ext_resource type="FontFile" uid="uid://bafj0agrswp3j" path="res://assets/fonts/Pixuf.ttf" id="3_we7h4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_we7h4"]
 atlas = ExtResource("1_g1u6r")
@@ -89,6 +90,24 @@ position = Vector2(16, -32)
 sprite_frames = SubResource("SpriteFrames_gnyop")
 animation = &"2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D" unique_id=163615467]
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=1073899832]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=163615467]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_g1u6r")
+
+[node name="VendingMachinePrompt" type="Label" parent="." unique_id=1370021793]
+z_index = 2
+offset_left = -30.0
+offset_top = -87.0
+offset_right = 61.0
+offset_bottom = -68.0
+theme_override_colors/font_color = Color(0.000729342, 0.00034471275, 0.00015502091, 1)
+theme_override_fonts/font = ExtResource("3_we7h4")
+theme_override_font_sizes/font_size = 8
+text = "PRESS \"E\" FOR DRINKS
+HOLD \"E \" TO BUY"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_exited"]

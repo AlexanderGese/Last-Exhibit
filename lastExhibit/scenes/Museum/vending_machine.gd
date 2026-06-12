@@ -19,6 +19,8 @@ var items = [WATER,COLA,SPEZI,REDBULL,WHITEMONSTER,PENNER]
 var item_names = ["Water", "Cola", "Spezi", "Redbull", "Monster", "Penner"]
 var price = [10, 10, 15 , 20, 25, 50]
 
+func _ready() -> void:
+	$VendingMachinePrompt.visible = false
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
@@ -37,7 +39,6 @@ func _process(_delta: float) -> void:
 			_scrollen()
 		is_holding = false
 
-
 func _scrollen() -> void:
 	if current >= 6:
 		current = 0
@@ -52,3 +53,13 @@ func _kaufen() -> void:
 	var ok = SaveManager.buy(price[current -1], item_names[current -1], "coins")
 	if ok:
 		SaveManager.add_item(items[current -1],1)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		$VendingMachinePrompt.visible = true
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		$VendingMachinePrompt.visible = false

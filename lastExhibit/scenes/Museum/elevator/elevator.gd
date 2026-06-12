@@ -17,12 +17,12 @@ func play_closing_animation() -> void:
 	$AnimatedSprite2D.visible = true
 	$AnimatedSprite2D.play("doors_closing")
 
-func play_opening_animation() -> void:
+"""func play_opening_animation() -> void:
 	visible = true
 	$AnimatedSprite2D.visible = true
 	$AnimatedSprite2D.play_backwards("doors_closing")
 	await $AnimatedSprite2D.animation_finished
-	$AnimatedSprite2D.visible = false
+	$AnimatedSprite2D.visible = false"""
 
 func show_inside(duration: float) -> void:
 	$Sprite2D.visible = true
