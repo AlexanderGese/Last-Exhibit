@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://sf7fmf2k85v7"]
+
+[ext_resource type="Script" uid="uid://di7k2q21btab4" path="res://custom_nodes/boxes/arrow.gd" id="1_lut3r"]
+[ext_resource type="Texture2D" uid="uid://dq6gm2srva4u6" path="res://assets/kenney_ui/Panel/panel-014.png" id="2_1etl1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lut3r"]
+size = Vector2(3, 2)
+
+[node name="Arrow" type="Area2D" unique_id=599742406]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_lut3r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1891570224]
+position = Vector2(0.500001, 5.9604645e-08)
+scale = Vector2(0.062499955, 0.04166667)
+texture = ExtResource("2_1etl1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1489111099]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_lut3r")
