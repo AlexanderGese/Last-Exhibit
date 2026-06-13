@@ -7,11 +7,13 @@ var player: PlayerSaveFile
 var museum: MuseumsSaveFile
 var achievements: AchievmentSaveFile
 var inventory: Inventory = preload("res://saves/player_inventory.tres")
-
+var player_char
 
 func _ready() -> void:
 	load_all(0)
 	player.money = 100000
+	Events.artifact_place.connect(remove_item_from_inv)
+	var player_char = get_tree().get_first_node_in_group("player")
 
 func save_all(slot: int) -> void:
 	player.save(slot)
@@ -49,8 +51,8 @@ func use_item(index: int) -> bool:
 func consumable(item: Item, slot, index: int) -> bool:
 	if item.heal_amount > 0:
 		var player = get_tree().get_first_node_in_group("player")
-	if player and player.has_method("heal"):
-		player.heal(item.heal_amount)
+	if player_char and player_char.has_method("heal"):
+		player_char.heal(item.heal_amount)
 	
 	slot.qty -= 1
 	if slot.qty <= 0:
@@ -61,8 +63,15 @@ func consumable(item: Item, slot, index: int) -> bool:
 	
 	
 func artifact(item: Item, slot, index:int) -> bool:
-	
+	Events.used_artifact.emit(item, index)
 	return true
+	
+func remove_item_from_inv(i: int):
+	var slot = inventory.slots[i]
+	slot.qty -= 1
+	if slot.qty <= 0:
+		inventory.slots[i] = null
+		inventory_changed.emit()
 	pass
 	
 func add_item(item: Item, qty: int = 1) -> bool:

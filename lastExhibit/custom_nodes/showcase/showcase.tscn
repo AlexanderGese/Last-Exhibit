@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://dkvceyxie2xb5"]
 
+[ext_resource type="Script" uid="uid://bk4pm1k54x2hq" path="res://custom_nodes/showcase/master_showcase.gd" id="1_f7kq6"]
 [ext_resource type="PackedScene" uid="uid://bdk8b4av4mw77" path="res://custom_nodes/showcase/BigShowcase.tscn" id="1_xsexa"]
 [ext_resource type="PackedScene" uid="uid://d0j77fyu8kd0t" path="res://custom_nodes/showcase/SmallShowcase.tscn" id="2_f7kq6"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7kq6"]
+size = Vector2(57, 45)
+
 [node name="Showcase" type="Node2D" unique_id=1435700409]
+script = ExtResource("1_f7kq6")
 
 [node name="BigShowcase" parent="." unique_id=1665285686 instance=ExtResource("1_xsexa")]
 visible = false
@@ -13,3 +18,15 @@ visible = false
 position = Vector2(16, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1867441325]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1895809451]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=712570560]
+position = Vector2(27, -21)
+shape = SubResource("RectangleShape2D_f7kq6")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+
+[editable path="BigShowcase"]
+[editable path="SmallShowcase"]

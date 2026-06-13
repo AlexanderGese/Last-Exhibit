@@ -1,16 +1,17 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
 @export var number:int
 var detected_player:bool = false
-@export var artifact:Item
+@export var artifact:Showcase
 
 
 func _ready() -> void:
+	if SaveManager.museum.showcases[number-1] != null:
+		artifact = SaveManager.museum.showcases[number-1]
+		
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	Events.standing_in_showcase.emit(number)
 

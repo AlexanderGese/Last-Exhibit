@@ -11,6 +11,10 @@ extends SaveFile
 @export var ground_used: bool = false
 @export var first_used: bool = true
 @export var second_used: bool = true
+@export var showcases: Array[Showcase]
+
+
+
 
 
 func _process(delta: float) -> void:
