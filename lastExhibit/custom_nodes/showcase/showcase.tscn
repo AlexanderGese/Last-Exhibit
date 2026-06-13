@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dkvceyxie2xb5"]
+
+[ext_resource type="PackedScene" uid="uid://bdk8b4av4mw77" path="res://custom_nodes/showcase/BigShowcase.tscn" id="1_xsexa"]
+[ext_resource type="PackedScene" uid="uid://d0j77fyu8kd0t" path="res://custom_nodes/showcase/SmallShowcase.tscn" id="2_f7kq6"]
+
+[node name="Showcase" type="Node2D" unique_id=1435700409]
+
+[node name="BigShowcase" parent="." unique_id=1665285686 instance=ExtResource("1_xsexa")]
+visible = false
+
+[node name="SmallShowcase" parent="." unique_id=165779673 instance=ExtResource("2_f7kq6")]
+visible = false
+position = Vector2(16, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1867441325]
