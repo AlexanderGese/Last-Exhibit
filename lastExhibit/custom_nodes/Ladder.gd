@@ -6,7 +6,7 @@ var size
 
 func _process(delta: float) -> void:
 	if is_in_area and player_ref:
-		if Input.is_action_pressed("jump"):
+		if Input.is_action_pressed("up"):
 			player_ref.velocity.y = -200
 		elif Input.is_action_pressed("down"):
 			player_ref.velocity.y = 200
@@ -15,10 +15,12 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
+		body.ladder_count += 1
 		is_in_area = true
 		player_ref = body
 
 func _on_body_exited(body: Node) -> void:
 	if body.is_in_group("player"):
+		body.ladder_count -= 1
 		is_in_area = false
 		player_ref = null
