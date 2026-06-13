@@ -53,6 +53,7 @@ var ranged_animation: String = "shoot_gun"
 var is_climbing := false
 var ladder_count: int = 0
 var current_ladder: Node2D = null
+var in_emtpy_showcase: bool = false
 
 var is_inui := false
 var is_in_dialogue := false

@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://d0j77fyu8kd0t"]
 
-[ext_resource type="Script" uid="uid://0fm51bv5m640" path="res://custom_nodes/showcase/showcase.gd" id="1_5ivm5"]
 [ext_resource type="Texture2D" uid="uid://dklwaetmc45b8" path="res://assets/sprites/museum/kleineVitrineUnten.png" id="1_d33x0"]
 [ext_resource type="Texture2D" uid="uid://do6oi8vmfneur" path="res://demo/assets/icon.svg" id="1_qir3i"]
 [ext_resource type="Texture2D" uid="uid://c8qv6hdmgpnh1" path="res://assets/sprites/museum/kleineVitrinoben.png" id="2_qir3i"]
@@ -9,7 +8,6 @@
 size = Vector2(32, 64)
 
 [node name="SmallShowcase" type="Node2D" unique_id=165779673]
-script = ExtResource("1_5ivm5")
 
 [node name="Item" type="Sprite2D" parent="." unique_id=283990889]
 visible = false
@@ -30,6 +28,3 @@ texture = ExtResource("2_qir3i")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1242227952]
 position = Vector2(16, -32)
 shape = SubResource("RectangleShape2D_5ivm5")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -282,7 +282,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ojadi")
 }],
-"loop": false,
+"loop": true,
 "name": &"shoot_pistol",
 "speed": 5.0
 }, {

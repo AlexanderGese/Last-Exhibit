@@ -6,3 +6,6 @@ signal artifact_placed(floor_name: String)
 signal visitor_spawned
 signal visitor_left
 signal standing_in_showcase(number: int)
+
+signal used_artifact(Artifact: Item, index:int)
+signal artifact_place(i: int)
