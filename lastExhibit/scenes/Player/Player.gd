@@ -1,17 +1,14 @@
 extends CharacterBody2D
 
-# ── Preloads ──
 const ITEM_PICKUP_SCENE = preload("res://custom_nodes/ItemPickUp/ItemPickup.tscn")
 const ARROW_SCENE = preload("res://custom_nodes/boxes/arrow.tscn")
 const ESCAPEMENU_SCENE = preload("res://scenes/EscapeMenu/EscapeMenu.tscn")
 
-# ── Movement ──
 const RUN_SPEED = 350
 const ACCELERATION = 2500.0
 const DECELERATION = 3000.0
 const AIR_MULT = 0.65
 
-# ── Jump ──
 const JUMP_FORCE = -750
 const GRAVITY = 3000
 const JUMP_CUT_GRAVITY = 6000
@@ -20,13 +17,14 @@ const FALL_GRAVITY_MULT = 1.6
 const COYOTE_TIME = 0.1
 const JUMP_BUFFER_TIME = 0.1
 
-# ── Combat ──
 const MAX_COMBO = 3
 const COMBO_RESET_TIME = 0.35
 const MELEE_HIT_WINDOW = 0.2
 const RANGED_COOLDOWN = 0.4
+const RANGED_ANIM_LOCK = 0.3
 
-# ── Node refs ──
+const CLIMB_SPEED = 180.0
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_pivot: Node2D = $AttackPivot
 @onready var hitbox: Hitbox = $AttackPivot/MeleeHitbox
@@ -35,64 +33,68 @@ const RANGED_COOLDOWN = 0.4
 @onready var escape_menu = ESCAPEMENU_SCENE.instantiate()
 @onready var inventory: Inventory = SaveManager.inventory
 
-# ── State ──
 var save: PlayerSaveFile
 var facing_right := true
 
-# Jump
 var is_jumping := false
 var jump_timer := 0.0
 var coyote_timer := 0.0
 var jump_buffer_timer := 0.0
 
-# Combat
 var is_attacking := false
 var combo_count := 0
 var combo_queued := false
 var combo_reset_timer := 0.0
 var ranged_cooldown := 0.0
+var anim_locked_until := 0.0
 
-# UI / dialogue
+var ranged_animation: String = "shoot_gun"
+
+var is_climbing := false
+var ladder_count: int = 0
+var current_ladder: Node2D = null
+
 var is_inui := false
 var is_in_dialogue := false
 
 signal pause
 
 
-# ──────────────────────────────────────────────────────────
-#  Lifecycle
-# ──────────────────────────────────────────────────────────
 func _ready() -> void:
 	add_child(escape_menu)
 	save = SaveManager.player
 	$Timer.start()
 	add_to_group("player")
-	
 	sprite.animation_finished.connect(_on_animation_finished)
 	hurtbox.hurt.connect(_on_hurt)
 	SaveManager.item_dropped.connect(_on_item_dropped)
-	
 	hitbox_shape.disabled = true
-	
 	if inventory == null:
 		push_error("Player: kein Inventory zugewiesen!")
 
 
 func _physics_process(delta: float) -> void:
+	anim_locked_until = max(0.0, anim_locked_until - delta)
+	
+	if is_climbing:
+		_handle_climb(delta)
+		_update_animation()
+		move_and_slide()
+		_handle_escape()
+		return
+	
 	_apply_gravity(delta)
 	if not is_inui:
 		_handle_jump(delta)
 	_handle_movement(delta)
 	_handle_attack(delta)
+	_check_climb_start()
 	_update_hitbox_facing()
 	_update_animation()
 	move_and_slide()
 	_handle_escape()
 
 
-# ──────────────────────────────────────────────────────────
-#  Movement / Jump / Gravity
-# ──────────────────────────────────────────────────────────
 func _apply_gravity(delta: float) -> void:
 	if is_on_floor():
 		return
@@ -147,9 +149,53 @@ func _handle_jump(delta: float) -> void:
 			is_jumping = false
 
 
-# ──────────────────────────────────────────────────────────
-#  Combat
-# ──────────────────────────────────────────────────────────
+func _check_climb_start() -> void:
+	if ladder_count > 0 and (Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down")):
+		_start_climbing()
+
+
+func _start_climbing() -> void:
+	is_climbing = true
+	velocity = Vector2.ZERO
+	if current_ladder:
+		global_position.x = current_ladder.global_position.x
+	sprite.play("climb")
+
+
+func _stop_climbing() -> void:
+	is_climbing = false
+
+
+func _handle_climb(_delta: float) -> void:
+	var v := Input.get_axis("up", "down")
+	velocity.y = v * CLIMB_SPEED
+	velocity.x = 0
+	
+	if Input.is_action_just_pressed("jump"):
+		_stop_climbing()
+		velocity.y = JUMP_FORCE * 0.7
+		is_jumping = true
+		jump_timer = 0.0
+		return
+	
+	if ladder_count <= 0:
+		_stop_climbing()
+
+
+func enter_ladder(ladder: Node2D) -> void:
+	ladder_count += 1
+	current_ladder = ladder
+
+
+func exit_ladder() -> void:
+	ladder_count -= 1
+	if ladder_count <= 0:
+		ladder_count = 0
+		current_ladder = null
+		if is_climbing:
+			_stop_climbing()
+
+
 func _handle_attack(delta: float) -> void:
 	if combo_reset_timer > 0.0:
 		combo_reset_timer -= delta
@@ -157,9 +203,6 @@ func _handle_attack(delta: float) -> void:
 			combo_count = 0
 	
 	ranged_cooldown = max(0.0, ranged_cooldown - delta)
-	
-	if Input.is_action_just_pressed("right_click"):
-		print("RMB! cooldown=", ranged_cooldown, " is_attacking=", is_attacking, " is_inui=", is_inui, " is_in_dialogue=", is_in_dialogue)
 	
 	if is_inui or is_in_dialogue or _any_ui_open():
 		return
@@ -172,24 +215,6 @@ func _handle_attack(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("right_click") and ranged_cooldown <= 0 and not is_attacking:
 		_start_ranged_attack()
-
-func _start_ranged_attack() -> void:
-	ranged_cooldown = RANGED_COOLDOWN
-	sprite.play("hit")
-	
-	var arrow = ARROW_SCENE.instantiate()
-	get_tree().current_scene.add_child(arrow)
-	# Pfeil spawnt 40px vor dem Player, nicht im Player drin
-	var offset = Vector2(40 if facing_right else -40, 0)
-	arrow.global_position = global_position + offset
-	arrow.direction = Vector2.RIGHT if facing_right else Vector2.LEFT
-	if arrow.has_node("Sprite2D"):
-		arrow.get_node("Sprite2D").flip_h = not facing_right
-		
-func _any_ui_open() -> bool:
-	if has_node("ZeitmaschinenUI") and $ZeitmaschinenUI.visible:
-		return true
-	return false
 
 
 func _start_melee_attack() -> void:
@@ -207,6 +232,28 @@ func _activate_hitbox() -> void:
 	hitbox_shape.disabled = true
 
 
+func _start_ranged_attack() -> void:
+	ranged_cooldown = RANGED_COOLDOWN
+	sprite.play(ranged_animation)
+	anim_locked_until = RANGED_ANIM_LOCK
+	
+	var arrow = ARROW_SCENE.instantiate()
+	get_tree().current_scene.add_child(arrow)
+	var offset = Vector2(40 if facing_right else -40, 0)
+	arrow.global_position = global_position + offset
+	arrow.direction = Vector2.RIGHT if facing_right else Vector2.LEFT
+	if arrow.has_node("Sprite2D"):
+		arrow.get_node("Sprite2D").flip_h = not facing_right
+
+
+func set_ranged_weapon(animation_name: String) -> void:
+	ranged_animation = animation_name
+
+
+func _any_ui_open() -> bool:
+	if has_node("ZeitmaschinenUI") and $ZeitmaschinenUI.visible:
+		return true
+	return false
 
 
 func _on_animation_finished() -> void:
@@ -223,9 +270,7 @@ func _on_animation_finished() -> void:
 func _update_hitbox_facing() -> void:
 	attack_pivot.scale.x = 1 if facing_right else -1
 
-# ──────────────────────────────────────────────────────────
-#  Damage / Heal
-# ──────────────────────────────────────────────────────────
+
 func take_damage(damage: int) -> void:
 	save.hp -= damage
 	print("Player HP: ", save.hp)
@@ -246,26 +291,33 @@ func _on_hurt(damage: int, knockback: Vector2) -> void:
 
 func _die() -> void:
 	print("Player ist gestorben")
-	# TODO: death anim, game over, respawn
 
 
-# ──────────────────────────────────────────────────────────
-#  Animation
-# ──────────────────────────────────────────────────────────
 func _update_animation() -> void:
-	if is_attacking:
+	if is_attacking or anim_locked_until > 0:
 		return
+	
+	if is_climbing:
+		if abs(velocity.y) > 0.1:
+			if sprite.animation != "climb" or not sprite.is_playing():
+				sprite.play("climb")
+		else:
+			if sprite.animation != "climb":
+				sprite.play("climb")
+			sprite.pause()
+		return
+	
 	if not is_on_floor():
-		sprite.play("jump")
+		if sprite.animation != "jump":
+			sprite.play("jump")
 	elif velocity.x != 0:
-		sprite.play("run")
+		if sprite.animation != "walk":
+			sprite.play("walk")
 	else:
-		sprite.play("idle")
+		if sprite.animation != "idle":
+			sprite.play("idle")
 
 
-# ──────────────────────────────────────────────────────────
-#  Items / Pickup
-# ──────────────────────────────────────────────────────────
 func _on_item_dropped(item: Item) -> void:
 	var pickup = ITEM_PICKUP_SCENE.instantiate()
 	pickup.item = item
@@ -274,9 +326,6 @@ func _on_item_dropped(item: Item) -> void:
 	pickup.disable_pickup_temporarily(0.5)
 
 
-# ──────────────────────────────────────────────────────────
-#  Misc
-# ──────────────────────────────────────────────────────────
 func bounce(force: float) -> void:
 	velocity.y = force
 	is_jumping = false
@@ -297,9 +346,6 @@ func _on_timer_timeout() -> void:
 	SaveManager.save_all(0)
 
 
-# ──────────────────────────────────────────────────────────
-#  UI / Escape
-# ──────────────────────────────────────────────────────────
 func _handle_escape() -> void:
 	if Input.is_action_just_pressed("phone"):
 		$PhoneUI.visible = not $PhoneUI.visible
@@ -312,9 +358,6 @@ func _handle_escape() -> void:
 			escape_menu.show_menu()
 
 
-# ──────────────────────────────────────────────────────────
-#  Dialogue
-# ──────────────────────────────────────────────────────────
 func _on_dmitri_dialogue_started() -> void:
 	is_in_dialogue = true
 
