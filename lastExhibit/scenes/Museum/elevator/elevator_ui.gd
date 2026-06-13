@@ -47,7 +47,7 @@ func _travel_to(floor_name: String, button: AnimatedSprite2D) -> void:
 			#elevator.play_opening_animation()
 			break
 
-	await Fader.fade_in(2.0)
+	await Fader.fade_in(0.5)
 	hide()
 	player.set_physics_process(true)
 
