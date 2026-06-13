@@ -79,7 +79,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1u6r"]
-size = Vector2(42, 63)
+size = Vector2(86, 63)
 
 [node name="VendingMachine" type="Node2D" unique_id=201981395]
 script = ExtResource("1_d6dp8")
@@ -89,6 +89,14 @@ position = Vector2(16, -32)
 sprite_frames = SubResource("SpriteFrames_gnyop")
 animation = &"2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D" unique_id=163615467]
-position = Vector2(0, -1)
+[node name="Area2D" type="Area2D" parent="." unique_id=33631259]
+position = Vector2(-1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=163615467]
+position = Vector2(18, -32)
 shape = SubResource("RectangleShape2D_g1u6r")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

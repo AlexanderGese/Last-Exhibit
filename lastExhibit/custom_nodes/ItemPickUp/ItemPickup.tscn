@@ -6,16 +6,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53201"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_6fafm"]
-font = ExtResource("3_6q14s")
-font_size = 5
-
-[sub_resource type="LabelSettings" id="LabelSettings_n3nam"]
-line_spacing = 0.5
-font = ExtResource("3_6q14s")
-font_size = 5
-
 [node name="ItemPickup" type="Area2D" unique_id=1858323732]
+z_index = 1
 script = ExtResource("1_2f8f3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=772571855]
@@ -24,35 +16,22 @@ shape = SubResource("RectangleShape2D_53201")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1685151323]
 
 [node name="Info" type="Sprite2D" parent="." unique_id=1630559654]
-position = Vector2(97.625, -32.750004)
-scale = Vector2(2.730469, 4.7857146)
+z_index = 4096
+position = Vector2(1, -24.000002)
+scale = Vector2(0.8554688, 1.0476193)
 texture = ExtResource("2_n3nam")
 
-[node name="Label2" type="Label" parent="Info" unique_id=1690694604]
+[node name="Label" type="Label" parent="Info" unique_id=1975593611]
 anchors_preset = -1
-anchor_left = -0.9876163
-anchor_top = -0.13788205
-anchor_right = -0.9876163
-anchor_bottom = -0.13788205
-offset_left = 13.402006
-offset_top = -6.2014923
-offset_right = 71.40201
-offset_bottom = 1.7985077
-label_settings = SubResource("LabelSettings_6fafm")
-vertical_alignment = 3
-autowrap_mode = 3
-metadata/_edit_use_anchors_ = true
-
-[node name="Beschreibung" type="Label" parent="Info" unique_id=1030818206]
-anchors_preset = -1
-anchor_top = -0.16632411
-anchor_right = 0.8312991
-anchor_bottom = 0.12363752
-offset_left = -26.597994
-offset_top = -0.52958035
-offset_right = -25.597994
-offset_bottom = 5.47042
-label_settings = SubResource("LabelSettings_n3nam")
-vertical_alignment = 1
-autowrap_mode = 2
+anchor_left = 0.06164387
+anchor_top = 0.22727281
+anchor_right = 0.92101884
+anchor_bottom = 0.70346326
+offset_left = -32.0
+offset_top = -10.5
+offset_right = -31.999998
+offset_bottom = -10.499999
+theme_override_fonts/font = ExtResource("3_6q14s")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true

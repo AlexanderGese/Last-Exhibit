@@ -8,9 +8,7 @@ var can_pickup: bool = true
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var info: Sprite2D = $Info
-@onready var beschreibung: Label = $Info/Beschreibung
-@onready var beschreibungstext: String = item.beschreibung
-@onready var artefakt : Label = $Info/Label2
+@onready var beschreibung: Label = $Info/Label
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -18,16 +16,13 @@ func _ready() -> void:
 	info.visible = false
 	if item:
 		sprite.texture = item.icon
-		artefakt.text = item.name
-		artefakt.position.x += 23
 
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		player_nearby = true
 		info.visible = true
-		beschreibung.text = beschreibungstext
-
+		beschreibung.text = item.name
 
 func _on_body_exited(body: Node) -> void:
 	if body.is_in_group("player"):

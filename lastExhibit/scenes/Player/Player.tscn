@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://cj4fhyw1r08ai" path="res://scenes/Inventory/inventory_ui.tscn" id="7_mmokv"]
 [ext_resource type="PackedScene" uid="uid://brb5y8ajuwh3o" path="res://scenes/Phone/phone_ui.tscn" id="8_dqp0f"]
 [ext_resource type="PackedScene" uid="uid://pq1sjpxa617a" path="res://scenes/Museum/elevator/ElevatorUI.tscn" id="8_puxyr"]
+[ext_resource type="Script" uid="uid://dc33vug1a1hkq" path="res://custom_nodes/boxes/Hurtbox.gd" id="11_qt7jd"]
 [ext_resource type="PackedScene" uid="uid://qd0flrd01ahf" path="res://scenes/Zeitmaschine/ZeitmaschinenUI.tscn" id="11_tl8lu"]
+[ext_resource type="Script" uid="uid://ch3o8csrvxxgv" path="res://custom_nodes/boxes/Hitbox.gd" id="12_cd157"]
 [ext_resource type="PackedScene" uid="uid://bmra50q86feb7" path="res://scenes/PlayerHud/player_hud.tscn" id="12_qt7jd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h00vy"]
@@ -183,8 +185,10 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qt7jd"]
+size = Vector2(50, 40)
+
 [node name="Player" type="CharacterBody2D" unique_id=229592850]
-position = Vector2(0, -32)
 collision_layer = 255
 script = ExtResource("1_ky53y")
 
@@ -192,6 +196,7 @@ script = ExtResource("1_ky53y")
 shape = SubResource("CapsuleShape2D_h00vy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=491251229]
+position = Vector2(4, -1)
 sprite_frames = SubResource("SpriteFrames_fxc31")
 animation = &"hit"
 autoplay = "idle"
@@ -232,6 +237,28 @@ scale = Vector2(0.4, 0.4)
 visible = false
 
 [node name="LevelTimer" type="Timer" parent="." unique_id=1086503190]
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1925261632]
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("11_qt7jd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1796669172]
+
+[node name="AttackPivot" type="Node2D" parent="." unique_id=1381129408]
+
+[node name="MeleeHitbox" type="Area2D" parent="AttackPivot" unique_id=54124423]
+position = Vector2(40, 0)
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("12_cd157")
+damage = 20
+knockback_force = 250.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackPivot/MeleeHitbox" unique_id=1208803073]
+shape = SubResource("RectangleShape2D_qt7jd")
+disabled = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
