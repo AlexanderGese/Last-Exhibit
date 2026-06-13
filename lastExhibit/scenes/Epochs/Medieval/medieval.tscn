@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c1uqlgb5k73o7" path="res://assets/sprites/medieval/GandalfHardcore FREE Platformer Assets/GandalfHardcore FREE Platformer Assets/Pine forest sheet.png" id="11_knvkd"]
 [ext_resource type="Texture2D" uid="uid://dl3gkt1ce0kpv" path="res://assets/sprites/medieval/GandalfHardcore FREE Platformer Assets/GandalfHardcore FREE Platformer Assets/Large Tent.png" id="12_v1uj4"]
 [ext_resource type="Texture2D" uid="uid://ct7yfe0ev036x" path="res://assets/sprites/medieval/Medieval_2.png" id="14_043ah"]
-[ext_resource type="Texture2D" uid="uid://p223tqa0mryh" path="res://assets/sprites/medieval/Medieval_3.png" id="14_fm6t7"]
+[ext_resource type="Texture2D" uid="uid://cv1ee5trxlq68" path="res://assets/sprites/medieval/Medieval_3.png" id="14_fm6t7"]
 [ext_resource type="Texture2D" uid="uid://coyay0chfd7co" path="res://assets/sprites/medieval/GandalfHardcore FREE Platformer Assets/GandalfHardcore FREE Platformer Assets/Pixel Art Furnace and Sawmill.png" id="14_knvkd"]
 [ext_resource type="Texture2D" uid="uid://b3q1fvj36pkw7" path="res://assets/sprites/medieval/Medieval_4.png" id="15_82gt7"]
 [ext_resource type="Texture2D" uid="uid://5cnfnf06aqev" path="res://assets/sprites/medieval/GandalfHardcore FREE Platformer Assets/GandalfHardcore FREE Platformer Assets/Animated Sprites/Campfire sheet.png" id="15_knvkd"]
@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://b3wlhgt03ouqc" path="res://scenes/Epochs/Medieval/boat.tscn" id="19_pk5u7"]
 [ext_resource type="PackedScene" uid="uid://p601uv7xjfyc" path="res://custom_nodes/Ladder.tscn" id="22_fm6t7"]
 [ext_resource type="PackedScene" uid="uid://bcmucfj6jywxl" path="res://custom_nodes/bouncy.tscn" id="22_kiqwy"]
-[ext_resource type="Script" uid="uid://cbte7p8eny7sk" path="res://scenes/Epochs/Medieval/killzone_water.gd" id="25_vijm0"]
+[ext_resource type="Script" uid="uid://ch3o8csrvxxgv" path="res://custom_nodes/boxes/Hitbox.gd" id="25_vijm0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lljqo"]
 texture = ExtResource("1_v1uj4")
@@ -1429,6 +1429,8 @@ position = Vector2(-5903, 526)
 
 [node name="KillzoneWater" type="Area2D" parent="." unique_id=1137969974]
 script = ExtResource("25_vijm0")
+damage = 10000
+knockback_force = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillzoneWater" unique_id=806170188]
 position = Vector2(3318, 410)

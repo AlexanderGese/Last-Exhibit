@@ -185,6 +185,9 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qt7jd"]
+height = 60.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qt7jd"]
 size = Vector2(50, 40)
 
@@ -244,6 +247,7 @@ collision_mask = 16
 script = ExtResource("11_qt7jd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1796669172]
+shape = SubResource("CapsuleShape2D_qt7jd")
 
 [node name="AttackPivot" type="Node2D" parent="." unique_id=1381129408]
 
