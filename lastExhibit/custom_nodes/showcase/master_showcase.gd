@@ -4,6 +4,8 @@ extends Node2D
 @onready var small_item: Sprite2D = $SmallShowcase/Item
 @onready var big_showcase: Node2D = $BigShowcase
 @onready var small_showcase: Node2D = $SmallShowcase
+@onready var big_label: Label = $BigShowcase/Label
+@onready var small_label: Label = $SmallShowcase/Label
 
 @export var number: int
 
@@ -17,10 +19,21 @@ func _ready() -> void:
 	_refresh_visuals()
 
 
+func reset() -> void:
+	SaveManager.museum.showcases.clear()
+	SaveManager.museum.showcases.resize(25)
+	SaveManager.save_all(0)
+
+
+func _process(_delta: float) -> void:
+	if player_is_detected and data != null and not data.is_empty:
+		if Input.is_action_just_pressed("interact"):
+			pickup_artifact()
+
+
 func _load_or_create_data() -> void:
 	var idx = number - 1
 	if idx < 0 or idx >= SaveManager.museum.showcases.size():
-		push_error("Showcase index %d out of range" % idx)
 		return
 	
 	if SaveManager.museum.showcases[idx] == null:
@@ -41,24 +54,86 @@ func _refresh_visuals() -> void:
 	if data.big_artifact:
 		big_showcase.visible = true
 		big_item.texture = data.icon
+		big_item.visible = true
+		big_label.text = "x%d" % data.qty
 	else:
 		small_showcase.visible = true
 		small_item.texture = data.icon
+		small_item.visible = true
+		small_label.text = "x%d" % data.qty
 
 
-func placeshowcase(item: Item) -> void:
+func placeshowcase(item: Item, index: int) -> void:
 	if not player_is_detected:
 		return
-	if data == null or not data.is_empty:
+	if data == null:
 		return
 	
-	data.is_empty = false
-	data.icon = item.icon
-	data.value = item.value
-	data.big_artifact = item.big_artifact
+	if data.is_empty:
+		data.is_empty = false
+		data.icon = item.icon
+		data.value = item.value
+		data.big_artifact = item.big_artifact
+		data.item = item
+		data.qty = 1
+	elif data.item == item:
+		data.qty += 1
+	else:
+		return
 	
 	_refresh_visuals()
+	Events.artifact_place.emit(index)
 	SaveManager.save_all(0)
+	_on_item_added(item)
+
+
+func pickup_artifact() -> void:
+	if data == null or data.is_empty:
+		return
+	if data.item == null:
+		return
+	
+	var picked_item = data.item
+	
+	if not SaveManager.try_pickup(data.item):
+		return
+	
+	data.qty -= 1
+	if data.qty <= 0:
+		_reset_showcase()
+	else:
+		_refresh_visuals()
+		SaveManager.save_all(0)
+	
+	_on_item_removed(picked_item)
+
+
+func _reset_showcase() -> void:
+	data.is_empty = true
+	data.icon = null
+	data.value = 0
+	data.big_artifact = false
+	data.item = null
+	data.qty = 0
+	_refresh_visuals()
+	SaveManager.save_all(0)
+
+
+func _on_item_added(item: Item) -> void:
+	print("[Showcase #", number, "] Item hinzugefügt: ", item, " neue qty: ", data.qty)
+	# Hier z.B.:
+	# AudioManager.play("artifact_place")
+	# SaveManager.museum.reputation += item.value
+	# spawn_particle_effect()
+
+
+func _on_item_removed(item: Item) -> void:
+	print("[Showcase #", number, "] Item entfernt: ", item, " verbleibend: ", data.qty)
+	
+	# Hier z.B.:
+	# AudioManager.play("artifact_pickup")
+	# SaveManager.museum.reputation -= item.value
+	# spawn_dust_effect()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

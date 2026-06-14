@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c2xp0jmnqddkc" path="res://custom_nodes/ItemPickUp/ItemPickup.tscn" id="7_du6iq"]
 [ext_resource type="Resource" uid="uid://dq4c46xavbldb" path="res://scenes/Epochs/sowjet/artifacts/lada.tres" id="8_d7ipc"]
 [ext_resource type="PackedScene" uid="uid://jvkbbr8xytdv" path="res://scenes/Museum/vending_machine.tscn" id="9_lfxre"]
+[ext_resource type="Resource" uid="uid://belwc53615wwd" path="res://scenes/Epochs/sowjet/artifacts/matrjoschka.tres" id="10_nrtfa"]
 [ext_resource type="PackedScene" uid="uid://dkvceyxie2xb5" path="res://custom_nodes/showcase/showcase.tscn" id="11_l6y80"]
 [ext_resource type="PackedScene" uid="uid://c6ltpf5bt0im1" path="res://scenes/Museum/basement/basement.tscn" id="84_nwe6r"]
 [ext_resource type="PackedScene" uid="uid://cu8hje1itntum" path="res://scenes/Museum/floor0/floor0.tscn" id="85_5p4s7"]
@@ -45,6 +46,10 @@ position = Vector2(-12, -2001)
 position = Vector2(-318, -258)
 item = ExtResource("8_d7ipc")
 
+[node name="ItemPickup3" parent="." unique_id=1433396319 instance=ExtResource("7_du6iq")]
+position = Vector2(-266, -256)
+item = ExtResource("10_nrtfa")
+
 [node name="VendingMachine" parent="." unique_id=201981395 instance=ExtResource("9_lfxre")]
 position = Vector2(-195, -923)
 scale = Vector2(1.25, 1.25)
@@ -62,4 +67,8 @@ position = Vector2(136, -956)
 
 [node name="Showcase" parent="." unique_id=1435700409 instance=ExtResource("11_l6y80")]
 position = Vector2(202, -245)
-number = 5
+number = 1
+
+[node name="Showcase2" parent="." unique_id=1326189992 instance=ExtResource("11_l6y80")]
+position = Vector2(258, -245)
+number = 2

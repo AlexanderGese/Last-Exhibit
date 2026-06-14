@@ -15,8 +15,6 @@ extends SaveFile
 
 
 
-
-
 func _process(delta: float) -> void:
 	daily_visitors = (reputation * SaveManager.player.level) + 10
 	ticket_price = reputation * len(artifacts)

@@ -8,6 +8,7 @@ var museum: MuseumsSaveFile
 var achievements: AchievmentSaveFile
 var inventory: Inventory = preload("res://saves/player_inventory.tres")
 var player_char
+const SHOWCASE_COUNT = 25
 
 func _ready() -> void:
 	load_all(0)
@@ -26,6 +27,11 @@ func load_all(slot: int) -> void:
 	museum = SaveFile.load_slot(slot, "MuseumsSaveFile") as MuseumsSaveFile
 	if museum == null:
 		museum = MuseumsSaveFile.new()
+	_ensure_showcases()
+
+func _ensure_showcases()->void:
+	while museum.showcases.size() < SHOWCASE_COUNT:
+		museum.showcases
 
 func buy(price: float, item: String, currency: String)-> bool:
 	var this: bool = player.buy(int(price), item, currency)

@@ -1,12 +1,9 @@
 [gd_scene format=3 uid="uid://dh08xk8e7w730"]
 
-[ext_resource type="Script" uid="uid://dntc3c582m5w8" path="res://demo/agents/scripts/hitbox.gd" id="1_ke5fl"]
 [ext_resource type="Script" uid="uid://cd0r7bxj6iqjc" path="res://scenes/Epochs/ww2/boss/boss.gd" id="1_n5rrv"]
-[ext_resource type="Script" uid="uid://dq5h6yydckjc1" path="res://demo/agents/scripts/hurtbox.gd" id="2_uwpb3"]
 [ext_resource type="Texture2D" uid="uid://cra08mvtdb7vu" path="res://assets/sprites/USBase/crash.png" id="2_vysda"]
 [ext_resource type="Texture2D" uid="uid://bospp33btjdd7" path="res://assets/sprites/USBase/p51.png" id="3_44lkb"]
 [ext_resource type="BehaviorTree" uid="uid://mlh1klka07qf" path="res://scenes/Epochs/ww2/boss/p51.tres" id="4_0j7ph"]
-[ext_resource type="Script" uid="uid://5byn62y1oa76" path="res://demo/agents/scripts/health.gd" id="7_44lkb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vysda"]
 size = Vector2(170, 60)
@@ -38,13 +35,59 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_44lkb"]
-size = Vector2(171, 42)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8bga"]
 size = Vector2(1299, 905)
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_n5rrv"]
+
+[sub_resource type="GDScript" id="GDScript_n5rrv"]
+script/source = "#*
+#* health.gd
+#* =============================================================================
+#* Copyright (c) 2023-present Serhii Snitsaruk and the LimboAI contributors.
+#*
+#* Use of this source code is governed by an MIT-style
+#* license that can be found in the LICENSE file or at
+#* https://opensource.org/licenses/MIT.
+#* =============================================================================
+#*
+class_name Health
+extends Node
+## Tracks health and emits signal when damaged or dead.
+
+## Emitted when health is reduced to 0.
+signal death
+
+## Emitted when health is damaged.
+signal damaged(amount: float, knockback: Vector2)
+
+## Initial health value.
+@export var max_health: float = 10.0
+
+var _current: float
+
+
+func _ready() -> void:
+	_current = max_health
+
+
+func take_damage(amount: float, knockback: Vector2) -> void:
+	if _current <= 0.0:
+		return
+
+	_current -= amount
+	_current = max(_current, 0.0)
+
+	if _current <= 0.0:
+		death.emit()
+	else:
+		damaged.emit(amount, knockback)
+
+
+## Returns current health.
+func get_current() -> float:
+	return _current
+"
 
 [node name="P51Boss" type="CharacterBody2D" unique_id=2112756969]
 script = ExtResource("1_n5rrv")
@@ -56,22 +99,6 @@ shape = SubResource("RectangleShape2D_vysda")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=450402897]
 sprite_frames = SubResource("SpriteFrames_n5rrv")
 animation = &"fly"
-
-[node name="Hitbox" type="Area2D" parent="." unique_id=1494307741]
-script = ExtResource("1_ke5fl")
-metadata/_custom_type_script = "uid://dntc3c582m5w8"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1687144417]
-position = Vector2(4, -1)
-shape = SubResource("RectangleShape2D_vysda")
-
-[node name="Hurtbox" type="Area2D" parent="." unique_id=1684921097]
-script = ExtResource("2_uwpb3")
-metadata/_custom_type_script = "uid://dq5h6yydckjc1"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=568544349]
-position = Vector2(3.5, -1)
-shape = SubResource("RectangleShape2D_44lkb")
 
 [node name="ProjectileSpawn" type="Marker2D" parent="." unique_id=1761667892]
 
@@ -88,4 +115,4 @@ behavior_tree = ExtResource("4_0j7ph")
 blackboard_plan = SubResource("BlackboardPlan_n5rrv")
 
 [node name="Health" type="Node2D" parent="." unique_id=1452947369]
-script = ExtResource("7_44lkb")
+script = SubResource("GDScript_n5rrv")

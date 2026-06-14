@@ -13,7 +13,6 @@ position = Vector2(32, -47)
 [node name="Item" type="Sprite2D" parent="." unique_id=380561336]
 visible = false
 position = Vector2(-0.25, 0)
-scale = Vector2(0.22070314, 0.09765625)
 texture = ExtResource("1_ptgbv")
 
 [node name="Bottom" type="Sprite2D" parent="." unique_id=1620084953]
@@ -26,5 +25,13 @@ texture = ExtResource("2_ptgbv")
 [node name="Area2D" type="Area2D" parent="." unique_id=1407346533]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1112468954]
+visible = false
 position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_ptgbv")
+
+[node name="Label" type="Label" parent="." unique_id=541762159]
+offset_left = 24.0
+offset_top = -34.0
+offset_right = 64.0
+offset_bottom = -11.0
+text = "0"
