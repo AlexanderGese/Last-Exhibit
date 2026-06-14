@@ -1,28 +1,24 @@
 extends TextureRect
 
+@onready var visitor_label: Label = $Gui/Dailyvisitors/visitors
+@onready var reputation_label: Label = $Gui/Reputation/reputation
+@onready var price_label: Label = $Gui/TicketPrice/price
+@onready var money_label: Label = $Gui/Dailymoney/money
 
-@onready var money:int
-@onready var visitors:int
-@onready var reputation:int
-@onready var ticketprice:int  
-@onready var visitor: Label = $Gui/Dailyvisitors/visitors
-@onready var reputatio: Label = $Gui/Reputation/reputation
-@onready var price: Label = $Gui/TicketPrice/price
-@onready var monei: Label = $Gui/Dailymoney/money
+
 func _ready() -> void:
-	pass # Replace with function body.
+	GameClock.day_started.connect(_refresh)
+	GameClock.night_started.connect(_refresh)
+	Events.artifact_place.connect(_refresh.unbind(1))
+	Events.used_artifact.connect(_refresh.unbind(2))
+	_refresh()
 
 
-func _process(delta: float) -> void:
-	pricelogic()
-
-
-func pricelogic()-> void:
-	money = SaveManager.museum.daily_money
-	monei.text = str(money)
-	visitors = SaveManager.museum.daily_visitors
-	visitor.text = str(visitors)
-	reputation = SaveManager.museum.reputation
-	reputatio.text = str(reputation)
-	ticketprice = SaveManager.museum.ticket_price
-	price.text = str(ticketprice)
+func _refresh() -> void:
+	if SaveManager.museum == null:
+		return
+	
+	visitor_label.text = "%d" % SaveManager.museum.get_daily_visitors()
+	price_label.text = "%d€" % SaveManager.museum.get_ticket_price()
+	money_label.text = "%d€" % SaveManager.museum.calculate_daily_income()
+	reputation_label.text = "%d" % SaveManager.museum.reputation

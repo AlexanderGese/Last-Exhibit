@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bm24sbmu6cio0" path="res://scenes/Projectiles/Flasche.tscn" id="2_o84lr"]
 [ext_resource type="PackedScene" uid="uid://c8ievjnyh6akx" path="res://scenes/Projectiles/bullet SW boss.tscn" id="3_j884p"]
 [ext_resource type="PackedScene" uid="uid://ci3g66mb3ohls" path="res://scenes/Projectiles/Granate.tscn" id="4_j884p"]
+[ext_resource type="Script" uid="uid://ch3o8csrvxxgv" path="res://custom_nodes/boxes/Hitbox.gd" id="6_v0px1"]
+[ext_resource type="Script" uid="uid://dc33vug1a1hkq" path="res://custom_nodes/boxes/Hurtbox.gd" id="7_uacj4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnu86"]
 size = Vector2(31, 60)
@@ -19,6 +21,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bn2c0"]
+size = Vector2(41, 64)
 
 [node name="Sovjet_Boss" type="CharacterBody2D" unique_id=1713070893]
 collision_layer = 256
@@ -41,3 +46,17 @@ position = Vector2(6, -20)
 
 [node name="Spawn" type="Marker2D" parent="." unique_id=891704831]
 position = Vector2(14, -21)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2005199551]
+script = ExtResource("6_v0px1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1262933205]
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1346542412]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("7_uacj4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=689007925]
+position = Vector2(1.5, 2)
+shape = SubResource("RectangleShape2D_bn2c0")

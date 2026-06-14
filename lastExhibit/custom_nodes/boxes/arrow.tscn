@@ -10,6 +10,8 @@ size = Vector2(4, 4)
 collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_lut3r")
+damage = 20
+knockback_force = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1891570224]
 position = Vector2(4.7683716e-07, 0)
