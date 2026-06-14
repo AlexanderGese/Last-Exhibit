@@ -1445,7 +1445,7 @@ damage = 10000
 knockback_force = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillzoneWater" unique_id=806170188]
-position = Vector2(3318, 410)
+position = Vector2(3318, 115)
 shape = SubResource("RectangleShape2D_82gt7")
 
 [editable path="Ladders/Ladder"]

@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bmx2rj4lq70c6" path="res://assets/ui/phone/phoneversions/flappy.png" id="11_3swiv"]
 [ext_resource type="Texture2D" uid="uid://b7g4giq1e0cn5" path="res://assets/ui/phone/phoneversions/tor.png" id="12_5rf7t"]
 [ext_resource type="Texture2D" uid="uid://d1qp1uasg4x5n" path="res://assets/ui/phone/phoneversions/museum.png" id="13_lsvv5"]
-[ext_resource type="Texture2D" uid="uid://bfwt74k1j28aa" path="res://assets/ui/phone/flappybird/cubebird.png" id="14_lsvv5"]
+[ext_resource type="Texture2D" uid="uid://blqvatmh85acu" path="res://assets/ui/phone/flappybird/cubebird.png" id="14_lsvv5"]
 [ext_resource type="Script" uid="uid://bwfsc7x04l44j" path="res://scenes/Phone/flappybird.gd" id="14_pft75"]
 [ext_resource type="Texture2D" uid="uid://p835bqrw2ep5" path="res://assets/ui/phone/phoneversions/revolut.png" id="14_v3rhe"]
 [ext_resource type="Texture2D" uid="uid://bqwjcc8ks62pb" path="res://assets/ui/phone/phoneversions/messages.png" id="15_pft75"]
@@ -29,6 +29,7 @@
 [ext_resource type="Script" uid="uid://bb3yee78tsvqi" path="res://scenes/Phone/museum.gd" id="18_pft75"]
 [ext_resource type="Script" uid="uid://bvikuwgfw78lu" path="res://scenes/Phone/revolut.gd" id="21_26ifj"]
 [ext_resource type="Script" uid="uid://c5eskgt6fq7fx" path="res://scenes/Phone/messages.gd" id="26_q3c8s"]
+[ext_resource type="Script" uid="uid://brr6vyxliftex" path="res://scenes/Phone/settings.gd" id="30_350wh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_11xny"]
 shader = ExtResource("4_cacfq")
@@ -975,7 +976,6 @@ theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 48
 
 [node name="Settings" type="TextureRect" parent="." unique_id=2075006464]
-visible = false
 anchors_preset = -1
 anchor_left = 0.2625
 anchor_top = 0.014814815
@@ -988,6 +988,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("16_isa1o")
+script = ExtResource("30_350wh")
 metadata/_edit_use_anchors_ = true
 
 [node name="Name" type="Label" parent="Settings" unique_id=1212736841]
@@ -1001,6 +1002,43 @@ theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 65
 text = "Settings"
 metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Settings" unique_id=830099332]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18259801
+anchor_top = 0.22137406
+anchor_right = 0.8321078
+anchor_bottom = 0.7757634
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/ScrollContainer" unique_id=293612023]
+layout_mode = 2
+
+[node name="KeybindsSection" type="VBoxContainer" parent="Settings/ScrollContainer/VBoxContainer" unique_id=1243200447]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Settings/ScrollContainer/VBoxContainer/KeybindsSection" unique_id=1609728249]
+layout_mode = 2
+text = "Keybinds"
+
+[node name="KeybindList" type="VBoxContainer" parent="Settings/ScrollContainer/VBoxContainer/KeybindsSection" unique_id=1665256688]
+layout_mode = 2
+
+[node name="HSeparator" type="HBoxContainer" parent="Settings/ScrollContainer/VBoxContainer" unique_id=1111559122]
+layout_mode = 2
+
+[node name="ResetSection" type="VBoxContainer" parent="Settings/ScrollContainer/VBoxContainer" unique_id=942113882]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Settings/ScrollContainer/VBoxContainer/ResetSection" unique_id=489262554]
+layout_mode = 2
+text = "GameData
+"
+
+[node name="Button" type="Button" parent="Settings/ScrollContainer/VBoxContainer/ResetSection" unique_id=541556097]
+layout_mode = 2
+text = "Reset Game Data"
 
 [node name="HomeButton" type="Button" parent="." unique_id=404873099]
 anchors_preset = -1

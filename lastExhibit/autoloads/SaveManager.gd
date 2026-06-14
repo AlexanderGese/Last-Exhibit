@@ -13,13 +13,53 @@ const SHOWCASE_COUNT = 45
 
 func _ready() -> void:
 	load_all(0)
-	player.money = 100000
 	Events.artifact_place.connect(remove_item_from_inv)
 	player_char = get_tree().get_first_node_in_group("player")
-
 	Events.upgrade_collected.connect(install_upgrade)
+	load_keybinds()
 
+func save_keybinds() -> void:
+	var data = {}
+	for action in InputMap.get_actions():
+		if action.begins_with("ui_"):
+			continue
+		var events = InputMap.action_get_events(action)
+		if events.is_empty():
+			continue
+		var event = events[0]
+		if event is InputEventKey:
+			data[action] = {"type": "key", "key": event.physical_keycode}
+		elif event is InputEventMouseButton:
+			data[action] = {"type": "mouse", "button": event.button_index}
 	
+	var file = FileAccess.open("user://keybinds.dat", FileAccess.WRITE)
+	if file:
+		file.store_string(JSON.stringify(data))
+
+
+func load_keybinds() -> void:
+	if not FileAccess.file_exists("user://keybinds.dat"):
+		return
+	var file = FileAccess.open("user://keybinds.dat", FileAccess.READ)
+	if not file:
+		return
+	var data = JSON.parse_string(file.get_as_text())
+	if data == null or typeof(data) != TYPE_DICTIONARY:
+		return
+	
+	for action in data.keys():
+		var entry = data[action]
+		if not InputMap.has_action(action):
+			continue
+		InputMap.action_erase_events(action)
+		if entry.type == "key":
+			var event = InputEventKey.new()
+			event.physical_keycode = int(entry.key)
+			InputMap.action_add_event(action, event)
+		elif entry.type == "mouse":
+			var event = InputEventMouseButton.new()
+			event.button_index = int(entry.button)
+			InputMap.action_add_event(action, event)	
 	
 func install_upgrade(type: String):
 	if type == "WW2":
