@@ -287,10 +287,12 @@ func take_damage(damage: int) -> void:
 		_die()
 
 
-func heal(amount: int) -> void:
+func heal(amount: int) -> bool:
+	if save.hp == save.max_hp:
+		return false
 	save.hp = min(save.hp + amount, save.max_hp)
 	SaveManager.save_all(0)
-
+	return true
 
 func _on_hurt(damage: int, knockback: Vector2) -> void:
 	if is_invincible:
@@ -313,6 +315,8 @@ func _play_hurt_flash() -> void:
 
 
 func _start_invincibility(duration: float) -> void:
+	if save.hp <= 0:
+		return
 	is_invincible = true
 	hurtbox.monitoring = false
 	await get_tree().create_timer(duration).timeout
@@ -323,9 +327,15 @@ func _start_invincibility(duration: float) -> void:
 
 func _die() -> void:
 	print("Player ist gestorben")
+	
 	if flash_tween and flash_tween.is_valid():
 		flash_tween.kill()
 	sprite.modulate = ORIGINAL_MODULATE
+	
+	save.hp = save.max_hp
+	SaveManager.save_all(0)
+	await Fader.fade_out(1.0)
+	get_tree().change_scene_to_file("res://scenes/Museum/Museum.tscn")
 
 
 func _update_animation() -> void:

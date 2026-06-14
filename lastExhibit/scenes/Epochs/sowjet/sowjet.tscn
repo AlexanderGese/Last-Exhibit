@@ -32,6 +32,7 @@
 [ext_resource type="Resource" uid="uid://bt6kxovuhmkjo" path="res://scenes/Epochs/sowjet/artifacts/Laika.tres" id="29_shqr1"]
 [ext_resource type="Resource" uid="uid://dq4c46xavbldb" path="res://scenes/Epochs/sowjet/artifacts/lada.tres" id="30_85h02"]
 [ext_resource type="Resource" uid="uid://d24rtn1phc1fa" path="res://scenes/Epochs/sowjet/artifacts/sputnik.tres" id="32_shqr1"]
+[ext_resource type="PackedScene" uid="uid://vy8boieivyjw" path="res://custom_nodes/return/return_machine.tscn" id="33_shqr1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l0vm2"]
 texture = ExtResource("2_iyr3m")
@@ -896,8 +897,11 @@ position = Vector2(-965, 388)
 item = ExtResource("30_85h02")
 
 [node name="Sputnik Satellit" parent="." unique_id=1580298503 instance=ExtResource("25_c2x4g")]
-position = Vector2(466, 169)
+position = Vector2(423, 172)
 item = ExtResource("32_shqr1")
+
+[node name="ReturnMachine" parent="." unique_id=1892310434 instance=ExtResource("33_shqr1")]
+position = Vector2(501, 192)
 
 [connection signal="body_entered" from="Arena" to="Arena" method="_on_body_entered"]
 [connection signal="pause" from="Player" to="Dmitri" method="_on_player_pause"]

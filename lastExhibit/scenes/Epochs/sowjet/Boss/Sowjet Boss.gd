@@ -10,6 +10,7 @@ extends CharacterBody2D
 @export var attack_cooldown : float = 3.0
 @export var knockback_resistance : float = 0.7   
 
+
 @export var tuer1 : AnimatedSprite2D
 @export var tuer2 : AnimatedSprite2D
 @export var tuer3 : AnimatedSprite2D
@@ -143,6 +144,7 @@ func _on_hurt(damage: int, knockback: Vector2) -> void:
 	_play_hurt_flash()
 	
 	if hp <= 0:
+		Events.sw_boss_dead.emit()
 		_die()
 
 

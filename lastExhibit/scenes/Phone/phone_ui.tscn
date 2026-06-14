@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dkqdmp18t82x8" path="res://assets/ui/phone/phone.png" id="1_udvll"]
 [ext_resource type="Script" uid="uid://d1tyei1arrqql" path="res://scenes/Phone/phone_frame.gd" id="2_3swiv"]
 [ext_resource type="Texture2D" uid="uid://dq6gm2srva4u6" path="res://assets/kenney_ui/Panel/panel-014.png" id="2_q0gno"]
-[ext_resource type="Texture2D" uid="uid://bor4xyr0q0qow" path="res://assets/ui/phone/flappy_icon.png" id="3_5cgul"]
 [ext_resource type="Texture2D" uid="uid://ckkaxpowkjn6i" path="res://assets/ui/phone/new_icon/App_1.png" id="5_350wh"]
 [ext_resource type="Script" uid="uid://cvrpd6gcvi327" path="res://shader_apply.gd" id="6_11xny"]
 [ext_resource type="Texture2D" uid="uid://7dg0qgjo8f8o" path="res://assets/ui/phone/new_icon/App_6.png" id="7_e1uvk"]
@@ -12,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cpbbbe5oooy5" path="res://assets/ui/phone/phoneversions/großanzeigen.png" id="10_dptkc"]
 [ext_resource type="Texture2D" uid="uid://cy2o3jc27og3s" path="res://assets/ui/phone/new_icon/App_5.png" id="10_j0vn6"]
 [ext_resource type="Texture2D" uid="uid://bmx2rj4lq70c6" path="res://assets/ui/phone/phoneversions/flappy.png" id="11_3swiv"]
+[ext_resource type="Texture2D" uid="uid://duq8d8cjhn6jf" path="res://assets/ui/phone/new_icon/App_0.png" id="11_11xny"]
 [ext_resource type="Texture2D" uid="uid://c4so5gb0uf67a" path="res://assets/ui/phone/new_icon/App_2.png" id="11_nrnet"]
 [ext_resource type="Texture2D" uid="uid://b7g4giq1e0cn5" path="res://assets/ui/phone/phoneversions/tor.png" id="12_5rf7t"]
 [ext_resource type="Texture2D" uid="uid://bcalgicgoj616" path="res://assets/ui/phone/new_icon/App_3.png" id="12_a0hcx"]
@@ -174,7 +174,7 @@ flat = true
 [node name="Museum" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/SecondRow" unique_id=375567449]
 visible = false
 layout_mode = 2
-texture = ExtResource("12_a0hcx")
+texture = ExtResource("11_11xny")
 expand_mode = 2
 script = ExtResource("6_11xny")
 
@@ -198,7 +198,7 @@ layout_mode = 2
 [node name="Flappy" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/ThirdRow" unique_id=1400346126]
 visible = false
 layout_mode = 2
-texture = ExtResource("3_5cgul")
+texture = ExtResource("12_a0hcx")
 expand_mode = 2
 script = ExtResource("6_11xny")
 
@@ -1034,10 +1034,10 @@ anchor_left = 0.45989582
 anchor_top = 0.8037037
 anchor_right = 0.49114582
 anchor_bottom = 0.86572653
-offset_left = -2.0
-offset_top = -4.0
-offset_right = -2.0
-offset_bottom = -4.0
+offset_left = -1.0
+offset_top = 23.0
+offset_right = -1.0
+offset_bottom = 23.0
 text = "Press"
 metadata/_edit_use_anchors_ = true
 
