@@ -74,7 +74,7 @@ func _on_pin_clicked(epoch: String) -> void:
 	do_hide()
 	emit_signal("LevelEnter")
 	await Fader.fade_out(1.0)
-	SaveManager.player_char.enterlevel()
+	#SaveManager.player_char.enterlevel()
 	match epoch:
 		"sowjet":
 			get_tree().change_scene_to_file("res://scenes/Epochs/sowjet/sowjet.tscn")

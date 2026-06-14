@@ -17,6 +17,9 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hurtbox: Hurtbox = $Hurtbox
 
+const ORIGINAL_MODULATE := Color.WHITE
+const FLASH_COLOR := Color(2.5, 0.3, 0.3, 1)
+
 var attack_timer : float = 0.0
 var player : CharacterBody2D
 var is_cornered : bool = false
@@ -32,6 +35,7 @@ var hp : int
 var current_atem : Node = null
 var is_attacking : bool = false
 var is_dead : bool = false
+var flash_tween: Tween = null
 
 
 func _ready() -> void:
@@ -45,6 +49,7 @@ func _ready() -> void:
 		player = players[0]
 	
 	hurtbox.hurt.connect(_on_hurt)
+	sprite.play("idle")
 
 
 func _physics_process(delta: float) -> void:
@@ -106,6 +111,26 @@ func _physics_process(delta: float) -> void:
 	elif abs(velocity.x) < 1.0:
 		facing_right = player.global_position.x > global_position.x
 	sprite.flip_h = not facing_right
+	
+	_update_animation()
+
+
+func _update_animation() -> void:
+	if is_attacking or is_dead:
+		return
+	
+	if state == State.SPRINT or state == State.SPRINT2:
+		if sprite.animation != "walk":
+			sprite.play("walk")
+		sprite.speed_scale = 1.6
+	elif abs(velocity.x) > 5:
+		if sprite.animation != "walk":
+			sprite.play("walk")
+		sprite.speed_scale = 1.0
+	else:
+		if sprite.animation != "idle":
+			sprite.play("idle")
+		sprite.speed_scale = 1.0
 
 
 func _on_hurt(damage: int, knockback: Vector2) -> void:
@@ -115,29 +140,40 @@ func _on_hurt(damage: int, knockback: Vector2) -> void:
 	hp -= damage
 	velocity += knockback * (1.0 - knockback_resistance)
 	
-	_play_hit_flash()
+	_play_hurt_flash()
 	
 	if hp <= 0:
 		_die()
 
 
-func _play_hit_flash() -> void:
-	var original = sprite.modulate
-	sprite.modulate = Color(2, 2, 2, 1)
-	await get_tree().create_timer(0.08).timeout
-	if is_instance_valid(self):
-		sprite.modulate = original
+func _play_hurt_flash() -> void:
+	if flash_tween and flash_tween.is_valid():
+		flash_tween.kill()
+	
+	sprite.modulate = FLASH_COLOR
+	flash_tween = create_tween()
+	flash_tween.tween_interval(0.1)
+	flash_tween.tween_property(sprite, "modulate", ORIGINAL_MODULATE, 0.2)
 
 
 func _die() -> void:
 	is_dead = true
-	hurtbox.queue_free()   # keine weiteren Hits annehmen
+	is_attacking = false
+	hurtbox.queue_free()
 	if is_instance_valid(current_atem):
 		current_atem.queue_free()
-	# Hier: Death-Animation, Loot, Türen öffnen, etc.
-	# Vorerst einfach Sprite ausfaden und queue_free
+	
+	if flash_tween and flash_tween.is_valid():
+		flash_tween.kill()
+	sprite.modulate = ORIGINAL_MODULATE
+	
+	velocity = Vector2.ZERO
+	sprite.speed_scale = 1.0
+	sprite.play("dead")
+	await sprite.animation_finished
+	
 	var tween = create_tween()
-	tween.tween_property(sprite, "modulate:a", 0.0, 1.0)
+	tween.tween_property(sprite, "modulate:a", 0.0, 0.8)
 	tween.tween_callback(queue_free)
 
 
@@ -168,20 +204,55 @@ func _pick_attack() -> void:
 
 
 func atk_molotov() -> void:
+	is_attacking = true
+	sprite.speed_scale = 1.0
+	sprite.play("throw")
+	await sprite.animation_finished
+	
+	if is_dead:
+		is_attacking = false
+		return
+	
 	var flasche = flasche_scene.instantiate()
 	get_parent().add_child(flasche)
 	flasche.setup(_get_spawn(15, -20), player.global_position)
+	is_attacking = false
 
 
 func atk_AK47() -> void:
+	is_attacking = true
+	sprite.speed_scale = 1.0
+	sprite.play("shot")
+	
+	# 2 Bullets während der Animation
 	for i in range(2):
+		await get_tree().create_timer(0.15).timeout
+		if is_dead:
+			is_attacking = false
+			return
 		var bullet = bullet_scene.instantiate()
 		get_parent().add_child(bullet)
 		bullet.setup(_get_spawn(15, -15), Vector2(1.0 if facing_right else -1.0, 0.0))
-		await get_tree().create_timer(0.15).timeout
+	
+	# Safety-Timeout falls animation_finished nicht feuert
+	var timeout = get_tree().create_timer(0.5)
+	while sprite.animation == "shot" and sprite.is_playing() and not timeout.time_left <= 0:
+		await get_tree().process_frame
+	
+	is_attacking = false
 
 
 func atk_granate() -> void:
+	is_attacking = true
+	sprite.speed_scale = 1.0
+	sprite.play("throw")
+	await sprite.animation_finished
+	
+	if is_dead:
+		is_attacking = false
+		return
+	
 	var granate = granate_scene.instantiate()
 	get_parent().add_child(granate)
 	granate.setup(_get_spawn(15, -20), player.global_position)
+	is_attacking = false

@@ -287,6 +287,7 @@ func heal(amount: int) -> void:
 
 func _on_hurt(damage: int, knockback: Vector2) -> void:
 	take_damage(damage)
+	print(damage)
 	velocity += knockback
 
 

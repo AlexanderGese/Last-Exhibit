@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c8op8xn7fx7ci" path="res://scenes/Projectiles/bullet_sw_boss.gd" id="1_tgi7h"]
 [ext_resource type="Texture2D" uid="uid://c82073pe522x6" path="res://test_assets/BulletSWboss.png" id="2_t0fnj"]
+[ext_resource type="Script" uid="uid://ch3o8csrvxxgv" path="res://custom_nodes/boxes/Hitbox.gd" id="3_t0fnj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwef2"]
 size = Vector2(9, 3)
@@ -15,6 +16,12 @@ script = ExtResource("1_tgi7h")
 position = Vector2(2, 2.5)
 texture = ExtResource("2_t0fnj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1364621438]
+[node name="Hitbox" type="Area2D" parent="." unique_id=554791841]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("3_t0fnj")
+damage = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1364621438]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_xwef2")
