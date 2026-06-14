@@ -38,7 +38,7 @@ func add_message(text: String)-> void:
 		
 		
 func clear_messages():
-	for i in range(10):
+	for i in range(8):
 		messages.pop_front()
 
 

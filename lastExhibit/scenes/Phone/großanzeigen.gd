@@ -1,30 +1,55 @@
 extends TextureRect
 
+
+func _ready() -> void:
+	_refresh_labels()
+
+
+func _refresh_labels() -> void:
+	# Pro Label: prüfen ob das Upgrade schon gekauft wurde
+	$VBoxContainer/Label.visible = not _has_epoch("ww2")
+	$VBoxContainer/Label2.visible = not _has_epoch("mittelalter")
+	# Time-Upgrades haben keinen Save-State → bleiben immer kaufbar
+	$VBoxContainer/Label5.visible = not SaveManager.player.museum_app
+	$VBoxContainer/Label6.visible = not SaveManager.player.tor_app
+	$VBoxContainer/Label7.visible = not SaveManager.player.flappy_app
+
+
+func _has_epoch(epoch: String) -> bool:
+	return SaveManager.player.unlocked_epochs.has(epoch)
+
+
 # WW2 freischalten
 func button_1() -> void:
 	if SaveManager.buy(10, "WW2 unlock", "time_shards"):
-		SaveManager.player.unlocked_epochs.append("ww2")
+		Events.upgrade_purchased.emit("WW2")
 		SaveManager.player.add_message("Pickup your Upgrade")
 		$VBoxContainer/Label.visible = false
+
 
 # Mittelalter freischalten
 func button_2() -> void:
 	if SaveManager.buy(25, "Mittelalter", "time_shards"):
-		SaveManager.player.unlocked_epochs.append("mittelalter")
+		Events.upgrade_purchased.emit("Mittelalter")
 		SaveManager.player.add_message("Pickup your Upgrade")
 		$VBoxContainer/Label2.visible = false
+
 
 # Mehr Zeit pro Level
 func button_3() -> void:
 	if SaveManager.buy(250, "More time", "coins"):
-		SaveManager.player.level_time += 30
+		Events.upgrade_purchased.emit("Time")
+		SaveManager.player.add_message("Pickup your Upgrade")
 		$VBoxContainer/Label3.visible = false
+
 
 # Mehr Zeit pro Level (zweites Upgrade)
 func button_4() -> void:
 	if SaveManager.buy(250, "More time", "coins"):
-		SaveManager.player.level_time += 30
+		Events.upgrade_purchased.emit("Time")
+		SaveManager.player.add_message("Pickup your Upgrade")
 		$VBoxContainer/Label4.visible = false
+
 
 # Museum-App freischalten
 func button_5() -> void:
@@ -33,12 +58,14 @@ func button_5() -> void:
 		$VBoxContainer/Label5.visible = false
 		Events.purchase_großanzeigen.emit("museum")
 
+
 # Tor-App freischalten
 func button_6() -> void:
 	if SaveManager.buy(500, "tor app", "coins"):
 		SaveManager.player.tor_app = true
 		$VBoxContainer/Label6.visible = false
 		Events.purchase_großanzeigen.emit("tor")
+
 
 # Flappy-App freischalten
 func button_7() -> void:
@@ -47,7 +74,7 @@ func button_7() -> void:
 		$VBoxContainer/Label7.visible = false
 		Events.purchase_großanzeigen.emit("flappy")
 
-# Noch frei
+
 func button_8() -> void: pass
 func button_9() -> void: pass
 func button_10() -> void: pass

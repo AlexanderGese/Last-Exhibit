@@ -15,8 +15,18 @@ func _ready() -> void:
 	player.money = 100000
 	Events.artifact_place.connect(remove_item_from_inv)
 	player_char = get_tree().get_first_node_in_group("player")
-	Events.up
+	Events.upgrade_collected.connect(install_upgrade)
 	
+	
+func install_upgrade(type: String):
+	if type == "WW2":
+		SaveManager.player.unlocked_epochs.append("ww2")
+	elif type == "Medieval":
+		SaveManager.player.unlocked_epochs.append("mittelalter")
+	elif type == "Time":
+		SaveManager.player.level_time += 30
+		
+		
 func save_all(slot: int) -> void:
 	player.save(slot)
 	museum.save(slot)
