@@ -113,15 +113,24 @@ func use_item(index: int) -> bool:
 	return false
 	
 func consumable(item: Item, slot, index: int) -> bool:
-	if item.heal_amount > 0:
-		var player_char = get_tree().get_first_node_in_group("player")
-	if player_char and player_char.has_method("heal") and player_char.hp < player_char.MAX_HP:
-		player_char.heal(item.heal_amount)
+	# Player_char immer frisch holen (Autoload startet vor Player)
+	if player_char == null or not is_instance_valid(player_char):
+		player_char = get_tree().get_first_node_in_group("player")
+	
+	if player_char == null or not player_char.has_method("heal"):
+		print("Kein Player gefunden zum Heilen")
+		return false
+	
+	if item.heal_amount <= 0:
+		return false
+	
+	var healed = player_char.heal(item.heal_amount)
+	if not healed:
+		return false
 	
 	slot.qty -= 1
 	if slot.qty <= 0:
 		inventory.slots[index] = null
-	
 	inventory_changed.emit()
 	return true
 	

@@ -2,7 +2,6 @@ extends AnimatedSprite2D
 
 var is_open : bool = false
 
-
 func open() -> void:
 	if is_open:
 		return
@@ -11,6 +10,9 @@ func open() -> void:
 	await animation_finished
 	play("open")
 	$StaticBody2D/CollisionShape2D.set_deferred("disabled", true)
+
+func _ready() -> void:
+	Events.sw_boss_dead.connect(open)
 
 func close() -> void:
 	if not is_open:

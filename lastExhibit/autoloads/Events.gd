@@ -11,3 +11,5 @@ signal used_artifact(Artifact: Item, index:int)
 signal artifact_place(i: int)
 signal upgrade_purchased(type: String)
 signal upgrade_collected(type: String)
+
+signal sw_boss_dead()
