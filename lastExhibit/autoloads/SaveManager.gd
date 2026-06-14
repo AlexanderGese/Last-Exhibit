@@ -8,14 +8,14 @@ var museum: MuseumsSaveFile
 var achievements: AchievmentSaveFile
 var inventory: Inventory = preload("res://saves/player_inventory.tres")
 var player_char
-const SHOWCASE_COUNT = 25
+const SHOWCASE_COUNT = 45
 
 func _ready() -> void:
 	load_all(0)
 	player.money = 100000
 	Events.artifact_place.connect(remove_item_from_inv)
-	var player_char = get_tree().get_first_node_in_group("player")
-
+	player_char = get_tree().get_first_node_in_group("player")
+	
 func save_all(slot: int) -> void:
 	player.save(slot)
 	museum.save(slot)
@@ -24,14 +24,19 @@ func load_all(slot: int) -> void:
 	player = SaveFile.load_slot(slot, "PlayerSaveFile") as PlayerSaveFile
 	if player == null:
 		player = PlayerSaveFile.new()
+	
 	museum = SaveFile.load_slot(slot, "MuseumsSaveFile") as MuseumsSaveFile
 	if museum == null:
 		museum = MuseumsSaveFile.new()
+	
 	_ensure_showcases()
+	
 
-func _ensure_showcases()->void:
+func _ensure_showcases() -> void:
+	
 	while museum.showcases.size() < SHOWCASE_COUNT:
-		museum.showcases
+		museum.showcases.append(null)
+	
 
 func buy(price: float, item: String, currency: String)-> bool:
 	var this: bool = player.buy(int(price), item, currency)

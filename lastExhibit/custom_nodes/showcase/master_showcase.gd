@@ -17,11 +17,16 @@ func _ready() -> void:
 	Events.used_artifact.connect(placeshowcase)
 	_load_or_create_data()
 	_refresh_visuals()
+	if data != null:
+		if data.qty != 0:
+			$ColorRect.visible = false
+			$Label.visible = false
+
 
 
 func reset() -> void:
 	SaveManager.museum.showcases.clear()
-	SaveManager.museum.showcases.resize(25)
+	SaveManager.museum.showcases.resize(45)
 	SaveManager.save_all(0)
 
 
@@ -120,20 +125,18 @@ func _reset_showcase() -> void:
 
 
 func _on_item_added(item: Item) -> void:
+	SaveManager.museum.reputation += 1
 	print("[Showcase #", number, "] Item hinzugefügt: ", item, " neue qty: ", data.qty)
-	# Hier z.B.:
-	# AudioManager.play("artifact_place")
-	# SaveManager.museum.reputation += item.value
-	# spawn_particle_effect()
-
+	$ColorRect.visible = false
+	$Label.visible = false
 
 func _on_item_removed(item: Item) -> void:
+	SaveManager.museum.reputation -= 1
 	print("[Showcase #", number, "] Item entfernt: ", item, " verbleibend: ", data.qty)
-	
-	# Hier z.B.:
-	# AudioManager.play("artifact_pickup")
-	# SaveManager.museum.reputation -= item.value
-	# spawn_dust_effect()
+	if data.qty == 0:
+		$ColorRect.visible = true
+		$Label.visible = true
+
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

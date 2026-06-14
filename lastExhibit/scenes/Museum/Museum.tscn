@@ -65,10 +65,190 @@ position = Vector2(55, -1600)
 [node name="spawn_ground" type="Marker2D" parent="." unique_id=1427321838]
 position = Vector2(136, -956)
 
-[node name="Showcase" parent="." unique_id=1435700409 instance=ExtResource("11_l6y80")]
-position = Vector2(202, -245)
+[node name="ShowCases" type="Node2D" parent="." unique_id=482547696]
+
+[node name="FirstFloor" type="Node2D" parent="ShowCases" unique_id=26969499]
+
+[node name="Showcase" parent="ShowCases/FirstFloor" unique_id=1435700409 instance=ExtResource("11_l6y80")]
+position = Vector2(480, -925)
 number = 1
 
-[node name="Showcase2" parent="." unique_id=1326189992 instance=ExtResource("11_l6y80")]
-position = Vector2(258, -245)
+[node name="Showcase2" parent="ShowCases/FirstFloor" unique_id=62993896 instance=ExtResource("11_l6y80")]
+position = Vector2(1280, -925)
+number = 8
+
+[node name="Showcase3" parent="ShowCases/FirstFloor" unique_id=1803871035 instance=ExtResource("11_l6y80")]
+position = Vector2(1383, -925)
+number = 9
+
+[node name="Showcase4" parent="ShowCases/FirstFloor" unique_id=1329410872 instance=ExtResource("11_l6y80")]
+position = Vector2(1194, -925)
+number = 7
+
+[node name="Showcase5" parent="ShowCases/FirstFloor" unique_id=1284179384 instance=ExtResource("11_l6y80")]
+position = Vector2(991, -925)
+number = 6
+
+[node name="Showcase6" parent="ShowCases/FirstFloor" unique_id=1494831098 instance=ExtResource("11_l6y80")]
+position = Vector2(907, -925)
+number = 5
+
+[node name="Showcase7" parent="ShowCases/FirstFloor" unique_id=1508853294 instance=ExtResource("11_l6y80")]
+position = Vector2(821, -925)
+number = 4
+
+[node name="Showcase8" parent="ShowCases/FirstFloor" unique_id=2097822722 instance=ExtResource("11_l6y80")]
+position = Vector2(626, -925)
+number = 3
+
+[node name="Showcase9" parent="ShowCases/FirstFloor" unique_id=1113243056 instance=ExtResource("11_l6y80")]
+position = Vector2(554, -925)
 number = 2
+
+[node name="SecondFloor" type="Node2D" parent="ShowCases" unique_id=472122450]
+
+[node name="Showcase" parent="ShowCases/SecondFloor" unique_id=395347341 instance=ExtResource("11_l6y80")]
+position = Vector2(424, -1588)
+number = 10
+
+[node name="Showcase2" parent="ShowCases/SecondFloor" unique_id=1599218221 instance=ExtResource("11_l6y80")]
+position = Vector2(1224, -1588)
+number = 17
+
+[node name="Showcase3" parent="ShowCases/SecondFloor" unique_id=1540894714 instance=ExtResource("11_l6y80")]
+position = Vector2(1327, -1588)
+number = 18
+
+[node name="Showcase4" parent="ShowCases/SecondFloor" unique_id=711427752 instance=ExtResource("11_l6y80")]
+position = Vector2(1138, -1588)
+number = 16
+
+[node name="Showcase5" parent="ShowCases/SecondFloor" unique_id=661474960 instance=ExtResource("11_l6y80")]
+position = Vector2(935, -1588)
+number = 15
+
+[node name="Showcase6" parent="ShowCases/SecondFloor" unique_id=1206986076 instance=ExtResource("11_l6y80")]
+position = Vector2(851, -1588)
+number = 14
+
+[node name="Showcase7" parent="ShowCases/SecondFloor" unique_id=454340465 instance=ExtResource("11_l6y80")]
+position = Vector2(765, -1588)
+number = 13
+
+[node name="Showcase8" parent="ShowCases/SecondFloor" unique_id=971637467 instance=ExtResource("11_l6y80")]
+position = Vector2(570, -1588)
+number = 12
+
+[node name="Showcase9" parent="ShowCases/SecondFloor" unique_id=1608830626 instance=ExtResource("11_l6y80")]
+position = Vector2(498, -1588)
+number = 11
+
+[node name="Showcase10" parent="ShowCases/SecondFloor" unique_id=805770982 instance=ExtResource("11_l6y80")]
+position = Vector2(-1732, -1588)
+number = 27
+
+[node name="Showcase11" parent="ShowCases/SecondFloor" unique_id=1795168758 instance=ExtResource("11_l6y80")]
+position = Vector2(-932, -1588)
+number = 20
+
+[node name="Showcase12" parent="ShowCases/SecondFloor" unique_id=1581748459 instance=ExtResource("11_l6y80")]
+position = Vector2(-829, -1588)
+number = 19
+
+[node name="Showcase13" parent="ShowCases/SecondFloor" unique_id=2133456595 instance=ExtResource("11_l6y80")]
+position = Vector2(-1018, -1588)
+number = 21
+
+[node name="Showcase14" parent="ShowCases/SecondFloor" unique_id=642978221 instance=ExtResource("11_l6y80")]
+position = Vector2(-1221, -1588)
+number = 22
+
+[node name="Showcase15" parent="ShowCases/SecondFloor" unique_id=230876576 instance=ExtResource("11_l6y80")]
+position = Vector2(-1305, -1588)
+number = 23
+
+[node name="Showcase16" parent="ShowCases/SecondFloor" unique_id=1141097482 instance=ExtResource("11_l6y80")]
+position = Vector2(-1391, -1588)
+number = 24
+
+[node name="Showcase17" parent="ShowCases/SecondFloor" unique_id=1700625974 instance=ExtResource("11_l6y80")]
+position = Vector2(-1586, -1588)
+number = 25
+
+[node name="Showcase18" parent="ShowCases/SecondFloor" unique_id=516307828 instance=ExtResource("11_l6y80")]
+position = Vector2(-1658, -1588)
+number = 26
+
+[node name="ThirdFloor" type="Node2D" parent="ShowCases" unique_id=1077433811]
+
+[node name="Showcase" parent="ShowCases/ThirdFloor" unique_id=885674624 instance=ExtResource("11_l6y80")]
+position = Vector2(463, -2260)
+number = 28
+
+[node name="Showcase2" parent="ShowCases/ThirdFloor" unique_id=839837177 instance=ExtResource("11_l6y80")]
+position = Vector2(1263, -2260)
+number = 35
+
+[node name="Showcase3" parent="ShowCases/ThirdFloor" unique_id=1927065767 instance=ExtResource("11_l6y80")]
+position = Vector2(1366, -2260)
+number = 36
+
+[node name="Showcase4" parent="ShowCases/ThirdFloor" unique_id=1513943434 instance=ExtResource("11_l6y80")]
+position = Vector2(1177, -2260)
+number = 34
+
+[node name="Showcase5" parent="ShowCases/ThirdFloor" unique_id=420926709 instance=ExtResource("11_l6y80")]
+position = Vector2(974, -2260)
+number = 33
+
+[node name="Showcase6" parent="ShowCases/ThirdFloor" unique_id=2091047610 instance=ExtResource("11_l6y80")]
+position = Vector2(890, -2260)
+number = 32
+
+[node name="Showcase7" parent="ShowCases/ThirdFloor" unique_id=192209652 instance=ExtResource("11_l6y80")]
+position = Vector2(804, -2260)
+number = 31
+
+[node name="Showcase8" parent="ShowCases/ThirdFloor" unique_id=1839808461 instance=ExtResource("11_l6y80")]
+position = Vector2(609, -2260)
+number = 30
+
+[node name="Showcase9" parent="ShowCases/ThirdFloor" unique_id=1606541898 instance=ExtResource("11_l6y80")]
+position = Vector2(537, -2260)
+number = 29
+
+[node name="Showcase10" parent="ShowCases/ThirdFloor" unique_id=1372269572 instance=ExtResource("11_l6y80")]
+position = Vector2(-1693, -2260)
+number = 45
+
+[node name="Showcase11" parent="ShowCases/ThirdFloor" unique_id=493808531 instance=ExtResource("11_l6y80")]
+position = Vector2(-893, -2260)
+number = 38
+
+[node name="Showcase12" parent="ShowCases/ThirdFloor" unique_id=973423232 instance=ExtResource("11_l6y80")]
+position = Vector2(-790, -2260)
+number = 37
+
+[node name="Showcase13" parent="ShowCases/ThirdFloor" unique_id=1397469228 instance=ExtResource("11_l6y80")]
+position = Vector2(-979, -2260)
+number = 39
+
+[node name="Showcase14" parent="ShowCases/ThirdFloor" unique_id=528171762 instance=ExtResource("11_l6y80")]
+position = Vector2(-1182, -2260)
+number = 40
+
+[node name="Showcase15" parent="ShowCases/ThirdFloor" unique_id=652709836 instance=ExtResource("11_l6y80")]
+position = Vector2(-1266, -2260)
+number = 41
+
+[node name="Showcase16" parent="ShowCases/ThirdFloor" unique_id=1334155633 instance=ExtResource("11_l6y80")]
+position = Vector2(-1352, -2260)
+number = 42
+
+[node name="Showcase17" parent="ShowCases/ThirdFloor" unique_id=201221439 instance=ExtResource("11_l6y80")]
+position = Vector2(-1547, -2260)
+number = 43
+
+[node name="Showcase18" parent="ShowCases/ThirdFloor" unique_id=1905722124 instance=ExtResource("11_l6y80")]
+position = Vector2(-1619, -2260)
+number = 44
