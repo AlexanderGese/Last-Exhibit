@@ -116,7 +116,6 @@ func _on_hurt(damage: int, knockback: Vector2) -> void:
 	velocity += knockback * (1.0 - knockback_resistance)
 	
 	_play_hit_flash()
-	print("[Sowjet-Boss] Hit! ", damage, " | HP: ", hp, "/", max_hp)
 	
 	if hp <= 0:
 		_die()
@@ -132,7 +131,6 @@ func _play_hit_flash() -> void:
 
 func _die() -> void:
 	is_dead = true
-	print("[Sowjet-Boss] besiegt!")
 	hurtbox.queue_free()   # keine weiteren Hits annehmen
 	if is_instance_valid(current_atem):
 		current_atem.queue_free()

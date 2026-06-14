@@ -16,13 +16,12 @@ const BASE_TICKET_PRICE: int = 5
 
 
 func get_daily_visitors() -> int:
-	# Mehr Reputation + höheres Level = mehr Besucher
 	var level = SaveManager.player.level if SaveManager.player else 1
 	return BASE_VISITORS + (reputation * level)
 
 
 func get_ticket_price() -> int:
-	var artifact_bonus = _calculate_artifact_value() / 10
+	var artifact_bonus = _calculate_artifact_value() / 100
 	return BASE_TICKET_PRICE + artifact_bonus
 
 

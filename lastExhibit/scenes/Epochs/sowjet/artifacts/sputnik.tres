@@ -9,5 +9,6 @@ id = "sputnik"
 name = "Sputnik-Satellit"
 beschreibung = "Satellit, der von der Sputnik V Rakete hochgeflogen wurde"
 icon = ExtResource("1_vb5i4")
+value = 100
 big_artifact = true
 metadata/_custom_type_script = "uid://d4c671jpgfict"
