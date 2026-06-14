@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 var in_main:bool = false
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
@@ -9,6 +9,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if in_main and Input.is_action_just_pressed("interact"):
+		get_tree().change_scene_to_file("res://scenes/Museum/Museum.tscn")
 		pass
 	
 
