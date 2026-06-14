@@ -16,11 +16,9 @@ func _ready() -> void:
 	player.money = 100000
 	Events.artifact_place.connect(remove_item_from_inv)
 	player_char = get_tree().get_first_node_in_group("player")
-<<<<<<< HEAD
-	
-=======
+
 	Events.upgrade_collected.connect(install_upgrade)
->>>>>>> e6b5a21bddafd4dbf665a9a7b54e2dcffe6216a1
+
 	
 	
 func install_upgrade(type: String):

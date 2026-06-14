@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bibx1k0s5y47m" path="res://assets/sprites/USBase/USSolIdle.png" id="3_0cdkj"]
 [ext_resource type="Texture2D" uid="uid://h5qfhqcbdju8" path="res://assets/sprites/USBase/USSolRun.png" id="4_ugjk3"]
 [ext_resource type="Script" uid="uid://dc33vug1a1hkq" path="res://custom_nodes/boxes/Hurtbox.gd" id="6_0cdkj"]
-[ext_resource type="Script" uid="uid://cf85bkp1hmy4l" path="res://scenes/Epochs/ww2/hitbox.gd" id="7_ugjk3"]
+[ext_resource type="Script" uid="uid://ch3o8csrvxxgv" path="res://custom_nodes/boxes/Hitbox.gd" id="7_ugjk3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lyjjf"]
 atlas = ExtResource("1_jh11c")
@@ -247,7 +247,7 @@ size = Vector2(61.5, 20)
 z_index = 4
 
 [node name="Enemy" type="CharacterBody2D" parent="." unique_id=2138727930]
-collision_mask = 255
+collision_layer = 0
 script = ExtResource("1_j4tk2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy" unique_id=2123221213]
@@ -288,6 +288,8 @@ position = Vector2(-4, 2)
 shape = SubResource("RectangleShape2D_ugjk3")
 
 [node name="Hitbox" type="Area2D" parent="Enemy" unique_id=472176380]
+collision_layer = 16
+collision_mask = 2
 script = ExtResource("7_ugjk3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Hitbox" unique_id=1095790172]
