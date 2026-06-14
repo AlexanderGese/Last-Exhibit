@@ -30,7 +30,6 @@
 [ext_resource type="Resource" uid="uid://cbyo7vtrv0640" path="res://scenes/Epochs/sowjet/artifacts/gasmaske.tres" id="28_1ohby"]
 [ext_resource type="Resource" uid="uid://3kravj1b3fru" path="res://scenes/Epochs/sowjet/artifacts/nowitschok.tres" id="29_plx8r"]
 [ext_resource type="Resource" uid="uid://bt6kxovuhmkjo" path="res://scenes/Epochs/sowjet/artifacts/Laika.tres" id="29_shqr1"]
-[ext_resource type="Texture2D" uid="uid://dmik3sdetg2kf" path="res://assets/sprites/artifacts/Sputnik_Laucher-2.png" id="30_2ff1g"]
 [ext_resource type="Resource" uid="uid://dq4c46xavbldb" path="res://scenes/Epochs/sowjet/artifacts/lada.tres" id="30_85h02"]
 [ext_resource type="Resource" uid="uid://d24rtn1phc1fa" path="res://scenes/Epochs/sowjet/artifacts/sputnik.tres" id="32_shqr1"]
 
@@ -891,7 +890,6 @@ item = ExtResource("29_plx8r")
 [node name="Sputnik Rakete" type="Sprite2D" parent="." unique_id=1403419711]
 position = Vector2(469.00003, 546.24994)
 scale = Vector2(0.73, 0.8375)
-texture = ExtResource("30_2ff1g")
 
 [node name="Lada" parent="." unique_id=1044354130 instance=ExtResource("25_c2x4g")]
 position = Vector2(-965, 388)
