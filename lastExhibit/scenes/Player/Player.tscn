@@ -366,6 +366,7 @@ scale = Vector2(0.4, 0.4)
 visible = false
 
 [node name="LevelTimer" type="Timer" parent="." unique_id=1086503190]
+one_shot = true
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1925261632]
 collision_layer = 2
@@ -391,6 +392,14 @@ shape = SubResource("RectangleShape2D_qt7jd")
 disabled = true
 
 [node name="Rüstung" type="Node2D" parent="." unique_id=1495770343]
+
+[node name="hat" type="Node2D" parent="Rüstung" unique_id=700150485]
+
+[node name="top" type="Node2D" parent="Rüstung" unique_id=1815825656]
+
+[node name="bottom" type="Node2D" parent="Rüstung" unique_id=380514654]
+
+[node name="shoes" type="Node2D" parent="Rüstung" unique_id=793583226]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]

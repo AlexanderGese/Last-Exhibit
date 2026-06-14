@@ -24,11 +24,11 @@ const EPOCH_RANGES = {
 }
 
 const EPOCH_YEARS = {
-	"inka":        "vor 1532",
+	"inka":        "1530",
 	"mittelalter": "~1200",
-	"samurai":     "1600–1868",
+	"samurai":     "1600",
 	"ww2":         "1943",
-	"sowjet":      "1960–1980",
+	"sowjet":      "1965",
 }
 
 var selected_epoch: String = ""
@@ -74,6 +74,7 @@ func _on_pin_clicked(epoch: String) -> void:
 	do_hide()
 	emit_signal("LevelEnter")
 	await Fader.fade_out(1.0)
+	#SaveManager.player_char.enterlevel()
 	match epoch:
 		"sowjet":
 			get_tree().change_scene_to_file("res://scenes/Epochs/sowjet/sowjet.tscn")

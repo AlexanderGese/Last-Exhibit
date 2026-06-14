@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://jvkbbr8xytdv" path="res://scenes/Museum/vending_machine.tscn" id="9_lfxre"]
 [ext_resource type="Resource" uid="uid://belwc53615wwd" path="res://scenes/Epochs/sowjet/artifacts/matrjoschka.tres" id="10_nrtfa"]
 [ext_resource type="PackedScene" uid="uid://dkvceyxie2xb5" path="res://custom_nodes/showcase/showcase.tscn" id="11_l6y80"]
+[ext_resource type="PackedScene" uid="uid://b465bo07tndvt" path="res://custom_nodes/boxes/packages.tscn" id="12_vcqe2"]
 [ext_resource type="PackedScene" uid="uid://c6ltpf5bt0im1" path="res://scenes/Museum/basement/basement.tscn" id="84_nwe6r"]
 [ext_resource type="PackedScene" uid="uid://cu8hje1itntum" path="res://scenes/Museum/floor0/floor0.tscn" id="85_5p4s7"]
 [ext_resource type="PackedScene" uid="uid://3pkqx4vhy7r" path="res://scenes/Museum/floor1/floor1.tscn" id="86_02od8"]
@@ -252,3 +253,6 @@ number = 43
 [node name="Showcase18" parent="ShowCases/ThirdFloor" unique_id=1905722124 instance=ExtResource("11_l6y80")]
 position = Vector2(-1619, -2260)
 number = 44
+
+[node name="Packages" parent="." unique_id=286900212 instance=ExtResource("12_vcqe2")]
+position = Vector2(1632, -919)
