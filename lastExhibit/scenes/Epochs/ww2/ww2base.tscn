@@ -940,11 +940,11 @@ position = Vector2(5355, 447)
 position = Vector2(584, -32)
 
 [node name="Enemy" parent="Platforms" unique_id=1846217907 instance=ExtResource("17_axkfg")]
-position = Vector2(689, -65)
+position = Vector2(3636, -68)
 
 [node name="Player" parent="." unique_id=229592850 instance=ExtResource("5_a8ufs")]
 z_index = 1
-position = Vector2(0, -63)
+position = Vector2(4174, -67)
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=484300934]
 z_index = 2
