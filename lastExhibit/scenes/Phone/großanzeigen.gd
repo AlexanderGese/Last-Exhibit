@@ -4,12 +4,14 @@ extends TextureRect
 func button_1() -> void:
 	if SaveManager.buy(10, "WW2 unlock", "time_shards"):
 		SaveManager.player.unlocked_epochs.append("ww2")
+		SaveManager.player.add_message("Pickup your Upgrade")
 		$VBoxContainer/Label.visible = false
 
 # Mittelalter freischalten
 func button_2() -> void:
 	if SaveManager.buy(25, "Mittelalter", "time_shards"):
 		SaveManager.player.unlocked_epochs.append("mittelalter")
+		SaveManager.player.add_message("Pickup your Upgrade")
 		$VBoxContainer/Label2.visible = false
 
 # Mehr Zeit pro Level

@@ -35,6 +35,11 @@ func add_message(text: String)-> void:
 	messages.push_back(text)
 	if messages.size() > 9:
 		messages.pop_front()
+		
+		
+func clear_messages():
+	for i in range(10):
+		messages.pop_front()
 
 
 func buy(price: int, item: String, currency: String) -> bool:

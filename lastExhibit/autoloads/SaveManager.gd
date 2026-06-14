@@ -15,6 +15,7 @@ func _ready() -> void:
 	player.money = 100000
 	Events.artifact_place.connect(remove_item_from_inv)
 	player_char = get_tree().get_first_node_in_group("player")
+	Events.up
 	
 func save_all(slot: int) -> void:
 	player.save(slot)
