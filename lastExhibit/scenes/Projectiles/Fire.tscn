@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bokljl0iwn6pu" path="res://assets/sprites/Sovjet/Fire/Fire4.png" id="6_v7dea"]
 [ext_resource type="Texture2D" uid="uid://bfllugljx3osq" path="res://assets/sprites/Sovjet/Fire/Fire5.png" id="7_o326q"]
 [ext_resource type="Texture2D" uid="uid://bag5u3de1gaaj" path="res://assets/sprites/Sovjet/Fire/Fire6.png" id="8_nq135"]
+[ext_resource type="Script" uid="uid://ch3o8csrvxxgv" path="res://custom_nodes/boxes/Hitbox.gd" id="9_w8x5y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_verjt"]
 atlas = ExtResource("1_pteij")
@@ -71,7 +72,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_50wjy"]
 size = Vector2(80, 13)
 
-[node name="Area2D" type="Area2D" unique_id=1048191831]
+[node name="Area2D" type="Node2D" unique_id=1635285722]
 script = ExtResource("1_0yti2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=341451553]
@@ -81,13 +82,18 @@ sprite_frames = SubResource("SpriteFrames_6puea")
 animation = &"new_animation"
 autoplay = "new_animation"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1323408954]
-position = Vector2(0, 4.5)
-shape = SubResource("RectangleShape2D_50wjy")
-
 [node name="Timer" type="Timer" parent="." unique_id=1933902611]
 
 [node name="DamageTick" type="Timer" parent="." unique_id=882734850]
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1094085147]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("9_w8x5y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1323408954]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_50wjy")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DamageTick" to="." method="_on_damage_tick_timeout"]

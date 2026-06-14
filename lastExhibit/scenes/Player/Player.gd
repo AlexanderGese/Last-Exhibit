@@ -25,6 +25,10 @@ const RANGED_ANIM_LOCK = 0.3
 
 const CLIMB_SPEED = 180.0
 
+const HURT_FLASH_COLOR := Color(2.5, 0.3, 0.3, 1)
+const ORIGINAL_MODULATE := Color.WHITE
+const INVINCIBILITY_DURATION := 0.5
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_pivot: Node2D = $AttackPivot
 @onready var hitbox: Hitbox = $AttackPivot/MeleeHitbox
@@ -57,6 +61,9 @@ var in_emtpy_showcase: bool = false
 
 var is_inui := false
 var is_in_dialogue := false
+
+var flash_tween: Tween = null
+var is_invincible: bool = false
 
 signal pause
 
@@ -286,13 +293,39 @@ func heal(amount: int) -> void:
 
 
 func _on_hurt(damage: int, knockback: Vector2) -> void:
+	if is_invincible:
+		return
+	
 	take_damage(damage)
-	print(damage)
 	velocity += knockback
+	_play_hurt_flash()
+	_start_invincibility(INVINCIBILITY_DURATION)
+
+
+func _play_hurt_flash() -> void:
+	if flash_tween and flash_tween.is_valid():
+		flash_tween.kill()
+	
+	sprite.modulate = HURT_FLASH_COLOR
+	flash_tween = create_tween()
+	flash_tween.tween_interval(0.1)
+	flash_tween.tween_property(sprite, "modulate", ORIGINAL_MODULATE, 0.2)
+
+
+func _start_invincibility(duration: float) -> void:
+	is_invincible = true
+	hurtbox.monitoring = false
+	await get_tree().create_timer(duration).timeout
+	if is_instance_valid(self):
+		hurtbox.monitoring = true
+		is_invincible = false
 
 
 func _die() -> void:
 	print("Player ist gestorben")
+	if flash_tween and flash_tween.is_valid():
+		flash_tween.kill()
+	sprite.modulate = ORIGINAL_MODULATE
 
 
 func _update_animation() -> void:
@@ -340,7 +373,6 @@ func enterlevel() -> void:
 
 
 func _on_level_timer_timeout() -> void:
-	#get_tree().change_scene_to_file("res://scenes/Museum/Museum.tscn")
 	print("Level Vorbei")
 
 
