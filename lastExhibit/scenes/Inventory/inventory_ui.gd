@@ -34,10 +34,9 @@ func _input(event: InputEvent) -> void:
 			var slot = SaveManager.inventory.slots[i]
 			if slot == null:
 				continue
-			# Consumable → trinken, sonst → equippen
 			if slot.item.type == Item.Type.CONSUMABLE:
 				SaveManager.use_item(i)
-			if slot.item.type == Item.Type.ARTIFACT:
+			elif slot.item.type == Item.Type.ARTIFACT:
 				SaveManager.use_item(i)	
 			else:
-				SaveManager.equip_from_inventory(i)
+				SaveManager.equip(i)

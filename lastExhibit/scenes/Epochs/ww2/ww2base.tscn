@@ -939,12 +939,9 @@ position = Vector2(5355, 447)
 [node name="BarrelPlatform1" parent="Platforms" unique_id=1746717648 instance=ExtResource("2_ihxpt")]
 position = Vector2(584, -32)
 
-[node name="Enemy" parent="Platforms" unique_id=1846217907 instance=ExtResource("17_axkfg")]
-position = Vector2(689, -65)
-
 [node name="Player" parent="." unique_id=229592850 instance=ExtResource("5_a8ufs")]
 z_index = 1
-position = Vector2(0, -63)
+position = Vector2(4174, -67)
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=484300934]
 z_index = 2
@@ -1007,3 +1004,32 @@ bounce_force = -900.0
 [node name="Bouncy2" parent="Bouncys" unique_id=1567697815 instance=ExtResource("19_1nqjq")]
 position = Vector2(1967, -37)
 bounce_force = -900.0
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1040399054]
+
+[node name="Enemy" parent="Enemies" unique_id=1846217907 instance=ExtResource("17_axkfg")]
+position = Vector2(3636, -68)
+
+[node name="Enemy2" parent="Enemies" unique_id=1643696521 instance=ExtResource("17_axkfg")]
+position = Vector2(4716, -226)
+
+[node name="Enemy3" parent="Enemies" unique_id=688186157 instance=ExtResource("17_axkfg")]
+position = Vector2(5481, -455)
+
+[node name="Enemy4" parent="Enemies" unique_id=856235702 instance=ExtResource("17_axkfg")]
+position = Vector2(5799, -66)
+
+[node name="Enemy5" parent="Enemies" unique_id=810740738 instance=ExtResource("17_axkfg")]
+position = Vector2(5158, 157)
+
+[node name="Enemy6" parent="Enemies" unique_id=756986269 instance=ExtResource("17_axkfg")]
+position = Vector2(4622, 573)
+
+[node name="Enemy7" parent="Enemies" unique_id=67957016 instance=ExtResource("17_axkfg")]
+position = Vector2(5263, 446)
+
+[node name="Enemy8" parent="Enemies" unique_id=604279160 instance=ExtResource("17_axkfg")]
+position = Vector2(1580, -67)
+
+[node name="Enemy9" parent="Enemies" unique_id=1287236889 instance=ExtResource("17_axkfg")]
+position = Vector2(369, -66)

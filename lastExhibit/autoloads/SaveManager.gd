@@ -10,12 +10,15 @@ var inventory: Inventory = preload("res://saves/player_inventory.tres")
 var player_char
 const SHOWCASE_COUNT = 45
 
+
 func _ready() -> void:
 	load_all(0)
 	player.money = 100000
 	Events.artifact_place.connect(remove_item_from_inv)
 	player_char = get_tree().get_first_node_in_group("player")
+
 	Events.upgrade_collected.connect(install_upgrade)
+
 	
 	
 func install_upgrade(type: String):
@@ -62,7 +65,6 @@ func use_item(index: int) -> bool:
 	var slot = inventory.slots[index]
 	if slot == null:
 		return false
-	
 	var item: Item = slot.item
 	if item.type == Item.Type.CONSUMABLE:
 		return consumable(item, slot, index)
@@ -72,8 +74,8 @@ func use_item(index: int) -> bool:
 	
 func consumable(item: Item, slot, index: int) -> bool:
 	if item.heal_amount > 0:
-		var player = get_tree().get_first_node_in_group("player")
-	if player_char and player_char.has_method("heal"):
+		var player_char = get_tree().get_first_node_in_group("player")
+	if player_char and player_char.has_method("heal") and player_char.hp < player_char.MAX_HP:
 		player_char.heal(item.heal_amount)
 	
 	slot.qty -= 1

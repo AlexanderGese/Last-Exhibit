@@ -1,22 +1,28 @@
-extends Area2D
+extends Node2D
 
-@export var damage_per_tick : float = 3.0
-@export var tick_rate       : float = 0.5
-@export var duration        : float = 5.0
+@export var tick_rate: float = 0.5
+@export var duration: float = 5.0
+
+@onready var hitbox: Hitbox = $Hitbox
+@onready var hitbox_shape: CollisionShape2D = $Hitbox/CollisionShape2D
+
 
 func _ready() -> void:
 	$Timer.wait_time = duration
 	$Timer.start()
-
 	$DamageTick.wait_time = tick_rate
-	$DamageTick.one_shot  = false
+	$DamageTick.one_shot = false
 	$DamageTick.start()
+	
+	hitbox_shape.disabled = true   
+
 
 func _on_timer_timeout() -> void:
 	queue_free()
 
+
 func _on_damage_tick_timeout() -> void:
-	for body in get_overlapping_bodies():
-		if body.is_in_group("player"):
-			body.take_damage(damage_per_tick)
-			
+	hitbox_shape.disabled = false
+	await get_tree().create_timer(0.05).timeout
+	if is_instance_valid(self):
+		hitbox_shape.disabled = true
