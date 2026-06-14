@@ -335,11 +335,11 @@ func bounce(force: float) -> void:
 
 
 func enterlevel() -> void:
-	$LevelTimer.wait_time = SaveManager.player.level_time
-	$LevelTimer.start()
+	$LevelTimer.start(SaveManager.player.level_time)
 
 
 func _on_level_timer_timeout() -> void:
+	#get_tree().change_scene_to_file("res://scenes/Museum/Museum.tscn")
 	print("Level Vorbei")
 
 
