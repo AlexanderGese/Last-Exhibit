@@ -9,4 +9,5 @@ id = "laika"
 name = "Laika"
 beschreibung = "Erster Hund im All"
 icon = ExtResource("1_p2nr1")
+value = 25
 metadata/_custom_type_script = "uid://d4c671jpgfict"

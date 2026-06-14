@@ -383,7 +383,7 @@ collision_mask = 0
 monitoring = false
 script = ExtResource("12_cd157")
 damage = 20
-knockback_force = 250.0
+knockback_force = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackPivot/MeleeHitbox" unique_id=1208803073]
 shape = SubResource("RectangleShape2D_qt7jd")

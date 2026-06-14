@@ -3,27 +3,46 @@ extends SaveFile
 
 @export var number: int = 0
 @export var current_night: int = 1
-@export var daily_money: int = 0
-@export var daily_visitors: int = 10
-@export var ticket_price: int = 10
-@export var artifacts: Array
-@export var reputation: int =  0
+@export var total_money_earned: int = 0
+@export var artifacts: Array = []
+@export var reputation: int = 0
 @export var ground_used: bool = false
 @export var first_used: bool = true
 @export var second_used: bool = true
-@export var showcases: Array[Showcase]
+@export var showcases: Array[Showcase] = []
+
+const BASE_VISITORS: int = 10
+const BASE_TICKET_PRICE: int = 5
 
 
+func get_daily_visitors() -> int:
+	var level = SaveManager.player.level if SaveManager.player else 1
+	return BASE_VISITORS + (reputation * level)
 
 
-
-func _process(delta: float) -> void:
-	daily_visitors = (reputation * SaveManager.player.level) + 10
-	ticket_price = reputation * len(artifacts)
-	daily_money = daily_money * daily_visitors
+func get_ticket_price() -> int:
+	var artifact_bonus = _calculate_artifact_value() / 100
+	return BASE_TICKET_PRICE + artifact_bonus
 
 
+func _calculate_artifact_value() -> int:
+	var total = 0
+	for s in showcases:
+		if s != null and not s.is_empty:
+			total += s.value * s.qty
+	return total
 
+
+func calculate_daily_income() -> int:
+	return get_daily_visitors() * get_ticket_price()
+
+
+func collect_daily_income() -> int:
+	var income = calculate_daily_income()
+	total_money_earned += income
+	if SaveManager.player:
+		SaveManager.player.money += income
+	return income
 
 
 func save(slot: int) -> void:

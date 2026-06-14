@@ -8,4 +8,5 @@ script = ExtResource("1_ljuck")
 id = "orden"
 name = "Orden des vaterländischen Krieges 1. Klasse"
 icon = ExtResource("1_5vokm")
+value = 150
 metadata/_custom_type_script = "uid://d4c671jpgfict"

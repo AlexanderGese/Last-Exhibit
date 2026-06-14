@@ -240,7 +240,7 @@ func _start_ranged_attack() -> void:
 	
 	var arrow = ARROW_SCENE.instantiate()
 	get_tree().current_scene.add_child(arrow)
-	var offset = Vector2(40 if facing_right else -40, 0)
+	var offset = Vector2(40 if facing_right else -40, -10)
 	arrow.global_position = global_position + offset
 	arrow.direction = Vector2.RIGHT if facing_right else Vector2.LEFT
 	if arrow.has_node("Sprite2D"):
