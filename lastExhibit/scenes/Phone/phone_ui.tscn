@@ -4,18 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://dkqdmp18t82x8" path="res://assets/ui/phone/phone.png" id="1_udvll"]
 [ext_resource type="Script" uid="uid://d1tyei1arrqql" path="res://scenes/Phone/phone_frame.gd" id="2_3swiv"]
 [ext_resource type="Texture2D" uid="uid://dq6gm2srva4u6" path="res://assets/kenney_ui/Panel/panel-014.png" id="2_q0gno"]
-[ext_resource type="Texture2D" uid="uid://drw35krbsrbu0" path="res://assets/ui/phone/großanzeigen_icon.png" id="2_tf1yw"]
 [ext_resource type="Texture2D" uid="uid://bor4xyr0q0qow" path="res://assets/ui/phone/flappy_icon.png" id="3_5cgul"]
-[ext_resource type="Texture2D" uid="uid://bv6wmv7dccbmm" path="res://assets/ui/phone/tor_icon.png" id="4_1g3al"]
-[ext_resource type="Shader" uid="uid://l57etkk775tm" path="res://shaders/rounded_corners.gdshader" id="4_cacfq"]
+[ext_resource type="Texture2D" uid="uid://ckkaxpowkjn6i" path="res://assets/ui/phone/new_icon/App_1.png" id="5_350wh"]
 [ext_resource type="Script" uid="uid://cvrpd6gcvi327" path="res://shader_apply.gd" id="6_11xny"]
-[ext_resource type="Texture2D" uid="uid://br5m11380jvnr" path="res://assets/ui/phone/museum_icon.png" id="6_to23u"]
-[ext_resource type="Texture2D" uid="uid://dx206sh5r57vc" path="res://assets/ui/phone/revolut_icon.png" id="7_gf06w"]
-[ext_resource type="Texture2D" uid="uid://6jiq1rt404ug" path="res://assets/ui/phone/messages_icon.png" id="8_s5pjt"]
-[ext_resource type="Texture2D" uid="uid://bo0d6ueufe6w1" path="res://assets/ui/phone/settings_icon.png" id="9_115e8"]
+[ext_resource type="Texture2D" uid="uid://7dg0qgjo8f8o" path="res://assets/ui/phone/new_icon/App_6.png" id="7_e1uvk"]
+[ext_resource type="Texture2D" uid="uid://beqquyuojemj0" path="res://assets/ui/phone/new_icon/App_4.png" id="8_nxg1n"]
 [ext_resource type="Texture2D" uid="uid://cpbbbe5oooy5" path="res://assets/ui/phone/phoneversions/großanzeigen.png" id="10_dptkc"]
+[ext_resource type="Texture2D" uid="uid://cy2o3jc27og3s" path="res://assets/ui/phone/new_icon/App_5.png" id="10_j0vn6"]
 [ext_resource type="Texture2D" uid="uid://bmx2rj4lq70c6" path="res://assets/ui/phone/phoneversions/flappy.png" id="11_3swiv"]
+[ext_resource type="Texture2D" uid="uid://c4so5gb0uf67a" path="res://assets/ui/phone/new_icon/App_2.png" id="11_nrnet"]
 [ext_resource type="Texture2D" uid="uid://b7g4giq1e0cn5" path="res://assets/ui/phone/phoneversions/tor.png" id="12_5rf7t"]
+[ext_resource type="Texture2D" uid="uid://bcalgicgoj616" path="res://assets/ui/phone/new_icon/App_3.png" id="12_a0hcx"]
 [ext_resource type="Texture2D" uid="uid://d1qp1uasg4x5n" path="res://assets/ui/phone/phoneversions/museum.png" id="13_lsvv5"]
 [ext_resource type="Texture2D" uid="uid://blqvatmh85acu" path="res://assets/ui/phone/flappybird/cubebird.png" id="14_lsvv5"]
 [ext_resource type="Script" uid="uid://bwfsc7x04l44j" path="res://scenes/Phone/flappybird.gd" id="14_pft75"]
@@ -30,11 +29,6 @@
 [ext_resource type="Script" uid="uid://bvikuwgfw78lu" path="res://scenes/Phone/revolut.gd" id="21_26ifj"]
 [ext_resource type="Script" uid="uid://c5eskgt6fq7fx" path="res://scenes/Phone/messages.gd" id="26_q3c8s"]
 [ext_resource type="Script" uid="uid://brr6vyxliftex" path="res://scenes/Phone/settings.gd" id="30_350wh"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_11xny"]
-shader = ExtResource("4_cacfq")
-shader_parameter/size = Vector2(100, 100)
-shader_parameter/radius = 20.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q3c8s"]
 texture = ExtResource("17_k6u4c")
@@ -94,9 +88,8 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 
 [node name="Grossanzeigen" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/FirstRow" unique_id=1061513453]
-material = SubResource("ShaderMaterial_11xny")
 layout_mode = 2
-texture = ExtResource("2_tf1yw")
+texture = ExtResource("5_350wh")
 expand_mode = 3
 script = ExtResource("6_11xny")
 
@@ -110,9 +103,8 @@ grow_vertical = 2
 flat = true
 
 [node name="Messages" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/FirstRow" unique_id=555262028]
-material = SubResource("ShaderMaterial_11xny")
 layout_mode = 2
-texture = ExtResource("8_s5pjt")
+texture = ExtResource("7_e1uvk")
 expand_mode = 2
 script = ExtResource("6_11xny")
 
@@ -126,9 +118,8 @@ grow_vertical = 2
 flat = true
 
 [node name="Revolut" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/FirstRow" unique_id=711502145]
-material = SubResource("ShaderMaterial_11xny")
 layout_mode = 2
-texture = ExtResource("7_gf06w")
+texture = ExtResource("8_nxg1n")
 expand_mode = 2
 script = ExtResource("6_11xny")
 
@@ -150,9 +141,8 @@ texture = ExtResource("2_q0gno")
 layout_mode = 2
 
 [node name="Settings" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/SecondRow" unique_id=1656210291]
-material = SubResource("ShaderMaterial_11xny")
 layout_mode = 2
-texture = ExtResource("9_115e8")
+texture = ExtResource("10_j0vn6")
 expand_mode = 2
 script = ExtResource("6_11xny")
 
@@ -167,9 +157,8 @@ flat = true
 
 [node name="Tor" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/SecondRow" unique_id=121335644]
 visible = false
-material = SubResource("ShaderMaterial_11xny")
 layout_mode = 2
-texture = ExtResource("4_1g3al")
+texture = ExtResource("11_nrnet")
 expand_mode = 2
 script = ExtResource("6_11xny")
 
@@ -184,9 +173,8 @@ flat = true
 
 [node name="Museum" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/SecondRow" unique_id=375567449]
 visible = false
-material = SubResource("ShaderMaterial_11xny")
 layout_mode = 2
-texture = ExtResource("6_to23u")
+texture = ExtResource("12_a0hcx")
 expand_mode = 2
 script = ExtResource("6_11xny")
 
@@ -209,7 +197,6 @@ layout_mode = 2
 
 [node name="Flappy" type="TextureRect" parent="PhoneFrame/HomeScreen/VBoxContainer/ThirdRow" unique_id=1400346126]
 visible = false
-material = SubResource("ShaderMaterial_11xny")
 layout_mode = 2
 texture = ExtResource("3_5cgul")
 expand_mode = 2
@@ -976,6 +963,7 @@ theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 48
 
 [node name="Settings" type="TextureRect" parent="." unique_id=2075006464]
+visible = false
 anchors_preset = -1
 anchor_left = 0.2625
 anchor_top = 0.014814815
