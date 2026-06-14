@@ -4,27 +4,51 @@ extends TextureRect
 func _ready() -> void:
 	_refresh_labels()
 
-
 func _refresh_labels() -> void:
-	# Pro Label: prüfen ob das Upgrade schon gekauft wurde
 	$VBoxContainer/Label.visible = not _has_epoch("ww2")
 	$VBoxContainer/Label2.visible = not _has_epoch("mittelalter")
-	# Time-Upgrades haben keinen Save-State → bleiben immer kaufbar
 	$VBoxContainer/Label5.visible = not SaveManager.player.museum_app
 	$VBoxContainer/Label6.visible = not SaveManager.player.tor_app
 	$VBoxContainer/Label7.visible = not SaveManager.player.flappy_app
 
 
-func _has_epoch(epoch: String) -> bool:
-	return SaveManager.player.unlocked_epochs.has(epoch)
-
-
-# WW2 freischalten
 func button_1() -> void:
 	if SaveManager.buy(10, "WW2 unlock", "time_shards"):
 		Events.upgrade_purchased.emit("WW2")
 		SaveManager.player.add_message("Pickup your Upgrade")
 		$VBoxContainer/Label.visible = false
+
+
+func reset_all_upgrades() -> void:
+	# Epochen zurücksetzen (außer "sowjet" als Start-Epoche behalten)
+	SaveManager.player.unlocked_epochs.clear()
+	SaveManager.player.unlocked_epochs.append("sowjet")
+	
+	# Apps zurücksetzen
+	SaveManager.player.museum_app = false
+	SaveManager.player.tor_app = false
+	SaveManager.player.flappy_app = false
+	
+	# Time-Upgrades zurücksetzen (level_time auf Default)
+	SaveManager.player.level_time = 60   # oder was dein Default ist
+	
+	# Pending Upgrades im Lastenaufzug clearen
+	if "pending_upgrades" in SaveManager.player:
+		SaveManager.player.pending_upgrades.clear()
+	
+	# Save
+	SaveManager.save_all(0)
+	
+	# Phone aktualisieren (App-Icons verschwinden)
+	Events.purchase_großanzeigen.emit("reset")
+	
+	# Labels wieder sichtbar machen
+	_refresh_labels()
+	
+
+func _has_epoch(epoch: String) -> bool:
+	return SaveManager.player.unlocked_epochs.has(epoch)
+
 
 
 # Mittelalter freischalten

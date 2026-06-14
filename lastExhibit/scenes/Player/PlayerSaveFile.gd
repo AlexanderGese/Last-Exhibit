@@ -39,7 +39,7 @@ func add_message(text: String)-> void:
 		
 func clear_messages():
 	for i in range(8):
-		messages.pop_front()
+		add_message("")
 
 
 func buy(price: int, item: String, currency: String) -> bool:
