@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://vhy4816qj3ej" path="res://assets/sprites/medieval/GandalfHardcore FREE Platformer Assets/GandalfHardcore FREE Platformer Assets/Decor.png" id="14_5bret"]
 [ext_resource type="PackedScene" uid="uid://btw85e87tyb71" path="res://scenes/Epochs/Medieval/crate_platform.tscn" id="16_31v42"]
 [ext_resource type="PackedScene" uid="uid://p601uv7xjfyc" path="res://custom_nodes/Ladder.tscn" id="17_faovp"]
+[ext_resource type="PackedScene" uid="uid://vy8boieivyjw" path="res://custom_nodes/return/return_machine.tscn" id="18_tov5c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lljqo"]
 texture = ExtResource("1_qa2ky")
@@ -742,6 +743,9 @@ shape = SubResource("RectangleShape2D_ju4t5")
 [node name="Player" parent="." unique_id=229592850 instance=ExtResource("9_7yaeh")]
 z_index = 2
 position = Vector2(-660, -39)
+
+[node name="ReturnMachine" parent="." unique_id=1892310434 instance=ExtResource("18_tov5c")]
+position = Vector2(4273, -2)
 
 [editable path="Ladders/Ladder"]
 [editable path="Ladders/Ladder2"]

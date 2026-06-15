@@ -99,6 +99,10 @@ func button_7() -> void:
 		Events.purchase_großanzeigen.emit("flappy")
 
 
-func button_8() -> void: pass
+func button_8() -> void: 
+	if SaveManager.buy(10, "japan", "time_shards"):
+		Events.upgrade_purchased.emit("japan")
+		SaveManager.player.add_message("Pickup your Upgrade")
+		$VBoxContainer/Label8.visible = false
 func button_9() -> void: pass
 func button_10() -> void: pass

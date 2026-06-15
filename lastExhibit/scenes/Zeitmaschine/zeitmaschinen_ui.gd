@@ -10,7 +10,7 @@ const PIN_SELECTED = preload("res://assets/sprites/zeitmaschine/RedPin.png")
 @onready var pins = {
 	"inka":        $NinePatchRect/MapTexture/Pin_Inka,
 	"mittelalter": $NinePatchRect/MapTexture/Pin_Mittelalter,
-	"samurai":     $NinePatchRect/MapTexture/Pin_Samurai,
+	"japan":     $NinePatchRect/MapTexture/Pin_Samurai,
 	"ww2":         $NinePatchRect/MapTexture/Pin_WW2,
 	"sowjet":      $NinePatchRect/MapTexture/Pin_Sowjet,
 }
@@ -18,7 +18,7 @@ const PIN_SELECTED = preload("res://assets/sprites/zeitmaschine/RedPin.png")
 const EPOCH_RANGES = {
 	"inka":        [0, 20],
 	"mittelalter": [20, 40],
-	"samurai":     [40, 60],
+	"japan":     [40, 60],
 	"ww2":         [60, 80],
 	"sowjet":      [80, 100],
 }
@@ -26,7 +26,7 @@ const EPOCH_RANGES = {
 const EPOCH_YEARS = {
 	"inka":        "1530",
 	"mittelalter": "~1200",
-	"samurai":     "1600",
+	"japan":     "1600",
 	"ww2":         "1943",
 	"sowjet":      "1965",
 }
@@ -80,8 +80,10 @@ func _on_pin_clicked(epoch: String) -> void:
 			get_tree().change_scene_to_file("res://scenes/Epochs/sowjet/sowjet.tscn")
 		"ww2":
 			get_tree().change_scene_to_file("res://scenes/Epochs/ww2/ww2base.tscn")
-		"samurai":
+		"japan":
 			get_tree().change_scene_to_file("res://scenes/Epochs/Japan/samurai.tscn")
+		"medival":
+			get_tree().change_scene_to_file("res://scenes/Epochs/Medieval/medieval.tscn")
 		_:
 			push_warning("Keine Scene für Epoche: %s" % epoch)
 			

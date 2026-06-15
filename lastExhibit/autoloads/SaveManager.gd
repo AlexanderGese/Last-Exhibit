@@ -68,6 +68,8 @@ func install_upgrade(type: String):
 		SaveManager.player.unlocked_epochs.append("mittelalter")
 	elif type == "Time":
 		SaveManager.player.level_time += 30
+	elif type == "japan":
+		SaveManager.player.unlocked_epochs.append("japan")
 		
 		
 func save_all(slot: int) -> void:

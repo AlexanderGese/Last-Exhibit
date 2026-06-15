@@ -14,6 +14,11 @@ var player_detected: bool = false
 @export var max_health: int = 100
 var current_health: int = max_health
 @onready var enemy_hurtbox = get_node_or_null("Hurtbox")
+const FLASH_COLOR := Color(2.5, 0.3, 0.3, 1)
+var flash_tween: Tween = null
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+const ORIGINAL_MODULATE := Color.WHITE
+
 
 
 
@@ -127,7 +132,7 @@ func _on_detection_zone_body_exited(body: Node2D) -> void:
 func _on_enemy_hurt(damage: int, _knockback):
 	if is_dead:
 		return
-		
+	_play_hurt_flash()
 	current_health -= damage
 	print("Gegner wurde getroffen! Verbleibendes Leben: ", current_health)
 	
@@ -137,6 +142,18 @@ func _on_enemy_hurt(damage: int, _knockback):
 	
 	if current_health <= 0:
 		die()
+
+func _play_hurt_flash() -> void:
+	if flash_tween and flash_tween.is_valid():
+		flash_tween.kill()
+	
+	sprite.modulate = FLASH_COLOR
+	flash_tween = create_tween()
+	flash_tween.tween_interval(0.1)
+	flash_tween.tween_property(sprite, "modulate", ORIGINAL_MODULATE, 0.2)
+
+
+
 
 func die():
 	is_dead = true
