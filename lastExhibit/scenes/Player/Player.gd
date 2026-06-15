@@ -71,6 +71,7 @@ signal pause
 func _ready() -> void:
 	add_child(escape_menu)
 	save = SaveManager.player
+	save.hp= 10000000
 	$Timer.start()
 	add_to_group("player")
 	sprite.animation_finished.connect(_on_animation_finished)
@@ -318,10 +319,8 @@ func _start_invincibility(duration: float) -> void:
 	if save.hp <= 0:
 		return
 	is_invincible = true
-	$Hurtbox.set_deferred("monitoring", false)
 	await get_tree().create_timer(duration).timeout
 	if is_instance_valid(self):
-		hurtbox.monitoring = true
 		is_invincible = false
 
 

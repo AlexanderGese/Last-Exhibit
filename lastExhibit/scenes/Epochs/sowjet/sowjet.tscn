@@ -842,6 +842,8 @@ collision_layer = 253
 
 [node name="Dmitri" parent="." unique_id=1572758150 instance=ExtResource("22_ri2k7")]
 position = Vector2(-2066, 345)
+gravity = 980.0
+kampf_dist = 16.0
 
 [node name="Lastenaufzug" parent="." unique_id=2086474353 node_paths=PackedStringArray("player") instance=ExtResource("3_l0vm2")]
 position = Vector2(-1504, -38)
@@ -932,8 +934,8 @@ position = Vector2(-2470, 1179)
 position = Vector2(-2195, 1500)
 
 [node name="Green" type="Sprite2D" parent="." unique_id=892065252]
-position = Vector2(-1971, 831.00006)
-scale = Vector2(268.59393, 174.40634)
+position = Vector2(-1437.0098, 573.4971)
+scale = Vector2(35.291756, 28.89848)
 texture = ExtResource("2_pcuah")
 
 [connection signal="body_entered" from="Bossraum/Arena" to="Bossraum/Arena" method="_on_body_entered"]

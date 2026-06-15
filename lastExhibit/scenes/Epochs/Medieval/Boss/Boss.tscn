@@ -238,6 +238,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_12q6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12q6q")
 }],
 "loop": false,
 "name": &"attack2",
@@ -410,7 +413,7 @@ script = ExtResource("1_mx445")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=355402504]
 position = Vector2(24, -32)
 sprite_frames = SubResource("SpriteFrames_xbi04")
-animation = &"block"
+animation = &"attack2"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1747127303]
@@ -432,3 +435,5 @@ shape = SubResource("RectangleShape2D_oqih6")
 [node name="Hurtbox" type="Area2D" parent="Hitbox" unique_id=1394597214]
 script = ExtResource("11_k04dk")
 metadata/_custom_type_script = "uid://dc33vug1a1hkq"
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

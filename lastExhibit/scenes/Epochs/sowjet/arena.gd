@@ -6,8 +6,8 @@ extends Area2D
 var boss_spawned : bool = false
 
 func _ready() -> void:
-	tuer1 = get_node("/root/SovietUnion/Tuer1")
-	tuer2 = get_node("/root/SovietUnion/Tuer2")
+	tuer1 = get_node("/root/SovietUnion/Bossraum/Tuer1")
+	tuer2 = get_node("/root/SovietUnion/Bossraum/Tuer2")
 	tuer1.open()
 	tuer2.open()
 

@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var angesprochen : bool = false
 @onready var alien : bool = false
 @onready var beleidigt : bool = false
-@onready var kampf : bool = true
+@onready var kampf : bool = false
 @onready var balloon_scene = preload("res://dialogues/balloon.tscn")
 @onready var balloon_scene_alien = preload("res://dialogues/balloon_alien.tscn")
 @onready var balloon_scene_beleidigt = preload("res://dialogues/balloon_beleidigt.tscn")

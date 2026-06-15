@@ -147,7 +147,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqcp0"]
 size = Vector2(193.75, 111)
 
-[node name="Dmitri" type="Node2D" unique_id=840895422]
+[node name="Dmitri" type="CharacterBody2D" unique_id=1915161840]
 script = ExtResource("1_sqcp0")
 dialogue = ExtResource("2_n30nw")
 dialogue_alien = ExtResource("3_7o6bi")
