@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var angesprochen : bool = false
 @onready var alien : bool = false
 @onready var beleidigt : bool = false
-@onready var kampf : bool = false
+@onready var kampf : bool = true
 @onready var balloon_scene = preload("res://dialogues/balloon.tscn")
 @onready var balloon_scene_alien = preload("res://dialogues/balloon_alien.tscn")
 @onready var balloon_scene_beleidigt = preload("res://dialogues/balloon_beleidigt.tscn")
@@ -21,7 +21,7 @@ var current_balloon = null
 signal dialogue_started 
 signal dialogue_ended
 
-const leben : int = 5
+const leben : int = 40
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
