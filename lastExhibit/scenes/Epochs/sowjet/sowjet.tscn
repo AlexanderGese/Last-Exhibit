@@ -30,9 +30,10 @@
 [ext_resource type="Resource" uid="uid://cbyo7vtrv0640" path="res://scenes/Epochs/sowjet/artifacts/gasmaske.tres" id="28_1ohby"]
 [ext_resource type="Resource" uid="uid://3kravj1b3fru" path="res://scenes/Epochs/sowjet/artifacts/nowitschok.tres" id="29_plx8r"]
 [ext_resource type="Resource" uid="uid://bt6kxovuhmkjo" path="res://scenes/Epochs/sowjet/artifacts/Laika.tres" id="29_shqr1"]
-[ext_resource type="Texture2D" uid="uid://dmik3sdetg2kf" path="res://assets/sprites/artifacts/Sputnik_Laucher-2.png" id="30_2ff1g"]
 [ext_resource type="Resource" uid="uid://dq4c46xavbldb" path="res://scenes/Epochs/sowjet/artifacts/lada.tres" id="30_85h02"]
 [ext_resource type="Resource" uid="uid://d24rtn1phc1fa" path="res://scenes/Epochs/sowjet/artifacts/sputnik.tres" id="32_shqr1"]
+[ext_resource type="PackedScene" uid="uid://vy8boieivyjw" path="res://custom_nodes/return/return_machine.tscn" id="33_shqr1"]
+[ext_resource type="PackedScene" uid="uid://bx2cvc4w0jtlb" path="res://scenes/Epochs/ww2/enemy.tscn" id="34_vmuci"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l0vm2"]
 texture = ExtResource("2_iyr3m")
@@ -891,15 +892,46 @@ item = ExtResource("29_plx8r")
 [node name="Sputnik Rakete" type="Sprite2D" parent="." unique_id=1403419711]
 position = Vector2(469.00003, 546.24994)
 scale = Vector2(0.73, 0.8375)
-texture = ExtResource("30_2ff1g")
 
 [node name="Lada" parent="." unique_id=1044354130 instance=ExtResource("25_c2x4g")]
 position = Vector2(-965, 388)
 item = ExtResource("30_85h02")
 
 [node name="Sputnik Satellit" parent="." unique_id=1580298503 instance=ExtResource("25_c2x4g")]
-position = Vector2(466, 169)
+position = Vector2(423, 172)
 item = ExtResource("32_shqr1")
+
+[node name="ReturnMachine" parent="." unique_id=1892310434 instance=ExtResource("33_shqr1")]
+position = Vector2(501, 192)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=173467722]
+
+[node name="Enemy" parent="Enemies" unique_id=1846217907 instance=ExtResource("34_vmuci")]
+position = Vector2(-1064, 382)
+
+[node name="Enemy2" parent="Enemies" unique_id=1126475300 instance=ExtResource("34_vmuci")]
+position = Vector2(-2783, 350)
+
+[node name="Enemy3" parent="Enemies" unique_id=1381349222 instance=ExtResource("34_vmuci")]
+position = Vector2(-2578, 350)
+
+[node name="Enemy4" parent="Enemies" unique_id=551612337 instance=ExtResource("34_vmuci")]
+position = Vector2(-2836, 734)
+
+[node name="Enemy5" parent="Enemies" unique_id=384258216 instance=ExtResource("34_vmuci")]
+position = Vector2(-1991, 733)
+
+[node name="Enemy6" parent="Enemies" unique_id=1279146865 instance=ExtResource("34_vmuci")]
+position = Vector2(-1113, 734)
+
+[node name="Enemy7" parent="Enemies" unique_id=1085094521 instance=ExtResource("34_vmuci")]
+position = Vector2(-2004, 1177)
+
+[node name="Enemy8" parent="Enemies" unique_id=416165882 instance=ExtResource("34_vmuci")]
+position = Vector2(-2470, 1179)
+
+[node name="Enemy9" parent="Enemies" unique_id=70462723 instance=ExtResource("34_vmuci")]
+position = Vector2(-2195, 1500)
 
 [connection signal="body_entered" from="Arena" to="Arena" method="_on_body_entered"]
 [connection signal="pause" from="Player" to="Dmitri" method="_on_player_pause"]

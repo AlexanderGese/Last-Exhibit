@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://ci3g66mb3ohls" path="res://scenes/Projectiles/Granate.tscn" id="4_j884p"]
 [ext_resource type="Texture2D" uid="uid://ciar7n5k2kcse" path="res://assets/sprites/Sovjet/boss/Dead.png" id="5_1ukh1"]
 [ext_resource type="Texture2D" uid="uid://dds423sresuvj" path="res://assets/sprites/Sovjet/boss/Walk.png" id="6_147vg"]
-[ext_resource type="Script" uid="uid://ch3o8csrvxxgv" path="res://custom_nodes/boxes/Hitbox.gd" id="6_v0px1"]
 [ext_resource type="Texture2D" uid="uid://b5a0rfblgexmg" path="res://assets/sprites/Sovjet/boss/Shot.png" id="7_deduk"]
 [ext_resource type="Script" uid="uid://dc33vug1a1hkq" path="res://custom_nodes/boxes/Hurtbox.gd" id="7_uacj4"]
 [ext_resource type="Texture2D" uid="uid://653jru8j5hu8" path="res://assets/sprites/Sovjet/boss/throw.png" id="8_ia0s1"]
@@ -230,11 +229,6 @@ position = Vector2(6, -20)
 
 [node name="Spawn" type="Marker2D" parent="." unique_id=891704831]
 position = Vector2(14, -21)
-
-[node name="Hitbox" type="Area2D" parent="." unique_id=2005199551]
-script = ExtResource("6_v0px1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1262933205]
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1346542412]
 collision_layer = 4

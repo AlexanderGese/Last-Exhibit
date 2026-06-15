@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cuq67isxwqn0h"]
+
+[ext_resource type="Script" uid="uid://bhbkjfj1tvytq" path="res://custom_nodes/timeshard.gd" id="1_jr8jy"]
+[ext_resource type="Texture2D" uid="uid://cd468pjsuhutb" path="res://assets/sprites/PlayerHUD/timeshard.png" id="1_p5p4e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jr8jy"]
+
+[node name="Timeshard" type="Area2D" unique_id=753032840]
+script = ExtResource("1_jr8jy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2059889557]
+position = Vector2(7, -7)
+shape = SubResource("RectangleShape2D_jr8jy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1455984898]
+position = Vector2(8, -8)
+texture = ExtResource("1_p5p4e")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

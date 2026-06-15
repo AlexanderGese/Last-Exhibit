@@ -2,10 +2,7 @@
 
 [ext_resource type="Script" uid="uid://fassw5kr27wl" path="res://scenes/Museum/Museum.gd" id="1_bicjn"]
 [ext_resource type="PackedScene" uid="uid://botawtk2laud8" path="res://scenes/Player/Player.tscn" id="1_f4n76"]
-[ext_resource type="PackedScene" uid="uid://c2xp0jmnqddkc" path="res://custom_nodes/ItemPickUp/ItemPickup.tscn" id="7_du6iq"]
-[ext_resource type="Resource" uid="uid://dq4c46xavbldb" path="res://scenes/Epochs/sowjet/artifacts/lada.tres" id="8_d7ipc"]
 [ext_resource type="PackedScene" uid="uid://jvkbbr8xytdv" path="res://scenes/Museum/vending_machine.tscn" id="9_lfxre"]
-[ext_resource type="Resource" uid="uid://belwc53615wwd" path="res://scenes/Epochs/sowjet/artifacts/matrjoschka.tres" id="10_nrtfa"]
 [ext_resource type="PackedScene" uid="uid://dkvceyxie2xb5" path="res://custom_nodes/showcase/showcase.tscn" id="11_l6y80"]
 [ext_resource type="PackedScene" uid="uid://b465bo07tndvt" path="res://custom_nodes/boxes/packages.tscn" id="12_vcqe2"]
 [ext_resource type="PackedScene" uid="uid://c6ltpf5bt0im1" path="res://scenes/Museum/basement/basement.tscn" id="84_nwe6r"]
@@ -42,14 +39,6 @@ position = Vector2(-12, -1329)
 
 [node name="Floor2" parent="Mueseum Floors" unique_id=1827805727 instance=ExtResource("87_fy47d")]
 position = Vector2(-12, -2001)
-
-[node name="ItemPickup" parent="." unique_id=1858323732 instance=ExtResource("7_du6iq")]
-position = Vector2(-318, -258)
-item = ExtResource("8_d7ipc")
-
-[node name="ItemPickup3" parent="." unique_id=1433396319 instance=ExtResource("7_du6iq")]
-position = Vector2(-266, -256)
-item = ExtResource("10_nrtfa")
 
 [node name="VendingMachine" parent="." unique_id=201981395 instance=ExtResource("9_lfxre")]
 position = Vector2(-195, -923)

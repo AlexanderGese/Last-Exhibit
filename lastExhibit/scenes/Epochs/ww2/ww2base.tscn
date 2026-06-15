@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bx2cvc4w0jtlb" path="res://scenes/Epochs/ww2/enemy.tscn" id="17_axkfg"]
 [ext_resource type="PackedScene" uid="uid://p601uv7xjfyc" path="res://custom_nodes/Ladder.tscn" id="17_erw15"]
 [ext_resource type="PackedScene" uid="uid://bcmucfj6jywxl" path="res://custom_nodes/bouncy.tscn" id="19_1nqjq"]
+[ext_resource type="PackedScene" uid="uid://vy8boieivyjw" path="res://custom_nodes/return/return_machine.tscn" id="21_3j2ve"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ys555"]
 texture = ExtResource("2_r5ffj")
@@ -941,7 +942,7 @@ position = Vector2(584, -32)
 
 [node name="Player" parent="." unique_id=229592850 instance=ExtResource("5_a8ufs")]
 z_index = 1
-position = Vector2(4174, -67)
+position = Vector2(180, -64)
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=484300934]
 z_index = 2
@@ -1032,4 +1033,7 @@ position = Vector2(5263, 446)
 position = Vector2(1580, -67)
 
 [node name="Enemy9" parent="Enemies" unique_id=1287236889 instance=ExtResource("17_axkfg")]
-position = Vector2(369, -66)
+position = Vector2(764, -68)
+
+[node name="ReturnMachine" parent="." unique_id=1892310434 instance=ExtResource("21_3j2ve")]
+position = Vector2(7351, -31)
