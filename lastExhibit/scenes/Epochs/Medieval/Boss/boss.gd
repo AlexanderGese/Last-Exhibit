@@ -12,6 +12,8 @@ extends CharacterBody2D
 @export var hit_cooldown  : float = 3
 @export var hit_distanz   : float = 70.0
 
+@onready var sprite_root = $SpriteRoot
+
 var hit_timer    : float = 0.0
 var is_attacking : bool  = false
 
@@ -30,38 +32,49 @@ func setup(x: float, y: float) -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
 	if player == null:
 		return
-	hit_timer  -= delta
-	
-	if hit_timer<0:
-		_hit_start()
-	
+	hit_timer -= delta
+
+	var dist_x = abs(global_position.x - player.global_position.x)
+
 	if is_attacking:
 		velocity.x = 0.0
+	elif dist_x <= hit_distanz and hit_timer <= 0.0:
+		_hit_start()
 	else:
 		_move_towards_player()
+
 	_update_facing()
 	move_and_slide()
 
 func _hit_start() -> void:
 	is_attacking = true
 	hit_timer    = hit_cooldown
-	$Hitbox.set_deferred("disabled", true)
 	velocity.x   = 0.0
 	if randf() < 0.5:
 		$AnimatedSprite2D.play("attack1")
 	else:
 		$AnimatedSprite2D.play("attack2")
+	
+	# Signal temporär disconnecten
+	$Hitbox.monitoring = false
+	await get_tree().process_frame
+	$Hitbox.monitoring = true
+	await get_tree().process_frame
+	
+	for area in $Hitbox.get_overlapping_areas():
+		if area is Hurtbox:
+			var knockback = $Hitbox.get_knockback_direction(area.global_position)
+			area.hurt.emit($Hitbox.damage, knockback)
+	
 	await $AnimatedSprite2D.animation_finished
-	$Hitbox.set_deferred("disabled", false)
+	$Hitbox.monitoring = false
 	is_attacking = false
 
-
 func _move_towards_player() -> void:
-	var dist_x = abs(global_position.x - player.global_position.x)
-	var dir    = sign(player.global_position.x - global_position.x)
+	var dist = global_position.distance_to(player.global_position)
+	var dir  = sign(player.global_position.x - global_position.x)
 
 	if global_position.x <= min_x and dir < 0:
 		velocity.x = 0.0
@@ -70,17 +83,19 @@ func _move_towards_player() -> void:
 		velocity.x = 0.0
 		return
 
-	if dist_x <= kampf_dist:
+	if dist <= kampf_dist:
 		velocity.x = move_toward(velocity.x, 0.0, 20.0)
 		$AnimatedSprite2D.play("idle")
 		return
 
-	if dist_x > run_distanz:
+	if dist > run_distanz:
 		velocity.x = dir * run_speed
 		$AnimatedSprite2D.play("run")
 	else:
 		velocity.x = dir * walk_speed
 		$AnimatedSprite2D.play("walk")
+
+
 
 func _update_facing() -> void:
 	if velocity.x > 5.0:
@@ -89,5 +104,6 @@ func _update_facing() -> void:
 		facing_right = false
 	else:
 		facing_right = player.global_position.x > global_position.x
+	
 	$AnimatedSprite2D.flip_h = not facing_right
-		
+	$AnimatedSprite2D.position.x = 30.0 if facing_right else -30.0

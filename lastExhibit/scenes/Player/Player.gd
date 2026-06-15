@@ -314,7 +314,7 @@ func _play_hurt_flash() -> void:
 
 func _start_invincibility(duration: float) -> void:
 	is_invincible = true
-	hurtbox.monitoring = false
+	$Hurtbox.set_deferred("monitoring", false)
 	await get_tree().create_timer(duration).timeout
 	if is_instance_valid(self):
 		hurtbox.monitoring = true

@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://j0h6rpoyp6sf" path="res://assets/sprites/medieval/Knight_1/Attack 3.png" id="6_eih3q"]
 [ext_resource type="Texture2D" uid="uid://d42o1mbe2e0h" path="res://assets/sprites/medieval/Knight_1/Run+Attack.png" id="8_k04dk"]
 [ext_resource type="Script" uid="uid://ch3o8csrvxxgv" path="res://custom_nodes/boxes/Hitbox.gd" id="10_k04dk"]
+[ext_resource type="Script" uid="uid://dc33vug1a1hkq" path="res://custom_nodes/boxes/Hurtbox.gd" id="11_k04dk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nph4w"]
 atlas = ExtResource("2_1s1r8")
@@ -399,7 +400,7 @@ animations = [{
 size = Vector2(43, 63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqih6"]
-size = Vector2(42, 42)
+size = Vector2(139, 66)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=75066386]
 collision_layer = 65536
@@ -409,7 +410,7 @@ script = ExtResource("1_mx445")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=355402504]
 position = Vector2(24, -32)
 sprite_frames = SubResource("SpriteFrames_xbi04")
-animation = &"walk&attack"
+animation = &"block"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1747127303]
@@ -425,5 +426,9 @@ knockback_force = 150.0
 metadata/_custom_type_script = "uid://ch3o8csrvxxgv"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=601636135]
-position = Vector2(44, -21)
+position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_oqih6")
+
+[node name="Hurtbox" type="Area2D" parent="Hitbox" unique_id=1394597214]
+script = ExtResource("11_k04dk")
+metadata/_custom_type_script = "uid://dc33vug1a1hkq"
