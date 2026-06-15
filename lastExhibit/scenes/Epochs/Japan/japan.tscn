@@ -16,8 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://c4xckuk58sikg" path="res://assets/sprites/medieval/GandalfHardcore FREE Platformer Assets/GandalfHardcore FREE Platformer Assets/Tree3.png" id="12_31v42"]
 [ext_resource type="Texture2D" uid="uid://vhy4816qj3ej" path="res://assets/sprites/medieval/GandalfHardcore FREE Platformer Assets/GandalfHardcore FREE Platformer Assets/Decor.png" id="14_5bret"]
 [ext_resource type="PackedScene" uid="uid://btw85e87tyb71" path="res://scenes/Epochs/Medieval/crate_platform.tscn" id="16_31v42"]
-[ext_resource type="PackedScene" uid="uid://p601uv7xjfyc" path="res://custom_nodes/Ladder.tscn" id="17_faovp"]
+[ext_resource type="Script" uid="uid://bb6jnixjtju7k" path="res://custom_nodes/Ladder.gd" id="16_rqfwq"]
 [ext_resource type="PackedScene" uid="uid://vy8boieivyjw" path="res://custom_nodes/return/return_machine.tscn" id="18_tov5c"]
+[ext_resource type="PackedScene" uid="uid://cxdw4438m2csb" path="res://scenes/Epochs/Japan/enemyJapan.tscn" id="19_rqfwq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lljqo"]
 texture = ExtResource("1_qa2ky")
@@ -589,6 +590,9 @@ tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetAtlasSource_kgg2d")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ju4t5"]
+size = Vector2(29, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yx54u"]
 size = Vector2(29, 100)
 
 [node name="Japan" type="Node2D" unique_id=1084753749]
@@ -684,61 +688,65 @@ position = Vector2(15, 1)
 
 [node name="Ladders" type="Node" parent="." unique_id=605914808]
 
-[node name="Ladder" parent="Ladders" unique_id=993070367 instance=ExtResource("17_faovp")]
+[node name="Ladder" type="Area2D" parent="Ladders" unique_id=993070367]
 position = Vector2(3250, 20)
+script = ExtResource("16_rqfwq")
 
-[node name="CollisionShape2D" parent="Ladders/Ladder" index="0" unique_id=325765296]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladders/Ladder" unique_id=325765296]
 position = Vector2(14, -68)
+shape = SubResource("RectangleShape2D_ju4t5")
 
-[node name="Ladder2" parent="Ladders" unique_id=1200201656 instance=ExtResource("17_faovp")]
+[node name="Ladder2" type="Area2D" parent="Ladders" unique_id=1200201656]
 position = Vector2(2994, -94)
+script = ExtResource("16_rqfwq")
 
-[node name="CollisionShape2D" parent="Ladders/Ladder2" index="0" unique_id=325765296]
-position = Vector2(13, -49)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladders/Ladder2" unique_id=1542096475]
+position = Vector2(13, -48.5)
+shape = SubResource("RectangleShape2D_ju4t5")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Ladders/Ladder2" unique_id=830584550]
 position = Vector2(-115, -145)
-shape = SubResource("RectangleShape2D_ju4t5")
+shape = SubResource("RectangleShape2D_yx54u")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Ladders/Ladder2" unique_id=513554295]
 position = Vector2(-498, -144)
-shape = SubResource("RectangleShape2D_ju4t5")
+shape = SubResource("RectangleShape2D_yx54u")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Ladders/Ladder2" unique_id=1098486622]
 position = Vector2(-850, -50)
-shape = SubResource("RectangleShape2D_ju4t5")
+shape = SubResource("RectangleShape2D_yx54u")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Ladders/Ladder2" unique_id=1241710605]
 position = Vector2(-786, 48)
-shape = SubResource("RectangleShape2D_ju4t5")
+shape = SubResource("RectangleShape2D_yx54u")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Ladders/Ladder2" unique_id=180246595]
 position = Vector2(-1042, -48)
-shape = SubResource("RectangleShape2D_ju4t5")
+shape = SubResource("RectangleShape2D_yx54u")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Ladders/Ladder2" unique_id=1146910791]
 position = Vector2(-1202, -144)
-shape = SubResource("RectangleShape2D_ju4t5")
+shape = SubResource("RectangleShape2D_yx54u")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Ladders/Ladder2" unique_id=174786091]
 position = Vector2(-2098, -144)
-shape = SubResource("RectangleShape2D_ju4t5")
+shape = SubResource("RectangleShape2D_yx54u")
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="Ladders/Ladder2" unique_id=1815075169]
 position = Vector2(-2130, -48)
-shape = SubResource("RectangleShape2D_ju4t5")
+shape = SubResource("RectangleShape2D_yx54u")
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="Ladders/Ladder2" unique_id=14349558]
 position = Vector2(-2066, 48)
-shape = SubResource("RectangleShape2D_ju4t5")
+shape = SubResource("RectangleShape2D_yx54u")
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="Ladders/Ladder2" unique_id=1715016081]
 position = Vector2(-2354, -144)
-shape = SubResource("RectangleShape2D_ju4t5")
+shape = SubResource("RectangleShape2D_yx54u")
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="Ladders/Ladder2" unique_id=902179219]
 position = Vector2(-3154, 48)
-shape = SubResource("RectangleShape2D_ju4t5")
+shape = SubResource("RectangleShape2D_yx54u")
 
 [node name="Player" parent="." unique_id=229592850 instance=ExtResource("9_7yaeh")]
 z_index = 2
@@ -747,5 +755,36 @@ position = Vector2(-660, -39)
 [node name="ReturnMachine" parent="." unique_id=1892310434 instance=ExtResource("18_tov5c")]
 position = Vector2(4273, -2)
 
-[editable path="Ladders/Ladder"]
-[editable path="Ladders/Ladder2"]
+[node name="Enemies" type="Node" parent="." unique_id=756319612]
+
+[node name="Enemy" parent="Enemies" unique_id=1846217907 instance=ExtResource("19_rqfwq")]
+position = Vector2(-88, -36)
+
+[node name="Enemy2" parent="Enemies" unique_id=1504628530 instance=ExtResource("19_rqfwq")]
+position = Vector2(606, -229)
+
+[node name="Enemy3" parent="Enemies" unique_id=200976542 instance=ExtResource("19_rqfwq")]
+position = Vector2(766, -36)
+
+[node name="Enemy4" parent="Enemies" unique_id=1129625604 instance=ExtResource("19_rqfwq")]
+position = Vector2(1885, -133)
+
+[node name="Enemy5" parent="Enemies" unique_id=1027309175 instance=ExtResource("19_rqfwq")]
+position = Vector2(2261, -230)
+
+[node name="Enemy6" parent="Enemies" unique_id=1188052416 instance=ExtResource("19_rqfwq")]
+position = Vector2(2227, -324)
+
+[node name="Enemy7" parent="Enemies" unique_id=335132995 instance=ExtResource("19_rqfwq")]
+position = Vector2(2581, -228)
+
+[node name="Enemy8" parent="Enemies" unique_id=1214492283 instance=ExtResource("19_rqfwq")]
+position = Vector2(3117, -228)
+
+[node name="Enemy9" parent="Enemies" unique_id=186051276 instance=ExtResource("19_rqfwq")]
+position = Vector2(3562, -36)
+
+[connection signal="body_entered" from="Ladders/Ladder" to="Ladders/Ladder" method="_on_body_entered"]
+[connection signal="body_exited" from="Ladders/Ladder" to="Ladders/Ladder" method="_on_body_exited"]
+[connection signal="body_entered" from="Ladders/Ladder2" to="Ladders/Ladder2" method="_on_body_entered"]
+[connection signal="body_exited" from="Ladders/Ladder2" to="Ladders/Ladder2" method="_on_body_exited"]

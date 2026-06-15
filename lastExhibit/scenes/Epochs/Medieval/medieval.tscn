@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://bcmucfj6jywxl" path="res://custom_nodes/bouncy.tscn" id="22_kiqwy"]
 [ext_resource type="Script" uid="uid://ch3o8csrvxxgv" path="res://custom_nodes/boxes/Hitbox.gd" id="25_vijm0"]
 [ext_resource type="Script" uid="uid://bb6jnixjtju7k" path="res://custom_nodes/Ladder.gd" id="27_gl2rr"]
+[ext_resource type="PackedScene" uid="uid://b8432sgchv8fw" path="res://scenes/Epochs/Medieval/enemyMedieval.tscn" id="29_4grd3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lljqo"]
 texture = ExtResource("1_v1uj4")
@@ -1748,6 +1749,56 @@ knockback_force = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillzoneWater" unique_id=806170188]
 position = Vector2(3318, 115)
 shape = SubResource("RectangleShape2D_82gt7")
+
+[node name="Enemies" type="Node" parent="." unique_id=745248658]
+
+[node name="Enemy" parent="Enemies" unique_id=1846217907 instance=ExtResource("29_4grd3")]
+position = Vector2(-3012, -36)
+
+[node name="Enemy4" parent="Enemies" unique_id=1527982297 instance=ExtResource("29_4grd3")]
+position = Vector2(-4535, -36)
+
+[node name="Enemy5" parent="Enemies" unique_id=1027997935 instance=ExtResource("29_4grd3")]
+position = Vector2(-5176, -2)
+
+[node name="Enemy6" parent="Enemies" unique_id=1540413412 instance=ExtResource("29_4grd3")]
+position = Vector2(-3919, -900)
+
+[node name="Enemy7" parent="Enemies" unique_id=358845194 instance=ExtResource("29_4grd3")]
+position = Vector2(3989, -162)
+
+[node name="Enemy12" parent="Enemies" unique_id=1947403740 instance=ExtResource("29_4grd3")]
+position = Vector2(5156, -129)
+
+[node name="Enemy13" parent="Enemies" unique_id=2037497356 instance=ExtResource("29_4grd3")]
+position = Vector2(5522, -224)
+
+[node name="Enemy14" parent="Enemies" unique_id=1589047653 instance=ExtResource("29_4grd3")]
+position = Vector2(5770, -128)
+
+[node name="Enemy15" parent="Enemies" unique_id=319150390 instance=ExtResource("29_4grd3")]
+position = Vector2(5881, -321)
+
+[node name="Enemy16" parent="Enemies" unique_id=1133550710 instance=ExtResource("29_4grd3")]
+position = Vector2(5398, -33)
+
+[node name="Enemy8" parent="Enemies" unique_id=1442375097 instance=ExtResource("29_4grd3")]
+position = Vector2(944, -133)
+
+[node name="Enemy9" parent="Enemies" unique_id=386466594 instance=ExtResource("29_4grd3")]
+position = Vector2(2249, -34)
+
+[node name="Enemy10" parent="Enemies" unique_id=1962525701 instance=ExtResource("29_4grd3")]
+position = Vector2(2380, -34)
+
+[node name="Enemy11" parent="Enemies" unique_id=533203945 instance=ExtResource("29_4grd3")]
+position = Vector2(2509, -34)
+
+[node name="Enemy2" parent="Enemies" unique_id=1646527677 instance=ExtResource("29_4grd3")]
+position = Vector2(-2135, -130)
+
+[node name="Enemy3" parent="Enemies" unique_id=1837959535 instance=ExtResource("29_4grd3")]
+position = Vector2(-3854, 446)
 
 [connection signal="body_entered" from="Doors/Arena" to="Doors/Arena" method="_on_body_entered"]
 [connection signal="body_entered" from="Ladders/Ladder" to="Ladders/Ladder" method="_on_body_entered"]
