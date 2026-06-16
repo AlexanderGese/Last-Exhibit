@@ -29,6 +29,16 @@
 [ext_resource type="Script" uid="uid://ch3o8csrvxxgv" path="res://custom_nodes/boxes/Hitbox.gd" id="25_vijm0"]
 [ext_resource type="Script" uid="uid://bb6jnixjtju7k" path="res://custom_nodes/Ladder.gd" id="27_gl2rr"]
 [ext_resource type="PackedScene" uid="uid://b8432sgchv8fw" path="res://scenes/Epochs/Medieval/enemyMedieval.tscn" id="29_4grd3"]
+[ext_resource type="PackedScene" uid="uid://c2xp0jmnqddkc" path="res://custom_nodes/ItemPickUp/ItemPickup.tscn" id="30_6ivbq"]
+[ext_resource type="Resource" uid="uid://cb86uncxo6l11" path="res://scenes/Epochs/Medieval/artifacts/kelch.tres" id="31_3r1jx"]
+[ext_resource type="Resource" uid="uid://6vw0pl4o55b4" path="res://scenes/Epochs/Medieval/artifacts/bibel.tres" id="32_ofege"]
+[ext_resource type="Resource" uid="uid://dok5b7aso2ww5" path="res://scenes/Epochs/Medieval/artifacts/axt.tres" id="33_rpn4g"]
+[ext_resource type="Resource" uid="uid://corrw7iwwtsui" path="res://scenes/Epochs/Medieval/artifacts/wein.tres" id="34_b8gl2"]
+[ext_resource type="Resource" uid="uid://blf2rumtsil1w" path="res://scenes/Epochs/Medieval/artifacts/ritterhelm.tres" id="35_of0or"]
+[ext_resource type="Resource" uid="uid://cn6qrjp7b1rj0" path="res://scenes/Epochs/Medieval/artifacts/schwert.tres" id="36_3rsbm"]
+[ext_resource type="Resource" uid="uid://d1y2pgovt83dn" path="res://scenes/Epochs/Medieval/artifacts/wappen.tres" id="37_vjya6"]
+[ext_resource type="Resource" uid="uid://cwf0chypvn2bc" path="res://scenes/Epochs/Medieval/artifacts/verrostetes_schwert.tres" id="38_4chqw"]
+[ext_resource type="Resource" uid="uid://bnkscifvsyl0o" path="res://scenes/Epochs/Medieval/artifacts/signatur.tres" id="39_rpn4g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lljqo"]
 texture = ExtResource("1_v1uj4")
@@ -1799,6 +1809,76 @@ position = Vector2(-2135, -130)
 
 [node name="Enemy3" parent="Enemies" unique_id=1837959535 instance=ExtResource("29_4grd3")]
 position = Vector2(-3854, 446)
+
+[node name="Artifacts" type="Node" parent="." unique_id=913485797]
+
+[node name="Goldkelch 1" parent="Artifacts" unique_id=1858323732 instance=ExtResource("30_6ivbq")]
+position = Vector2(2432, -9)
+item = ExtResource("31_3r1jx")
+
+[node name="Goldkelch 2" parent="Artifacts" unique_id=285349723 instance=ExtResource("30_6ivbq")]
+position = Vector2(2212, -11)
+item = ExtResource("31_3r1jx")
+
+[node name="Bibel" parent="Artifacts" unique_id=1435088703 instance=ExtResource("30_6ivbq")]
+position = Vector2(831, -34)
+item = ExtResource("32_ofege")
+
+[node name="Axt" parent="Artifacts" unique_id=1515316308 instance=ExtResource("30_6ivbq")]
+position = Vector2(335, -16)
+item = ExtResource("33_rpn4g")
+
+[node name="Axt2" parent="Artifacts" unique_id=1253783019 instance=ExtResource("30_6ivbq")]
+position = Vector2(2158, -14)
+item = ExtResource("33_rpn4g")
+
+[node name="Weinflasche" parent="Artifacts" unique_id=419947073 instance=ExtResource("30_6ivbq")]
+position = Vector2(4004, -160)
+item = ExtResource("34_b8gl2")
+
+[node name="Ritterhelm" parent="Artifacts" unique_id=2137689700 instance=ExtResource("30_6ivbq")]
+position = Vector2(4384, -17)
+item = ExtResource("35_of0or")
+
+[node name="Schwert" parent="Artifacts" unique_id=1083144416 instance=ExtResource("30_6ivbq")]
+position = Vector2(4367, -16)
+item = ExtResource("36_3rsbm")
+
+[node name="Wappen" parent="Artifacts" unique_id=1676783335 instance=ExtResource("30_6ivbq")]
+position = Vector2(5164, -254)
+item = ExtResource("37_vjya6")
+
+[node name="Wappen2" parent="Artifacts" unique_id=116765491 instance=ExtResource("30_6ivbq")]
+position = Vector2(4740, -78)
+item = ExtResource("37_vjya6")
+
+[node name="Signatur" parent="Artifacts" unique_id=2114838000 instance=ExtResource("30_6ivbq")]
+position = Vector2(5856, -321)
+item = ExtResource("37_vjya6")
+
+[node name="Weinflasche2" parent="Artifacts" unique_id=1325671615 instance=ExtResource("30_6ivbq")]
+position = Vector2(3999, -160)
+item = ExtResource("34_b8gl2")
+
+[node name="Weinflasche3" parent="Artifacts" unique_id=1100947275 instance=ExtResource("30_6ivbq")]
+position = Vector2(5188, -128)
+item = ExtResource("34_b8gl2")
+
+[node name="Axt3" parent="Artifacts" unique_id=2142352331 instance=ExtResource("30_6ivbq")]
+position = Vector2(-1950, -11)
+item = ExtResource("33_rpn4g")
+
+[node name="Arschschwert" parent="Artifacts" unique_id=1256406511 instance=ExtResource("30_6ivbq")]
+position = Vector2(-5738, 15)
+item = ExtResource("38_4chqw")
+
+[node name="Signatur 2" parent="Artifacts" unique_id=1911526414 instance=ExtResource("30_6ivbq")]
+position = Vector2(-4239, 720)
+item = ExtResource("39_rpn4g")
+
+[node name="Arschschwert2" parent="Artifacts" unique_id=2064523077 instance=ExtResource("30_6ivbq")]
+position = Vector2(-4269, -659)
+item = ExtResource("38_4chqw")
 
 [connection signal="body_entered" from="Doors/Arena" to="Doors/Arena" method="_on_body_entered"]
 [connection signal="body_entered" from="Ladders/Ladder" to="Ladders/Ladder" method="_on_body_entered"]

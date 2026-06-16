@@ -5,7 +5,6 @@ enum Type { ARTIFACT, WEAPON, HEAD, BODY, LEGS, FEET, CONSUMABLE, AMMO, KEY, CUR
 
 @export var id: String
 @export var name: String
-@export var beschreibung: String
 @export var icon: Texture2D
 @export var type: Type
 @export var stackable: bool = false

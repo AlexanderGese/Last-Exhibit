@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dd7x55scxab6s" path="res://assets/sprites/Sovjet/Soviuet tische.png" id="9_f78tm"]
 [ext_resource type="Script" uid="uid://b6xs62edb3ora" path="res://scenes/Epochs/sowjet/floor_0.gd" id="9_oxd6m"]
 [ext_resource type="PackedScene" uid="uid://p601uv7xjfyc" path="res://custom_nodes/Ladder.tscn" id="19_qsbqj"]
+[ext_resource type="Texture2D" uid="uid://dmik3sdetg2kf" path="res://assets/sprites/artifacts/Sputnik_Laucher-2.png" id="21_ipn75"]
 [ext_resource type="PackedScene" uid="uid://d7gek8sbldnx" path="res://scenes/Epochs/sowjet/Boss/Sowjet Boss.tscn" id="21_ogquc"]
 [ext_resource type="PackedScene" uid="uid://csd40r3e70bcy" path="res://scenes/Epochs/sowjet/Tür/Tür.tscn" id="22_f78tm"]
 [ext_resource type="PackedScene" uid="uid://dync8fw1rrta4" path="res://scenes/Epochs/sowjet/dmitri/dmitri.tscn" id="22_ri2k7"]
@@ -835,6 +836,11 @@ position = Vector2(-696, 720)
 position = Vector2(248, 720)
 rotation = -3.1415925
 
+[node name="Rakete" type="Sprite2D" parent="." unique_id=1171632725]
+position = Vector2(465.5, 550.25)
+scale = Vector2(0.7883334, 0.8356481)
+texture = ExtResource("21_ipn75")
+
 [node name="Player" parent="." unique_id=229592850 instance=ExtResource("2_l0vm2")]
 z_index = 1
 position = Vector2(3, -56)
@@ -898,7 +904,7 @@ position = Vector2(-965, 388)
 item = ExtResource("30_85h02")
 
 [node name="Sputnik Satellit" parent="Artefakte" unique_id=1580298503 instance=ExtResource("25_c2x4g")]
-position = Vector2(423, 172)
+position = Vector2(456, 169)
 item = ExtResource("32_shqr1")
 
 [node name="ReturnMachine" parent="." unique_id=1892310434 instance=ExtResource("33_shqr1")]
@@ -934,6 +940,7 @@ position = Vector2(-2470, 1179)
 position = Vector2(-2195, 1500)
 
 [node name="Green" type="Sprite2D" parent="." unique_id=892065252]
+visible = false
 position = Vector2(-1437.0098, 573.4971)
 scale = Vector2(35.291756, 28.89848)
 texture = ExtResource("2_pcuah")

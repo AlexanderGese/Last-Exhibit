@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://6vw0pl4o55b4"]
+
+[ext_resource type="Texture2D" uid="uid://bngkoipmg0jhw" path="res://assets/sprites/artifacts/Bibel_MedievalArtefacts.png" id="1_kywxt"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_ruyml"]
+
+[resource]
+script = ExtResource("1_ruyml")
+id = "bibel"
+name = "Heilige Bibel"
+icon = ExtResource("1_kywxt")
+metadata/_custom_type_script = "uid://d4c671jpgfict"
