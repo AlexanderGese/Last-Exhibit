@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cwf0chypvn2bc"]
+
+[ext_resource type="Texture2D" uid="uid://cjoooldiox3fp" path="res://assets/sprites/artifacts/Verrostetes_Schwert_MedievalArtefacts.png" id="1_hcnqn"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_iflv7"]
+
+[resource]
+script = ExtResource("1_iflv7")
+id = "arschschwert"
+name = "Verrostetes Schwert"
+icon = ExtResource("1_hcnqn")
+metadata/_custom_type_script = "uid://d4c671jpgfict"

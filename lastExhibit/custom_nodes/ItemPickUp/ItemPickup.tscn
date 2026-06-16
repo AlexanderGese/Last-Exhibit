@@ -10,14 +10,9 @@
 z_index = 1
 script = ExtResource("1_2f8f3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=772571855]
-shape = SubResource("RectangleShape2D_53201")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1685151323]
-
 [node name="Info" type="Sprite2D" parent="." unique_id=1630559654]
 z_index = 4096
-position = Vector2(1, -24.000002)
+position = Vector2(35, -24.000002)
 scale = Vector2(0.8554688, 1.0476193)
 texture = ExtResource("2_n3nam")
 
@@ -34,4 +29,10 @@ offset_bottom = -10.499999
 theme_override_fonts/font = ExtResource("3_6q14s")
 theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=772571855]
+shape = SubResource("RectangleShape2D_53201")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1685151323]
