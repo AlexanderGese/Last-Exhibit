@@ -1,0 +1,401 @@
+[gd_scene format=3 uid="uid://cmydvn6u8pbla"]
+
+[ext_resource type="Texture2D" uid="uid://cxn0ki87a6wir" path="res://assets/sprites/USBase/P51Mustang.png" id="1_bmukr"]
+[ext_resource type="Texture2D" uid="uid://ewm3xvtibrrv" path="res://assets/sprites/USBase/Wreck2P51.png" id="1_lr2t3"]
+[ext_resource type="Script" uid="uid://bsusiiw144iej" path="res://scenes/Epochs/ww2/boss/boss_kampf.gd" id="1_ock3w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8u2i"]
+size = Vector2(1494, 234)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmukr"]
+size = Vector2(146, 234)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr2t3"]
+atlas = ExtResource("1_bmukr")
+region = Rect2(0, 0, 450, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ock3w"]
+atlas = ExtResource("1_bmukr")
+region = Rect2(450, 0, 450, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkkkq"]
+atlas = ExtResource("1_bmukr")
+region = Rect2(900, 0, 450, 190)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_24sbq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lr2t3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ock3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkkkq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.95
+}]
+
+[sub_resource type="Animation" id="Animation_gkkkq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlugzeugLinks:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -776)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlugzeugLinks:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.7853982]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FlugzeugLinks:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FlugzeugLinks:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FlugzeugRechts:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -776)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FlugzeugRechts:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7853982]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("FlugzeugRechts:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("FlugzeugRechts:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("WrackLinks/CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("WrackRechts/CollisionShape2D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("WrackLinks/Sprite2D:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("WrackRechts/Sprite2D:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ock3w"]
+resource_name = "introCrash"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlugzeugLinks:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -776), Vector2(-735, -41)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlugzeugLinks:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.7853982, -0.7853982]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FlugzeugLinks:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FlugzeugLinks:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.01, 1.99, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FlugzeugRechts:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -776), Vector2(735, -41)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FlugzeugRechts:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.7853982, 0.7853982]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("FlugzeugRechts:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.5)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("FlugzeugRechts:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.01, 1.99, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("WrackLinks/CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("WrackRechts/CollisionShape2D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("WrackLinks/Sprite2D:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1.99, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("WrackRechts/Sprite2D:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1.99, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gkkkq"]
+_data = {
+&"RESET": SubResource("Animation_gkkkq"),
+&"introCrash": SubResource("Animation_ock3w")
+}
+
+[node name="BossKampf" type="Node2D" unique_id=1028210209]
+script = ExtResource("1_ock3w")
+
+[node name="TriggerZone" type="Area2D" parent="." unique_id=533417595]
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerZone" unique_id=1109844483]
+position = Vector2(0, -99)
+shape = SubResource("RectangleShape2D_x8u2i")
+
+[node name="WrackLinks" type="StaticBody2D" parent="." unique_id=1723110059]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WrackLinks" unique_id=1979143973]
+position = Vector2(-747, -99)
+shape = SubResource("RectangleShape2D_bmukr")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="WrackLinks" unique_id=278790428]
+visible = false
+position = Vector2(-752, -94)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_lr2t3")
+
+[node name="WrackRechts" type="StaticBody2D" parent="." unique_id=148143924]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WrackRechts" unique_id=1684899064]
+position = Vector2(747, -99)
+shape = SubResource("RectangleShape2D_bmukr")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="WrackRechts" unique_id=647627750]
+visible = false
+position = Vector2(737, -94)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_lr2t3")
+
+[node name="FlugzeugLinks" type="AnimatedSprite2D" parent="." unique_id=1611160541]
+visible = false
+position = Vector2(0, -776)
+rotation = -0.7853982
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_24sbq")
+autoplay = "default"
+frame_progress = 0.13343741
+
+[node name="FlugzeugRechts" type="AnimatedSprite2D" parent="." unique_id=1540339538]
+visible = false
+position = Vector2(0, -776)
+rotation = 0.7853982
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_24sbq")
+autoplay = "default"
+frame_progress = 0.28132346
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1157127141]
+libraries/ = SubResource("AnimationLibrary_gkkkq")
+
+[connection signal="body_entered" from="TriggerZone" to="." method="_on_trigger_zone_body_entered"]
