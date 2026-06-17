@@ -243,7 +243,7 @@ size = Vector2(41, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lyjjf"]
 size = Vector2(61.5, 20)
 
-[node name="Enemy" type="Node2D" unique_id=1846217907]
+[node name="Enemy" type="Node2D" unique_id=1846217907 groups=["Gegner"]]
 z_index = 4
 
 [node name="Enemy" type="CharacterBody2D" parent="." unique_id=2138727930]

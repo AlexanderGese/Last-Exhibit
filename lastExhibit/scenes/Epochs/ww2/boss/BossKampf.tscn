@@ -3,12 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://cxn0ki87a6wir" path="res://assets/sprites/USBase/P51Mustang.png" id="1_bmukr"]
 [ext_resource type="Texture2D" uid="uid://ewm3xvtibrrv" path="res://assets/sprites/USBase/Wreck2P51.png" id="1_lr2t3"]
 [ext_resource type="Script" uid="uid://bsusiiw144iej" path="res://scenes/Epochs/ww2/boss/boss_kampf.gd" id="1_ock3w"]
+[ext_resource type="Script" uid="uid://dc33vug1a1hkq" path="res://custom_nodes/boxes/Hurtbox.gd" id="4_gkkkq"]
+[ext_resource type="Texture2D" uid="uid://djyplybdn3uvl" path="res://assets/sprites/USBase/WreckP51Mustang.png" id="5_24sbq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8u2i"]
 size = Vector2(1494, 234)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bmukr"]
 size = Vector2(146, 234)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dehn8"]
+size = Vector2(331, 264)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lr2t3"]
 atlas = ExtResource("1_bmukr")
@@ -340,6 +345,41 @@ _data = {
 &"introCrash": SubResource("Animation_ock3w")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_24sbq"]
+atlas = ExtResource("1_bmukr")
+region = Rect2(0, 0, 450, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dehn8"]
+atlas = ExtResource("1_bmukr")
+region = Rect2(450, 0, 450, 190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjr4j"]
+atlas = ExtResource("1_bmukr")
+region = Rect2(900, 0, 450, 190)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_572hp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24sbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dehn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjr4j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gkkkq"]
+radius = 21.0
+height = 218.00002
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24sbq"]
+
 [node name="BossKampf" type="Node2D" unique_id=1028210209]
 script = ExtResource("1_ock3w")
 
@@ -363,6 +403,12 @@ position = Vector2(-752, -94)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_lr2t3")
 
+[node name="SchadensZone" type="Area2D" parent="WrackLinks" unique_id=1781826831]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WrackLinks/SchadensZone" unique_id=1061068106]
+position = Vector2(-819.5, -99)
+shape = SubResource("RectangleShape2D_dehn8")
+
 [node name="WrackRechts" type="StaticBody2D" parent="." unique_id=148143924]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WrackRechts" unique_id=1684899064]
@@ -375,6 +421,12 @@ visible = false
 position = Vector2(737, -94)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_lr2t3")
+
+[node name="SchadensZone" type="Area2D" parent="WrackRechts" unique_id=2052697504]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WrackRechts/SchadensZone" unique_id=363887190]
+position = Vector2(820, -100)
+shape = SubResource("RectangleShape2D_dehn8")
 
 [node name="FlugzeugLinks" type="AnimatedSprite2D" parent="." unique_id=1611160541]
 visible = false
@@ -398,4 +450,43 @@ flip_h = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1157127141]
 libraries/ = SubResource("AnimationLibrary_gkkkq")
 
+[node name="BossWrack" type="Sprite2D" parent="." unique_id=1173665727]
+visible = false
+position = Vector2(218, -31)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_24sbq")
+
+[node name="BossFlugzeug" type="Area2D" parent="." unique_id=1522473042]
+collision_layer = 0
+collision_mask = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BossFlugzeug" unique_id=1941864322]
+position = Vector2(248, -196)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_572hp")
+autoplay = "default"
+frame_progress = 0.19329937
+
+[node name="Hurtbox" type="Area2D" parent="BossFlugzeug" unique_id=1410041570]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("4_gkkkq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossFlugzeug/Hurtbox" unique_id=642783220]
+position = Vector2(247, -200)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_gkkkq")
+
+[node name="Marker2D" type="Marker2D" parent="BossFlugzeug" unique_id=301504175]
+
+[node name="SchussTimer" type="Timer" parent="BossFlugzeug" unique_id=1593665677]
+
+[node name="BombenTimer" type="Timer" parent="BossFlugzeug" unique_id=1812351285]
+
+[node name="CollisionShape2D (Dummy)" type="CollisionShape2D" parent="BossFlugzeug" unique_id=1423074343]
+position = Vector2(0, 57)
+shape = SubResource("RectangleShape2D_24sbq")
+
 [connection signal="body_entered" from="TriggerZone" to="." method="_on_trigger_zone_body_entered"]
+[connection signal="body_entered" from="WrackLinks/SchadensZone" to="." method="_on_schadens_zone_body_entered"]
+[connection signal="body_entered" from="WrackRechts/SchadensZone" to="." method="_on_schadens_zone_body_entered"]
