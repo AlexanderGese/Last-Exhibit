@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://2i6tg3hdbblu"]
+
+[ext_resource type="Texture2D" uid="uid://cb4xd3tgy23hi" path="res://assets/ui/phone/button.png" id="1_1ibxe"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="2_vc4ug"]
+
+[resource]
+script = ExtResource("2_vc4ug")
+id = "gun"
+name = "AK47"
+icon = ExtResource("1_1ibxe")
+type = 1
+metadata/_custom_type_script = "uid://d4c671jpgfict"

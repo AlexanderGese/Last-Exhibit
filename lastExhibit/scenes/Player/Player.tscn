@@ -327,7 +327,7 @@ shape = SubResource("CapsuleShape2D_h00vy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=491251229]
 position = Vector2(4, -1)
 sprite_frames = SubResource("SpriteFrames_fxc31")
-animation = &"jump"
+animation = &"shoot_pistol"
 autoplay = "idle"
 
 [node name="Timer" type="Timer" parent="." unique_id=1452935183]

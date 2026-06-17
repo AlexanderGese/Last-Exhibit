@@ -50,7 +50,6 @@ func equip(index: int) -> void:
 	var key := equip_key(slot.item.type)
 	if key == "":
 		return
-
 	var prev = equipped[key]
 	equipped[key] = slot.item
 	slots[index] = {"item": prev, "qty": 1} if prev else null

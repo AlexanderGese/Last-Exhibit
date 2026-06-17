@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c2hyt2qb1gdbl"]
+
+[ext_resource type="Script" uid="uid://di7k2q21btab4" path="res://custom_nodes/boxes/arrow.gd" id="1_j5uti"]
+[ext_resource type="Texture2D" uid="uid://cgmcgmbxt3wia" path="res://assets/sprites/character/bullet.png" id="2_20ehn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lut3r"]
+size = Vector2(4, 4)
+
+[node name="bullet_gun" type="Area2D" unique_id=599742406]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_j5uti")
+damage = 25
+knockback_force = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1891570224]
+position = Vector2(4.7683716e-07, 0)
+scale = Vector2(0.00803213, 0.010698202)
+texture = ExtResource("2_20ehn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1489111099]
+shape = SubResource("RectangleShape2D_lut3r")
