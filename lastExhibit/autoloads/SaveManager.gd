@@ -157,9 +157,11 @@ func add_item(item: Item, qty: int = 1) -> bool:
 func remove_item(index: int) -> void:
 	inventory.remove_item(index)
 	inventory_changed.emit()
+	
 func equip(index: int) -> void:
 	inventory.equip(index)
 	inventory_changed.emit()
+		
 # Pickup-Logik:
 # - Equipment-Typ → wird sofort angelegt; ein bereits angelegtes Item gleichen Slots droppt.
 # - sonst → normal ins Inventar; wenn voll = false (Pickup bleibt liegen).
@@ -173,8 +175,11 @@ func try_pickup(item: Item) -> bool:
 		inventory_changed.emit()
 		if prev:
 			item_dropped.emit(prev)
+		
+		if key == "weapon":
+			Events.weapon_changed.emit(item.id)
 		return true
-
+	
 	var ok := inventory.add_item(item)
 	if ok:
 		inventory_changed.emit()

@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 const ITEM_PICKUP_SCENE = preload("res://custom_nodes/ItemPickUp/ItemPickup.tscn")
 const ARROW_SCENE = preload("res://custom_nodes/boxes/arrow.tscn")
+const BUlLET_PISTOL_SCENE = preload("res://custom_nodes/boxes/bullet_pistol.tscn")
+const BULLET_GUN_SCENE = preload("res://custom_nodes/boxes/bullet_gun.tscn")
 const ESCAPEMENU_SCENE = preload("res://scenes/EscapeMenu/EscapeMenu.tscn")
 
 const RUN_SPEED = 350
@@ -52,7 +54,10 @@ var combo_reset_timer := 0.0
 var ranged_cooldown := 0.0
 var anim_locked_until := 0.0
 
-var ranged_animation: String = "shoot_gun"
+var ranged_animation: String = ""
+enum equiped {NONE, GUN, PISTOL}
+var current_bullet: String = ""
+var current_gun: equiped
 
 var is_climbing := false
 var ladder_count: int = 0
@@ -69,6 +74,7 @@ signal pause
 
 
 func _ready() -> void:
+	Events.weapon_changed.connect(weapon_change)
 	add_child(escape_menu)
 	save = SaveManager.player
 	save.hp= 10000000
@@ -240,19 +246,41 @@ func _activate_hitbox() -> void:
 	await get_tree().create_timer(MELEE_HIT_WINDOW).timeout
 	hitbox_shape.disabled = true
 
+func weapon_change(type: String):
+	if type == "gun":
+		ranged_animation = "shoot_gun"
+		current_bullet = "BULLET_GUN_SCENE"
+		current_gun = equiped.GUN
+	elif type == "pistol":
+		ranged_animation = "shoot_pistol"
+		current_bullet = "BULLET_PISTOl_SCENE"
+		current_gun = equiped.PISTOL
+	else:
+		current_bullet = ""
+		ranged_animation = ""
+		current_gun = equiped.NONE
+	pass
+
 
 func _start_ranged_attack() -> void:
-	ranged_cooldown = RANGED_COOLDOWN
-	sprite.play(ranged_animation)
-	anim_locked_until = RANGED_ANIM_LOCK
-	
-	var arrow = ARROW_SCENE.instantiate()
-	get_tree().current_scene.add_child(arrow)
-	var offset = Vector2(40 if facing_right else -40, -10)
-	arrow.global_position = global_position + offset
-	arrow.direction = Vector2.RIGHT if facing_right else Vector2.LEFT
-	if arrow.has_node("Sprite2D"):
-		arrow.get_node("Sprite2D").flip_h = not facing_right
+	var arrow = null
+	if current_gun != equiped.NONE:	
+		ranged_cooldown = RANGED_COOLDOWN
+		sprite.play(ranged_animation)
+		anim_locked_until = RANGED_ANIM_LOCK
+		if current_bullet == "BULLET_PISTOL_SCENE":
+			arrow = BUlLET_PISTOL_SCENE.instantiate()
+		elif current_bullet == "BULLET_GUN_SCENE":
+			arrow = BULLET_GUN_SCENE.instantiate()
+		else:
+			arrow = ARROW_SCENE.instantiate()
+		get_tree().current_scene.add_child(arrow)
+		var offset = Vector2(40 if facing_right else -40, -10)
+		arrow.global_position = global_position + offset
+		arrow.direction = Vector2.RIGHT if facing_right else Vector2.LEFT
+		if arrow.has_node("Sprite2D"):
+			arrow.get_node("Sprite2D").flip_h = not facing_right
+
 
 
 func set_ranged_weapon(animation_name: String) -> void:

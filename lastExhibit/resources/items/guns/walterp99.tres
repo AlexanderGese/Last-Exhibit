@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bb5wyw273ekpq"]
+
+[ext_resource type="Texture2D" uid="uid://bkg7r1umy8sup" path="res://assets/ui/phone/button_pressed.png" id="1_xs47e"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="2_ibqe6"]
+
+[resource]
+script = ExtResource("2_ibqe6")
+id = "pistol"
+name = "Walter P99"
+icon = ExtResource("1_xs47e")
+type = 1
+metadata/_custom_type_script = "uid://d4c671jpgfict"
