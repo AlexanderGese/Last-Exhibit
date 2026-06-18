@@ -10,6 +10,16 @@ extends CharacterBody2D
 @export var hit_cooldown : float = 3.0
 @export var hit_distanz  : float = 70.0
 @export var max_hp : int = 30
+
+@export var dash_speed     : float = 450.0
+@export var dash_strecke_max : float = 100.0
+@export var dash_damage    : int = 15
+
+var dash_timer    : float = 0.0
+var is_dashing    : bool  = false
+var dash_richtung : float = 0.0
+var dash_distanz_verbleibend : float = 0.0
+
 var hp : int = max_hp
 var hat_verloren : bool = false
 var is_dead : bool = false
@@ -36,6 +46,9 @@ func _ready() -> void:
 	$Hitbox.monitoring = false
 	$Hitbox.area_entered.connect(_on_hitbox_area_entered)
 	$Hurtbox.hurt.connect(_on_hurt)
+	$Hitbox2.monitoring = false
+	$Hitbox2/CollisionShape2D.disabled = true
+	$Hitbox2.area_entered.connect(_on_hitbox_2_area_entered)
 
 
 func setup(x: float, y: float) -> void:
@@ -54,8 +67,57 @@ func _physics_process(delta: float) -> void:
 		_hit_start()
 	else:
 		_move_towards_player()
+	
+	if is_dashing:
+		_dash_update(delta)
 	_update_facing()
 	move_and_slide()
+
+func _dash_start() -> void:
+	
+	is_attacking  = true
+	is_dashing    = true
+	hat_getroffen = false
+	dash_richtung = 1.0 if facing_right else -1.0
+	dash_distanz_verbleibend = dash_strecke_max
+	if is_dead:
+		_dash_ende()
+		return
+	$AnimatedSprite2D.play("stab_start")
+	$Hitbox2.set_deferred("monitoring", true)
+	$Hitbox2/CollisionShape2D.set_deferred("disabled", false)
+	await $AnimatedSprite2D.animation_finished
+	if is_dead:
+		return
+	$AnimatedSprite2D.play("stab_middle")
+
+func _dash_update(delta: float) -> void:
+	if is_dead:
+		_dash_ende()
+		return
+	$AnimatedSprite2D.play("stab_middle")
+	var schritt = dash_speed * delta
+	velocity.x = dash_richtung * dash_speed
+	dash_distanz_verbleibend -= abs(velocity.x) * delta
+	if not hat_getroffen:
+		for area in $Hitbox2.get_overlapping_areas():
+			_on_hitbox_2_area_entered(area)
+	if dash_distanz_verbleibend <= 0.0:
+		_dash_ende()
+
+func _dash_ende() -> void:
+	is_dashing   = false
+	is_attacking = false
+	velocity.x   = 0.0
+	$Hitbox2.set_deferred("monitoring", false)
+	$Hitbox2/CollisionShape2D.set_deferred("disabled", true)
+	if is_dead:
+		_dash_ende()
+		return
+	$AnimatedSprite2D.play("stab_end")
+	await $AnimatedSprite2D.animation_finished
+	if not is_dead:
+		$AnimatedSprite2D.play("idle")
 
 func _hit_start() -> void:
 	is_attacking  = true
@@ -63,30 +125,45 @@ func _hit_start() -> void:
 	hit_timer     = hit_cooldown
 	velocity.x    = 0.0
 	var anim : String
-	if randf() < 0.5:
-		anim = "attack1"
+	if randf() < 0.7:
+		if randf() < 0.35:
+			anim = "attack1"
+		else:
+			anim = "attack2"
+		$AnimatedSprite2D.play(anim)
 	else:
-		anim = "attack2"
-	$AnimatedSprite2D.play(anim)
+		_dash_start()
+		return
 
 	await get_tree().create_timer(0.6).timeout
-	if not is_dead:
-		$Hitbox.set_deferred("disabled", true)
-		$Hitbox.set_deferred("monitoring", true)
-		await get_tree().create_timer(0.2).timeout
-		$Hitbox.set_deferred("monitoring", false)
-		$Hitbox.set_deferred("disabled", false)
-		$AnimatedSprite2D.play("idle")
+	if is_dead:
+		return
+	$Hitbox.set_deferred("monitoring", true)
+	$Hitbox/CollisionShape2D.set_deferred("disabled", false)
+	await get_tree().create_timer(0.2).timeout
+	if is_dead:
+		return
+	$Hitbox.set_deferred("monitoring", false)
+	$Hitbox/CollisionShape2D.set_deferred("disabled", true)
+	$AnimatedSprite2D.play("idle")
 	is_attacking = false
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	print("Hitbox triggered, is_dead: ", is_dead)
 	if hat_getroffen:
 		return
 	if area is Hurtbox:
 		hat_getroffen = true
 		$Hitbox.set_deferred("monitoring", false)
-		$Hitbox.set_deferred("disabled", false)
+		$Hitbox/CollisionShape2D.set_deferred("disabled", true)
+
+func _on_hitbox_2_area_entered(area: Area2D) -> void:
+	if hat_getroffen:
+		return
+	if area is Hurtbox:
+		hat_getroffen = true
+		$Hitbox2.set_deferred("monitoring", false)
+		$Hitbox2/CollisionShape2D.set_deferred("disabled", true)
+
 
 func _move_towards_player() -> void:
 	var dist = global_position.distance_to(player.global_position)
@@ -147,6 +224,7 @@ func _die() -> void:
 	set_physics_process(false)
 	is_attacking = false
 	$Hitbox.queue_free()
+	$Hitbox2.queue_free()
 	$Hurtbox.queue_free()
 	var gate1 = get_node("../Doors/Gate1")
 	gate1.open()
