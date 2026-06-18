@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bsusiiw144iej" path="res://scenes/Epochs/ww2/boss/boss_kampf.gd" id="1_ock3w"]
 [ext_resource type="Script" uid="uid://dc33vug1a1hkq" path="res://custom_nodes/boxes/Hurtbox.gd" id="4_gkkkq"]
 [ext_resource type="Texture2D" uid="uid://djyplybdn3uvl" path="res://assets/sprites/USBase/WreckP51Mustang.png" id="5_24sbq"]
+[ext_resource type="Texture2D" uid="uid://ia4o3tx4l6s" path="res://assets/sprites/USBase/bullet.png" id="6_dehn8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8u2i"]
 size = Vector2(1494, 234)
@@ -478,6 +479,12 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_gkkkq")
 
 [node name="Marker2D" type="Marker2D" parent="BossFlugzeug" unique_id=301504175]
+position = Vector2(195, -194)
+
+[node name="MuendungsBlitz" type="Sprite2D" parent="BossFlugzeug/Marker2D" unique_id=368151260]
+position = Vector2(-2.000001, 0)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_dehn8")
 
 [node name="SchussTimer" type="Timer" parent="BossFlugzeug" unique_id=1593665677]
 

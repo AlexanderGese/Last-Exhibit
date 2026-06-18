@@ -19,7 +19,10 @@ var ist_tot: bool = false
 var fliegt_nach_links: bool = true
 var absturz_nach_links: bool = true
 
-
+@export var kugel_szene: PackedScene = preload("res://scenes/Epochs/ww2/boss/USBullet.tscn")
+@export var schuss_cooldown: float = 1.0
+var kann_schiessen: bool = true
+@onready var muendung = $BossFlugzeug/Marker2D
 
 var boss_kampf_gestartet : bool = false
 
@@ -27,7 +30,7 @@ var boss_kampf_gestartet : bool = false
 func _ready():
 	$BossFlugzeug/Hurtbox.hurt.connect(_on_boss_hurt)
 
-func _process(delta):
+func _process(_delta):
 	if boss_kampf_gestartet:
 		return
 		
@@ -41,14 +44,6 @@ func _process(delta):
 				break
 
 func _physics_process(delta: float) -> void:
-	if has_node("WrackLinks") and has_node("WrackRechts"):
-		var x_links = $WrackLinks/CollisionShape2D.global_position.x
-		var x_rechts = $WrackRechts/CollisionShape2D.global_position.x
-		
-		var alle_nodes = get_tree().get_root().get_children()
-		if alle_nodes.size() > 0:
-			_pruefe_und_loesche_gegner(get_tree().current_scene, x_links, x_rechts)
-
 	if not boss_aktiv:
 		return
 		
@@ -63,14 +58,17 @@ func _physics_process(delta: float) -> void:
 
 	if fliegt_nach_links:
 		boss_flugzeug.global_position.x -= geschwindigkeit * delta
-		$BossFlugzeug/AnimatedSprite2D.flip_h = false
+		boss_flugzeug.scale.x = 1.0
 		if boss_flugzeug.global_position.x <= grenze_links:
 			fliegt_nach_links = false
 	else:
 		boss_flugzeug.global_position.x += geschwindigkeit * delta
-		$BossFlugzeug/AnimatedSprite2D.flip_h = true
+		boss_flugzeug.scale.x = -1.0
 		if boss_flugzeug.global_position.x >= grenze_rechts:
 			fliegt_nach_links = true
+
+	if boss_aktiv and not ist_tot and kann_schiessen:
+		schiesse_mg_salve()
 
 func _pruefe_und_loesche_gegner(node: Node, x_links: float, x_rechts: float):
 	for child in node.get_children():
@@ -147,7 +145,40 @@ func boss_besiegt():
 	if has_node("BossFlugzeug"):
 		$BossFlugzeug.queue_free()
 
-
 func _on_schadens_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Gegner"):
 		body.queue_free()
+
+func schiesse_mg_salve() -> void:
+	kann_schiessen = false
+	
+	for i in range(5):
+		if ist_tot or not boss_aktiv:
+			break
+			
+		var kugel_instanz = kugel_szene.instantiate()
+		kugel_instanz.global_position = muendung.global_position
+		
+		if boss_flugzeug.scale.x < 0:
+			kugel_instanz.direction = Vector2.RIGHT
+		else:
+			kugel_instanz.direction = Vector2.LEFT
+			
+		get_tree().current_scene.add_child(kugel_instanz)
+
+		if muendung.has_node("MuendungsBlitz"):
+			muendung.get_node("MuendungsBlitz").visible = true
+			
+		await get_tree().create_timer(0.05).timeout
+		
+		if muendung.has_node("MuendungsBlitz"):
+			muendung.get_node("MuendungsBlitz").visible = false
+		
+		await get_tree().create_timer(0.10).timeout
+	
+	await get_tree().create_timer(2.0).timeout
+	if boss_aktiv and not ist_tot:
+		kann_schiessen = true
+
+func _on_trigger_zone_body_entered():
+	pass
