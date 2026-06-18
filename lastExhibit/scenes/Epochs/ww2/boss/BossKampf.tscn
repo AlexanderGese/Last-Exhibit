@@ -14,7 +14,7 @@ size = Vector2(1494, 234)
 size = Vector2(146, 234)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dehn8"]
-size = Vector2(331, 264)
+size = Vector2(464, 264)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lr2t3"]
 atlas = ExtResource("1_bmukr")
@@ -407,7 +407,7 @@ texture = ExtResource("1_lr2t3")
 [node name="SchadensZone" type="Area2D" parent="WrackLinks" unique_id=1781826831]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WrackLinks/SchadensZone" unique_id=1061068106]
-position = Vector2(-819.5, -99)
+position = Vector2(-886, -99)
 shape = SubResource("RectangleShape2D_dehn8")
 
 [node name="WrackRechts" type="StaticBody2D" parent="." unique_id=148143924]
@@ -426,7 +426,7 @@ texture = ExtResource("1_lr2t3")
 [node name="SchadensZone" type="Area2D" parent="WrackRechts" unique_id=2052697504]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WrackRechts/SchadensZone" unique_id=363887190]
-position = Vector2(820, -100)
+position = Vector2(891, -102)
 shape = SubResource("RectangleShape2D_dehn8")
 
 [node name="FlugzeugLinks" type="AnimatedSprite2D" parent="." unique_id=1611160541]

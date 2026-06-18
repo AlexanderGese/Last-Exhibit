@@ -3,7 +3,7 @@ extends Node2D
 @onready var trigger_zone = $TriggerZone
 @onready var animation_player = $AnimationPlayer
 
-var boss_leben : int = 100
+var boss_leben : int = 300
 @onready var boss_flugzeug = $BossFlugzeug
 var boss_aktiv : bool = false
 
@@ -11,7 +11,7 @@ const FLASH_COLOR := Color(2.5, 0.3, 0.3, 1)
 const ORIGINAL_MODULATE := Color.WHITE
 var flash_tween: Tween = null
 @onready var boss_wrack: Sprite2D = $BossWrack
-@export var geschwindigkeit: float = 200.0
+@export var geschwindigkeit: float = 300.0
 @export var grenze_links: float = 6200.0
 @export var grenze_rechts: float = 8000.0
 var ist_tot: bool = false
@@ -83,18 +83,15 @@ func _pruefe_und_loesche_gegner(node: Node, x_links: float, x_rechts: float):
 			_pruefe_und_loesche_gegner(child, x_links, x_rechts)
 
 func start_boss_intro():
-	
 	var spieler = get_tree().get_first_node_in_group("player")
 	if spieler:
-		var wand_links_x = $WrackLinks/CollisionShape2D.global_position.x
-		var wand_rechts_x = $WrackRechts/CollisionShape2D.global_position.x
-		var sicherheits_abstand = 120.0
+		var feste_ziel_x = 6750.0
 		start_boss_flugzeug()
 		
-		if abs(spieler.global_position.x - wand_links_x) < abs(spieler.global_position.x - wand_rechts_x):
-			spieler.global_position.x = wand_links_x + sicherheits_abstand
-		else:
-			spieler.global_position.x = wand_rechts_x - sicherheits_abstand
+		spieler.global_position.x = feste_ziel_x
+		
+		if "velocity" in spieler:
+			spieler.velocity = Vector2.ZERO
 			
 		if spieler.has_method("reset_physics_interpolation"):
 			spieler.reset_physics_interpolation()
