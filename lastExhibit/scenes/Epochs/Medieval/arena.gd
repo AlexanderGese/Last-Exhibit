@@ -11,9 +11,11 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
-		tuer1.close()
-		tuer2.close()
+		
+
 		if not boss_spawned:
+			tuer1.close()
+			tuer2.close()
 			boss_spawned = true
 			var boss = boss_scene.instantiate()
 			get_parent().add_child(boss)

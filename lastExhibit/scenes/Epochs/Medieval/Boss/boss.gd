@@ -68,13 +68,15 @@ func _hit_start() -> void:
 	else:
 		anim = "attack2"
 	$AnimatedSprite2D.play(anim)
+
 	await get_tree().create_timer(0.6).timeout
-	$Hitbox.set_deferred("disabled", true)
-	$Hitbox.set_deferred("monitoring", true)
-	await get_tree().create_timer(0.2).timeout
-	$Hitbox.set_deferred("monitoring", false)
-	$Hitbox.set_deferred("disabled", false)
-	$AnimatedSprite2D.play("idle")
+	if not is_dead:
+		$Hitbox.set_deferred("disabled", true)
+		$Hitbox.set_deferred("monitoring", true)
+		await get_tree().create_timer(0.2).timeout
+		$Hitbox.set_deferred("monitoring", false)
+		$Hitbox.set_deferred("disabled", false)
+		$AnimatedSprite2D.play("idle")
 	is_attacking = false
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
@@ -140,9 +142,13 @@ func _play_hurt_flash() -> void:
 	flash_tween.tween_property(sprite, "modulate", ORIGINAL_MODULATE, 0.2)
 
 func _die() -> void:
-	is_dead = true  # ← war hat_verloren, muss is_dead sein
+	is_dead = true
 	$AnimatedSprite2D.play("death")
 	set_physics_process(false)
 	is_attacking = false
 	$Hitbox.queue_free()
 	$Hurtbox.queue_free()
+	var gate1 = get_node("../Doors/Gate1")
+	gate1.open()
+	var gate2 = get_node("../Doors/Gate2")
+	gate2.open()
