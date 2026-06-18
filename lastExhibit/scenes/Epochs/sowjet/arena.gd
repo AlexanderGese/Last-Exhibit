@@ -11,7 +11,6 @@ func _ready() -> void:
 	tuer1.open()
 	tuer2.open()
 
-
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		tuer1.close()
@@ -21,3 +20,7 @@ func _on_body_entered(body: Node) -> void:
 			var boss = boss_scene.instantiate()
 			get_parent().add_child(boss)
 			boss.global_position = Vector2(-300,735)
+			
+			
+
+	

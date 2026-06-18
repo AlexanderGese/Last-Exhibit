@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bcxy174vi168j" path="res://assets/sprites/medieval/Knight_1/Attack 2.png" id="3_eih3q"]
 [ext_resource type="Texture2D" uid="uid://6fanhb887e6w" path="res://assets/sprites/medieval/Knight_1/Defend.png" id="3_w4gd2"]
 [ext_resource type="Texture2D" uid="uid://nsrkyajacx55" path="res://assets/sprites/medieval/Knight_1/Walk.png" id="4_fra45"]
+[ext_resource type="Texture2D" uid="uid://qfy6kilicusr" path="res://assets/sprites/medieval/Knight_1/Dead.png" id="5_nph4w"]
 [ext_resource type="Texture2D" uid="uid://j0h6rpoyp6sf" path="res://assets/sprites/medieval/Knight_1/Attack 3.png" id="6_eih3q"]
 [ext_resource type="Texture2D" uid="uid://d42o1mbe2e0h" path="res://assets/sprites/medieval/Knight_1/Run+Attack.png" id="8_k04dk"]
 [ext_resource type="Script" uid="uid://ch3o8csrvxxgv" path="res://custom_nodes/boxes/Hitbox.gd" id="10_k04dk"]
@@ -87,6 +88,30 @@ region = Rect2(384, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1yb3u"]
 atlas = ExtResource("3_w4gd2")
 region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqih6"]
+atlas = ExtResource("5_nph4w")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnao0"]
+atlas = ExtResource("5_nph4w")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up5mk"]
+atlas = ExtResource("5_nph4w")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2xi5"]
+atlas = ExtResource("5_nph4w")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuoa1"]
+atlas = ExtResource("5_nph4w")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgvqh"]
+atlas = ExtResource("5_nph4w")
+region = Rect2(640, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_32qjv"]
 atlas = ExtResource("1_wkyib")
@@ -288,6 +313,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_oqih6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnao0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_up5mk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2xi5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuoa1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgvqh")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_32qjv")
 }, {
 "duration": 1.0,
@@ -400,10 +448,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trxqv"]
-size = Vector2(43, 63)
+size = Vector2(37, 63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqih6"]
-size = Vector2(139, 66)
+size = Vector2(94, 37.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k04dk"]
+size = Vector2(37, 66)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=75066386]
 collision_layer = 65536
@@ -413,11 +464,11 @@ script = ExtResource("1_mx445")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=355402504]
 position = Vector2(24, -32)
 sprite_frames = SubResource("SpriteFrames_xbi04")
-animation = &"attack2"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1747127303]
-position = Vector2(1.5, 0.5)
+position = Vector2(-1.5, 0.5)
 shape = SubResource("RectangleShape2D_trxqv")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1936172237]
@@ -429,11 +480,17 @@ knockback_force = 150.0
 metadata/_custom_type_script = "uid://ch3o8csrvxxgv"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=601636135]
-position = Vector2(0, -11)
+position = Vector2(0, -14.75)
 shape = SubResource("RectangleShape2D_oqih6")
 
-[node name="Hurtbox" type="Area2D" parent="Hitbox" unique_id=1394597214]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1394597214]
+collision_layer = 4
+collision_mask = 8
 script = ExtResource("11_k04dk")
 metadata/_custom_type_script = "uid://dc33vug1a1hkq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=693122836]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_k04dk")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

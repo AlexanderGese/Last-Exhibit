@@ -20,3 +20,4 @@ func close() -> void:
 	play("closing")
 	await animation_finished
 	play("closed")
+	

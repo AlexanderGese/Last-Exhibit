@@ -1,6 +1,5 @@
 
 extends CharacterBody2D
-
 @export var walk_speed   : float = 180.0
 @export var run_speed    : float = 280.0
 @export var gravity      : float = 980.0
@@ -10,6 +9,16 @@ extends CharacterBody2D
 @export var run_distanz  : float = 100.0
 @export var hit_cooldown : float = 3.0
 @export var hit_distanz  : float = 70.0
+@export var max_hp : int = 30
+var hp : int = max_hp
+var hat_verloren : bool = false
+var is_dead : bool = false
+var flash_tween: Tween = null
+@export var knockback_resistance : float = 0.7   
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+const ORIGINAL_MODULATE := Color.WHITE
+const FLASH_COLOR := Color(2.5, 0.3, 0.3, 1)
 
 @onready var sprite_root = $SpriteRoot
 
@@ -26,6 +35,8 @@ func _ready() -> void:
 		player = players[0]
 	$Hitbox.monitoring = false
 	$Hitbox.area_entered.connect(_on_hitbox_area_entered)
+	$Hurtbox.hurt.connect(_on_hurt)
+
 
 func setup(x: float, y: float) -> void:
 	global_position = Vector2(x, y)
@@ -57,21 +68,23 @@ func _hit_start() -> void:
 	else:
 		anim = "attack2"
 	$AnimatedSprite2D.play(anim)
-	await get_tree().create_timer(0.8 ).timeout  # ← anpassen bis es passt
+	await get_tree().create_timer(0.6).timeout
+	$Hitbox.set_deferred("disabled", true)
 	$Hitbox.set_deferred("monitoring", true)
 	await get_tree().create_timer(0.2).timeout
 	$Hitbox.set_deferred("monitoring", false)
+	$Hitbox.set_deferred("disabled", false)
 	$AnimatedSprite2D.play("idle")
 	is_attacking = false
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
+	print("Hitbox triggered, is_dead: ", is_dead)
 	if hat_getroffen:
 		return
 	if area is Hurtbox:
 		hat_getroffen = true
-		$Hitbox.set_deferred("monitoring", false)  # ← sofort aus nach erstem Treffer
-		var knockback = $Hitbox.get_knockback_direction(area.global_position)
-		area.hurt.emit($Hitbox.damage, knockback)
+		$Hitbox.set_deferred("monitoring", false)
+		$Hitbox.set_deferred("disabled", false)
 
 func _move_towards_player() -> void:
 	var dist = global_position.distance_to(player.global_position)
@@ -102,3 +115,34 @@ func _update_facing() -> void:
 		facing_right = player.global_position.x > global_position.x
 	$AnimatedSprite2D.flip_h = not facing_right
 	$AnimatedSprite2D.position.x = 30.0 if facing_right else -30.0
+
+func _on_hurt(damage: int, knockback: Vector2) -> void:
+	if is_dead:
+		return
+	
+	hp -= damage
+	velocity += knockback * (1.0 - knockback_resistance)
+	
+	_play_hurt_flash()
+	
+	if hp <= 0:
+		Events.sw_boss_dead.emit()
+		_die()
+
+
+func _play_hurt_flash() -> void:
+	if flash_tween and flash_tween.is_valid():
+		flash_tween.kill()
+	
+	sprite.modulate = FLASH_COLOR
+	flash_tween = create_tween()
+	flash_tween.tween_interval(0.1)
+	flash_tween.tween_property(sprite, "modulate", ORIGINAL_MODULATE, 0.2)
+
+func _die() -> void:
+	is_dead = true  # ← war hat_verloren, muss is_dead sein
+	$AnimatedSprite2D.play("death")
+	set_physics_process(false)
+	is_attacking = false
+	$Hitbox.queue_free()
+	$Hurtbox.queue_free()
