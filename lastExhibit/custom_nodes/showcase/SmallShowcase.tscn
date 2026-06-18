@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d0j77fyu8kd0t"]
 
 [ext_resource type="Texture2D" uid="uid://dklwaetmc45b8" path="res://assets/sprites/museum/kleineVitrineUnten.png" id="1_d33x0"]
-[ext_resource type="Texture2D" uid="uid://do6oi8vmfneur" path="res://demo/assets/icon.svg" id="1_qir3i"]
+[ext_resource type="Texture2D" uid="uid://d3lr2uas6ax8v" path="res://addons/dialogue_manager/assets/icon.svg" id="1_qir3i"]
 [ext_resource type="Texture2D" uid="uid://c8qv6hdmgpnh1" path="res://assets/sprites/museum/kleineVitrinoben.png" id="2_qir3i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ivm5"]

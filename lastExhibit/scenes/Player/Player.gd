@@ -58,6 +58,8 @@ var ranged_animation: String = ""
 enum equiped {NONE, GUN, PISTOL}
 var current_bullet: String = ""
 var current_gun: equiped
+var dev_override: bool = true
+
 
 var is_climbing := false
 var ladder_count: int = 0
@@ -264,7 +266,10 @@ func weapon_change(type: String):
 
 func _start_ranged_attack() -> void:
 	var arrow = null
-	if current_gun != equiped.NONE:	
+	if current_gun != equiped.NONE or dev_override:	
+		if dev_override:
+			arrow = BULLET_GUN_SCENE.instantiate()
+			ranged_animation = "shoot_gun"
 		ranged_cooldown = RANGED_COOLDOWN
 		sprite.play(ranged_animation)
 		anim_locked_until = RANGED_ANIM_LOCK
