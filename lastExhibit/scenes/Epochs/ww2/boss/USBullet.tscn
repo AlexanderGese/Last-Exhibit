@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://cwk0wjss0snma"]
 
-[ext_resource type="Script" uid="uid://dt3aaccq7q6ne" path="res://scenes/Projectiles/bullet.gd" id="1_kfvaw"]
+[ext_resource type="Script" uid="uid://ch3o8csrvxxgv" path="res://custom_nodes/boxes/Hitbox.gd" id="1_8pfcu"]
 [ext_resource type="Texture2D" uid="uid://cgmcgmbxt3wia" path="res://assets/sprites/character/bullet.png" id="2_n0vub"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_df1fj"]
 size = Vector2(15, 2)
 
 [node name="Bullet" type="Area2D" unique_id=76423776]
-script = ExtResource("1_kfvaw")
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("1_8pfcu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=782351201]
 rotation = 3.1415927
