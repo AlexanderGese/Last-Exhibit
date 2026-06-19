@@ -12,6 +12,10 @@ func _process(delta: float) -> void:
 			player_ref.velocity.y = 200
 		else:
 			player_ref.velocity.y = 0
+		if Input.is_action_just_pressed("right"):
+			player_ref.velocity.x = -200
+		elif Input.is_action_just_pressed("left"):
+			player_ref.velocity.x = 200
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):

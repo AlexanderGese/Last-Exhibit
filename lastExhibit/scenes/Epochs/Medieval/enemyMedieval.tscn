@@ -212,7 +212,6 @@ animations = [{
 z_index = 4
 
 [node name="Enemy" type="CharacterBody2D" parent="." unique_id=2138727930]
-collision_layer = 0
 script = ExtResource("1_acv3r")
 
 [node name="AttackZone" type="Area2D" parent="Enemy" unique_id=1394226983]
