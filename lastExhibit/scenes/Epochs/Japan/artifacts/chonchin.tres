@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dpyisam1yrx2d"]
+
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_7kpcv"]
+[ext_resource type="Texture2D" uid="uid://cbfw164icynk5" path="res://assets/sprites/artifacts/Chochin_JapanArtefacts.png" id="1_gwfcy"]
+
+[resource]
+script = ExtResource("1_7kpcv")
+id = "chochin"
+name = "Chochin-Laterne"
+icon = ExtResource("1_gwfcy")
+stackable = true
+max_stack = 10
+metadata/_custom_type_script = "uid://d4c671jpgfict"

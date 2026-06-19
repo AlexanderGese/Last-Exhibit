@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cwtygdknamor6"]
+
+[ext_resource type="Texture2D" uid="uid://jli2kf7i33o8" path="res://assets/sprites/artifacts/Bonsai_JapanArtefacts.png" id="1_gg7vg"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_vmhtv"]
+
+[resource]
+script = ExtResource("1_vmhtv")
+id = "bonsai"
+name = "Bonsai-Baum"
+icon = ExtResource("1_gg7vg")
+stackable = true
+max_stack = 3
+metadata/_custom_type_script = "uid://d4c671jpgfict"

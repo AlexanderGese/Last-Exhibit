@@ -18,7 +18,17 @@
 [ext_resource type="PackedScene" uid="uid://btw85e87tyb71" path="res://scenes/Epochs/Medieval/crate_platform.tscn" id="16_31v42"]
 [ext_resource type="Script" uid="uid://bb6jnixjtju7k" path="res://custom_nodes/Ladder.gd" id="16_rqfwq"]
 [ext_resource type="PackedScene" uid="uid://vy8boieivyjw" path="res://custom_nodes/return/return_machine.tscn" id="18_tov5c"]
+[ext_resource type="PackedScene" uid="uid://c2xp0jmnqddkc" path="res://custom_nodes/ItemPickUp/ItemPickup.tscn" id="19_kgg2d"]
 [ext_resource type="PackedScene" uid="uid://cxdw4438m2csb" path="res://scenes/Epochs/Japan/enemyJapan.tscn" id="19_rqfwq"]
+[ext_resource type="Resource" uid="uid://chyqkle15mt1h" path="res://scenes/Epochs/Japan/artifacts/koecher.tres" id="20_m0an7"]
+[ext_resource type="Resource" uid="uid://gxqxfmkereak" path="res://scenes/Epochs/Japan/artifacts/gong.tres" id="21_m0an7"]
+[ext_resource type="Resource" uid="uid://dpyisam1yrx2d" path="res://scenes/Epochs/Japan/artifacts/chonchin.tres" id="22_33wei"]
+[ext_resource type="Resource" uid="uid://cwtygdknamor6" path="res://scenes/Epochs/Japan/artifacts/bonsai.tres" id="22_kjcwg"]
+[ext_resource type="Resource" uid="uid://b6g3nlsesebu6" path="res://scenes/Epochs/Japan/artifacts/trommel.tres" id="22_w18ln"]
+[ext_resource type="Resource" uid="uid://4hwu7a4es644" path="res://scenes/Epochs/Japan/artifacts/ritualsteine.tres" id="24_0kbn0"]
+[ext_resource type="Resource" uid="uid://cx7i8hil7m7qm" path="res://scenes/Epochs/Japan/artifacts/essstaebchen.tres" id="24_8uice"]
+[ext_resource type="Resource" uid="uid://cpbhdj5xx7pqi" path="res://scenes/Epochs/Japan/artifacts/maske.tres" id="25_w18ln"]
+[ext_resource type="Resource" uid="uid://bqrrpra5oknwg" path="res://scenes/Epochs/Japan/artifacts/strohhut.tres" id="26_8uice"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lljqo"]
 texture = ExtResource("1_qa2ky")
@@ -754,6 +764,76 @@ position = Vector2(-660, -39)
 
 [node name="ReturnMachine" parent="." unique_id=1892310434 instance=ExtResource("18_tov5c")]
 position = Vector2(4273, -2)
+
+[node name="Artifacts" type="Node" parent="." unique_id=250757319]
+
+[node name="Koecher" parent="Artifacts" unique_id=1858323732 instance=ExtResource("19_kgg2d")]
+position = Vector2(-224, -112)
+item = ExtResource("20_m0an7")
+
+[node name="Gong" parent="Artifacts" unique_id=610767042 instance=ExtResource("19_kgg2d")]
+position = Vector2(336, -14)
+item = ExtResource("21_m0an7")
+
+[node name="Trommel" parent="Artifacts" unique_id=564097452 instance=ExtResource("19_kgg2d")]
+position = Vector2(768, -214)
+item = ExtResource("22_w18ln")
+
+[node name="Ritualsteine 4" parent="Artifacts" unique_id=1932140285 instance=ExtResource("19_kgg2d")]
+position = Vector2(955, -303)
+item = ExtResource("24_0kbn0")
+
+[node name="Essstäbchen" parent="Artifacts" unique_id=2143832927 instance=ExtResource("19_kgg2d")]
+position = Vector2(976, -310)
+item = ExtResource("24_8uice")
+
+[node name="Bonsai" parent="Artifacts" unique_id=1776187239 instance=ExtResource("19_kgg2d")]
+position = Vector2(3230, -320)
+item = ExtResource("22_kjcwg")
+
+[node name="Laterne 5" parent="Artifacts" unique_id=833273951 instance=ExtResource("19_kgg2d")]
+position = Vector2(3959, -70)
+item = ExtResource("22_33wei")
+
+[node name="Laterne 6" parent="Artifacts" unique_id=652017637 instance=ExtResource("19_kgg2d")]
+position = Vector2(4073, -70)
+item = ExtResource("22_33wei")
+
+[node name="Laterne 1" parent="Artifacts" unique_id=1878918439 instance=ExtResource("19_kgg2d")]
+position = Vector2(-600, -70)
+item = ExtResource("22_33wei")
+
+[node name="Ritualsteine 2" parent="Artifacts" unique_id=1955435395 instance=ExtResource("19_kgg2d")]
+position = Vector2(-394, -14)
+item = ExtResource("24_0kbn0")
+
+[node name="Ritualsteine 3" parent="Artifacts" unique_id=528212215 instance=ExtResource("19_kgg2d")]
+position = Vector2(-414, -14)
+item = ExtResource("24_0kbn0")
+
+[node name="Laterne 2" parent="Artifacts" unique_id=1712324989 instance=ExtResource("19_kgg2d")]
+position = Vector2(-711, -70)
+item = ExtResource("22_33wei")
+
+[node name="Laterne 3" parent="Artifacts" unique_id=1999971347 instance=ExtResource("19_kgg2d")]
+position = Vector2(281, -70)
+item = ExtResource("22_33wei")
+
+[node name="Laterne 4" parent="Artifacts" unique_id=1555739915 instance=ExtResource("19_kgg2d")]
+position = Vector2(392, -70)
+item = ExtResource("22_33wei")
+
+[node name="Maske" parent="Artifacts" unique_id=1589487733 instance=ExtResource("19_kgg2d")]
+position = Vector2(1425, -21)
+item = ExtResource("25_w18ln")
+
+[node name="Ritualsteine" parent="Artifacts" unique_id=421815580 instance=ExtResource("19_kgg2d")]
+position = Vector2(1841, -301)
+item = ExtResource("24_0kbn0")
+
+[node name="Strohhut" parent="Artifacts" unique_id=463743080 instance=ExtResource("19_kgg2d")]
+position = Vector2(2782, -225)
+item = ExtResource("26_8uice")
 
 [node name="Enemies" type="Node" parent="." unique_id=756319612]
 

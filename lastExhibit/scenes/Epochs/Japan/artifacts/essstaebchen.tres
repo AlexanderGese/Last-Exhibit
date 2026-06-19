@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cx7i8hil7m7qm"]
+
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_l1tq2"]
+[ext_resource type="Texture2D" uid="uid://d3l8socqpsv8a" path="res://assets/sprites/artifacts/Essensstaebchen_JapanArtefacts.png" id="1_l045f"]
+
+[resource]
+script = ExtResource("1_l1tq2")
+id = "essstaebchen"
+name = "Essstäbchen"
+icon = ExtResource("1_l045f")
+stackable = true
+max_stack = 3
+metadata/_custom_type_script = "uid://d4c671jpgfict"

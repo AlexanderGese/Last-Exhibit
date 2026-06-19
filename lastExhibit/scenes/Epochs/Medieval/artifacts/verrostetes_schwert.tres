@@ -8,4 +8,6 @@ script = ExtResource("1_iflv7")
 id = "arschschwert"
 name = "Verrostetes Schwert"
 icon = ExtResource("1_hcnqn")
+stackable = true
+max_stack = 3
 metadata/_custom_type_script = "uid://d4c671jpgfict"

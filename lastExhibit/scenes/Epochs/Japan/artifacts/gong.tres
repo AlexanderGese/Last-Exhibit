@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://gxqxfmkereak"]
+
+[ext_resource type="Texture2D" uid="uid://dpdh7dgkwm3ne" path="res://assets/sprites/artifacts/Gong_JapanArtefacts.png" id="1_aahd6"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_nvn6d"]
+
+[resource]
+script = ExtResource("1_nvn6d")
+id = "gong"
+name = "Gong"
+icon = ExtResource("1_aahd6")
+metadata/_custom_type_script = "uid://d4c671jpgfict"

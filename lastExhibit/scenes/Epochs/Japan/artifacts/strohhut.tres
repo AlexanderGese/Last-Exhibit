@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bqrrpra5oknwg"]
+
+[ext_resource type="Texture2D" uid="uid://b6f6y58sptg53" path="res://assets/sprites/artifacts/Strohhut_JapanArtefacts.png" id="1_3ubvo"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_6whcp"]
+
+[resource]
+script = ExtResource("1_6whcp")
+id = "strohhut"
+name = "Strohhut"
+icon = ExtResource("1_3ubvo")
+metadata/_custom_type_script = "uid://d4c671jpgfict"

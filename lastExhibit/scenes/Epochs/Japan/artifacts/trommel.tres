@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://b6g3nlsesebu6"]
+
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_12r71"]
+[ext_resource type="Texture2D" uid="uid://25dx0jg8n563" path="res://assets/sprites/artifacts/Trommel_JapanArtefacts.png" id="1_sope1"]
+
+[resource]
+script = ExtResource("1_12r71")
+id = "trommel"
+name = "Trommel"
+icon = ExtResource("1_sope1")
+metadata/_custom_type_script = "uid://d4c671jpgfict"
