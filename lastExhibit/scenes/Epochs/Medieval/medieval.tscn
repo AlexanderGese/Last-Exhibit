@@ -1259,7 +1259,7 @@ position = Vector2(4526, 1)
 
 [node name="Player" parent="." unique_id=229592850 instance=ExtResource("17_nklcl")]
 z_index = 1
-position = Vector2(3702, -35)
+position = Vector2(519, -31)
 
 [node name="AnimatableBody2D" parent="." unique_id=1702367529 instance=ExtResource("19_pk5u7")]
 position = Vector2(3112, -7)

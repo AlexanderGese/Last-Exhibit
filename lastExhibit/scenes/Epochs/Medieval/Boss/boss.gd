@@ -96,7 +96,6 @@ func _dash_update(delta: float) -> void:
 		_dash_ende()
 		return
 	$AnimatedSprite2D.play("stab_middle")
-	var schritt = dash_speed * delta
 	velocity.x = dash_richtung * dash_speed
 	dash_distanz_verbleibend -= abs(velocity.x) * delta
 	if not hat_getroffen:
