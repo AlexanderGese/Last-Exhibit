@@ -7,11 +7,11 @@
 script = ExtResource("1_85ybt")
 id = "soljanka"
 name = "Soljanka-Eintopf"
-beschreibung = "Beliebtes und einfaches Gericht"
 icon = ExtResource("1_wyidi")
 stackable = true
 max_stack = 3
 value = 5
 heal_amount = 15.0
 big_artifact = true
+origin = "soviet"
 metadata/_custom_type_script = "uid://d4c671jpgfict"

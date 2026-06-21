@@ -7,8 +7,8 @@
 script = ExtResource("1_mkh1j")
 id = "sputnik"
 name = "Sputnik-Satellit"
-beschreibung = "Satellit, der von der Sputnik V Rakete hochgeflogen wurde"
 icon = ExtResource("1_vb5i4")
 value = 100
 big_artifact = true
+origin = "soviet"
 metadata/_custom_type_script = "uid://d4c671jpgfict"

@@ -10,6 +10,7 @@ extends SaveFile
 @export var first_used: bool = true
 @export var second_used: bool = true
 @export var showcases: Array[Showcase] = []
+@export var showroom: Array[String] = []
 
 const BASE_VISITORS: int = 10
 const BASE_TICKET_PRICE: int = 5

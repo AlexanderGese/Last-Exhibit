@@ -7,9 +7,9 @@
 script = ExtResource("1_oqov1")
 id = "nowitschok"
 name = "Nowitschok-Gift"
-beschreibung = "Häufig eingesetztes Nervengift"
 icon = ExtResource("1_p1e6j")
 stackable = true
 value = 100
 heal_amount = -50.0
+origin = "soviet"
 metadata/_custom_type_script = "uid://d4c671jpgfict"

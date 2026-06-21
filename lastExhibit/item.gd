@@ -16,3 +16,4 @@ enum Type { ARTIFACT, WEAPON, HEAD, BODY, LEGS, FEET, CONSUMABLE, AMMO, KEY, CUR
 
 @export_group("Artifact")
 @export var big_artifact: bool #true = big, false = small
+@export var origin: String

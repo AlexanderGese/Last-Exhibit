@@ -10,4 +10,5 @@ name = "Chochin-Laterne"
 icon = ExtResource("1_gwfcy")
 stackable = true
 max_stack = 10
+origin = "japan"
 metadata/_custom_type_script = "uid://d4c671jpgfict"

@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" uid="uid://fassw5kr27wl" path="res://scenes/Museum/Museum.gd" id="1_bicjn"]
 [ext_resource type="PackedScene" uid="uid://botawtk2laud8" path="res://scenes/Player/Player.tscn" id="1_f4n76"]
+[ext_resource type="PackedScene" uid="uid://dgjru2mrtebdd" path="res://custom_nodes/showcase/image_floor.tscn" id="8_h742d"]
 [ext_resource type="PackedScene" uid="uid://jvkbbr8xytdv" path="res://scenes/Museum/vending_machine.tscn" id="9_lfxre"]
 [ext_resource type="PackedScene" uid="uid://c2xp0jmnqddkc" path="res://custom_nodes/ItemPickUp/ItemPickup.tscn" id="10_d7ipc"]
 [ext_resource type="PackedScene" uid="uid://dkvceyxie2xb5" path="res://custom_nodes/showcase/showcase.tscn" id="11_l6y80"]
-[ext_resource type="Resource" uid="uid://bb5wyw273ekpq" path="res://resources/items/guns/walterp99.tres" id="11_vcqe2"]
-[ext_resource type="Resource" uid="uid://2i6tg3hdbblu" path="res://resources/items/guns/ak47.tres" id="12_nrtfa"]
+[ext_resource type="Resource" uid="uid://corrw7iwwtsui" path="res://scenes/Epochs/Medieval/artifacts/wein.tres" id="12_h742d"]
 [ext_resource type="PackedScene" uid="uid://b465bo07tndvt" path="res://custom_nodes/boxes/packages.tscn" id="12_vcqe2"]
 [ext_resource type="Texture2D" uid="uid://67gjxlnkdn2" path="res://assets/theicons/pixel_art_small.png" id="13_1hd0j"]
+[ext_resource type="Resource" uid="uid://chyqkle15mt1h" path="res://scenes/Epochs/Japan/artifacts/koecher.tres" id="13_rcbf2"]
 [ext_resource type="FontFile" uid="uid://bafj0agrswp3j" path="res://assets/fonts/Pixuf.ttf" id="14_doo3g"]
 [ext_resource type="Texture2D" uid="uid://c0qi8aorj3x61" path="res://assets/theicons/pixel_art_small (1).png" id="14_vrpa3"]
 [ext_resource type="Texture2D" uid="uid://cqbjye8mb0ysq" path="res://assets/theicons/pixel_art_small (3).png" id="15_pdmdt"]
@@ -63,6 +64,54 @@ position = Vector2(55, -1600)
 [node name="spawn_ground" type="Marker2D" parent="." unique_id=1427321838]
 position = Vector2(136, -956)
 
+[node name="Rooms" type="Node2D" parent="." unique_id=1664399252]
+position = Vector2(-2212, -2350)
+
+[node name="ImageFloor" parent="Rooms" unique_id=204611101 instance=ExtResource("8_h742d")]
+offset_left = 2506.0
+offset_top = 1303.0
+offset_right = 2602.0
+offset_bottom = 1399.0
+texture = null
+expand_mode = 1
+this_room = 1
+
+[node name="ImageFloor2" parent="Rooms" unique_id=590033264 instance=ExtResource("8_h742d")]
+offset_left = 2400.0
+offset_top = 640.0
+offset_right = 2496.0
+offset_bottom = 736.0
+texture = null
+expand_mode = 1
+this_room = 2
+
+[node name="ImageFloor3" parent="Rooms" unique_id=1672368022 instance=ExtResource("8_h742d")]
+offset_left = 1664.0
+offset_top = 640.0
+offset_right = 1760.0
+offset_bottom = 736.0
+texture = null
+expand_mode = 1
+this_room = 3
+
+[node name="ImageFloor4" parent="Rooms" unique_id=2034971726 instance=ExtResource("8_h742d")]
+offset_left = 2400.0
+offset_top = -32.0
+offset_right = 2496.0
+offset_bottom = 64.0
+texture = null
+expand_mode = 1
+this_room = 4
+
+[node name="ImageFloor5" parent="Rooms" unique_id=1948825969 instance=ExtResource("8_h742d")]
+offset_left = 1664.0
+offset_top = -32.0
+offset_right = 1760.0
+offset_bottom = 64.0
+texture = null
+expand_mode = 1
+this_room = 5
+
 [node name="ShowCases" type="Node2D" parent="." unique_id=482547696]
 
 [node name="FirstFloor" type="Node2D" parent="ShowCases" unique_id=26969499]
@@ -70,197 +119,242 @@ position = Vector2(136, -956)
 [node name="Showcase" parent="ShowCases/FirstFloor" unique_id=1435700409 instance=ExtResource("11_l6y80")]
 position = Vector2(480, -925)
 number = 1
+showcaseroom = 1
 
 [node name="Showcase2" parent="ShowCases/FirstFloor" unique_id=62993896 instance=ExtResource("11_l6y80")]
 position = Vector2(1280, -925)
 number = 8
+showcaseroom = 1
 
 [node name="Showcase3" parent="ShowCases/FirstFloor" unique_id=1803871035 instance=ExtResource("11_l6y80")]
 position = Vector2(1383, -925)
 number = 9
+showcaseroom = 1
 
 [node name="Showcase4" parent="ShowCases/FirstFloor" unique_id=1329410872 instance=ExtResource("11_l6y80")]
 position = Vector2(1194, -925)
 number = 7
+showcaseroom = 1
 
 [node name="Showcase5" parent="ShowCases/FirstFloor" unique_id=1284179384 instance=ExtResource("11_l6y80")]
 position = Vector2(991, -925)
 number = 6
+showcaseroom = 1
 
 [node name="Showcase6" parent="ShowCases/FirstFloor" unique_id=1494831098 instance=ExtResource("11_l6y80")]
 position = Vector2(907, -925)
 number = 5
+showcaseroom = 1
 
 [node name="Showcase7" parent="ShowCases/FirstFloor" unique_id=1508853294 instance=ExtResource("11_l6y80")]
 position = Vector2(821, -925)
 number = 4
+showcaseroom = 1
 
 [node name="Showcase8" parent="ShowCases/FirstFloor" unique_id=2097822722 instance=ExtResource("11_l6y80")]
 position = Vector2(626, -925)
 number = 3
+showcaseroom = 1
 
 [node name="Showcase9" parent="ShowCases/FirstFloor" unique_id=1113243056 instance=ExtResource("11_l6y80")]
 position = Vector2(554, -925)
 number = 2
+showcaseroom = 1
 
 [node name="SecondFloor" type="Node2D" parent="ShowCases" unique_id=472122450]
 
 [node name="Showcase" parent="ShowCases/SecondFloor" unique_id=395347341 instance=ExtResource("11_l6y80")]
 position = Vector2(424, -1588)
 number = 10
+showcaseroom = 2
 
 [node name="Showcase2" parent="ShowCases/SecondFloor" unique_id=1599218221 instance=ExtResource("11_l6y80")]
 position = Vector2(1224, -1588)
 number = 17
+showcaseroom = 2
 
 [node name="Showcase3" parent="ShowCases/SecondFloor" unique_id=1540894714 instance=ExtResource("11_l6y80")]
 position = Vector2(1327, -1588)
 number = 18
+showcaseroom = 2
 
 [node name="Showcase4" parent="ShowCases/SecondFloor" unique_id=711427752 instance=ExtResource("11_l6y80")]
 position = Vector2(1138, -1588)
 number = 16
+showcaseroom = 2
 
 [node name="Showcase5" parent="ShowCases/SecondFloor" unique_id=661474960 instance=ExtResource("11_l6y80")]
 position = Vector2(935, -1588)
 number = 15
+showcaseroom = 2
 
 [node name="Showcase6" parent="ShowCases/SecondFloor" unique_id=1206986076 instance=ExtResource("11_l6y80")]
 position = Vector2(851, -1588)
 number = 14
+showcaseroom = 2
 
 [node name="Showcase7" parent="ShowCases/SecondFloor" unique_id=454340465 instance=ExtResource("11_l6y80")]
 position = Vector2(765, -1588)
 number = 13
+showcaseroom = 2
 
 [node name="Showcase8" parent="ShowCases/SecondFloor" unique_id=971637467 instance=ExtResource("11_l6y80")]
 position = Vector2(570, -1588)
 number = 12
+showcaseroom = 2
 
 [node name="Showcase9" parent="ShowCases/SecondFloor" unique_id=1608830626 instance=ExtResource("11_l6y80")]
 position = Vector2(498, -1588)
 number = 11
+showcaseroom = 2
 
 [node name="Showcase10" parent="ShowCases/SecondFloor" unique_id=805770982 instance=ExtResource("11_l6y80")]
 position = Vector2(-1732, -1588)
 number = 27
+showcaseroom = 3
 
 [node name="Showcase11" parent="ShowCases/SecondFloor" unique_id=1795168758 instance=ExtResource("11_l6y80")]
 position = Vector2(-932, -1588)
 number = 20
+showcaseroom = 3
 
 [node name="Showcase12" parent="ShowCases/SecondFloor" unique_id=1581748459 instance=ExtResource("11_l6y80")]
 position = Vector2(-829, -1588)
 number = 19
+showcaseroom = 3
 
 [node name="Showcase13" parent="ShowCases/SecondFloor" unique_id=2133456595 instance=ExtResource("11_l6y80")]
 position = Vector2(-1018, -1588)
 number = 21
+showcaseroom = 3
 
 [node name="Showcase14" parent="ShowCases/SecondFloor" unique_id=642978221 instance=ExtResource("11_l6y80")]
 position = Vector2(-1221, -1588)
 number = 22
+showcaseroom = 3
 
 [node name="Showcase15" parent="ShowCases/SecondFloor" unique_id=230876576 instance=ExtResource("11_l6y80")]
 position = Vector2(-1305, -1588)
 number = 23
+showcaseroom = 3
 
 [node name="Showcase16" parent="ShowCases/SecondFloor" unique_id=1141097482 instance=ExtResource("11_l6y80")]
 position = Vector2(-1391, -1588)
 number = 24
+showcaseroom = 3
 
 [node name="Showcase17" parent="ShowCases/SecondFloor" unique_id=1700625974 instance=ExtResource("11_l6y80")]
 position = Vector2(-1586, -1588)
 number = 25
+showcaseroom = 3
 
 [node name="Showcase18" parent="ShowCases/SecondFloor" unique_id=516307828 instance=ExtResource("11_l6y80")]
 position = Vector2(-1658, -1588)
 number = 26
+showcaseroom = 3
 
 [node name="ThirdFloor" type="Node2D" parent="ShowCases" unique_id=1077433811]
 
 [node name="Showcase" parent="ShowCases/ThirdFloor" unique_id=885674624 instance=ExtResource("11_l6y80")]
 position = Vector2(463, -2260)
 number = 28
+showcaseroom = 4
 
 [node name="Showcase2" parent="ShowCases/ThirdFloor" unique_id=839837177 instance=ExtResource("11_l6y80")]
 position = Vector2(1263, -2260)
 number = 35
+showcaseroom = 4
 
 [node name="Showcase3" parent="ShowCases/ThirdFloor" unique_id=1927065767 instance=ExtResource("11_l6y80")]
 position = Vector2(1366, -2260)
 number = 36
+showcaseroom = 4
 
 [node name="Showcase4" parent="ShowCases/ThirdFloor" unique_id=1513943434 instance=ExtResource("11_l6y80")]
 position = Vector2(1177, -2260)
 number = 34
+showcaseroom = 4
 
 [node name="Showcase5" parent="ShowCases/ThirdFloor" unique_id=420926709 instance=ExtResource("11_l6y80")]
 position = Vector2(974, -2260)
 number = 33
+showcaseroom = 4
 
 [node name="Showcase6" parent="ShowCases/ThirdFloor" unique_id=2091047610 instance=ExtResource("11_l6y80")]
 position = Vector2(890, -2260)
 number = 32
+showcaseroom = 4
 
 [node name="Showcase7" parent="ShowCases/ThirdFloor" unique_id=192209652 instance=ExtResource("11_l6y80")]
 position = Vector2(804, -2260)
 number = 31
+showcaseroom = 4
 
 [node name="Showcase8" parent="ShowCases/ThirdFloor" unique_id=1839808461 instance=ExtResource("11_l6y80")]
 position = Vector2(609, -2260)
 number = 30
+showcaseroom = 4
 
 [node name="Showcase9" parent="ShowCases/ThirdFloor" unique_id=1606541898 instance=ExtResource("11_l6y80")]
 position = Vector2(537, -2260)
 number = 29
+showcaseroom = 4
 
 [node name="Showcase10" parent="ShowCases/ThirdFloor" unique_id=1372269572 instance=ExtResource("11_l6y80")]
 position = Vector2(-1693, -2260)
 number = 45
+showcaseroom = 5
 
 [node name="Showcase11" parent="ShowCases/ThirdFloor" unique_id=493808531 instance=ExtResource("11_l6y80")]
 position = Vector2(-893, -2260)
 number = 38
+showcaseroom = 5
 
 [node name="Showcase12" parent="ShowCases/ThirdFloor" unique_id=973423232 instance=ExtResource("11_l6y80")]
 position = Vector2(-790, -2260)
 number = 37
+showcaseroom = 5
 
 [node name="Showcase13" parent="ShowCases/ThirdFloor" unique_id=1397469228 instance=ExtResource("11_l6y80")]
 position = Vector2(-979, -2260)
 number = 39
+showcaseroom = 5
 
 [node name="Showcase14" parent="ShowCases/ThirdFloor" unique_id=528171762 instance=ExtResource("11_l6y80")]
 position = Vector2(-1182, -2260)
 number = 40
+showcaseroom = 5
 
 [node name="Showcase15" parent="ShowCases/ThirdFloor" unique_id=652709836 instance=ExtResource("11_l6y80")]
 position = Vector2(-1266, -2260)
 number = 41
+showcaseroom = 5
 
 [node name="Showcase16" parent="ShowCases/ThirdFloor" unique_id=1334155633 instance=ExtResource("11_l6y80")]
 position = Vector2(-1352, -2260)
 number = 42
+showcaseroom = 5
 
 [node name="Showcase17" parent="ShowCases/ThirdFloor" unique_id=201221439 instance=ExtResource("11_l6y80")]
 position = Vector2(-1547, -2260)
 number = 43
+showcaseroom = 5
 
 [node name="Showcase18" parent="ShowCases/ThirdFloor" unique_id=1905722124 instance=ExtResource("11_l6y80")]
 position = Vector2(-1619, -2260)
 number = 44
+showcaseroom = 5
 
 [node name="Packages" parent="." unique_id=286900212 instance=ExtResource("12_vcqe2")]
 position = Vector2(1632, -919)
 
 [node name="ItemPickup2" parent="." unique_id=742686194 instance=ExtResource("10_d7ipc")]
 position = Vector2(327, -252)
-item = ExtResource("12_nrtfa")
+item = ExtResource("12_h742d")
 
 [node name="ItemPickup" parent="." unique_id=1858323732 instance=ExtResource("10_d7ipc")]
 position = Vector2(144, -252)
-item = ExtResource("11_vcqe2")
+item = ExtResource("13_rcbf2")
 
 [node name="TheIcons" type="Node2D" parent="." unique_id=578312414]
 

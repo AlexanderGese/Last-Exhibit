@@ -8,4 +8,5 @@ script = ExtResource("1_70wko")
 id = "wappen"
 name = "Wappen"
 icon = ExtResource("1_vb5s8")
+origin = "medieval"
 metadata/_custom_type_script = "uid://d4c671jpgfict"

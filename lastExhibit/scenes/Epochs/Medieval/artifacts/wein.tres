@@ -10,4 +10,5 @@ name = "Weinflasche"
 icon = ExtResource("1_1nrmt")
 stackable = true
 max_stack = 5
+origin = "medieval"
 metadata/_custom_type_script = "uid://d4c671jpgfict"

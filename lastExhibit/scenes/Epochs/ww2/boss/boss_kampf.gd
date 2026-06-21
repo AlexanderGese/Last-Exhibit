@@ -19,7 +19,7 @@ var ist_tot: bool = false
 var fliegt_nach_links: bool = true
 var absturz_nach_links: bool = true
 
-@export var kugel_szene: PackedScene = preload("res://scenes/Epochs/ww2/boss/USBullet.tscn")
+@export var kugel_szene: PackedScene = preload("res://custom_nodes/boxes/bullet_ww2.tscn")
 @export var schuss_cooldown: float = 1.0
 var kann_schiessen: bool = true
 @onready var muendung = $BossFlugzeug/Marker2D

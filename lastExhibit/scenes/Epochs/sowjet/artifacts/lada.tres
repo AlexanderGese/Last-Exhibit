@@ -7,8 +7,8 @@
 script = ExtResource("1_14fbm")
 id = "lada"
 name = "Lada Niva"
-beschreibung = "Populärstes KFZ der Firma Lada"
 icon = ExtResource("1_gb17h")
 value = 500
 big_artifact = true
+origin = "soviet"
 metadata/_custom_type_script = "uid://d4c671jpgfict"

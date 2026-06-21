@@ -8,4 +8,5 @@ script = ExtResource("1_nvn6d")
 id = "gong"
 name = "Gong"
 icon = ExtResource("1_aahd6")
+origin = "japan"
 metadata/_custom_type_script = "uid://d4c671jpgfict"

@@ -8,12 +8,14 @@ extends Node2D
 @onready var small_label: Label = $SmallShowcase/Label
 
 @export var number: int
+@export var showcaseroom:int
 
 var player_is_detected: bool = false
 var data: Showcase = null
 
 
 func _ready() -> void:
+	reset()
 	Events.used_artifact.connect(placeshowcase)
 	_load_or_create_data()
 	_refresh_visuals()
@@ -27,6 +29,7 @@ func _ready() -> void:
 func reset() -> void:
 	SaveManager.museum.showcases.clear()
 	SaveManager.museum.showcases.resize(45)
+	SaveManager.museum.showroom.resize(5)
 	SaveManager.save_all(0)
 
 
@@ -73,7 +76,8 @@ func placeshowcase(item: Item, index: int) -> void:
 		return
 	if data == null:
 		return
-	
+	if item.origin != SaveManager.museum.showroom[showcaseroom-1] and !SaveManager.museum.showroom[showcaseroom -1].is_empty():
+		return
 	if data.is_empty:
 		data.is_empty = false
 		data.icon = item.icon
@@ -85,7 +89,8 @@ func placeshowcase(item: Item, index: int) -> void:
 		data.qty += 1
 	else:
 		return
-	
+	SaveManager.museum.showroom[showcaseroom-1] = item.origin
+	print(SaveManager.museum.showroom[showcaseroom-1])
 	_refresh_visuals()
 	Events.artifact_place.emit(index)
 	SaveManager.save_all(0)

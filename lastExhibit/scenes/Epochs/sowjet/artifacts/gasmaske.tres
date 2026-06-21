@@ -7,7 +7,7 @@
 script = ExtResource("1_pi8xo")
 id = "gasmaske"
 name = "Gasmaske"
-beschreibung = "Zur Abwehr von Gasen"
 icon = ExtResource("1_fl5ca")
 value = 50
+origin = "soviet"
 metadata/_custom_type_script = "uid://d4c671jpgfict"

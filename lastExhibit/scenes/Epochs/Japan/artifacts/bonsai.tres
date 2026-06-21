@@ -10,4 +10,5 @@ name = "Bonsai-Baum"
 icon = ExtResource("1_gg7vg")
 stackable = true
 max_stack = 3
+origin = "japan"
 metadata/_custom_type_script = "uid://d4c671jpgfict"

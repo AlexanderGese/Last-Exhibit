@@ -9,9 +9,9 @@ signal standing_in_showcase(number: int)
 
 signal used_artifact(Artifact: Item, index:int)
 signal artifact_place(i: int)
+signal new_floor(type: String, room_number: int)
 signal upgrade_purchased(type: String)
 signal upgrade_collected(type: String)
 
 signal sw_boss_dead()
-
 signal weapon_changed(type: String)

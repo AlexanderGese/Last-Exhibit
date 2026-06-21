@@ -329,8 +329,7 @@ func heal(amount: int) -> bool:
 	return true
 
 func _on_hurt(damage: int, knockback: Vector2) -> void:
-	if is_invincible:
-		return
+
 	
 	take_damage(damage)
 	velocity += knockback

@@ -10,4 +10,5 @@ name = "Ritualsteine"
 icon = ExtResource("1_bs8dm")
 stackable = true
 max_stack = 5
+origin = "japan"
 metadata/_custom_type_script = "uid://d4c671jpgfict"
