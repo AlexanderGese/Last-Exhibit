@@ -9,6 +9,8 @@
 [ext_resource type="Resource" uid="uid://d3ooh5akdbvvp" path="res://dialogues/dmitri_beleidigt.dialogue" id="4_4kc0g"]
 [ext_resource type="PackedScene" uid="uid://c2xp0jmnqddkc" path="res://custom_nodes/ItemPickUp/ItemPickup.tscn" id="8_rocik"]
 [ext_resource type="Resource" uid="uid://chjowffsc6bly" path="res://scenes/Epochs/sowjet/artifacts/orden.tres" id="9_m45b8"]
+[ext_resource type="Script" uid="uid://ch3o8csrvxxgv" path="res://custom_nodes/boxes/Hitbox.gd" id="10_m45b8"]
+[ext_resource type="Script" uid="uid://dc33vug1a1hkq" path="res://custom_nodes/boxes/Hurtbox.gd" id="11_p6g24"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n30nw"]
 radius = 13.0
@@ -147,13 +149,19 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqcp0"]
 size = Vector2(193.75, 111)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6g24"]
+size = Vector2(58, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hgjs"]
+size = Vector2(21, 60)
+
 [node name="Dmitri" type="CharacterBody2D" unique_id=1915161840]
+collision_layer = 4096
+collision_mask = 4096
 script = ExtResource("1_sqcp0")
 dialogue = ExtResource("2_n30nw")
 dialogue_alien = ExtResource("3_7o6bi")
 dialogue_beleidigt = ExtResource("4_4kc0g")
-gravity = null
-kampf_dist = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2126144280]
 shape = SubResource("CapsuleShape2D_n30nw")
@@ -174,5 +182,29 @@ shape = SubResource("RectangleShape2D_sqcp0")
 position = Vector2(45, 13)
 item = ExtResource("9_m45b8")
 
+[node name="Hitbox" type="Area2D" parent="." unique_id=877723243]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("10_m45b8")
+damage = 4
+metadata/_custom_type_script = "uid://ch3o8csrvxxgv"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=401078614]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_p6g24")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=676396281]
+collision_layer = 12
+collision_mask = 12
+script = ExtResource("11_p6g24")
+metadata/_custom_type_script = "uid://dc33vug1a1hkq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=606282338]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_4hgjs")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurt"]

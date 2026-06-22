@@ -79,7 +79,7 @@ func _ready() -> void:
 	Events.weapon_changed.connect(weapon_change)
 	add_child(escape_menu)
 	save = SaveManager.player
-	save.hp= 10000000
+	save.hp= 60
 	$Timer.start()
 	add_to_group("player")
 	sprite.animation_finished.connect(_on_animation_finished)
@@ -312,6 +312,9 @@ func _on_animation_finished() -> void:
 func _update_hitbox_facing() -> void:
 	attack_pivot.scale.x = 1 if facing_right else -1
 
+func getHP() -> int: 
+	return save.hp
+	
 
 func take_damage(damage: int) -> void:
 	save.hp -= damage

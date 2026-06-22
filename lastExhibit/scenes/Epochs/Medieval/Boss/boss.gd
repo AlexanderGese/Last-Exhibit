@@ -9,7 +9,7 @@ extends CharacterBody2D
 @export var run_distanz  : float = 100.0
 @export var hit_cooldown : float = 3.0
 @export var hit_distanz  : float = 70.0
-@export var max_hp : int = 30
+@export var max_hp : int = 300
 
 @export var dash_speed     : float = 450.0
 @export var dash_strecke_max : float = 100.0

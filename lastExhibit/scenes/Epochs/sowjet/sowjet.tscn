@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dd7x55scxab6s" path="res://assets/sprites/Sovjet/Soviuet tische.png" id="9_f78tm"]
 [ext_resource type="Script" uid="uid://b6xs62edb3ora" path="res://scenes/Epochs/sowjet/floor_0.gd" id="9_oxd6m"]
 [ext_resource type="PackedScene" uid="uid://p601uv7xjfyc" path="res://custom_nodes/Ladder.tscn" id="19_qsbqj"]
-[ext_resource type="Texture2D" uid="uid://dmik3sdetg2kf" path="res://assets/sprites/artifacts/Sputnik_Laucher-2.png" id="21_ipn75"]
+[ext_resource type="Texture2D" uid="uid://cox752mb5nnwm" path="res://assets/sprites/artifacts/Sputnik_Laucher-2.png" id="21_ipn75"]
 [ext_resource type="PackedScene" uid="uid://d7gek8sbldnx" path="res://scenes/Epochs/sowjet/Boss/Sowjet Boss.tscn" id="21_ogquc"]
 [ext_resource type="PackedScene" uid="uid://csd40r3e70bcy" path="res://scenes/Epochs/sowjet/Tür/Tür.tscn" id="22_f78tm"]
 [ext_resource type="PackedScene" uid="uid://dync8fw1rrta4" path="res://scenes/Epochs/sowjet/dmitri/dmitri.tscn" id="22_ri2k7"]
@@ -686,7 +686,7 @@ b = Vector2(4, -312)
 size = Vector2(960, 576)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ri2k7"]
-size = Vector2(397, 23)
+size = Vector2(602.5, 23)
 
 [node name="SovietUnion" type="Node2D" unique_id=405401211]
 
@@ -847,9 +847,7 @@ position = Vector2(3, -56)
 collision_layer = 253
 
 [node name="Dmitri" parent="." unique_id=1572758150 instance=ExtResource("22_ri2k7")]
-position = Vector2(-2066, 345)
-gravity = 980.0
-kampf_dist = 16.0
+position = Vector2(-2065, 354)
 
 [node name="Lastenaufzug" parent="." unique_id=2086474353 node_paths=PackedStringArray("player") instance=ExtResource("3_l0vm2")]
 position = Vector2(-1504, -38)
@@ -858,11 +856,11 @@ player = NodePath("../Player")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=902453235]
 position = Vector2(-2067, 396)
-collision_layer = 2
-collision_mask = 3
+collision_layer = 4096
+collision_mask = 4096
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1854941433]
-position = Vector2(0, 5)
+position = Vector2(100.75, 0)
 shape = SubResource("RectangleShape2D_ri2k7")
 
 [node name="Artefakte" type="Node2D" parent="." unique_id=35054832]
