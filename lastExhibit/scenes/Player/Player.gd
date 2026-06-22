@@ -79,7 +79,7 @@ func _ready() -> void:
 	Events.weapon_changed.connect(weapon_change)
 	add_child(escape_menu)
 	save = SaveManager.player
-	save.hp= 60
+	save.hp= 6000
 	$Timer.start()
 	add_to_group("player")
 	sprite.animation_finished.connect(_on_animation_finished)

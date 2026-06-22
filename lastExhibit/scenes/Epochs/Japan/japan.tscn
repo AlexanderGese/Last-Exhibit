@@ -29,6 +29,9 @@
 [ext_resource type="Resource" uid="uid://cx7i8hil7m7qm" path="res://scenes/Epochs/Japan/artifacts/essstaebchen.tres" id="24_8uice"]
 [ext_resource type="Resource" uid="uid://cpbhdj5xx7pqi" path="res://scenes/Epochs/Japan/artifacts/maske.tres" id="25_w18ln"]
 [ext_resource type="Resource" uid="uid://bqrrpra5oknwg" path="res://scenes/Epochs/Japan/artifacts/strohhut.tres" id="26_8uice"]
+[ext_resource type="PackedScene" uid="uid://cbh1pvk5tk4v7" path="res://scenes/Epochs/Japan/Gate/Gate2.tscn" id="30_jhk7b"]
+[ext_resource type="Script" uid="uid://dksfvtl3foppk" path="res://scenes/Epochs/Japan/arena.gd" id="31_lnht1"]
+[ext_resource type="PackedScene" uid="uid://cogpd7yopf1x" path="res://scenes/Epochs/Japan/Boss/Samurai Boss.tscn" id="32_1slg1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lljqo"]
 texture = ExtResource("1_qa2ky")
@@ -427,7 +430,8 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_011hs"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 4097
+physics_layer_0/collision_mask = 4097
 sources/1 = SubResource("TileSetAtlasSource_7e3n2")
 sources/2 = SubResource("TileSetAtlasSource_dytjs")
 sources/0 = SubResource("TileSetAtlasSource_011hs")
@@ -604,6 +608,9 @@ size = Vector2(29, 99)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yx54u"]
 size = Vector2(29, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyhw3"]
+size = Vector2(727, 129)
 
 [node name="Japan" type="Node2D" unique_id=1084753749]
 
@@ -864,7 +871,26 @@ position = Vector2(3117, -228)
 [node name="Enemy9" parent="Enemies" unique_id=186051276 instance=ExtResource("19_rqfwq")]
 position = Vector2(3562, -36)
 
+[node name="Doors" type="Node" parent="." unique_id=735423952]
+
+[node name="Gate1" parent="Doors" unique_id=2068442829 instance=ExtResource("30_jhk7b")]
+position = Vector2(1747, -48)
+
+[node name="Gate2" parent="Doors" unique_id=1964023268 instance=ExtResource("30_jhk7b")]
+position = Vector2(1011, -48)
+
+[node name="Arena" type="Area2D" parent="." unique_id=670185119 node_paths=PackedStringArray("tuer1", "tuer2")]
+script = ExtResource("31_lnht1")
+tuer1 = NodePath("../Doors/Gate1")
+tuer2 = NodePath("../Doors/Gate2")
+boss_scene = ExtResource("32_1slg1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena" unique_id=834246977]
+position = Vector2(1376.5, -64.5)
+shape = SubResource("RectangleShape2D_kyhw3")
+
 [connection signal="body_entered" from="Ladders/Ladder" to="Ladders/Ladder" method="_on_body_entered"]
 [connection signal="body_exited" from="Ladders/Ladder" to="Ladders/Ladder" method="_on_body_exited"]
 [connection signal="body_entered" from="Ladders/Ladder2" to="Ladders/Ladder2" method="_on_body_entered"]
 [connection signal="body_exited" from="Ladders/Ladder2" to="Ladders/Ladder2" method="_on_body_exited"]
+[connection signal="body_entered" from="Arena" to="Arena" method="_on_body_entered"]
