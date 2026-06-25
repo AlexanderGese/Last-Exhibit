@@ -100,7 +100,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hit",
-"speed": 12.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 0.5,
@@ -150,10 +150,10 @@ animations = [{
 size = Vector2(193.75, 111)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p6g24"]
-size = Vector2(58, 24)
+size = Vector2(59.5, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hgjs"]
-size = Vector2(21, 60)
+size = Vector2(30.5, 66)
 
 [node name="Dmitri" type="CharacterBody2D" unique_id=1915161840]
 collision_layer = 4096
@@ -175,7 +175,6 @@ autoplay = "idle"
 [node name="Area2D" type="Area2D" parent="." unique_id=1544969671]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=540255289]
-position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_sqcp0")
 
 [node name="Orden" parent="." unique_id=1858323732 instance=ExtResource("8_rocik")]
@@ -190,17 +189,16 @@ damage = 4
 metadata/_custom_type_script = "uid://ch3o8csrvxxgv"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=401078614]
-position = Vector2(0, -11)
+position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_p6g24")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=676396281]
-collision_layer = 12
-collision_mask = 12
+collision_layer = 4
+collision_mask = 8
 script = ExtResource("11_p6g24")
 metadata/_custom_type_script = "uid://dc33vug1a1hkq"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=606282338]
-position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_4hgjs")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

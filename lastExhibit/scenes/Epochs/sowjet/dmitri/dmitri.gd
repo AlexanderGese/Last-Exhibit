@@ -23,8 +23,9 @@ signal dialogue_ended
 
 const SPEED : float = 350.0
 @export var hit_cooldown : float = 3.0
-@export var hit_distanz  : float = 30.0
-@export var max_hp       : int = 50
+@export var hit_distanz  : float = 80.0
+@export var kampf_dist    : float = 30.0  #
+@export var max_hp       : int = 5
 
 var hit_timer    : float = 0.0
 var is_attacking : bool  = false
@@ -42,6 +43,7 @@ func _ready():
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
+	$Hurtbox.hurt.connect(_on_hurt)
 
 func _process(delta: float) -> void:
 	if beleidigt == true:
@@ -77,7 +79,7 @@ func _physics_process(delta: float) -> void:
 		elif dist_x <= hit_distanz and hit_timer <= 0.0:
 			_hit_start()
 		else:
-			var ziel_x = player.global_position.x - hit_distanz
+			var ziel_x = player.global_position.x - kampf_dist
 			var dist   = global_position.x - ziel_x
 			var dir    = -sign(dist)
 			
@@ -87,7 +89,7 @@ func _physics_process(delta: float) -> void:
 			elif global_position.x >= -1700.0 and dir > 0:
 				velocity.x = 0.0
 				$AnimatedSprite2D.play("idle")
-			elif abs(dist) > 15.0:
+			elif abs(dist) > 20.0:
 				velocity.x = dir * SPEED
 				$AnimatedSprite2D.play("run")
 			else:
@@ -141,11 +143,13 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		_check_win_condition()
 
 func _on_hurt(damage: int, knockback: Vector2) -> void:
+	print("getroffen")
 	if is_dead:
 		return
 	hp -= damage
 	if hp <= 0:
 		ergebnis = "gewonnen"
+		kampf = false
 		
 
 func _check_win_condition() -> void:
@@ -194,7 +198,3 @@ func abort_dialogue():
 
 func _on_player_pause() -> void:
 	abort_dialogue()
-
-
-func _on_hurtbox_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
