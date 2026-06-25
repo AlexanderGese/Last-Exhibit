@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://brb5y8ajuwh3o" path="res://scenes/Phone/phone_ui.tscn" id="8_dqp0f"]
 [ext_resource type="PackedScene" uid="uid://pq1sjpxa617a" path="res://scenes/Museum/elevator/ElevatorUI.tscn" id="8_puxyr"]
 [ext_resource type="Texture2D" uid="uid://o1du5ovqjrck" path="res://assets/sprites/character/character/player06.png" id="10_jgsuk"]
+[ext_resource type="Script" uid="uid://ba15fckgf7is2" path="res://scenes/Player/rüstung.gd" id="10_mn6xr"]
 [ext_resource type="Texture2D" uid="uid://bkym8o36nmmw2" path="res://assets/sprites/character/character/player03.png" id="11_mn6xr"]
 [ext_resource type="Script" uid="uid://dc33vug1a1hkq" path="res://custom_nodes/boxes/Hurtbox.gd" id="11_qt7jd"]
 [ext_resource type="PackedScene" uid="uid://qd0flrd01ahf" path="res://scenes/Zeitmaschine/ZeitmaschinenUI.tscn" id="11_tl8lu"]
@@ -6422,6 +6423,7 @@ shape = SubResource("RectangleShape2D_qt7jd")
 disabled = true
 
 [node name="Rüstung" type="Node2D" parent="." unique_id=1495770343]
+script = ExtResource("10_mn6xr")
 
 [node name="hat" type="Node2D" parent="Rüstung" unique_id=700150485]
 
