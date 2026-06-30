@@ -21,6 +21,13 @@
 [ext_resource type="PackedScene" uid="uid://bcmucfj6jywxl" path="res://custom_nodes/bouncy.tscn" id="19_1nqjq"]
 [ext_resource type="PackedScene" uid="uid://vy8boieivyjw" path="res://custom_nodes/return/return_machine.tscn" id="21_3j2ve"]
 [ext_resource type="PackedScene" uid="uid://cmydvn6u8pbla" path="res://scenes/Epochs/ww2/boss/BossKampf.tscn" id="22_bvgh1"]
+[ext_resource type="PackedScene" uid="uid://c2xp0jmnqddkc" path="res://custom_nodes/ItemPickUp/ItemPickup.tscn" id="22_f8gdp"]
+[ext_resource type="Resource" uid="uid://d0saejbw5omes" path="res://scenes/Epochs/ww2/artifacts/schreibmaschine.tres" id="23_fs1pj"]
+[ext_resource type="Resource" uid="uid://dgjk4knl7wtbb" path="res://scenes/Epochs/ww2/artifacts/bild.tres" id="24_fs1pj"]
+[ext_resource type="Resource" uid="uid://dnayuu4dag2oa" path="res://scenes/Epochs/ww2/artifacts/reifen.tres" id="24_ux0pu"]
+[ext_resource type="Resource" uid="uid://w44s55tpssep" path="res://scenes/Epochs/ww2/artifacts/muni.tres" id="25_ux0pu"]
+[ext_resource type="Resource" uid="uid://qx02jnmk1je5" path="res://scenes/Epochs/ww2/artifacts/werkzeug.tres" id="26_nkm0m"]
+[ext_resource type="Resource" uid="uid://g377260xh74h" path="res://scenes/Epochs/ww2/artifacts/werkzeugkasten.tres" id="27_iiv8v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ys555"]
 texture = ExtResource("2_r5ffj")
@@ -942,7 +949,7 @@ position = Vector2(5355, 447)
 position = Vector2(584, -32)
 
 [node name="Player" parent="." unique_id=229592850 instance=ExtResource("5_a8ufs")]
-z_index = 1
+z_index = 2
 position = Vector2(6270, -68)
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=484300934]
@@ -1045,3 +1052,65 @@ position = Vector2(8381, -31)
 [node name="BossKampf" parent="." unique_id=1028210209 instance=ExtResource("22_bvgh1")]
 z_index = -1
 position = Vector2(7344, -48)
+
+[node name="Artifacts" type="Node2D" parent="." unique_id=1645195667]
+
+[node name="Schreibmaschine" parent="Artifacts" unique_id=1858323732 instance=ExtResource("22_f8gdp")]
+position = Vector2(5733, -463)
+item = ExtResource("23_fs1pj")
+
+[node name="Schreibmaschine2" parent="Artifacts" unique_id=502242116 instance=ExtResource("22_f8gdp")]
+position = Vector2(4465, -79)
+item = ExtResource("23_fs1pj")
+
+[node name="Bild" parent="Artifacts" unique_id=501594115 instance=ExtResource("22_f8gdp")]
+position = Vector2(4778, -96)
+item = ExtResource("24_fs1pj")
+
+[node name="Muni 1" parent="Artifacts" unique_id=2012421960 instance=ExtResource("22_f8gdp")]
+position = Vector2(4697, -235)
+item = ExtResource("25_ux0pu")
+
+[node name="Muni 4" parent="Artifacts" unique_id=1333809408 instance=ExtResource("22_f8gdp")]
+position = Vector2(3991, 143)
+item = ExtResource("25_ux0pu")
+
+[node name="Werkzeug" parent="Artifacts" unique_id=1977394071 instance=ExtResource("22_f8gdp")]
+position = Vector2(5108, 408)
+item = ExtResource("26_nkm0m")
+
+[node name="Werkzeug2" parent="Artifacts" unique_id=948719441 instance=ExtResource("22_f8gdp")]
+position = Vector2(3498, -48)
+item = ExtResource("26_nkm0m")
+
+[node name="Werkzeug3" parent="Artifacts" unique_id=1218486009 instance=ExtResource("22_f8gdp")]
+position = Vector2(2411, -48)
+item = ExtResource("26_nkm0m")
+
+[node name="Werkzeugkasten" parent="Artifacts" unique_id=737767782 instance=ExtResource("22_f8gdp")]
+position = Vector2(3166, -49)
+item = ExtResource("27_iiv8v")
+
+[node name="Muni 3" parent="Artifacts" unique_id=1943758945 instance=ExtResource("22_f8gdp")]
+position = Vector2(5676, -435)
+item = ExtResource("25_ux0pu")
+
+[node name="Muni 2" parent="Artifacts" unique_id=423382103 instance=ExtResource("22_f8gdp")]
+position = Vector2(4447, 560)
+item = ExtResource("25_ux0pu")
+
+[node name="JeepReifen" parent="Artifacts" unique_id=999363442 instance=ExtResource("22_f8gdp")]
+position = Vector2(4975, 593)
+item = ExtResource("24_ux0pu")
+
+[node name="JeepReifen2" parent="Artifacts" unique_id=1011750510 instance=ExtResource("22_f8gdp")]
+position = Vector2(3357, -49)
+item = ExtResource("24_ux0pu")
+
+[node name="JeepReifen3" parent="Artifacts" unique_id=2105480783 instance=ExtResource("22_f8gdp")]
+position = Vector2(3973, -49)
+item = ExtResource("24_ux0pu")
+
+[node name="JeepReifen4" parent="Artifacts" unique_id=1261141956 instance=ExtResource("22_f8gdp")]
+position = Vector2(2883, -49)
+item = ExtResource("24_ux0pu")

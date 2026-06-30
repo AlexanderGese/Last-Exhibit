@@ -831,6 +831,7 @@ position = Vector2(392, -70)
 item = ExtResource("22_33wei")
 
 [node name="Maske" parent="Artifacts" unique_id=1589487733 instance=ExtResource("19_kgg2d")]
+visible = false
 position = Vector2(1425, -21)
 item = ExtResource("25_w18ln")
 

@@ -31,6 +31,8 @@ const FLASH_COLOR := Color(2.5, 0.3, 0.3, 1)
 
 @onready var sprite_root = $SpriteRoot
 
+@onready var maske: ItemPickup = $"Item Maske"
+
 var hit_timer    : float = 0.0
 var is_attacking : bool  = false
 var hat_getroffen : bool = false
@@ -48,6 +50,7 @@ func _ready() -> void:
 	$Hitbox2.monitoring = false
 	$Hitbox2/CollisionShape2D.disabled = true
 	$Hitbox2.area_entered.connect(_on_hitbox_2_area_entered)
+	maske.visible = false
 
 
 func setup(x: float, y: float) -> void:
@@ -221,6 +224,7 @@ func _die() -> void:
 	$AnimatedSprite2D.play("death")
 	set_physics_process(false)
 	is_attacking = false
+	maske.visible = true
 	$Hitbox.queue_free()
 	$Hitbox2.queue_free()
 	$Hurtbox.queue_free()

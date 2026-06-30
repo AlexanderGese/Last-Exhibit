@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var trigger_zone = $TriggerZone
 @onready var animation_player = $AnimationPlayer
+@onready var helm: ItemPickup = $Helm
+@onready var purpleheart: ItemPickup = $PurpleHeart
 
 var boss_leben : int = 300
 @onready var boss_flugzeug = $BossFlugzeug
@@ -29,6 +31,8 @@ var boss_kampf_gestartet : bool = false
 
 func _ready():
 	$BossFlugzeug/Hurtbox.hurt.connect(_on_boss_hurt)
+	helm.visible = false
+	purpleheart.visible = false
 
 func _process(_delta):
 	if boss_kampf_gestartet:
@@ -139,6 +143,8 @@ func boss_besiegt():
 	
 	boss_aktiv = false
 	boss_wrack.visible = true
+	helm.visible = true
+	purpleheart.visible = true
 	if has_node("BossFlugzeug"):
 		$BossFlugzeug.queue_free()
 
