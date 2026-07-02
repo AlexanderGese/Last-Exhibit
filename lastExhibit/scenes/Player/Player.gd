@@ -58,7 +58,7 @@ var ranged_animation: String = ""
 enum equiped {NONE, GUN, PISTOL}
 var current_bullet: String = ""
 var current_gun: equiped
-var dev_override: bool = true
+var dev_override: bool = false
 
 
 var is_climbing := false

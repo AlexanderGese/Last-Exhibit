@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://dc33vug1a1hkq" path="res://custom_nodes/boxes/Hurtbox.gd" id="4_gkkkq"]
 [ext_resource type="Texture2D" uid="uid://djyplybdn3uvl" path="res://assets/sprites/USBase/WreckP51Mustang.png" id="5_24sbq"]
 [ext_resource type="Texture2D" uid="uid://ia4o3tx4l6s" path="res://assets/sprites/USBase/bullet.png" id="6_dehn8"]
+[ext_resource type="PackedScene" uid="uid://c2xp0jmnqddkc" path="res://custom_nodes/ItemPickUp/ItemPickup.tscn" id="7_kiroo"]
+[ext_resource type="Resource" uid="uid://c06bpvtaure6d" path="res://scenes/Epochs/ww2/artifacts/helm.tres" id="8_abj25"]
+[ext_resource type="Resource" uid="uid://bhj2wewuc1ncx" path="res://scenes/Epochs/ww2/artifacts/purple.tres" id="9_rj0qn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8u2i"]
 size = Vector2(1494, 234)
@@ -493,6 +496,14 @@ texture = ExtResource("6_dehn8")
 [node name="CollisionShape2D (Dummy)" type="CollisionShape2D" parent="BossFlugzeug" unique_id=1423074343]
 position = Vector2(0, 57)
 shape = SubResource("RectangleShape2D_24sbq")
+
+[node name="Helm" parent="." unique_id=1858323732 instance=ExtResource("7_kiroo")]
+position = Vector2(218, 0)
+item = ExtResource("8_abj25")
+
+[node name="PurpleHeart" parent="." unique_id=49554343 instance=ExtResource("7_kiroo")]
+position = Vector2(193, 1)
+item = ExtResource("9_rj0qn")
 
 [connection signal="body_entered" from="TriggerZone" to="." method="_on_trigger_zone_body_entered"]
 [connection signal="body_entered" from="WrackLinks/SchadensZone" to="." method="_on_schadens_zone_body_entered"]

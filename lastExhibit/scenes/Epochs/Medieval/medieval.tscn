@@ -1837,10 +1837,12 @@ position = Vector2(4004, -160)
 item = ExtResource("34_b8gl2")
 
 [node name="Ritterhelm" parent="Artifacts" unique_id=2137689700 instance=ExtResource("30_6ivbq")]
+visible = false
 position = Vector2(4384, -17)
 item = ExtResource("35_of0or")
 
 [node name="Schwert" parent="Artifacts" unique_id=1083144416 instance=ExtResource("30_6ivbq")]
+visible = false
 position = Vector2(4286, -18)
 item = ExtResource("36_3rsbm")
 

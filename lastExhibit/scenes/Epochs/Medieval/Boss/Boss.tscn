@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://d42o1mbe2e0h" path="res://assets/sprites/medieval/Knight_1/Run+Attack.png" id="8_k04dk"]
 [ext_resource type="Script" uid="uid://ch3o8csrvxxgv" path="res://custom_nodes/boxes/Hitbox.gd" id="10_k04dk"]
 [ext_resource type="Script" uid="uid://dc33vug1a1hkq" path="res://custom_nodes/boxes/Hurtbox.gd" id="11_k04dk"]
+[ext_resource type="PackedScene" uid="uid://c2xp0jmnqddkc" path="res://custom_nodes/ItemPickUp/ItemPickup.tscn" id="12_ejjo8"]
+[ext_resource type="Resource" uid="uid://cn6qrjp7b1rj0" path="res://scenes/Epochs/Medieval/artifacts/schwert.tres" id="13_xbi04"]
+[ext_resource type="Resource" uid="uid://blf2rumtsil1w" path="res://scenes/Epochs/Medieval/artifacts/ritterhelm.tres" id="14_trxqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nph4w"]
 atlas = ExtResource("2_1s1r8")
@@ -396,7 +399,7 @@ script = ExtResource("1_mx445")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=355402504]
 position = Vector2(24, -32)
 sprite_frames = SubResource("SpriteFrames_xbi04")
-animation = &"stab_middle"
+animation = &"death"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1747127303]
@@ -436,6 +439,14 @@ metadata/_custom_type_script = "uid://dc33vug1a1hkq"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=693122836]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_k04dk")
+
+[node name="Schwert" parent="." unique_id=1858323732 instance=ExtResource("12_ejjo8")]
+position = Vector2(33, 17)
+item = ExtResource("13_xbi04")
+
+[node name="Ritterhelm" parent="." unique_id=1931217889 instance=ExtResource("12_ejjo8")]
+position = Vector2(66, 17)
+item = ExtResource("14_trxqv")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="Hitbox2" to="." method="_on_hitbox_2_area_entered"]

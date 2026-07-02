@@ -24,8 +24,8 @@ signal dialogue_ended
 const SPEED : float = 350.0
 @export var hit_cooldown : float = 3.0
 @export var hit_distanz  : float = 80.0
-@export var kampf_dist    : float = 30.0  #
-@export var max_hp       : int = 5
+@export var kampf_dist    : float = 30.0  
+@export var max_hp       : int = 50
 
 var hit_timer    : float = 0.0
 var is_attacking : bool  = false

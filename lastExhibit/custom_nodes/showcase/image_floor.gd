@@ -1,11 +1,11 @@
 extends TextureRect
 @export var this_room:int
 @onready var image_floor: TextureRect = $"."
-const INKA_FLAG = preload("uid://nylx61lipog")
-const JAPAN_FLAG = preload("uid://ywgxjyaon4co")
-const MEDIEVAL_FLAG = preload("uid://clsnlk4jvaeb8")
-const SOVIET_FLAG = preload("uid://7xwt6srdmn1")
-const WW_2_FLAG = preload("uid://c70f6oraieryh")
+const INKA_FLAG = preload("res://assets/sprites/flags/inka_flag.png")
+const JAPAN_FLAG = preload("res://assets/sprites/flags/japan_flag.png")
+const MEDIEVAL_FLAG = preload("res://assets/sprites/flags/medieval_flag.png")
+const SOVIET_FLAG = preload("res://assets/sprites/flags/soviet_flag.png")
+const WW_2_FLAG = preload("res://assets/sprites/flags/ww2_flag.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
