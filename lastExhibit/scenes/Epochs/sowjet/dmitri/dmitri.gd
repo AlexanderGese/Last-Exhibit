@@ -38,7 +38,6 @@ var player : CharacterBody2D
 
 func _ready(): 
 	orden.visible = false
-	kampf = true
 	await get_tree().process_frame
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:

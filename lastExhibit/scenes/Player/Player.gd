@@ -74,6 +74,7 @@ var is_invincible: bool = false
 
 signal pause
 
+var on_ladder: bool = false
 
 func _ready() -> void:
 	Events.weapon_changed.connect(weapon_change)
@@ -112,8 +113,10 @@ func _physics_process(delta: float) -> void:
 	_handle_escape()
 
 
+
 func _apply_gravity(delta: float) -> void:
-	if is_on_floor():
+
+	if is_on_floor() or on_ladder:
 		return
 	var grav := float(GRAVITY)
 	if velocity.y > 0:
@@ -175,7 +178,7 @@ func _start_climbing() -> void:
 	is_climbing = true
 	velocity = Vector2.ZERO
 	if current_ladder:
-		global_position.x = current_ladder.global_position.x
+		global_position.x = current_ladder.global_position.x+12
 	sprite.play("climb")
 
 
@@ -195,12 +198,22 @@ func _handle_climb(_delta: float) -> void:
 		jump_timer = 0.0
 		return
 	
-	if ladder_count <= 0:
+	if Input.is_action_just_pressed("left"):
 		_stop_climbing()
+		velocity.x = -200
+		return
+
+	if Input.is_action_just_pressed("right"):
+		_stop_climbing()
+		velocity.x = 200
+		return
+		
+
 
 
 func enter_ladder(ladder: Node2D) -> void:
 	ladder_count += 1
+	
 	current_ladder = ladder
 
 

@@ -13,15 +13,18 @@ func _process(delta: float) -> void:
 		else:
 			player_ref.velocity.y = 0
 		if Input.is_action_just_pressed("right"):
-			player_ref.velocity.x = -200
-		elif Input.is_action_just_pressed("left"):
 			player_ref.velocity.x = 200
+		elif Input.is_action_just_pressed("left"):
+			player_ref.velocity.x = -200
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
-		body.ladder_count += 1
 		is_in_area = true
 		player_ref = body
+		print("has enter_ladder: ", body.has_method("enter_ladder"))
+		body.ladder_count += 1
+		if body.has_method("enter_ladder"):
+			body.enter_ladder(self)
 
 func _on_body_exited(body: Node) -> void:
 	if body.is_in_group("player"):
