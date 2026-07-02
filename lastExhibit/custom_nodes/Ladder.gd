@@ -21,7 +21,7 @@ func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		is_in_area = true
 		player_ref = body
-		print("has enter_ladder: ", body.has_method("enter_ladder"))
+		
 		body.ladder_count += 1
 		if body.has_method("enter_ladder"):
 			body.enter_ladder(self)
