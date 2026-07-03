@@ -1,0 +1,5 @@
+~ start
+Dummy: Drücke E, um Objekte aufzuheben
+Dummy: Sie erscheinen dann in deinem Inventar
+$> abort_dialogue()
+=> END

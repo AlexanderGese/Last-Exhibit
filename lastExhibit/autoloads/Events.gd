@@ -15,3 +15,6 @@ signal upgrade_collected(type: String)
 
 signal sw_boss_dead()
 signal weapon_changed(type: String)
+
+signal dialogue_started()
+signal dialogue_ended()

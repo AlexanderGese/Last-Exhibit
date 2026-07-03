@@ -18,9 +18,6 @@ extends CharacterBody2D
 
 var current_balloon = null
 
-signal dialogue_started 
-signal dialogue_ended
-
 const SPEED : float = 350.0
 @export var hit_cooldown : float = 3.0
 @export var hit_distanz  : float = 80.0
@@ -163,7 +160,7 @@ func _on_area_2d_body_entered(body: Node) -> void:
 
 
 func zeige_balloon(): 
-	emit_signal("dialogue_started")
+	Events.dialogue_started.emit()
 	#set_collision_mask_value(1, false)
 	if alien == true:
 		current_balloon = balloon_scene_alien.instantiate()
@@ -179,7 +176,7 @@ func zeige_balloon():
 		DialogueManager.show_dialogue_balloon_scene(current_balloon, dialogue, "start", [self])
 
 func signal_ended():
-	emit_signal("dialogue_ended")
+	Events.dialogue_ended.emit()
 
 func _on_area_2d_body_exited(body: Node) -> void:
 	if body.is_in_group("player"):

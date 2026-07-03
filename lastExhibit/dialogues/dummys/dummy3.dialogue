@@ -1,0 +1,4 @@
+~ start
+Dummy: Und pass auf dich auf, wenn du stirbst, ist es hier vorbei [wave] hihi
+$> abort_dialogue()
+=> END

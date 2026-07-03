@@ -1,0 +1,7 @@
+~ start
+Dummy: Drücke Enter oder die linke Maustaste, um in einem Dialog weiterzukommen
+Dummy: Eine Auswahl im Dialog triffst du mit den Pfeiltasten
+Dummy: Drücke die linke Maustaste, um mich zu hauen
+Dummy: Ich habe 100 Leben, jeder Treffer sind 20 Schaden
+$> abort_dialogue()
+=> END

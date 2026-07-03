@@ -78,6 +78,8 @@ var on_ladder: bool = false
 
 func _ready() -> void:
 	Events.weapon_changed.connect(weapon_change)
+	Events.dialogue_started.connect(_on_dialogue_started)
+	Events.dialogue_ended.connect(_on_dialogue_ended)
 	add_child(escape_menu)
 	save = SaveManager.player
 	save.hp= 6000
@@ -448,10 +450,8 @@ func _handle_escape() -> void:
 		else:
 			escape_menu.show_menu()
 
-
-func _on_dmitri_dialogue_started() -> void:
+func _on_dialogue_started() -> void: 
 	is_in_dialogue = true
-
-
-func _on_dmitri_dialogue_ended() -> void:
+	
+func _on_dialogue_ended() -> void: 
 	is_in_dialogue = false
