@@ -80,8 +80,8 @@ func _on_pin_clicked(epoch: String) -> void:
 		"ww2":
 			get_tree().change_scene_to_file("res://scenes/Epochs/ww2/ww2base.tscn")
 		"japan":
-			get_tree().change_scene_to_file("res://scenes/Epochs/Japan/samurai.tscn")
-		"medival":
+			get_tree().change_scene_to_file("res://scenes/Epochs/Japan/japan.tscn")
+		"mittelalter":
 			get_tree().change_scene_to_file("res://scenes/Epochs/Medieval/medieval.tscn")
 		_:
 			push_warning("Keine Scene für Epoche: %s" % epoch)
@@ -103,7 +103,7 @@ func _on_pin_mittelalter_gui_input(event: InputEvent) -> void:
 
 func _on_pin_samurai_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
-		_on_pin_clicked("samurai")
+		_on_pin_clicked("japan")
 
 func _on_pin_inka_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:

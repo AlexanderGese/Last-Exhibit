@@ -100,6 +100,31 @@ func buy(price: float, item: String, currency: String)-> bool:
 	return this
 
 
+const SELL_MIN_VALUE := 1
+const SELL_RATE := 0.1
+
+func can_sell(item: Item) -> bool:
+	return item != null and item.type == Item.Type.ARTIFACT and item.value >= SELL_MIN_VALUE
+
+func artifact_btc_price(item: Item) -> int:
+	return max(1, int(round(item.value * SELL_RATE)))
+
+func sell_artifact(index: int) -> bool:
+	var slot = inventory.slots[index]
+	if slot == null or not can_sell(slot.item):
+		return false
+	var item: Item = slot.item
+	var price := artifact_btc_price(item)
+	player.btc += price
+	player.add_transcation(item.name, price, "btc")
+	slot.qty -= 1
+	if slot.qty <= 0:
+		inventory.slots[index] = null
+	inventory_changed.emit()
+	save_all(0)
+	return true
+
+
 
 # ── Inventory façade — alle Mutationen laufen hier durch und emiten Node-Signal ──
 
@@ -157,6 +182,12 @@ func add_item(item: Item, qty: int = 1) -> bool:
 func remove_item(index: int) -> void:
 	inventory.remove_item(index)
 	inventory_changed.emit()
+
+func clear_inventory() -> void:
+	for i in inventory.slots.size():
+		inventory.slots[i] = null
+	inventory_changed.emit()
+	save_all(0)
 	
 func equip(index: int) -> void:
 	inventory.equip(index)

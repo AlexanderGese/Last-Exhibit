@@ -18,6 +18,4 @@ signal weapon_changed(type: String)
 signal begin_level()
 signal end_level()
 
-# Survives change_scene_to_file(); set before entering an epoch, read by the
-# freshly instanced Player to start its LevelTimer.
 var in_level := false

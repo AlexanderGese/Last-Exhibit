@@ -7,6 +7,7 @@ func _ready() -> void:
 func _refresh_labels() -> void:
 	$VBoxContainer/Label.visible = not _has_epoch("ww2")
 	$VBoxContainer/Label2.visible = not _has_epoch("mittelalter")
+	$VBoxContainer/Label8.visible = not _has_epoch("japan")
 	$VBoxContainer/Label5.visible = not SaveManager.player.museum_app
 	$VBoxContainer/Label6.visible = not SaveManager.player.tor_app
 	$VBoxContainer/Label7.visible = not SaveManager.player.flappy_app

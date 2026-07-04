@@ -1,30 +1,30 @@
 extends TextureRect
-@export var this_room:int
-@onready var image_floor: TextureRect = $"."
-const INKA_FLAG = preload("res://assets/sprites/flags/inka_flag.png")
-const JAPAN_FLAG = preload("res://assets/sprites/flags/japan_flag.png")
-const MEDIEVAL_FLAG = preload("res://assets/sprites/flags/medieval_flag.png")
-const SOVIET_FLAG = preload("res://assets/sprites/flags/soviet_flag.png")
-const WW_2_FLAG = preload("res://assets/sprites/flags/ww2_flag.png")
+@export var this_room: int
 
-# Called when the node enters the scene tree for the first time.
+const FLAGS := {
+	"inka": preload("res://assets/sprites/flags/inka_flag.png"),
+	"japan": preload("res://assets/sprites/flags/japan_flag.png"),
+	"ww2": preload("res://assets/sprites/flags/ww2_flag.png"),
+	"medieval": preload("res://assets/sprites/flags/medieval_flag.png"),
+	"soviet": preload("res://assets/sprites/flags/soviet_flag.png"),
+}
+
+
 func _ready() -> void:
 	Events.new_floor.connect(change_image)
+	var saved := _saved_type()
+	if FLAGS.has(saved):
+		texture = FLAGS[saved]
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _saved_type() -> String:
+	var rooms = SaveManager.museum.showroom
+	var i := this_room - 1
+	if i >= 0 and i < rooms.size():
+		return rooms[i]
+	return ""
 
 
-func change_image(type: String, room_number: int):
-	if room_number == this_room:
-		if type == "japan":
-			image_floor.texture = JAPAN_FLAG
-		elif type == "ww2":
-			image_floor.texture = WW_2_FLAG
-		elif type == "medieval":
-			image_floor.texture = MEDIEVAL_FLAG
-		elif type == "soviet":
-			image_floor.texture = SOVIET_FLAG
-	pass
+func change_image(type: String, room_number: int) -> void:
+	if room_number == this_room and FLAGS.has(type):
+		texture = FLAGS[type]
