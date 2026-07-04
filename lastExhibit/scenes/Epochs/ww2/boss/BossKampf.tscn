@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c2xp0jmnqddkc" path="res://custom_nodes/ItemPickUp/ItemPickup.tscn" id="7_kiroo"]
 [ext_resource type="Resource" uid="uid://c06bpvtaure6d" path="res://scenes/Epochs/ww2/artifacts/helm.tres" id="8_abj25"]
 [ext_resource type="Resource" uid="uid://bhj2wewuc1ncx" path="res://scenes/Epochs/ww2/artifacts/purple.tres" id="9_rj0qn"]
+[ext_resource type="PackedScene" uid="uid://drac4v5e16tom" path="res://scenes/Epochs/ww2/boss/BossBombe.tscn" id="10_abj25"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8u2i"]
 size = Vector2(1494, 234)
@@ -384,6 +385,12 @@ height = 218.00002
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24sbq"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kiroo"]
+size = Vector2(2553, 109)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abj25"]
+size = Vector2(182, 20)
+
 [node name="BossKampf" type="Node2D" unique_id=1028210209]
 script = ExtResource("1_ock3w")
 
@@ -504,6 +511,21 @@ item = ExtResource("8_abj25")
 [node name="PurpleHeart" parent="." unique_id=49554343 instance=ExtResource("7_kiroo")]
 position = Vector2(193, 1)
 item = ExtResource("9_rj0qn")
+
+[node name="BodenZone" type="Area2D" parent="." unique_id=1743763414 groups=["boden_zone"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodenZone" unique_id=1248110453]
+position = Vector2(2, 70)
+shape = SubResource("RectangleShape2D_kiroo")
+
+[node name="TurmZone" type="Area2D" parent="." unique_id=480416551 groups=["turm_zone"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurmZone" unique_id=130770855]
+position = Vector2(-16, -178)
+shape = SubResource("RectangleShape2D_abj25")
+
+[node name="Bombe" parent="." unique_id=860744746 instance=ExtResource("10_abj25")]
+position = Vector2(-3, -334)
 
 [connection signal="body_entered" from="TriggerZone" to="." method="_on_trigger_zone_body_entered"]
 [connection signal="body_entered" from="WrackLinks/SchadensZone" to="." method="_on_schadens_zone_body_entered"]

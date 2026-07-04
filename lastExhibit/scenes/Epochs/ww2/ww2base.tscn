@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://vy8boieivyjw" path="res://custom_nodes/return/return_machine.tscn" id="21_3j2ve"]
 [ext_resource type="PackedScene" uid="uid://cmydvn6u8pbla" path="res://scenes/Epochs/ww2/boss/BossKampf.tscn" id="22_bvgh1"]
 [ext_resource type="PackedScene" uid="uid://c2xp0jmnqddkc" path="res://custom_nodes/ItemPickUp/ItemPickup.tscn" id="22_f8gdp"]
+[ext_resource type="PackedScene" uid="uid://drac4v5e16tom" path="res://scenes/Epochs/ww2/boss/BossBombe.tscn" id="22_iiv8v"]
 [ext_resource type="Resource" uid="uid://d0saejbw5omes" path="res://scenes/Epochs/ww2/artifacts/schreibmaschine.tres" id="23_fs1pj"]
 [ext_resource type="Resource" uid="uid://dgjk4knl7wtbb" path="res://scenes/Epochs/ww2/artifacts/bild.tres" id="24_fs1pj"]
 [ext_resource type="Resource" uid="uid://dnayuu4dag2oa" path="res://scenes/Epochs/ww2/artifacts/reifen.tres" id="24_ux0pu"]
@@ -1052,6 +1053,7 @@ position = Vector2(8381, -31)
 [node name="BossKampf" parent="." unique_id=1028210209 instance=ExtResource("22_bvgh1")]
 z_index = -1
 position = Vector2(7344, -48)
+bombe_szene = ExtResource("22_iiv8v")
 
 [node name="Artifacts" type="Node2D" parent="." unique_id=1645195667]
 

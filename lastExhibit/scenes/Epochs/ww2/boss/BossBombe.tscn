@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://drac4v5e16tom"]
+
+[ext_resource type="Texture2D" uid="uid://cpmk3xjo77p21" path="res://assets/sprites/USBase/bomb.png" id="1_hx4mh"]
+[ext_resource type="Script" uid="uid://cr310wlu62fq4" path="res://scenes/Epochs/ww2/boss/boss_bombe.gd" id="1_we5ws"]
+[ext_resource type="Texture2D" uid="uid://duhjgppjarknj" path="res://assets/sprites/Sovjet/Explosion/Explosion1.png" id="2_i67r8"]
+[ext_resource type="Texture2D" uid="uid://chf5rgao68r4j" path="res://assets/sprites/Sovjet/Explosion/Explosion2.png" id="3_we5ws"]
+[ext_resource type="Texture2D" uid="uid://bs4ure3m3t3nt" path="res://assets/sprites/Sovjet/Explosion/Explosion3.png" id="4_t20cs"]
+[ext_resource type="Texture2D" uid="uid://lp2vmfe34lv3" path="res://assets/sprites/Sovjet/Explosion/Explosion4.png" id="5_d1vgp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sag64"]
+atlas = ExtResource("1_hx4mh")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2uofa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sag64")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i67r8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_we5ws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t20cs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d1vgp")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i67r8"]
+radius = 35.057095
+
+[node name="Node2D" type="Node2D" unique_id=860744746]
+script = ExtResource("1_we5ws")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1715004120]
+sprite_frames = SubResource("SpriteFrames_2uofa")
+
+[node name="TreffZone" type="Area2D" parent="." unique_id=828699496]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreffZone" unique_id=1774993027]
+position = Vector2(1, -23)
+shape = SubResource("CircleShape2D_i67r8")

@@ -26,6 +26,13 @@ var absturz_nach_links: bool = true
 var kann_schiessen: bool = true
 @onready var muendung = $BossFlugzeug/Marker2D
 
+@export var bombe_szene: PackedScene
+var max_boss_leben: float = 0.0
+
+var schwelle_75: bool = false
+var schwelle_50: bool = false
+var schwelle_25: bool = false
+
 var boss_kampf_gestartet : bool = false
 
 
@@ -33,6 +40,7 @@ func _ready():
 	$BossFlugzeug/Hurtbox.hurt.connect(_on_boss_hurt)
 	helm.visible = false
 	purpleheart.visible = false
+	max_boss_leben = float(boss_leben)
 
 func _process(_delta):
 	if boss_kampf_gestartet:
@@ -114,8 +122,38 @@ func _on_boss_hurt(damage: int, _knockback: Vector2):
 	_play_hurt_flash()
 	boss_leben -= damage
 	
+	if max_boss_leben > 0.0:
+		var aktuelle_prozent = (float(boss_leben) / max_boss_leben) * 100.0
+		
+		if aktuelle_prozent <= 75.0 and not schwelle_75:
+			schwelle_75 = true
+			starte_bombenregen(60)
+		elif aktuelle_prozent <= 50.0 and not schwelle_50:
+			schwelle_50 = true
+			starte_bombenregen(60)
+		elif aktuelle_prozent <= 25.0 and not schwelle_25:
+			schwelle_25 = true
+			starte_bombenregen(60)
+	
 	if boss_leben <= 0:
 		boss_besiegt()
+
+func starte_bombenregen(anzahl: int) -> void:
+	if ist_tot:
+		return
+		
+	for i in range(anzahl):
+		if ist_tot:
+			break
+			
+		var bombe_instanz = bombe_szene.instantiate()
+		
+		var rand_x = randf_range(6200.0 + 50.0, 8000.0 - 50.0)
+		bombe_instanz.global_position = Vector2(rand_x, -500.0)
+		
+		get_tree().current_scene.add_child(bombe_instanz)
+		
+		await get_tree().create_timer(randf_range(0.05, 0.15)).timeout
 
 func _play_hurt_flash() -> void:
 	if flash_tween and flash_tween.is_valid():
