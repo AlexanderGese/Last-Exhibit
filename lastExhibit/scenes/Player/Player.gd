@@ -30,7 +30,7 @@ const CLIMB_SPEED = 180.0
 const HURT_FLASH_COLOR := Color(2.5, 0.3, 0.3, 1)
 const ORIGINAL_MODULATE := Color.WHITE
 const INVINCIBILITY_DURATION := 0.5
-const MAX_RESISTANCE := 0.9  # cap so armor can never fully negate damage
+const MAX_RESISTANCE := 0.9
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_pivot: Node2D = $AttackPivot
@@ -411,7 +411,10 @@ func _die() -> void:
 	if flash_tween and flash_tween.is_valid():
 		flash_tween.kill()
 	sprite.modulate = ORIGINAL_MODULATE
-	
+
+	Events.in_level = false
+	$LevelTimer.stop()
+	SaveManager.clear_inventory()
 	save.hp = save.max_hp
 	SaveManager.save_all(0)
 	await Fader.fade_out(1.0)

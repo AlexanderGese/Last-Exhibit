@@ -11,9 +11,10 @@ extends TextureRect
 @onready var bitcoin: Label = $gui/HBoxContainer/bitcoin/bitcoin
 @onready var coins: Label = $gui/HBoxContainer/coins/coins
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	for lbl in [_1, _2, _3, _4, _5]:
+		lbl.add_theme_font_size_override("font_size", 22)
+		lbl.clip_text = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

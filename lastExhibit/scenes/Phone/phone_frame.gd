@@ -16,9 +16,6 @@ extends TextureRect
 
 func _ready() -> void:
 	Events.purchase_großanzeigen.connect(_on_app_purchased)
-	SaveManager.player.tor_app = false
-	SaveManager.player.museum_app = false
-	SaveManager.player.flappy_app = false
 	_update_all_apps()
 	
 func _on_app_purchased(_type: String) -> void:
