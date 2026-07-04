@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bb6jnixjtju7k" path="res://custom_nodes/Ladder.gd" id="1_8sj1e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ju4t5"]
-size = Vector2(4, 176.5)
+size = Vector2(32, 176.5)
 
 [node name="Ladder" type="Area2D" unique_id=993070367]
 script = ExtResource("1_8sj1e")

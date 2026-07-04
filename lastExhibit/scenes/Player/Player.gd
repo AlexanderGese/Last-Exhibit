@@ -26,7 +26,6 @@ const RANGED_COOLDOWN = 0.4
 const RANGED_ANIM_LOCK = 0.3
 
 const CLIMB_SPEED = 180.0
-const CLIMB_SNAP_SPEED = 600.0  # px/s the player slides sideways to centre on a ladder
 
 const HURT_FLASH_COLOR := Color(2.5, 0.3, 0.3, 1)
 const ORIGINAL_MODULATE := Color.WHITE
@@ -65,8 +64,8 @@ var dev_override: bool = false
 
 
 var is_climbing := false
-var ladders: Array = []          # ladder Area2Ds currently overlapping the player
-var climb_ladder = null          # the ladder being climbed (for column snapping)
+var ladders: Array = []         
+var climb_ladder = null          
 var in_emtpy_showcase: bool = false
 
 var is_inui := false
@@ -92,9 +91,7 @@ func _ready() -> void:
 	hitbox_shape.disabled = true
 	if inventory == null:
 		push_error("Player: kein Inventory zugewiesen!")
-	# Weapon state lives on the Player instance, but the equipped item persists in
-	# SaveManager across scene changes. weapon_changed only fires once (on pickup),
-	# so re-apply the equipped weapon here or it stops working after entering a level.
+
 	var equipped_weapon = SaveManager.inventory.equipped.get("weapon")
 	if equipped_weapon:
 		weapon_change(equipped_weapon.id)
@@ -192,6 +189,8 @@ func _start_climbing() -> void:
 	is_jumping = false
 	climb_ladder = _nearest_ladder()
 	velocity = Vector2.ZERO
+	if climb_ladder:
+		global_position.x = climb_ladder.climb_x()
 	sprite.play("climb")
 
 
@@ -200,13 +199,11 @@ func _stop_climbing() -> void:
 	climb_ladder = null
 
 
-func _handle_climb(delta: float) -> void:
-	# Off every ladder → never climb. This is what prevents mid-air climbing.
+func _handle_climb(_delta: float) -> void:
 	if ladders.is_empty():
 		_stop_climbing()
 		return
 
-	# Jump detaches from the ladder with a small hop.
 	if Input.is_action_just_pressed("jump"):
 		_stop_climbing()
 		velocity.y = JUMP_FORCE * 0.7
@@ -214,16 +211,13 @@ func _handle_climb(delta: float) -> void:
 		jump_timer = 0.0
 		return
 
-	# Vertical movement along the rungs; no free horizontal control.
 	var v := Input.get_axis("up", "down")
 	velocity.y = v * CLIMB_SPEED
 	velocity.x = 0.0
 
-	# Smoothly slide onto the ladder's column.
 	if climb_ladder:
-		global_position.x = move_toward(global_position.x, climb_ladder.climb_x(), CLIMB_SNAP_SPEED * delta)
+		global_position.x = climb_ladder.climb_x()
 
-	# Reaching solid ground at the bottom ends the climb.
 	if is_on_floor() and v >= 0.0:
 		_stop_climbing()
 
@@ -250,7 +244,7 @@ func exit_ladder(ladder) -> void:
 		if is_climbing:
 			_stop_climbing()
 	elif ladder == climb_ladder:
-		climb_ladder = ladders.back()  # still on another ladder — keep climbing that one
+		climb_ladder = ladders.back()  
 
 
 func _handle_attack(delta: float) -> void:
@@ -357,7 +351,6 @@ func getHP() -> int:
 	
 
 func armor_resistance() -> float:
-	# Sum the resistance of every equipped armor piece, capped at MAX_RESISTANCE.
 	var total := 0.0
 	for key in ["head", "body", "legs", "feet"]:
 		var piece = SaveManager.inventory.equipped.get(key)
