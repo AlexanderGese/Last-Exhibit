@@ -26,6 +26,7 @@ const RANGED_COOLDOWN = 0.4
 const RANGED_ANIM_LOCK = 0.3
 
 const CLIMB_SPEED = 180.0
+const CLIMB_SNAP_SPEED = 600.0  # px/s the player slides sideways to centre on a ladder
 
 const HURT_FLASH_COLOR := Color(2.5, 0.3, 0.3, 1)
 const ORIGINAL_MODULATE := Color.WHITE
@@ -64,8 +65,8 @@ var dev_override: bool = false
 
 
 var is_climbing := false
-var ladder_count: int = 0
-var current_ladder: Node2D = null
+var ladders: Array = []          # ladder Area2Ds currently overlapping the player
+var climb_ladder = null          # the ladder being climbed (for column snapping)
 var in_emtpy_showcase: bool = false
 
 var is_inui := false
@@ -77,7 +78,6 @@ var is_invincible: bool = false
 
 signal pause
 
-var on_ladder: bool = false
 
 func _ready() -> void:
 	Events.weapon_changed.connect(weapon_change)
@@ -127,7 +127,7 @@ func _physics_process(delta: float) -> void:
 
 func _apply_gravity(delta: float) -> void:
 
-	if is_on_floor() or on_ladder:
+	if is_on_floor():
 		return
 	var grav := float(GRAVITY)
 	if velocity.y > 0:
@@ -181,60 +181,76 @@ func _handle_jump(delta: float) -> void:
 
 
 func _check_climb_start() -> void:
-	if ladder_count > 0 and (Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down")):
+	if is_climbing or ladders.is_empty():
+		return
+	if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down"):
 		_start_climbing()
 
 
 func _start_climbing() -> void:
 	is_climbing = true
+	is_jumping = false
+	climb_ladder = _nearest_ladder()
 	velocity = Vector2.ZERO
-	if current_ladder:
-		global_position.x = current_ladder.global_position.x+12
 	sprite.play("climb")
 
 
 func _stop_climbing() -> void:
 	is_climbing = false
+	climb_ladder = null
 
 
-func _handle_climb(_delta: float) -> void:
-	var v := Input.get_axis("up", "down")
-	velocity.y = v * CLIMB_SPEED
-	velocity.x = 0
-	
+func _handle_climb(delta: float) -> void:
+	# Off every ladder → never climb. This is what prevents mid-air climbing.
+	if ladders.is_empty():
+		_stop_climbing()
+		return
+
+	# Jump detaches from the ladder with a small hop.
 	if Input.is_action_just_pressed("jump"):
 		_stop_climbing()
 		velocity.y = JUMP_FORCE * 0.7
 		is_jumping = true
 		jump_timer = 0.0
 		return
-	
-	if Input.is_action_just_pressed("left"):
+
+	# Vertical movement along the rungs; no free horizontal control.
+	var v := Input.get_axis("up", "down")
+	velocity.y = v * CLIMB_SPEED
+	velocity.x = 0.0
+
+	# Smoothly slide onto the ladder's column.
+	if climb_ladder:
+		global_position.x = move_toward(global_position.x, climb_ladder.climb_x(), CLIMB_SNAP_SPEED * delta)
+
+	# Reaching solid ground at the bottom ends the climb.
+	if is_on_floor() and v >= 0.0:
 		_stop_climbing()
-		velocity.x = -200
-		return
-
-	if Input.is_action_just_pressed("right"):
-		_stop_climbing()
-		velocity.x = 200
-		return
-		
 
 
+func _nearest_ladder():
+	var best = null
+	var best_dist := INF
+	for l in ladders:
+		var d: float = absf(l.climb_x() - global_position.x)
+		if d < best_dist:
+			best_dist = d
+			best = l
+	return best
 
-func enter_ladder(ladder: Node2D) -> void:
-	ladder_count += 1
-	
-	current_ladder = ladder
+
+func enter_ladder(ladder) -> void:
+	if not ladders.has(ladder):
+		ladders.append(ladder)
 
 
-func exit_ladder() -> void:
-	ladder_count -= 1
-	if ladder_count <= 0:
-		ladder_count = 0
-		current_ladder = null
+func exit_ladder(ladder) -> void:
+	ladders.erase(ladder)
+	if ladders.is_empty():
 		if is_climbing:
 			_stop_climbing()
+	elif ladder == climb_ladder:
+		climb_ladder = ladders.back()  # still on another ladder — keep climbing that one
 
 
 func _handle_attack(delta: float) -> void:

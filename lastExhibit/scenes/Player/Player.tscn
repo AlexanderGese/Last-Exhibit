@@ -334,12 +334,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qt7jd"]
-height = 60.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qt7jd"]
-size = Vector2(50, 40)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_3auhx"]
 atlas = ExtResource("10_jgsuk")
 region = Rect2(0, 0, 32, 64)
@@ -6347,6 +6341,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qt7jd"]
+height = 60.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qt7jd"]
+size = Vector2(50, 40)
+
 [node name="Player" type="CharacterBody2D" unique_id=229592850]
 collision_layer = 255
 collision_mask = 255
@@ -6360,6 +6360,41 @@ position = Vector2(3, 1)
 sprite_frames = SubResource("SpriteFrames_fxc31")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="Rüstung" type="Node2D" parent="." unique_id=1495770343]
+script = ExtResource("10_mn6xr")
+
+[node name="hat" type="Node2D" parent="Rüstung" unique_id=700150485]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rüstung/hat" unique_id=1771538261]
+position = Vector2(4, -1)
+sprite_frames = SubResource("SpriteFrames_fn554")
+animation = &"4walk hat green_4"
+autoplay = "empty"
+
+[node name="top" type="Node2D" parent="Rüstung" unique_id=1815825656]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rüstung/top" unique_id=667923]
+position = Vector2(4, -1)
+sprite_frames = SubResource("SpriteFrames_gw2xx")
+animation = &"empty"
+autoplay = "empty"
+
+[node name="bottom" type="Node2D" parent="Rüstung" unique_id=380514654]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rüstung/bottom" unique_id=1496482810]
+position = Vector2(4, -1)
+sprite_frames = SubResource("SpriteFrames_ybeuo")
+animation = &"empty"
+autoplay = "empty"
+
+[node name="shoes" type="Node2D" parent="Rüstung" unique_id=793583226]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rüstung/shoes" unique_id=1388859742]
+position = Vector2(3, -1)
+sprite_frames = SubResource("SpriteFrames_h0ubf")
+animation = &"empty"
+autoplay = "empty"
 
 [node name="Timer" type="Timer" parent="." unique_id=1452935183]
 process_callback = 0
@@ -6421,41 +6456,6 @@ knockback_force = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackPivot/MeleeHitbox" unique_id=1208803073]
 shape = SubResource("RectangleShape2D_qt7jd")
 disabled = true
-
-[node name="Rüstung" type="Node2D" parent="." unique_id=1495770343]
-script = ExtResource("10_mn6xr")
-
-[node name="hat" type="Node2D" parent="Rüstung" unique_id=700150485]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rüstung/hat" unique_id=1771538261]
-position = Vector2(4, -1)
-sprite_frames = SubResource("SpriteFrames_fn554")
-animation = &"4walk hat green_4"
-autoplay = "empty"
-
-[node name="top" type="Node2D" parent="Rüstung" unique_id=1815825656]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rüstung/top" unique_id=667923]
-position = Vector2(4, -1)
-sprite_frames = SubResource("SpriteFrames_gw2xx")
-animation = &"empty"
-autoplay = "empty"
-
-[node name="bottom" type="Node2D" parent="Rüstung" unique_id=380514654]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rüstung/bottom" unique_id=1496482810]
-position = Vector2(4, -1)
-sprite_frames = SubResource("SpriteFrames_ybeuo")
-animation = &"empty"
-autoplay = "empty"
-
-[node name="shoes" type="Node2D" parent="Rüstung" unique_id=793583226]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rüstung/shoes" unique_id=1388859742]
-position = Vector2(3, -1)
-sprite_frames = SubResource("SpriteFrames_h0ubf")
-animation = &"empty"
-autoplay = "empty"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
