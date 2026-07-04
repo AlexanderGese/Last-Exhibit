@@ -72,9 +72,8 @@ func _on_pin_clicked(epoch: String) -> void:
 	pins[epoch].texture = PIN_SELECTED
 	await get_tree().create_timer(0.8).timeout
 	do_hide()
-	emit_signal("LevelEnter")
 	await Fader.fade_out(1.0)
-	#SaveManager.player_char.enterlevel()
+	Events.in_level = true
 	match epoch:
 		"sowjet":
 			get_tree().change_scene_to_file("res://scenes/Epochs/sowjet/sowjet.tscn")

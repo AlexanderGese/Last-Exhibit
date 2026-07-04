@@ -30,6 +30,7 @@ const CLIMB_SPEED = 180.0
 const HURT_FLASH_COLOR := Color(2.5, 0.3, 0.3, 1)
 const ORIGINAL_MODULATE := Color.WHITE
 const INVINCIBILITY_DURATION := 0.5
+const MAX_RESISTANCE := 0.9  # cap so armor can never fully negate damage
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_pivot: Node2D = $AttackPivot
@@ -38,6 +39,7 @@ const INVINCIBILITY_DURATION := 0.5
 @onready var hurtbox: Hurtbox = $Hurtbox
 @onready var escape_menu = ESCAPEMENU_SCENE.instantiate()
 @onready var inventory: Inventory = SaveManager.inventory
+@onready var level_timer: Timer = $LevelTimer
 
 var save: PlayerSaveFile
 var facing_right := true
@@ -72,14 +74,13 @@ var is_in_dialogue := false
 var flash_tween: Tween = null
 var is_invincible: bool = false
 
+
 signal pause
 
 var on_ladder: bool = false
 
 func _ready() -> void:
 	Events.weapon_changed.connect(weapon_change)
-	Events.dialogue_started.connect(_on_dialogue_started)
-	Events.dialogue_ended.connect(_on_dialogue_ended)
 	add_child(escape_menu)
 	save = SaveManager.player
 	save.hp= 6000
@@ -91,11 +92,19 @@ func _ready() -> void:
 	hitbox_shape.disabled = true
 	if inventory == null:
 		push_error("Player: kein Inventory zugewiesen!")
+	# Weapon state lives on the Player instance, but the equipped item persists in
+	# SaveManager across scene changes. weapon_changed only fires once (on pickup),
+	# so re-apply the equipped weapon here or it stops working after entering a level.
+	var equipped_weapon = SaveManager.inventory.equipped.get("weapon")
+	if equipped_weapon:
+		weapon_change(equipped_weapon.id)
+	if Events.in_level:
+		enterlevel()
 
 
 func _physics_process(delta: float) -> void:
 	anim_locked_until = max(0.0, anim_locked_until - delta)
-	
+	SaveManager.player.playertiner = level_timer.get_time_left()
 	if is_climbing:
 		_handle_climb(delta)
 		_update_animation()
@@ -270,7 +279,7 @@ func weapon_change(type: String):
 		current_gun = equiped.GUN
 	elif type == "pistol":
 		ranged_animation = "shoot_pistol"
-		current_bullet = "BULLET_PISTOl_SCENE"
+		current_bullet = "BULLET_PISTOL_SCENE"
 		current_gun = equiped.PISTOL
 	else:
 		current_bullet = ""
@@ -331,9 +340,20 @@ func getHP() -> int:
 	return save.hp
 	
 
+func armor_resistance() -> float:
+	# Sum the resistance of every equipped armor piece, capped at MAX_RESISTANCE.
+	var total := 0.0
+	for key in ["head", "body", "legs", "feet"]:
+		var piece = SaveManager.inventory.equipped.get(key)
+		if piece:
+			total += piece.resistance
+	return min(total, MAX_RESISTANCE)
+
+
 func take_damage(damage: int) -> void:
-	save.hp -= damage
-	print("Player HP: ", save.hp)
+	var reduced: int = int(round(damage * (1.0 - armor_resistance())))
+	save.hp -= reduced
+	print("Player HP: ", save.hp, " (raw ", damage, " -> ", reduced, " after ", int(armor_resistance() * 100), "% resist)")
 	SaveManager.save_all(0)
 	if save.hp <= 0:
 		_die()
@@ -349,6 +369,8 @@ func heal(amount: int) -> bool:
 func _on_hurt(damage: int, knockback: Vector2) -> void:
 
 	
+	if is_invincible:
+		return
 	take_damage(damage)
 	velocity += knockback
 	_play_hurt_flash()
@@ -428,11 +450,17 @@ func bounce(force: float) -> void:
 
 
 func enterlevel() -> void:
+	print(SaveManager.player.level_time)
+	SaveManager.player.playertiner = $LevelTimer.get_time_left()
 	$LevelTimer.start(SaveManager.player.level_time)
 
 
+
 func _on_level_timer_timeout() -> void:
+	Events.in_level = false
+	Events.end_level.emit()
 	print("Level Vorbei")
+	get_tree().change_scene_to_file("res://scenes/Museum/Museum.tscn")
 
 
 func _on_timer_timeout() -> void:
@@ -450,8 +478,10 @@ func _handle_escape() -> void:
 		else:
 			escape_menu.show_menu()
 
-func _on_dialogue_started() -> void: 
+
+func _on_dmitri_dialogue_started() -> void:
 	is_in_dialogue = true
-	
-func _on_dialogue_ended() -> void: 
+
+
+func _on_dmitri_dialogue_ended() -> void:
 	is_in_dialogue = false

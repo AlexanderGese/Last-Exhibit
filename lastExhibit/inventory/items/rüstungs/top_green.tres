@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cguiulywcjuy2"]
+
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_item"]
+
+[resource]
+script = ExtResource("1_item")
+id = "ruestung_top_green"
+name = "Oberteil Grün"
+type = 3
+value = 25
+resistance = 0.15
+metadata/_custom_type_script = "uid://d4c671jpgfict"

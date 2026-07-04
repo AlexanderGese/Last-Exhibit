@@ -16,14 +16,14 @@ extends SaveFile
 @export var tor_app: bool = false
 @export var museum_app: bool = false
 @export var flappy_app: bool = false
-@export var level_time = 30
+@export var level_time = 60
 # -- Inventory ---------------
 @export var equipped: Dictionary = {}
 @export var messages: Array[String] = ["/","/","/","/","/","/","/","/","/"]
 
 # -- DAta -------
 @export var past_five_transactions: Array[String] = ["/", "/", "/","/","/"]
-
+@export var playertiner: int = 0
 
 func add_transcation(item: String, price: int, currency: String) -> void:
 	var item_label: String = item + " " + str(price) + " " + currency

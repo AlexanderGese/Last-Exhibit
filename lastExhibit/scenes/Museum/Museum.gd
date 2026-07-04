@@ -12,7 +12,6 @@ const VISITOR_SCENE = preload("res://scenes/Museum/visitor.tscn")
 func _ready() -> void:
 	GameClock.day_started.connect(_on_day_started)
 	GameClock.night_started.connect(_on_night_started)
-	
 	if GameClock.is_night:
 		_on_night_started()
 	else:
@@ -22,7 +21,6 @@ func _ready() -> void:
 func _on_day_started() -> void:
 	AudioManager.play("museum_day")
 	start_day()
-
 
 func _on_night_started() -> void:
 	AudioManager.play("museum_night")

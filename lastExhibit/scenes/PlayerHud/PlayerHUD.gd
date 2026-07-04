@@ -7,6 +7,7 @@ extends Control
 @onready var money_label = $TopLeft/MoneyContainer/MoneyLabel
 @onready var shards_label = $TopLeft/ShardsContainer/ShardsLabel
 @onready var time_label = $TopRight/TimeContainer/TimeLabel
+@onready var level_timer: Label = $TopRight/TimeContainer2/LevelTimer
 
 var save: PlayerSaveFile
 
@@ -27,4 +28,6 @@ func _on_time_changed(formatted: String) -> void:
 	time_label.text = formatted
 
 func _process(_delta: float) -> void:
+	level_timer.text = str(SaveManager.player.playertiner)
+	print(SaveManager.player.playertiner)
 	refresh()

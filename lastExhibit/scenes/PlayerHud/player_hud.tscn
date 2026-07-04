@@ -62,12 +62,26 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -154.0
+offset_left = -172.0
 offset_top = 2.0
-offset_right = -68.0
+offset_right = -86.0
 offset_bottom = 79.0
 grow_horizontal = 0
 scale = Vector2(2, 2)
+
+[node name="TimeContainer2" type="HBoxContainer" parent="TopRight" unique_id=309517937]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TopRight/TimeContainer2" unique_id=580340285]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_xjwmk")
+text = "Time Left:"
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelTimer" type="Label" parent="TopRight/TimeContainer2" unique_id=1035399025]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_xjwmk")
+metadata/_edit_use_anchors_ = true
 
 [node name="TimeContainer" type="HBoxContainer" parent="TopRight" unique_id=386742598]
 layout_mode = 2

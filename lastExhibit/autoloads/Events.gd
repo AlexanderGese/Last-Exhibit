@@ -15,6 +15,9 @@ signal upgrade_collected(type: String)
 
 signal sw_boss_dead()
 signal weapon_changed(type: String)
+signal begin_level()
+signal end_level()
 
-signal dialogue_started()
-signal dialogue_ended()
+# Survives change_scene_to_file(); set before entering an epoch, read by the
+# freshly instanced Player to start its LevelTimer.
+var in_level := false

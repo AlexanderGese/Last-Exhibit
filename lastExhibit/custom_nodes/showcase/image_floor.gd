@@ -16,6 +16,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+
 func change_image(type: String, room_number: int):
 	if room_number == this_room:
 		if type == "japan":

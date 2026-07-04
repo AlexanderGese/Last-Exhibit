@@ -1652,7 +1652,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_45re3")
 }],
 "loop": true,
-"name": &"5 climb hat blue",
+"name": &"5climb hat blue",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1681,7 +1681,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_2p685")
 }],
 "loop": true,
-"name": &"5 climb hat brown",
+"name": &"5climb hat brown",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1710,7 +1710,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_owcxy")
 }],
 "loop": true,
-"name": &"5 climb hat green",
+"name": &"5climb hat green",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1739,7 +1739,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_tu4sc")
 }],
 "loop": true,
-"name": &"5 climb hat green_2",
+"name": &"5climb hat green_2",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1768,7 +1768,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ay67l")
 }],
 "loop": true,
-"name": &"5 climb hat green_3",
+"name": &"5climb hat green_3",
 "speed": 5.0
 }, {
 "frames": [{
@@ -1797,7 +1797,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_oq0qd")
 }],
 "loop": true,
-"name": &"5 climb hat green_4",
+"name": &"5climb hat green_4",
 "speed": 5.0
 }, {
 "frames": [{
@@ -6356,7 +6356,7 @@ script = ExtResource("1_ky53y")
 shape = SubResource("CapsuleShape2D_h00vy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=491251229]
-position = Vector2(4, -1)
+position = Vector2(3, 1)
 sprite_frames = SubResource("SpriteFrames_fxc31")
 animation = &"idle"
 autoplay = "idle"
@@ -6430,7 +6430,7 @@ script = ExtResource("10_mn6xr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rüstung/hat" unique_id=1771538261]
 position = Vector2(4, -1)
 sprite_frames = SubResource("SpriteFrames_fn554")
-animation = &"empty"
+animation = &"4walk hat green_4"
 autoplay = "empty"
 
 [node name="top" type="Node2D" parent="Rüstung" unique_id=1815825656]

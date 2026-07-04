@@ -36,11 +36,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		zeige_balloon()
 
 func signal_started(): 
-	Events.dialogue_started.emit()
-
+	#Events.dialogue_started.emit()
+	pass
+	
 func signal_ended():
-	Events.dialogue_ended.emit()
-
+	#Events.dialogue_ended.emit()
+	pass
+	
 func zeige_balloon(): 
 	signal_started()
 	current_balloon = balloon_scene.instantiate()
