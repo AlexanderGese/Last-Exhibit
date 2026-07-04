@@ -24,9 +24,6 @@ func _process(delta: float) -> void:
 	if not on_ladder:
 		return
 	
-	if player_collided and Input.is_action_just_pressed(\"up\"):
-		player.
-		
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yk0t4"]
@@ -34,7 +31,6 @@ size = Vector2(25, 32)
 
 [node name="Leiter" type="Node2D" unique_id=1322786630]
 script = SubResource("GDScript_84btl")
-climb_speed = null
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1680777892]
 
