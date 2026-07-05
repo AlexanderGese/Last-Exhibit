@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dmjr1popugs7y"]
+
+[ext_resource type="Script" uid="uid://pfft54l70fd2" path="res://scenes/Epochs/ww2/JohnathanSinners/johnathan_sinners.gd" id="1_0o1d3"]
+[ext_resource type="Texture2D" uid="uid://cp8p2l7y053ox" path="res://scenes/Epochs/ww2/JohnathanSinners/JohnathanSinners_idle.png" id="2_ltqas"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iv71n"]
+size = Vector2(110.5, 96.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o1d3"]
+atlas = ExtResource("2_ltqas")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltqas"]
+atlas = ExtResource("2_ltqas")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv71n"]
+atlas = ExtResource("2_ltqas")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qceb2"]
+atlas = ExtResource("2_ltqas")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3vsi"]
+atlas = ExtResource("2_ltqas")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ay1fq"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_0o1d3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltqas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv71n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qceb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3vsi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.5
+}]
+
+[node name="JohnathanSinners" type="Node2D" unique_id=1254540900]
+script = ExtResource("1_0o1d3")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=18448469]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=518270376]
+shape = SubResource("RectangleShape2D_iv71n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1522493381]
+sprite_frames = SubResource("SpriteFrames_ay1fq")
+animation = &"idle"
+autoplay = "idle"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
