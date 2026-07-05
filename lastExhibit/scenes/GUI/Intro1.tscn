@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d1pro7x3dbcx5"]
 
 [ext_resource type="FontFile" uid="uid://bafj0agrswp3j" path="res://assets/fonts/Pixuf.ttf" id="1_6sgbr"]
-[ext_resource type="Script" uid="uid://c5g5xk25qe0pp" path="res://scenes/GUI/control.gd" id="1_sdpr1"]
+[ext_resource type="Script" uid="uid://c5g5xk25qe0pp" path="res://scenes/GUI/control_1.gd" id="1_sdpr1"]
 
 [sub_resource type="Animation" id="Animation_6sgbr"]
 length = 0.001
@@ -55,7 +55,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_sdpr1"]
-resource_name = "intro_start"
+resource_name = "intro1"
 length = 12.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -109,12 +109,12 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7iogf"]
 _data = {
 &"RESET": SubResource("Animation_6sgbr"),
-&"intro_start": SubResource("Animation_sdpr1")
+&"intro1": SubResource("Animation_sdpr1")
 }
 
 [node name="IntroManager" type="Node2D" unique_id=343488224]
 
-[node name="Control" type="Control" parent="." unique_id=1352107645]
+[node name="Control1" type="Control" parent="." unique_id=1352107645]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -122,7 +122,7 @@ offset_bottom = 40.0
 size_flags_horizontal = 3
 script = ExtResource("1_sdpr1")
 
-[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1104794660]
+[node name="ColorRect" type="ColorRect" parent="Control1" unique_id=1104794660]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 1
 anchors_preset = 15
@@ -134,7 +134,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.9687125, 0.9108023, 0.80081546, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=493788622]
+[node name="MarginContainer" type="MarginContainer" parent="Control1" unique_id=493788622]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 1
 anchors_preset = 15
@@ -149,10 +149,10 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1433783961]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control1/MarginContainer" unique_id=1433783961]
 layout_mode = 2
 
-[node name="Header" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer" unique_id=1597935326]
+[node name="Header" type="RichTextLabel" parent="Control1/MarginContainer/VBoxContainer" unique_id=1597935326]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -165,7 +165,7 @@ text = "[b]ON THE BRINK OF CLOSURE![/b]"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Line" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer" unique_id=1043970053]
+[node name="Line" type="RichTextLabel" parent="Control1/MarginContainer/VBoxContainer" unique_id=1043970053]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -175,7 +175,7 @@ text = "--------------------"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Sub" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer" unique_id=318446509]
+[node name="Sub" type="RichTextLabel" parent="Control1/MarginContainer/VBoxContainer" unique_id=318446509]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("1_6sgbr")
@@ -184,7 +184,7 @@ text = "MUSEUM BANKRUPTCY"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Text1" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer" unique_id=16394101]
+[node name="Text1" type="RichTextLabel" parent="Control1/MarginContainer/VBoxContainer" unique_id=16394101]
 modulate = Color(1, 1, 0.99607843, 0)
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -201,8 +201,8 @@ THREAT OF DEMOLITION[/b]
 THE CITY'S HISTORIC MUSEUM IS FACING BANKRUPTCY AFTER YEARS OF FINANCIAL STRUGGLES. WITHOUT IMMEDIATE SUPPORT, ITS DOORS MAY CLOSE FOREVER."
 fit_content = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" unique_id=636956673]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control1" unique_id=636956673]
 libraries/ = SubResource("AnimationLibrary_7iogf")
-autoplay = &"intro_start"
+autoplay = &"intro1"
 
-[connection signal="animation_finished" from="Control/AnimationPlayer" to="Control" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="Control1/AnimationPlayer" to="Control1" method="_on_animation_player_animation_finished"]
