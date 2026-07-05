@@ -122,6 +122,7 @@ func _dash_ende() -> void:
 
 func _hit_start() -> void:
 	Tutorials.show_tutorial("first_boss")
+	AudioManager.play("samurai_boss")
 	is_attacking  = true
 	hat_getroffen = false
 	hit_timer     = hit_cooldown
