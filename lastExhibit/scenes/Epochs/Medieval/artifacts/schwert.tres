@@ -8,5 +8,6 @@ script = ExtResource("1_f3dng")
 id = "schwert"
 name = "Ritterschwert"
 icon = ExtResource("1_vlbi4")
+value = 500
 origin = "medieval"
 metadata/_custom_type_script = "uid://d4c671jpgfict"

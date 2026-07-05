@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://cbyo7vtrv0640"]
 
-[ext_resource type="Texture2D" uid="uid://cltxp2l23y70p" path="res://assets/sprites/artifacts/Gasmaske.png" id="1_fl5ca"]
+[ext_resource type="Texture2D" uid="uid://ccdeacf77slx7" path="res://assets/sprites/artifacts/Gasmaske.png" id="1_fl5ca"]
 [ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_pi8xo"]
 
 [resource]
@@ -8,6 +8,6 @@ script = ExtResource("1_pi8xo")
 id = "gasmaske"
 name = "Gasmaske"
 icon = ExtResource("1_fl5ca")
-value = 50
+value = 250
 origin = "soviet"
 metadata/_custom_type_script = "uid://d4c671jpgfict"

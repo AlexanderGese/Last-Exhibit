@@ -10,5 +10,5 @@ name = "Munitionsguertel"
 icon = ExtResource("1_gap7c")
 stackable = true
 max_stack = 5
-value = 5
+value = 40
 metadata/_custom_type_script = "uid://d4c671jpgfict"

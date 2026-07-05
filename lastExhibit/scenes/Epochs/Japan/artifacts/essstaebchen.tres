@@ -10,5 +10,6 @@ name = "Essstäbchen"
 icon = ExtResource("1_l045f")
 stackable = true
 max_stack = 3
+value = 130
 origin = "japan"
 metadata/_custom_type_script = "uid://d4c671jpgfict"

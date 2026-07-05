@@ -10,5 +10,6 @@ name = "Verrostetes Schwert"
 icon = ExtResource("1_hcnqn")
 stackable = true
 max_stack = 3
+value = 150
 origin = "medieval"
 metadata/_custom_type_script = "uid://d4c671jpgfict"

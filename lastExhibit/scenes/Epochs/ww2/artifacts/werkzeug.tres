@@ -10,5 +10,5 @@ name = "Werkzeug"
 icon = ExtResource("1_t4m2a")
 stackable = true
 max_stack = 3
-value = 2
+value = 60
 metadata/_custom_type_script = "uid://d4c671jpgfict"

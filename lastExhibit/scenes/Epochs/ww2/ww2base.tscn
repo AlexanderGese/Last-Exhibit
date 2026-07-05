@@ -26,9 +26,12 @@
 [ext_resource type="Resource" uid="uid://d0saejbw5omes" path="res://scenes/Epochs/ww2/artifacts/schreibmaschine.tres" id="23_fs1pj"]
 [ext_resource type="Resource" uid="uid://dgjk4knl7wtbb" path="res://scenes/Epochs/ww2/artifacts/bild.tres" id="24_fs1pj"]
 [ext_resource type="Resource" uid="uid://dnayuu4dag2oa" path="res://scenes/Epochs/ww2/artifacts/reifen.tres" id="24_ux0pu"]
+[ext_resource type="Resource" uid="uid://dibhjylg4s13c" path="res://scenes/Epochs/ww2/artifacts/feldtelefon.tres" id="25_geoyu"]
 [ext_resource type="Resource" uid="uid://w44s55tpssep" path="res://scenes/Epochs/ww2/artifacts/muni.tres" id="25_ux0pu"]
 [ext_resource type="Resource" uid="uid://qx02jnmk1je5" path="res://scenes/Epochs/ww2/artifacts/werkzeug.tres" id="26_nkm0m"]
 [ext_resource type="Resource" uid="uid://g377260xh74h" path="res://scenes/Epochs/ww2/artifacts/werkzeugkasten.tres" id="27_iiv8v"]
+[ext_resource type="PackedScene" uid="uid://dmjr1popugs7y" path="res://scenes/Epochs/ww2/JohnathanSinners/JohnathanSinners.tscn" id="31_f0qqm"]
+[ext_resource type="Resource" uid="uid://c783soc4d4hec" path="res://dialogues/johnathansinners.dialogue" id="32_f0qqm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ys555"]
 texture = ExtResource("2_r5ffj")
@@ -1058,8 +1061,12 @@ bombe_szene = ExtResource("22_iiv8v")
 [node name="Artifacts" type="Node2D" parent="." unique_id=1645195667]
 
 [node name="Schreibmaschine" parent="Artifacts" unique_id=1858323732 instance=ExtResource("22_f8gdp")]
-position = Vector2(5733, -463)
+position = Vector2(5744, -464)
 item = ExtResource("23_fs1pj")
+
+[node name="Feldtelefon" parent="Artifacts" unique_id=327857736 instance=ExtResource("22_f8gdp")]
+position = Vector2(5706, -465)
+item = ExtResource("25_geoyu")
 
 [node name="Schreibmaschine2" parent="Artifacts" unique_id=502242116 instance=ExtResource("22_f8gdp")]
 position = Vector2(4465, -79)
@@ -1094,7 +1101,7 @@ position = Vector2(3166, -49)
 item = ExtResource("27_iiv8v")
 
 [node name="Muni 3" parent="Artifacts" unique_id=1943758945 instance=ExtResource("22_f8gdp")]
-position = Vector2(5676, -435)
+position = Vector2(5675, -435)
 item = ExtResource("25_ux0pu")
 
 [node name="Muni 2" parent="Artifacts" unique_id=423382103 instance=ExtResource("22_f8gdp")]
@@ -1116,3 +1123,9 @@ item = ExtResource("24_ux0pu")
 [node name="JeepReifen4" parent="Artifacts" unique_id=1261141956 instance=ExtResource("22_f8gdp")]
 position = Vector2(2883, -49)
 item = ExtResource("24_ux0pu")
+
+[node name="JohnathanSinners" parent="." unique_id=1254540900 instance=ExtResource("31_f0qqm")]
+position = Vector2(-249, -59)
+dialogue = ExtResource("32_f0qqm")
+
+[connection signal="pause" from="Player" to="JohnathanSinners" method="_on_player_pause"]

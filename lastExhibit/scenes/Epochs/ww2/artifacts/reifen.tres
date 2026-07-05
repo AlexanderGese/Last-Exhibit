@@ -10,5 +10,5 @@ name = "Jeep-Reifen"
 icon = ExtResource("1_fqkm8")
 stackable = true
 max_stack = 5
-value = 20
+value = 15
 metadata/_custom_type_script = "uid://d4c671jpgfict"

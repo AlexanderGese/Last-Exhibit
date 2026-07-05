@@ -10,5 +10,6 @@ name = "Samurai-Maske"
 icon = ExtResource("1_6pmpv")
 stackable = true
 max_stack = 3
+value = 500
 origin = "japan"
 metadata/_custom_type_script = "uid://d4c671jpgfict"
