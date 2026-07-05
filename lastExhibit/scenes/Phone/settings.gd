@@ -167,7 +167,7 @@ func _perform_reset() -> void:
 	if SaveManager.has_method("_ensure_showcases"):
 		SaveManager._ensure_showcases()
 	
-	SaveManager.save_all(0)
+	SaveManager.save_all()
 	
 	reset_button.text = "Reset durchgeführt — Spiel wird neu geladen..."
 	await get_tree().create_timer(2.0).timeout

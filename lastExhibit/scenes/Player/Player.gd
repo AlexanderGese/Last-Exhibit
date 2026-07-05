@@ -40,6 +40,8 @@ const MAX_RESISTANCE := 0.9
 @onready var escape_menu = ESCAPEMENU_SCENE.instantiate()
 @onready var inventory: Inventory = SaveManager.inventory
 @onready var level_timer: Timer = $LevelTimer
+@onready var phone_ui = $PhoneUI
+@onready var zeitmaschine = $ZeitmaschinenUI
 
 var save: PlayerSaveFile
 var facing_right := true
@@ -58,7 +60,7 @@ var anim_locked_until := 0.0
 
 var ranged_animation: String = ""
 enum equiped {NONE, GUN, PISTOL}
-var current_bullet: String = ""
+var current_bullet_scene: PackedScene = null
 var current_gun: equiped
 var dev_override: bool = false
 
@@ -82,7 +84,6 @@ func _ready() -> void:
 	Events.weapon_changed.connect(weapon_change)
 	add_child(escape_menu)
 	save = SaveManager.player
-	save.hp= 6000
 	$Timer.start()
 	add_to_group("player")
 	sprite.animation_finished.connect(_on_animation_finished)
@@ -97,6 +98,7 @@ func _ready() -> void:
 		weapon_change(equipped_weapon.id)
 	if Events.in_level:
 		enterlevel()
+		Tutorials.show_tutorial("levels")
 
 
 func _physics_process(delta: float) -> void:
@@ -166,6 +168,7 @@ func _handle_jump(delta: float) -> void:
 	
 	if jump_buffer_timer > 0.0 and coyote_timer > 0.0:
 		velocity.y = JUMP_FORCE
+		Effects.play("jump")
 		is_jumping = true
 		jump_timer = 0.0
 		coyote_timer = 0.0
@@ -282,43 +285,40 @@ func _activate_hitbox() -> void:
 	await get_tree().create_timer(MELEE_HIT_WINDOW).timeout
 	hitbox_shape.disabled = true
 
-func weapon_change(type: String):
-	if type == "gun":
-		ranged_animation = "shoot_gun"
-		current_bullet = "BULLET_GUN_SCENE"
-		current_gun = equiped.GUN
-	elif type == "pistol":
-		ranged_animation = "shoot_pistol"
-		current_bullet = "BULLET_PISTOL_SCENE"
-		current_gun = equiped.PISTOL
-	else:
-		current_bullet = ""
-		ranged_animation = ""
-		current_gun = equiped.NONE
-	pass
+func weapon_change(type: String) -> void:
+	match type:
+		"gun":
+			ranged_animation = "shoot_gun"
+			current_bullet_scene = BULLET_GUN_SCENE
+			current_gun = equiped.GUN
+		"pistol":
+			ranged_animation = "shoot_pistol"
+			current_bullet_scene = BUlLET_PISTOL_SCENE
+			current_gun = equiped.PISTOL
+		_:
+			ranged_animation = ""
+			current_bullet_scene = null
+			current_gun = equiped.NONE
 
 
 func _start_ranged_attack() -> void:
-	var arrow = null
-	if current_gun != equiped.NONE or dev_override:	
-		if dev_override:
-			arrow = BULLET_GUN_SCENE.instantiate()
-			ranged_animation = "shoot_gun"
-		ranged_cooldown = RANGED_COOLDOWN
-		sprite.play(ranged_animation)
-		anim_locked_until = RANGED_ANIM_LOCK
-		if current_bullet == "BULLET_PISTOL_SCENE":
-			arrow = BUlLET_PISTOL_SCENE.instantiate()
-		elif current_bullet == "BULLET_GUN_SCENE":
-			arrow = BULLET_GUN_SCENE.instantiate()
-		else:
-			arrow = ARROW_SCENE.instantiate()
-		get_tree().current_scene.add_child(arrow)
-		var offset = Vector2(40 if facing_right else -40, -10)
-		arrow.global_position = global_position + offset
-		arrow.direction = Vector2.RIGHT if facing_right else Vector2.LEFT
-		if arrow.has_node("Sprite2D"):
-			arrow.get_node("Sprite2D").flip_h = not facing_right
+	if current_gun == equiped.NONE and not dev_override:
+		return
+	if dev_override:
+		current_bullet_scene = BULLET_GUN_SCENE
+		ranged_animation = "shoot_gun"
+	ranged_cooldown = RANGED_COOLDOWN
+	sprite.play(ranged_animation)
+	Effects.play(ranged_animation)
+	anim_locked_until = RANGED_ANIM_LOCK
+	var scene: PackedScene = current_bullet_scene if current_bullet_scene else ARROW_SCENE
+	var arrow = scene.instantiate()
+	get_tree().current_scene.add_child(arrow)
+	var offset := Vector2(40 if facing_right else -40, -10)
+	arrow.global_position = global_position + offset
+	arrow.direction = Vector2.RIGHT if facing_right else Vector2.LEFT
+	if arrow.has_node("Sprite2D"):
+		arrow.get_node("Sprite2D").flip_h = not facing_right
 
 
 
@@ -327,9 +327,7 @@ func set_ranged_weapon(animation_name: String) -> void:
 
 
 func _any_ui_open() -> bool:
-	if has_node("ZeitmaschinenUI") and $ZeitmaschinenUI.visible:
-		return true
-	return false
+	return zeitmaschine.visible
 
 
 func _on_animation_finished() -> void:
@@ -346,8 +344,8 @@ func _on_animation_finished() -> void:
 func _update_hitbox_facing() -> void:
 	attack_pivot.scale.x = 1 if facing_right else -1
 
-func getHP() -> int: 
-	return save.hp
+func getHP() -> int:
+	return int(save.hp)
 	
 
 func armor_resistance() -> float:
@@ -360,10 +358,9 @@ func armor_resistance() -> float:
 
 
 func take_damage(damage: int) -> void:
-	var reduced: int = int(round(damage * (1.0 - armor_resistance())))
+	var resist := armor_resistance()
+	var reduced: int = int(round(damage * (1.0 - resist)))
 	save.hp -= reduced
-	print("Player HP: ", save.hp, " (raw ", damage, " -> ", reduced, " after ", int(armor_resistance() * 100), "% resist)")
-	SaveManager.save_all(0)
 	if save.hp <= 0:
 		_die()
 
@@ -372,12 +369,9 @@ func heal(amount: int) -> bool:
 	if save.hp == save.max_hp:
 		return false
 	save.hp = min(save.hp + amount, save.max_hp)
-	SaveManager.save_all(0)
 	return true
 
 func _on_hurt(damage: int, knockback: Vector2) -> void:
-
-	
 	if is_invincible:
 		return
 	take_damage(damage)
@@ -413,10 +407,10 @@ func _die() -> void:
 	sprite.modulate = ORIGINAL_MODULATE
 
 	Events.in_level = false
-	$LevelTimer.stop()
+	level_timer.stop()
 	SaveManager.clear_inventory()
 	save.hp = save.max_hp
-	SaveManager.save_all(0)
+	SaveManager.save_all()
 	await Fader.fade_out(1.0)
 	get_tree().change_scene_to_file("res://scenes/Museum/Museum.tscn")
 
@@ -462,27 +456,25 @@ func bounce(force: float) -> void:
 
 
 func enterlevel() -> void:
-	print(SaveManager.player.level_time)
-	SaveManager.player.playertiner = $LevelTimer.get_time_left()
-	$LevelTimer.start(SaveManager.player.level_time)
+	level_timer.start(SaveManager.player.level_time)
 
 
 
 func _on_level_timer_timeout() -> void:
 	Events.in_level = false
 	Events.end_level.emit()
-	print("Level Vorbei")
+	SaveManager.advance_day()
 	get_tree().change_scene_to_file("res://scenes/Museum/Museum.tscn")
 
 
 func _on_timer_timeout() -> void:
-	SaveManager.save_all(0)
+	SaveManager.save_all()
 
 
 func _handle_escape() -> void:
 	if Input.is_action_just_pressed("phone"):
-		$PhoneUI.visible = not $PhoneUI.visible
-		is_inui = $PhoneUI.visible
+		phone_ui.visible = not phone_ui.visible
+		is_inui = phone_ui.visible
 	if Input.is_action_just_pressed("escape"):
 		pause.emit()
 		if get_tree().paused:

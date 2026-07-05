@@ -113,6 +113,7 @@ func start_boss_intro():
 
 func start_boss_flugzeug() -> void:
 	boss_aktiv = true
+	Tutorials.show_tutorial("first_boss")
 	boss_flugzeug.visible = true
 
 func _on_boss_hurt(damage: int, _knockback: Vector2):
@@ -169,6 +170,7 @@ func _play_hurt_flash() -> void:
 
 func boss_besiegt():
 	ist_tot = true
+	SaveManager.collect_shard("boss_ww2", 5)
 	absturz_nach_links = fliegt_nach_links
 	
 	if has_node("WrackLinks"):

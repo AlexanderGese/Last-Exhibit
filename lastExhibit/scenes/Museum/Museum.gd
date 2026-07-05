@@ -65,7 +65,7 @@ func start_night() -> void:
 	if SaveManager.museum.has_method("collect_daily_income"):
 		var income = SaveManager.museum.collect_daily_income()
 		print("[Museum] Nacht — Einnahmen heute: ", income, "€")
-		SaveManager.save_all(0)
+		SaveManager.save_all()
 
 
 func clear_visitors() -> void:

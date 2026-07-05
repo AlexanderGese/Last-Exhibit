@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 	SaveManager.player.game_minutes = game_minutes
 	_check_phase()  # checkt ob Phase wechselt
 	time_changed.emit(get_formatted_time())
-	SaveManager.save_all(0)  # einmal pro 10-Min-Schritt, am Ende
+	SaveManager.save_all()  # einmal pro 10-Min-Schritt, am Ende
 
 func _is_night_time(minutes: int) -> bool:
 	return minutes >= NIGHT_START_MINUTES or minutes < DAY_START_MINUTES

@@ -121,6 +121,7 @@ func _dash_ende() -> void:
 		$AnimatedSprite2D.play("idle")
 
 func _hit_start() -> void:
+	Tutorials.show_tutorial("first_boss")
 	is_attacking  = true
 	hat_getroffen = false
 	hit_timer     = hit_cooldown
@@ -221,6 +222,7 @@ func _play_hurt_flash() -> void:
 
 func _die() -> void:
 	is_dead = true
+	SaveManager.collect_shard("boss_japan", 5)
 	$AnimatedSprite2D.play("death")
 	set_physics_process(false)
 	is_attacking = false

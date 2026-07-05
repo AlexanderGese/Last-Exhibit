@@ -160,6 +160,7 @@ func _play_hurt_flash() -> void:
 
 func _die() -> void:
 	is_dead = true
+	SaveManager.collect_shard("boss_sowjet", 5)
 	is_attacking = false
 	hurtbox.queue_free()
 	if is_instance_valid(current_atem):
@@ -196,6 +197,7 @@ func _get_spawn(offset_x: float, offset_y: float) -> Vector2:
 
 
 func _pick_attack() -> void:
+	Tutorials.show_tutorial("first_boss")
 	var r = randf()
 	if r < 0.30:
 		atk_molotov()

@@ -27,10 +27,24 @@ func _update_all_apps() -> void:
 	flappy_icon.visible = SaveManager.player.flappy_app
 
 # App-Screens öffnen
-func großanzeigen() -> void: großanzeige.visible = true
-func flappy() -> void: flappybird.visible = true
-func button() -> void: to.visible = true
-func museum() -> void: museu.visible = true
-func revolut() -> void: revolu.visible = true
-func messages() -> void: message.visible = true
-func settings() -> void: setting.visible = true
+func großanzeigen() -> void:
+	großanzeige.visible = true
+	Tutorials.show_tutorial("grossanzeigen")
+func flappy() -> void:
+	flappybird.visible = true
+	Tutorials.show_tutorial("flappy")
+func button() -> void:
+	to.visible = true
+	Tutorials.show_tutorial("tor")
+func museum() -> void:
+	museu.visible = true
+	Tutorials.show_tutorial("museum")
+func revolut() -> void:
+	revolu.visible = true
+	Tutorials.show_tutorial("revolut")
+func messages() -> void:
+	message.visible = true
+	Tutorials.show_tutorial("messages")
+func settings() -> void:
+	setting.visible = true
+	Tutorials.show_tutorial("settings")

@@ -38,7 +38,7 @@ func reset_all_upgrades() -> void:
 		SaveManager.player.pending_upgrades.clear()
 	
 	# Save
-	SaveManager.save_all(0)
+	SaveManager.save_all()
 	
 	# Phone aktualisieren (App-Icons verschwinden)
 	Events.purchase_großanzeigen.emit("reset")

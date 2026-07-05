@@ -7,7 +7,7 @@ extends SaveFile
 # -- Player-Stats -----------------------
 @export var hp: float = 100.0
 @export var max_hp: float = 100.0
-@export var money: int = 100
+@export var money: int = 0
 @export var time_shards: int = 0
 @export var btc: int = 0
 @export var level: int = 1
@@ -24,6 +24,26 @@ extends SaveFile
 # -- DAta -------
 @export var past_five_transactions: Array[String] = ["/", "/", "/","/","/"]
 @export var playertiner: int = 0
+@export var seen_tutorials: Array[String] = []
+@export var collected_shards: Array[String] = []
+
+func _init() -> void:
+	hp = 100.0
+	max_hp = 100.0
+	money = 0
+	time_shards = 0
+	btc = 0
+	level = 1
+	level_time = 60
+	unlocked_epochs = ["sowjet"]
+	tor_app = false
+	museum_app = false
+	flappy_app = false
+	equipped = {}
+	messages = ["/", "/", "/", "/", "/", "/", "/", "/", "/"]
+	past_five_transactions = ["/", "/", "/", "/", "/"]
+	seen_tutorials = []
+	collected_shards = []
 
 func add_transcation(item: String, price: int, currency: String) -> void:
 	var item_label: String = item + " " + str(price) + " " + currency

@@ -11,9 +11,23 @@ extends SaveFile
 @export var second_used: bool = true
 @export var showcases: Array[Showcase] = []
 @export var showroom: Array[String] =  ["", "", "", "", ""]
+@export var last_income_day: int = 0
 
 const BASE_VISITORS: int = 10
 const BASE_TICKET_PRICE: int = 5
+
+func _init() -> void:
+	number = 0
+	current_night = 1
+	total_money_earned = 0
+	reputation = 0
+	ground_used = false
+	first_used = true
+	second_used = true
+	artifacts = []
+	showcases = []
+	showroom = ["", "", "", "", ""]
+	last_income_day = 0
 
 
 func get_daily_visitors() -> int:
@@ -39,6 +53,9 @@ func calculate_daily_income() -> int:
 
 
 func collect_daily_income() -> int:
+	if current_night <= last_income_day:
+		return 0
+	last_income_day = current_night
 	var income = calculate_daily_income()
 	total_money_earned += income
 	if SaveManager.player:

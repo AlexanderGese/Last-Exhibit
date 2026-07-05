@@ -1,21 +1,29 @@
 extends Area2D
 
-var in_area:= false
-@export var amount:= 1
+@export var shard_id: String = ""
+@export var amount := 1
 
-# Called when the node enters the scene tree for the first time.
+var in_area := false
+
+
 func _ready() -> void:
-	pass # Replace with function body.
+	if shard_id != "" and SaveManager.is_shard_collected(shard_id):
+		queue_free()
 
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if in_area and Input.is_action_just_pressed("interact"):
-		in_area = false
-		$CollisionShape2D.disabled = true
+		_collect()
+
+
+func _collect() -> void:
+	in_area = false
+	if shard_id != "":
+		SaveManager.collect_shard(shard_id, amount)
+	else:
 		SaveManager.player.time_shards += amount
-		$Sprite2D.visible = false
+		SaveManager.save_all()
+	queue_free()
 
 
 func _on_body_entered(body: Node2D) -> void:

@@ -31,7 +31,7 @@ func reset_all_showcases() -> void:
 	SaveManager.museum.showroom.resize(5)
 	for i in range(5):
 		SaveManager.museum.showroom[i] = ""
-	SaveManager.save_all(0)
+	SaveManager.save_all()
 	print("Alle Showcases + Showrooms resettet")
 
 
@@ -116,7 +116,7 @@ func placeshowcase(item: Item, index: int) -> void:
 	_refresh_visuals()
 	_refresh_empty_overlay()
 	Events.artifact_place.emit(index)
-	SaveManager.save_all(0)
+	SaveManager.save_all()
 	_on_item_added(item)
 
 
@@ -136,7 +136,7 @@ func pickup_artifact() -> void:
 		_reset_showcase()
 	else:
 		_refresh_visuals()
-		SaveManager.save_all(0)
+		SaveManager.save_all()
 	
 	_on_item_removed(picked_item)
 
@@ -151,7 +151,7 @@ func _reset_showcase() -> void:
 	_refresh_visuals()
 	_refresh_empty_overlay()
 	_maybe_clear_showroom()
-	SaveManager.save_all(0)
+	SaveManager.save_all()
 
 
 func _maybe_clear_showroom() -> void:

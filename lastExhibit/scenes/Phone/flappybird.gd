@@ -51,6 +51,8 @@ func _process(delta: float) -> void:
 			_add_score()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not is_visible_in_tree():
+		return
 	if event.is_action_pressed("ui_accept") or (event is InputEventKey and event.pressed and event.keycode == KEY_SPACE):
 		if is_dead:
 			_reset_game()

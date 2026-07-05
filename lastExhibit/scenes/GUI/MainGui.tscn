@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b4vfkgihxwvbd" path="res://assets/sprites/GUI/Play_Quit.png" id="2_ucjq8"]
 [ext_resource type="Texture2D" uid="uid://c8hdjocigux7s" path="res://assets/sprites/GUI/Settings.png" id="3_t0eap"]
 [ext_resource type="Texture2D" uid="uid://bcglsjh1wnkrw" path="res://assets/images/wallpaper.png" id="4_s0s6x"]
+[ext_resource type="PackedScene" path="res://scenes/GUI/SaveSelect.tscn" id="5_save"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0eap"]
 atlas = ExtResource("2_ucjq8")
@@ -287,6 +288,11 @@ z_index = -1
 position = Vector2(940.5, 497.49997)
 scale = Vector2(2.429314, 2.7513914)
 texture = ExtResource("4_s0s6x")
+
+[node name="SaveSelect" parent="." unique_id=150727993 instance=ExtResource("5_save")]
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

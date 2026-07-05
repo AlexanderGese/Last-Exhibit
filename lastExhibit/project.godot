@@ -27,6 +27,8 @@ DialogueManager="*uid://c3rodes2l3gxb"
 Fader="*uid://x8jcrlwqlsc4"
 AudioManager="*uid://c080hlqgbar8c"
 Events="*uid://ds7t6si0crlf4"
+Effects="*res://autoloads/Effects.gd"
+Tutorials="*res://autoloads/Tutorials.gd"
 
 [dialogue_manager]
 

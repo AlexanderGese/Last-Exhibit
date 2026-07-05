@@ -6,13 +6,14 @@ signal item_dropped(item: Item)
 var player: PlayerSaveFile
 var museum: MuseumsSaveFile
 var achievements: AchievmentSaveFile
-var inventory: Inventory = preload("res://saves/player_inventory.tres")
+var inventory: Inventory
 var player_char
+var current_slot: int = 0
 const SHOWCASE_COUNT = 45
 
 
 func _ready() -> void:
-	load_all(0)
+	load_all()
 	Events.artifact_place.connect(remove_item_from_inv)
 	player_char = get_tree().get_first_node_in_group("player")
 	Events.upgrade_collected.connect(install_upgrade)
@@ -72,20 +73,71 @@ func install_upgrade(type: String):
 		SaveManager.player.unlocked_epochs.append("japan")
 		
 		
-func save_all(slot: int) -> void:
-	player.save(slot)
-	museum.save(slot)
+func _inventory_path(slot: int) -> String:
+	return SaveFile.SAVE_DIR + "slot_%d_Inventory" % slot + SaveFile.EXT
 
-func load_all(slot: int) -> void:
-	player = SaveFile.load_slot(slot, "PlayerSaveFile") as PlayerSaveFile
+func save_all() -> void:
+	player.save(current_slot)
+	museum.save(current_slot)
+	ResourceSaver.save(inventory, _inventory_path(current_slot))
+
+func advance_day() -> int:
+	museum.current_night += 1
+	var income := museum.collect_daily_income()
+	save_all()
+	return income
+
+func load_all() -> void:
+	player = SaveFile.load_slot(current_slot, "PlayerSaveFile") as PlayerSaveFile
 	if player == null:
 		player = PlayerSaveFile.new()
-	
-	museum = SaveFile.load_slot(slot, "MuseumsSaveFile") as MuseumsSaveFile
+
+	museum = SaveFile.load_slot(current_slot, "MuseumsSaveFile") as MuseumsSaveFile
 	if museum == null:
 		museum = MuseumsSaveFile.new()
-	
+
+	var inv_path := _inventory_path(current_slot)
+	if FileAccess.file_exists(inv_path):
+		inventory = ResourceLoader.load(inv_path, "", ResourceLoader.CACHE_MODE_IGNORE) as Inventory
+	else:
+		inventory = null
+	if inventory == null:
+		inventory = Inventory.new()
+
 	_ensure_showcases()
+
+func load_game(slot: int) -> void:
+	current_slot = slot
+	load_all()
+
+func has_save(slot: int) -> bool:
+	return FileAccess.file_exists(SaveFile.SAVE_DIR + "slot_%d_PlayerSaveFile" % slot + SaveFile.EXT)
+
+func reset_all() -> void:
+	var dir = DirAccess.open(SaveFile.SAVE_DIR)
+	if dir:
+		dir.list_dir_begin()
+		var f = dir.get_next()
+		while f != "":
+			if not dir.current_is_dir():
+				dir.remove(f)
+			f = dir.get_next()
+		dir.list_dir_end()
+	current_slot = 0
+	player = PlayerSaveFile.new()
+	museum = MuseumsSaveFile.new()
+	inventory = Inventory.new()
+	_ensure_showcases()
+	inventory_changed.emit()
+	save_all()
+
+func reset_slot(slot: int) -> void:
+	for t in ["PlayerSaveFile", "MuseumsSaveFile", "Inventory"]:
+		var p := SaveFile.SAVE_DIR + "slot_%d_%s" % [slot, t] + SaveFile.EXT
+		if FileAccess.file_exists(p):
+			DirAccess.remove_absolute(p)
+	if slot == current_slot:
+		load_all()
 	
 
 func _ensure_showcases() -> void:
@@ -96,8 +148,19 @@ func _ensure_showcases() -> void:
 
 func buy(price: float, item: String, currency: String)-> bool:
 	var this: bool = player.buy(int(price), item, currency)
-	save_all(0)
+	save_all()
 	return this
+
+func is_shard_collected(id: String) -> bool:
+	return id in player.collected_shards
+
+func collect_shard(id: String, amount: int) -> bool:
+	if id == "" or id in player.collected_shards:
+		return false
+	player.collected_shards.append(id)
+	player.time_shards += amount
+	save_all()
+	return true
 
 
 const SELL_MIN_VALUE := 1
@@ -121,7 +184,7 @@ func sell_artifact(index: int) -> bool:
 	if slot.qty <= 0:
 		inventory.slots[index] = null
 	inventory_changed.emit()
-	save_all(0)
+	save_all()
 	return true
 
 
@@ -187,7 +250,7 @@ func clear_inventory() -> void:
 	for i in inventory.slots.size():
 		inventory.slots[i] = null
 	inventory_changed.emit()
-	save_all(0)
+	save_all()
 	
 func equip(index: int) -> void:
 	inventory.equip(index)
@@ -199,6 +262,8 @@ func equip(index: int) -> void:
 
 
 func try_pickup(item: Item) -> bool:
+	if item.type == Item.Type.ARTIFACT:
+		Tutorials.show_tutorial("first_artifact")
 	var key := inventory.equip_key(item.type)
 	if key != "":
 		var prev = inventory.equipped[key]
