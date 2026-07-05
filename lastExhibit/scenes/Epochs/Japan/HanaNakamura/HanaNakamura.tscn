@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://bavtmbaebgab4"]
+
+[ext_resource type="Script" uid="uid://bj0jjv6y84xx7" path="res://scenes/Epochs/Japan/HanaNakamura/hana_nakamura.gd" id="1_0mnt1"]
+[ext_resource type="Texture2D" uid="uid://g7kxrfed263q" path="res://scenes/Epochs/Japan/HanaNakamura/HanaNakamura_idle.png" id="1_mp6ot"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp6ot"]
+atlas = ExtResource("1_mp6ot")
+region = Rect2(0, 0, 20, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mnt1"]
+atlas = ExtResource("1_mp6ot")
+region = Rect2(20, 0, 20, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6xqv"]
+atlas = ExtResource("1_mp6ot")
+region = Rect2(40, 0, 20, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yrl2"]
+atlas = ExtResource("1_mp6ot")
+region = Rect2(60, 0, 20, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3txj"]
+atlas = ExtResource("1_mp6ot")
+region = Rect2(80, 0, 20, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rfhp"]
+atlas = ExtResource("1_mp6ot")
+region = Rect2(100, 0, 20, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4ril"]
+atlas = ExtResource("1_mp6ot")
+region = Rect2(120, 0, 20, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdsgi"]
+atlas = ExtResource("1_mp6ot")
+region = Rect2(140, 0, 20, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd53s"]
+atlas = ExtResource("1_mp6ot")
+region = Rect2(160, 0, 20, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aex1i"]
+atlas = ExtResource("1_mp6ot")
+region = Rect2(180, 0, 20, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tumd7"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_mp6ot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mnt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6xqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yrl2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3txj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rfhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4ril")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdsgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd53s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aex1i")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.5
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0mdfc"]
+size = Vector2(110.875, 94)
+
+[node name="HanaNakamura" type="Node2D" unique_id=137995595]
+script = ExtResource("1_0mnt1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=359465604]
+sprite_frames = SubResource("SpriteFrames_tumd7")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=999695458]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1295296372]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_0mdfc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

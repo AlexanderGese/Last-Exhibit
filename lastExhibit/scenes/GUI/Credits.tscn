@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://clgwvgbdhj3nb"]
+
+[ext_resource type="Script" uid="uid://btdbgsxle2d4s" path="res://scenes/GUI/Credits.gd" id="1_ui6u0"]
+
+[node name="Credits" type="Node2D" unique_id=979493865]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1115989622]
+script = ExtResource("1_ui6u0")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1672802102]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1452662, 0.1452662, 0.14526615, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1990466191]
+offset_right = 1920.0
+offset_bottom = 1081.0
+theme_override_constants/separation = 192
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=2139435896]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Schulprojekt
+Last-Exibit"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1953403871]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "PROGRAMMING
+Alex
+Paul
+Johannes
+Fabian"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label3" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1708160241]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Game Design
+Alex
+Paul
+Johannes
+Fabian"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label4" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1542989084]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Grafik
+Paul
+Johannes
+Fabian"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label5" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=727563252]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Music & Sound Design
+Alex"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label6" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=2034997648]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Testing 
+our Class"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label7" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=55357001]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Special Thanks 
+Prager
+You for playing"
+horizontal_alignment = 1
+vertical_alignment = 2

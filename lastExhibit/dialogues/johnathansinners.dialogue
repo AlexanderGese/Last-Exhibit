@@ -1,0 +1,23 @@
+~ start
+JohnathanSinners: [wave]AAAAAH[/wave]
+JohnathanSinners: Schon wieder ein deutscher Spion! Wie gelangen die bloß auf das scheiß Gelände?
+JohnathanSinners: Sehen Sie zu, dass Sie sich verpissen sonst landen Sie gleich beim Rest [wait=1] und Sie wollen nicht wissen, wo das ist!
+David: Entschuldigen Sie, aber ich bin gar kein Spion.
+JohnathanSinners: Ach ja? Wie wollen Sie mir das beweisen? 
+David: Da muss ich Ihnen wohl ein Geheimnis anvertrauen...
+JohnathanSinners: Na da bin ich ja mal gespannt!
+David: Ich habe eine Zeitmaschine, die mich an zufällige Orte der Geschichte bringt. Und jetzt bin ich hier gelandet!
+JohnathanSinners: Eine... [wait=1] was? Wie ist das möglich? Wir sind doch die Einzigen... Davon muss unbedingt dem Prä#!*.
+David: Wie bitte?
+JohnathanSinners: Ach nichts, alles gut! 
+David: Okay...
+David: Können Sie mir verraten, wo ich bin?
+JohnathanSinners: Sie befinden sich in den Vereinigten Staaten von Amerika im Bundesstaat Kalifornien!
+JohnathanSinners: Mein Name ist Johnathan Sinners, ich bin oberster Kommandeur dieser Luftwaffenbasis!
+David: Respekt, Respekt. Aber etwas kompakt für so eine hohe Stellung, nicht?
+JohnathanSinners: Bitte? Sie deutsches Arschloch! Wollen Sie wirklich, dass ich Ihnen den Kopf wegblase? Ich wollte Sie eigentlich gehen lassen!
+JohnathanSinners: Wegen euch und eurem verschissenen Bombenangriff zuckt mein Auge den ganzen Tag! Lust hätte ich schon!
+David: Ich nehme alles zurück, Herr Oberst! Entschuldigen Sie.
+JohnathanSinners: Ich bin heute zu gnädig, verziehen Sie sich. Aber passen sie auf meine Kollegen da vorne auf, die sind nicht so gut gelaunt wie ich [wave] HAHA
+$> set_angesprochen()
+=> END
