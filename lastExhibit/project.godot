@@ -154,7 +154,7 @@ right_click={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogues/dmitri.dialogue", "res://dialogues/dmitri_alien.dialogue", "res://dialogues/dmitri_beleidigt.dialogue", "res://dialogues/dummys/dummy1.dialogue", "res://dialogues/dummys/dummy2.dialogue", "res://dialogues/dummys/dummy3.dialogue", "res://dialogues/johnathansinners.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogues/dmitri.dialogue", "res://dialogues/dmitri_alien.dialogue", "res://dialogues/dmitri_beleidigt.dialogue", "res://dialogues/dummys/dummy1.dialogue", "res://dialogues/dummys/dummy2.dialogue", "res://dialogues/dummys/dummy3.dialogue", "res://dialogues/johnathansinners.dialogue", "res://dialogues/hananakamura.dialogue")
 
 [layer_names]
 

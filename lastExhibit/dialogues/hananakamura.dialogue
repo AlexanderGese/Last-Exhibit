@@ -1,0 +1,15 @@
+~ start
+HanaNakamura: Hello dear, it is a pleasure to meet you! Where do you come from? I have never seen you around here.
+David: Hello, Misses...?
+HanaNakamura: Hana. Hana Nakamura.
+David: Interesting name. Do you know what it stands for? 
+HanaNakamura: It is a quite traditional japanese name. Hana means flower and nakamura means something like "village in the middle"
+David: Wow. Beautiful!
+David: My name is David. It originates from Hebrew and means "the loved one"!
+HanaNakamura: [wave]hihi[/wave] That is something beautiful too! 
+HanaNakamura: I hope you have a great time here in Narai-juku. 
+HanaNakamura: But you have to watch out: For a few days now some samurai soldiers settled down. 
+HanaNakamura: They look so aggressive. I cant calm them down with tea or anything!
+David: No worries, I know how to watch out for myself!
+$> set_angesprochen()
+=> END

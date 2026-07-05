@@ -32,6 +32,8 @@
 [ext_resource type="PackedScene" uid="uid://cbh1pvk5tk4v7" path="res://scenes/Epochs/Japan/Gate/Gate2.tscn" id="30_jhk7b"]
 [ext_resource type="Script" uid="uid://dksfvtl3foppk" path="res://scenes/Epochs/Japan/arena.gd" id="31_lnht1"]
 [ext_resource type="PackedScene" uid="uid://cogpd7yopf1x" path="res://scenes/Epochs/Japan/Boss/Samurai Boss.tscn" id="32_1slg1"]
+[ext_resource type="PackedScene" uid="uid://bavtmbaebgab4" path="res://scenes/Epochs/Japan/HanaNakamura/HanaNakamura.tscn" id="33_1slg1"]
+[ext_resource type="Resource" uid="uid://t5nvgrhmepc7" path="res://dialogues/hananakamura.dialogue" id="34_kyhw3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lljqo"]
 texture = ExtResource("1_qa2ky")
@@ -890,8 +892,13 @@ boss_scene = ExtResource("32_1slg1")
 position = Vector2(1376.5, -64.5)
 shape = SubResource("RectangleShape2D_kyhw3")
 
+[node name="HanaNakamura" parent="." unique_id=137995595 instance=ExtResource("33_1slg1")]
+position = Vector2(-889, -21)
+dialogue = ExtResource("34_kyhw3")
+
 [connection signal="body_entered" from="Ladders/Ladder" to="Ladders/Ladder" method="_on_body_entered"]
 [connection signal="body_exited" from="Ladders/Ladder" to="Ladders/Ladder" method="_on_body_exited"]
 [connection signal="body_entered" from="Ladders/Ladder2" to="Ladders/Ladder2" method="_on_body_entered"]
 [connection signal="body_exited" from="Ladders/Ladder2" to="Ladders/Ladder2" method="_on_body_exited"]
+[connection signal="pause" from="Player" to="HanaNakamura" method="_on_player_pause"]
 [connection signal="body_entered" from="Arena" to="Arena" method="_on_body_entered"]
