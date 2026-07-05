@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://d24rtn1phc1fa"]
 
 [ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_mkh1j"]
-[ext_resource type="Texture2D" uid="uid://cgugdkgiu6mhe" path="res://assets/sprites/artifacts/Sputnik Satellit.png" id="1_vb5i4"]
+[ext_resource type="Texture2D" uid="uid://dhfttxdgpwa6x" path="res://assets/sprites/artifacts/Sputnik Satellit.png" id="1_vb5i4"]
 
 [resource]
 script = ExtResource("1_mkh1j")
 id = "sputnik"
 name = "Sputnik-Satellit"
 icon = ExtResource("1_vb5i4")
-value = 100
+value = 420
 big_artifact = true
 origin = "soviet"
 metadata/_custom_type_script = "uid://d4c671jpgfict"

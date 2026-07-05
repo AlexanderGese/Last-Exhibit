@@ -8,5 +8,5 @@ script = ExtResource("1_thdp1")
 id = "purple"
 name = "Purple-Heart"
 icon = ExtResource("1_ol2m7")
-value = 60
+value = 500
 metadata/_custom_type_script = "uid://d4c671jpgfict"

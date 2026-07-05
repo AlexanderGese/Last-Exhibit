@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://bt6kxovuhmkjo"]
 
 [ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_afhfn"]
-[ext_resource type="Texture2D" uid="uid://bedg6bx3lbxe2" path="res://assets/sprites/artifacts/Laika.png" id="1_p2nr1"]
+[ext_resource type="Texture2D" uid="uid://ffkx2xoedvna" path="res://assets/sprites/artifacts/Laika.png" id="1_p2nr1"]
 
 [resource]
 script = ExtResource("1_afhfn")
 id = "laika"
 name = "Laika"
 icon = ExtResource("1_p2nr1")
-value = 25
+value = 170
 origin = "soviet"
 metadata/_custom_type_script = "uid://d4c671jpgfict"

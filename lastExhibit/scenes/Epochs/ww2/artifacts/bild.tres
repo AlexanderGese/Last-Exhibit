@@ -8,4 +8,5 @@ script = ExtResource("1_5oteh")
 id = "bild"
 name = "Bild"
 icon = ExtResource("1_j7dfi")
+value = 110
 metadata/_custom_type_script = "uid://d4c671jpgfict"
