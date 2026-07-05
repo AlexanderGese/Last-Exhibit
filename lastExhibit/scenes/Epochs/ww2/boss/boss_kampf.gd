@@ -114,6 +114,7 @@ func start_boss_intro():
 func start_boss_flugzeug() -> void:
 	boss_aktiv = true
 	Tutorials.show_tutorial("first_boss")
+	AudioManager.play("ww2_boss")
 	boss_flugzeug.visible = true
 
 func _on_boss_hurt(damage: int, _knockback: Vector2):

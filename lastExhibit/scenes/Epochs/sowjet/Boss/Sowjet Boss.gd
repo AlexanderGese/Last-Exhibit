@@ -198,6 +198,7 @@ func _get_spawn(offset_x: float, offset_y: float) -> Vector2:
 
 func _pick_attack() -> void:
 	Tutorials.show_tutorial("first_boss")
+	AudioManager.play("soviet_boss")
 	var r = randf()
 	if r < 0.30:
 		atk_molotov()

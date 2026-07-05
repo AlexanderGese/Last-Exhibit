@@ -160,7 +160,7 @@ func _on_area_2d_body_entered(body: Node) -> void:
 
 
 func zeige_balloon(): 
-	#Events.dialogue_started.emit()
+	Events.dialogue_started.emit()
 	#set_collision_mask_value(1, false)
 	if alien == true:
 		current_balloon = balloon_scene_alien.instantiate()
@@ -176,7 +176,7 @@ func zeige_balloon():
 		DialogueManager.show_dialogue_balloon_scene(current_balloon, dialogue, "start", [self])
 
 func signal_ended():
-	#Events.dialogue_ended.emit()
+	Events.dialogue_ended.emit()
 	pass
 
 func _on_area_2d_body_exited(body: Node) -> void:

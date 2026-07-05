@@ -25,7 +25,8 @@ func _ready() -> void:
 	add_child(current_player)
 
 func play(track_name: String, crossfade: float = 2.0) -> void:
-	return
+	if not TRACKS.has(track_name):
+		return
 	if current_track == track_name:
 		return
 	current_track = track_name
@@ -34,6 +35,8 @@ func play(track_name: String, crossfade: float = 2.0) -> void:
 	var new_player = AudioStreamPlayer.new()
 	add_child(new_player)
 	new_player.stream = load(TRACKS[track_name])
+	if "loop" in new_player.stream:
+		new_player.stream.loop = true
 	new_player.volume_db = -80
 	new_player.play()
 

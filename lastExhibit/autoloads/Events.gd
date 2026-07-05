@@ -17,5 +17,7 @@ signal sw_boss_dead()
 signal weapon_changed(type: String)
 signal begin_level()
 signal end_level()
+signal dialogue_started()
+signal dialogue_ended()
 
 var in_level := false

@@ -76,12 +76,16 @@ func _on_pin_clicked(epoch: String) -> void:
 	Events.in_level = true
 	match epoch:
 		"sowjet":
+			AudioManager.play("soviet")
 			get_tree().change_scene_to_file("res://scenes/Epochs/sowjet/sowjet.tscn")
 		"ww2":
+			AudioManager.play("ww2")
 			get_tree().change_scene_to_file("res://scenes/Epochs/ww2/ww2base.tscn")
 		"japan":
+			AudioManager.play("samurai")
 			get_tree().change_scene_to_file("res://scenes/Epochs/Japan/japan.tscn")
 		"mittelalter":
+			AudioManager.play("medieval")
 			get_tree().change_scene_to_file("res://scenes/Epochs/Medieval/medieval.tscn")
 		_:
 			push_warning("Keine Scene für Epoche: %s" % epoch)
