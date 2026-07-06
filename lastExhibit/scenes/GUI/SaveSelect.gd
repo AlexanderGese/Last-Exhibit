@@ -36,10 +36,17 @@ func _refresh() -> void:
 		_del_btns[i].visible = exists
 
 
-func _start(slot: int) -> void:
-	SaveManager.load_game(slot)
-	get_tree().change_scene_to_file("res://scenes/Museum/Museum.tscn")
+#func _start(slot: int) -> void:
+	#SaveManager.load_game(slot)
+	#get_tree().change_scene_to_file("res://scenes/Museum/Museum.tscn")
 
+func _start(slot: int) -> void:
+	var is_new_game: bool = not SaveManager.has_save(slot)
+	SaveManager.load_game(slot)
+	if is_new_game:
+		get_tree().change_scene_to_file("res://scenes/GUI/Intro1.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/Museum/Museum.tscn")
 
 func _delete(slot: int) -> void:
 	SaveManager.reset_slot(slot)
