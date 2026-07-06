@@ -10,7 +10,6 @@ extends CharacterBody2D
 @export var attack_cooldown : float = 3.0
 @export var knockback_resistance : float = 0.7   
 
-
 @export var tuer1 : AnimatedSprite2D
 @export var tuer2 : AnimatedSprite2D
 @export var tuer3 : AnimatedSprite2D
@@ -27,7 +26,6 @@ var is_cornered : bool = false
 var is_sprinting : bool = false
 var sprint_ziel_x : float = 0.0
 var player_collided : bool = false
-
 enum State { WALK, SPRINT, SPRINT2 }
 var state : State = State.WALK
 var facing_right : bool = true
@@ -61,14 +59,14 @@ func _physics_process(delta: float) -> void:
 	
 	if state == State.WALK:
 		if attack_timer <= 0.0 and not is_attacking:
-			_pick_attack()
+			pick_attack()
 			attack_timer = attack_cooldown
 		
 		velocity.x = move_toward(velocity.x, 0.0, 20.0)
-		var dist = _distx()
+		var dist = distx()
 		var dir = sign(player.global_position.x - global_position.x)
 		
-		var too_close = _distx() < 100.0
+		var too_close = distx() < 100.0
 		if too_close and state != State.SPRINT:
 			state = State.SPRINT
 		elif dist > 350.0:
@@ -104,7 +102,7 @@ func _physics_process(delta: float) -> void:
 			state = State.WALK
 		
 	move_and_slide()
-	
+	#regelt die Richtung des Bosses
 	if velocity.x > 5:
 		facing_right = true
 	elif velocity.x < -5:
@@ -115,7 +113,7 @@ func _physics_process(delta: float) -> void:
 	
 	_update_animation()
 
-
+#setzt die animation der sprit richtig
 func _update_animation() -> void:
 	if is_attacking or is_dead:
 		return
@@ -137,17 +135,14 @@ func _update_animation() -> void:
 func _on_hurt(damage: int, knockback: Vector2) -> void:
 	if is_dead:
 		return
-	
 	hp -= damage
 	velocity += knockback * (1.0 - knockback_resistance)
-	
 	_play_hurt_flash()
-	
 	if hp <= 0:
 		Events.sw_boss_dead.emit()
-		_die()
+		die()
 
-
+#rotes overlay als Schadens indikator
 func _play_hurt_flash() -> void:
 	if flash_tween and flash_tween.is_valid():
 		flash_tween.kill()
@@ -157,8 +152,8 @@ func _play_hurt_flash() -> void:
 	flash_tween.tween_interval(0.1)
 	flash_tween.tween_property(sprite, "modulate", ORIGINAL_MODULATE, 0.2)
 
-
-func _die() -> void:
+#wenn der boss stirbt, werden alle wichtigen unter-Szenen beendet
+func die() -> void:
 	is_dead = true
 	SaveManager.collect_shard("boss_sowjet", 5)
 	is_attacking = false
@@ -179,24 +174,17 @@ func _die() -> void:
 	tween.tween_property(sprite, "modulate:a", 0.0, 0.8)
 	tween.tween_callback(queue_free)
 
-
-func _dist() -> float:
-	if player == null:
-		return 9999.0
-	return global_position.distance_to(player.global_position)
-
-
-func _distx() -> float:
+func distx() -> float:
 	if player == null:
 		return 9999.0
 	return abs(global_position.x - player.global_position.x)
 
 
-func _get_spawn(offset_x: float, offset_y: float) -> Vector2:
+func get_spawn(offset_x: float, offset_y: float) -> Vector2:
 	return global_position + Vector2(offset_x if facing_right else -offset_x, offset_y)
 
-
-func _pick_attack() -> void:
+#wählt die nächste Attacke
+func pick_attack() -> void:
 	Tutorials.show_tutorial("first_boss")
 	AudioManager.play("soviet_boss")
 	var r = randf()
@@ -207,7 +195,7 @@ func _pick_attack() -> void:
 	else:
 		atk_granate()
 
-
+#wirft eine Molotov, welcher den Boden entzündet
 func atk_molotov() -> void:
 	is_attacking = true
 	sprite.speed_scale = 1.0
@@ -220,10 +208,10 @@ func atk_molotov() -> void:
 	
 	var flasche = flasche_scene.instantiate()
 	get_parent().add_child(flasche)
-	flasche.setup(_get_spawn(15, -20), player.global_position)
+	flasche.setup(get_spawn(15, -20), player.global_position)
 	is_attacking = false
 
-
+# schiesst eine Salve
 func atk_AK47() -> void:
 	is_attacking = true
 	sprite.speed_scale = 1.0
@@ -237,7 +225,7 @@ func atk_AK47() -> void:
 			return
 		var bullet = bullet_scene.instantiate()
 		get_parent().add_child(bullet)
-		bullet.setup(_get_spawn(15, -15), Vector2(1.0 if facing_right else -1.0, 0.0))
+		bullet.setup(get_spawn(15, -15), Vector2(1.0 if facing_right else -1.0, 0.0))
 	
 	# Safety-Timeout falls animation_finished nicht feuert
 	var timeout = get_tree().create_timer(0.5)
@@ -246,7 +234,7 @@ func atk_AK47() -> void:
 	
 	is_attacking = false
 
-
+#wirft eine Granate, welche explodiert
 func atk_granate() -> void:
 	is_attacking = true
 	sprite.speed_scale = 1.0
@@ -259,5 +247,5 @@ func atk_granate() -> void:
 	
 	var granate = granate_scene.instantiate()
 	get_parent().add_child(granate)
-	granate.setup(_get_spawn(15, -20), player.global_position)
+	granate.setup(get_spawn(15, -20), player.global_position)
 	is_attacking = false

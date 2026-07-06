@@ -20,7 +20,7 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	queue_free()
 
-
+#aktiviert die damage hitbox jeden damage tick und deaktiviert sie wieder
 func _on_damage_tick_timeout() -> void:
 	hitbox_shape.disabled = false
 	await get_tree().create_timer(0.05).timeout

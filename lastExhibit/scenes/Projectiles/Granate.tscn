@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bretgqkr4uw4s" path="res://scenes/Projectiles/granate.gd" id="1_bg1dq"]
 [ext_resource type="PackedScene" uid="uid://383rfo77w2gg" path="res://scenes/Projectiles/explosion.tscn" id="2_3ypra"]
-[ext_resource type="Script" uid="uid://ch3o8csrvxxgv" path="res://custom_nodes/boxes/Hitbox.gd" id="3_3ypra"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_enb13"]
 
@@ -20,13 +19,7 @@ explosion_scene = ExtResource("2_3ypra")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=110138921]
 sprite_frames = SubResource("SpriteFrames_enb13")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1446018848]
-collision_layer = 16
-collision_mask = 3
-script = ExtResource("3_3ypra")
-damage = 50
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=444512932]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=444512932]
 shape = SubResource("CircleShape2D_enb13")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

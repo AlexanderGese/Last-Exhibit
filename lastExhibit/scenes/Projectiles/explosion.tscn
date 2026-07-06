@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://b47kab41nntql" path="res://assets/sprites/Sovjet/Explosion/Explosion10.png" id="11_km60t"]
 [ext_resource type="Script" uid="uid://ch3o8csrvxxgv" path="res://custom_nodes/boxes/Hitbox.gd" id="12_vkcr5"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vkcr5"]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_to5yp"]
 animations = [{
 "frames": [],
@@ -57,10 +59,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cpb1e"]
-radius = 64.00781
+radius = 96.0
 
 [node name="Area2D" type="Area2D" unique_id=2057928728]
 script = ExtResource("1_cpb1e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=586758093]
+shape = SubResource("CircleShape2D_vkcr5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=852154851]
 position = Vector2(-9, -21)

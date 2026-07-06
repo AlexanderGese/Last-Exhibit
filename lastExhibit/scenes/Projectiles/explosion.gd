@@ -10,7 +10,6 @@ func explode() -> void:
 	await get_tree().create_timer(0.1).timeout
 	_deal_damage()
 	await $AnimatedSprite2D.animation_finished
-	print("queue_free: ", get_instance_id())
 	queue_free()
 
 func _deal_damage() -> void:

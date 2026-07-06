@@ -17,6 +17,7 @@ func setup(start: Vector2, target: Vector2) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
+	#ruft die Feuer-Szene auf und löscht sich
 	if fire_scene:
 		var fire = fire_scene.instantiate()
 		get_parent().add_child(fire)

@@ -242,7 +242,6 @@ func enter_ladder(ladder) -> void:
 	if not ladders.has(ladder):
 		ladders.append(ladder)
 
-
 func exit_ladder(ladder) -> void:
 	ladders.erase(ladder)
 	if ladders.is_empty():
@@ -250,7 +249,6 @@ func exit_ladder(ladder) -> void:
 			_stop_climbing()
 	elif ladder == climb_ladder:
 		climb_ladder = ladders.back()  
-
 
 func _handle_attack(delta: float) -> void:
 	if combo_reset_timer > 0.0:

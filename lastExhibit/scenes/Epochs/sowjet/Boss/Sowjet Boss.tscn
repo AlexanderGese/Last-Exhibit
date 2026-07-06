@@ -224,12 +224,6 @@ sprite_frames = SubResource("SpriteFrames_fkpll")
 animation = &"walk"
 autoplay = "idle"
 
-[node name="Vodka atem Spawn" type="Marker2D" parent="." unique_id=1470432380]
-position = Vector2(6, -20)
-
-[node name="Spawn" type="Marker2D" parent="." unique_id=891704831]
-position = Vector2(14, -21)
-
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1346542412]
 collision_layer = 4
 collision_mask = 8

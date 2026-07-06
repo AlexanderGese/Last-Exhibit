@@ -10,7 +10,9 @@ func setup(start: Vector2, target: Vector2) -> void:
 	var vx    = diff.x / time
 	var vy    = (diff.y - 0.5 * grav * time * time) / time
 	linear_velocity = Vector2(vx, vy)
+
 func _on_body_entered(body: Node) -> void:
+	#ruft die Explosions-Szene auf und löscht sich
 	if explosion_scene:
 		var explosion = explosion_scene.instantiate()
 		get_parent().add_child(explosion)

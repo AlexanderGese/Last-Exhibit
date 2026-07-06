@@ -42,7 +42,7 @@ vertical_alignment = 2
 [node name="Label3" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1708160241]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-text = "Game Design
+text = "GAME DESIGN
 Alex
 Paul
 Johannes
@@ -53,7 +53,7 @@ vertical_alignment = 2
 [node name="Label4" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1542989084]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-text = "Grafik
+text = "GRAPHICAL DISIGN
 Paul
 Johannes
 Fabian"
@@ -63,7 +63,7 @@ vertical_alignment = 2
 [node name="Label5" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=727563252]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-text = "Music & Sound Design
+text = "MUSIC AND SOUND DESIGN
 Alex"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -71,7 +71,7 @@ vertical_alignment = 2
 [node name="Label6" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=2034997648]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-text = "Testing 
+text = "TESTING 
 our Class"
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -79,7 +79,7 @@ vertical_alignment = 2
 [node name="Label7" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=55357001]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-text = "Special Thanks 
+text = "SPACIAL THANKS 
 Prager
 You for playing"
 horizontal_alignment = 1
