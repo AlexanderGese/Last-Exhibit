@@ -1,0 +1,47 @@
+~ start
+TheDarkKnight: Hello fellow Christian! Why are you wandering around here in the woods?
+David: Im sorry for interrupting you! 
+TheDarkKnight: No worries, companion. I could swear I´ve seen you before around here. 
+- Thats possible
+	=> Possible
+- Not possible
+	=> NotPossible
+
+~ Possible
+David: Thats possible. Im walking here quite often to free my mind.
+TheDarkKnight: Nice to hear! Me too. I like to come here to relax after hard battles. 
+David: So, you fight quite often?
+TheDarkKnight: I used to. The only fight that i fight now is the one against the mighty knight in the castle here in Erlenbach!
+David: Who is[wait=1] that?
+TheDarkKnight: Never heard of him? 
+David: Never.
+TheDarkKnight: He came here a few months ago and brought with him some of the most skilled bandits that I´ve seen. 
+TheDarkKnight: They go through the village and steal every precious object they can find
+David: That sounds horrible!
+- I could help you with that
+	=> Help
+- I dont know, Im afraid of bandits
+	=> No
+
+~ Help
+TheDarkKnight: That would be wonderful from you, companion! 
+TheDarkKnight: You just have to follow this path to the left. You will end up in our mineshaft. They hide in there with the belongings of our villagers.
+David: Okay, I will search for them!
+$> set_angesprochen()
+=> END
+
+~ No
+TheDarkKnight: I thought that when I saw you. Not better than every civilian. 
+David: Im sorry. 
+$> set_angesprochen()
+=> END
+
+~ NotPossible
+David: No, thats not possible. Im new here.
+TheDarkKnight: Oh okay... I dont trust strangers... 
+David: You dont have to worry. Im not really a threat. 
+TheDarkKnight: I saw that. But I will keep an eye on you!
+$> set_angesprochen()
+=> END
+
+=> END

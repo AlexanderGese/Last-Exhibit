@@ -39,6 +39,8 @@
 [ext_resource type="Resource" uid="uid://d1y2pgovt83dn" path="res://scenes/Epochs/Medieval/artifacts/wappen.tres" id="37_vjya6"]
 [ext_resource type="Resource" uid="uid://cwf0chypvn2bc" path="res://scenes/Epochs/Medieval/artifacts/verrostetes_schwert.tres" id="38_4chqw"]
 [ext_resource type="Resource" uid="uid://bnkscifvsyl0o" path="res://scenes/Epochs/Medieval/artifacts/signatur.tres" id="39_rpn4g"]
+[ext_resource type="PackedScene" uid="uid://8wy56gb2bo7r" path="res://scenes/Epochs/Medieval/The Dark Knight/TheDarkKnight.tscn" id="40_b8gl2"]
+[ext_resource type="Resource" uid="uid://sdy16lw40rhf" path="res://dialogues/thedarkknightt.dialogue" id="41_of0or"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lljqo"]
 texture = ExtResource("1_v1uj4")
@@ -1882,7 +1884,12 @@ item = ExtResource("39_rpn4g")
 position = Vector2(-4269, -659)
 item = ExtResource("38_4chqw")
 
+[node name="TheDarkKnight" parent="." unique_id=365394180 instance=ExtResource("40_b8gl2")]
+position = Vector2(-767, -49)
+dialogue = ExtResource("41_of0or")
+
 [connection signal="body_entered" from="Arena" to="Arena" method="_on_body_entered"]
+[connection signal="pause" from="Player" to="TheDarkKnight" method="_on_player_pause"]
 [connection signal="body_entered" from="Ladders/Ladder" to="Ladders/Ladder" method="_on_body_entered"]
 [connection signal="body_exited" from="Ladders/Ladder" to="Ladders/Ladder" method="_on_body_exited"]
 [connection signal="body_entered" from="Ladders/Ladder2" to="Ladders/Ladder2" method="_on_body_entered"]
