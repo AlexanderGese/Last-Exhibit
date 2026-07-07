@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://8wy56gb2bo7r"]
 
-[ext_resource type="Script" uid="uid://cd7crn7ka1iyb" path="res://scenes/Epochs/Medieval/The Dark Knight/the_dark_knight.gd" id="1_ri34q"]
-[ext_resource type="Texture2D" uid="uid://bt776ialfrei7" path="res://scenes/Epochs/Medieval/The Dark Knight/Idle.png" id="2_cfmoo"]
+[ext_resource type="Script" uid="uid://cd7crn7ka1iyb" path="res://scenes/Epochs/Medieval/TheDarkKnight/the_dark_knight.gd" id="1_ri34q"]
+[ext_resource type="Texture2D" uid="uid://bt776ialfrei7" path="res://scenes/Epochs/Medieval/TheDarkKnight/Idle.png" id="2_cfmoo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dby4"]
 size = Vector2(169.75, 117)
