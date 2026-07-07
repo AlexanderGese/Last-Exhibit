@@ -35,7 +35,6 @@ func explodiere() -> void:
 	explodiert = true
 	animated_sprite.play("explosion")
 	
-	# Schaden und Knockback über die Area2D abfragen
 	var bodies = treff_zone.get_overlapping_bodies()
 	for body in bodies:
 		if body.is_in_group("player"):
