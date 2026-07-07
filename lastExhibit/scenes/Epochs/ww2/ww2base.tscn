@@ -31,7 +31,7 @@
 [ext_resource type="Resource" uid="uid://qx02jnmk1je5" path="res://scenes/Epochs/ww2/artifacts/werkzeug.tres" id="26_nkm0m"]
 [ext_resource type="Resource" uid="uid://g377260xh74h" path="res://scenes/Epochs/ww2/artifacts/werkzeugkasten.tres" id="27_iiv8v"]
 [ext_resource type="PackedScene" uid="uid://dmjr1popugs7y" path="res://scenes/Epochs/ww2/JohnathanSinners/JohnathanSinners.tscn" id="31_f0qqm"]
-[ext_resource type="Resource" uid="uid://c783soc4d4hec" path="res://dialogues/johnathansinners.dialogue" id="32_f0qqm"]
+[ext_resource type="Resource" uid="uid://ek0joaksjtbc" path="res://dialogues/johnathansinners.dialogue" id="32_f0qqm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ys555"]
 texture = ExtResource("2_r5ffj")
@@ -954,7 +954,7 @@ position = Vector2(584, -32)
 
 [node name="Player" parent="." unique_id=229592850 instance=ExtResource("5_a8ufs")]
 z_index = 2
-position = Vector2(6270, -68)
+position = Vector2(-450, -68)
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=484300934]
 z_index = 5

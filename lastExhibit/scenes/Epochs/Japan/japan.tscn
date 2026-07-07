@@ -33,7 +33,7 @@
 [ext_resource type="Script" uid="uid://dksfvtl3foppk" path="res://scenes/Epochs/Japan/arena.gd" id="31_lnht1"]
 [ext_resource type="PackedScene" uid="uid://cogpd7yopf1x" path="res://scenes/Epochs/Japan/Boss/Samurai Boss.tscn" id="32_1slg1"]
 [ext_resource type="PackedScene" uid="uid://bavtmbaebgab4" path="res://scenes/Epochs/Japan/HanaNakamura/HanaNakamura.tscn" id="33_1slg1"]
-[ext_resource type="Resource" uid="uid://t5nvgrhmepc7" path="res://dialogues/hananakamura.dialogue" id="34_kyhw3"]
+[ext_resource type="Resource" uid="uid://c2t8hfe0348xx" path="res://dialogues/hananakamura.dialogue" id="34_kyhw3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lljqo"]
 texture = ExtResource("1_qa2ky")
@@ -769,7 +769,7 @@ shape = SubResource("RectangleShape2D_yx54u")
 
 [node name="Player" parent="." unique_id=229592850 instance=ExtResource("9_7yaeh")]
 z_index = 2
-position = Vector2(-660, -39)
+position = Vector2(-753, -34)
 
 [node name="ReturnMachine" parent="." unique_id=1892310434 instance=ExtResource("18_tov5c")]
 position = Vector2(4273, -2)

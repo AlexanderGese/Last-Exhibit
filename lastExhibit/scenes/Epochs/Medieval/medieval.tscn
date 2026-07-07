@@ -40,7 +40,7 @@
 [ext_resource type="Resource" uid="uid://cwf0chypvn2bc" path="res://scenes/Epochs/Medieval/artifacts/verrostetes_schwert.tres" id="38_4chqw"]
 [ext_resource type="Resource" uid="uid://bnkscifvsyl0o" path="res://scenes/Epochs/Medieval/artifacts/signatur.tres" id="39_rpn4g"]
 [ext_resource type="PackedScene" uid="uid://8wy56gb2bo7r" path="res://scenes/Epochs/Medieval/TheDarkKnight/TheDarkKnight.tscn" id="40_b8gl2"]
-[ext_resource type="Resource" uid="uid://sdy16lw40rhf" path="res://dialogues/thedarkknightt.dialogue" id="41_of0or"]
+[ext_resource type="Resource" uid="uid://bsyrmohtx7dk5" path="res://dialogues/thedarkknightt.dialogue" id="41_of0or"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lljqo"]
 texture = ExtResource("1_v1uj4")
@@ -1261,7 +1261,7 @@ position = Vector2(4526, 1)
 
 [node name="Player" parent="." unique_id=229592850 instance=ExtResource("17_nklcl")]
 z_index = 1
-position = Vector2(519, -31)
+position = Vector2(-622, -35)
 
 [node name="AnimatableBody2D" parent="." unique_id=1702367529 instance=ExtResource("19_pk5u7")]
 position = Vector2(3112, -7)
