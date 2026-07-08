@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="Item" format=3]
 
 [ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_item"]
+[ext_resource type="Texture2D" path="res://assets/sprites/armor/light_green_pants.png" id="2_icon"]
 
 [resource]
 script = ExtResource("1_item")
 id = "ruestung_bottom_green_2"
 name = "Hose Grün 2"
+icon = ExtResource("2_icon")
 type = 4
 stackable = false
 max_stack = 1

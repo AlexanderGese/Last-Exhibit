@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="Item" format=3]
 
 [ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_item"]
+[ext_resource type="Texture2D" path="res://assets/sprites/armor/light_green_top.png" id="2_icon"]
 
 [resource]
 script = ExtResource("1_item")
 id = "ruestung_top_green_2"
 name = "Oberteil Grün 2"
+icon = ExtResource("2_icon")
 type = 3
 stackable = false
 max_stack = 1
