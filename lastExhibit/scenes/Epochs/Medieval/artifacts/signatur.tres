@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_4y37m")
 id = "siegel"
-name = "Siegel"
+name = "Signet"
 icon = ExtResource("1_0ui37")
 stackable = true
 max_stack = 2

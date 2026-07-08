@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_6sdm4")
 id = "kocher"
-name = "Köcher mit Pfeilen"
+name = "Quiver with arrwos"
 icon = ExtResource("1_kl2gn")
 value = 250
 origin = "japan"

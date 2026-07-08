@@ -1,23 +1,23 @@
 ~ start
 JohnathanSinners: [wave]AAAAAH[/wave]
-JohnathanSinners: Schon wieder ein deutscher Spion! Wie gelangen die bloß auf das scheiß Gelände?
-JohnathanSinners: Sehen Sie zu, dass Sie sich verpissen sonst landen Sie gleich beim Rest [wait=1] und Sie wollen nicht wissen, wo das ist!
-David: Entschuldigen Sie, aber ich bin gar kein Spion.
-JohnathanSinners: Ach ja? Wie wollen Sie mir das beweisen? 
-David: Da muss ich Ihnen wohl ein Geheimnis anvertrauen...
-JohnathanSinners: Na da bin ich ja mal gespannt!
-David: Ich habe eine Zeitmaschine, die mich an zufällige Orte der Geschichte bringt. Und jetzt bin ich hier gelandet!
-JohnathanSinners: Eine... [wait=1] was? Wie ist das möglich? Wir sind doch die Einzigen... Davon muss unbedingt dem Prä#!*.
-David: Wie bitte?
-JohnathanSinners: Ach nichts, alles gut! 
+JohnathanSinners: Again a german spy! How the hell do they even get onto the damn property?
+JohnathanSinners: Make sure you get the hell out of here, or you'll end up with the rest of them [wait=1]—and you don't want to know where that is!
+David: I´m sorry, but I´m not a spy.
+JohnathanSinners: Oh yeah? How do you want to convince me of that?
+David: I suppose I'll have to let you in on a secret...
+JohnathanSinners: Well, I´m curious for that!
+David: I have a time machine that takes me to random places in history. And now I've ended up here!
+JohnathanSinners: A... [wait=1] waht? How is that possible? I thought we were the only ones... I need to tell the pre#*+.
+David: What?
+JohnathanSinners: Oh nothing... all good! 
 David: Okay...
-David: Können Sie mir verraten, wo ich bin?
-JohnathanSinners: Sie befinden sich in den Vereinigten Staaten von Amerika im Bundesstaat Kalifornien!
-JohnathanSinners: Mein Name ist Johnathan Sinners, ich bin oberster Kommandeur dieser Luftwaffenbasis!
-David: Respekt, Respekt. Aber etwas kompakt für so eine hohe Stellung, nicht?
-JohnathanSinners: Bitte? Sie deutsches Arschloch! Wollen Sie wirklich, dass ich Ihnen den Kopf wegblase? Ich wollte Sie eigentlich gehen lassen!
-JohnathanSinners: Wegen euch und eurem verschissenen Bombenangriff zuckt mein Auge den ganzen Tag! Lust hätte ich schon!
-David: Ich nehme alles zurück, Herr Oberst! Entschuldigen Sie.
-JohnathanSinners: Ich bin heute zu gnädig, verziehen Sie sich. Aber passen sie auf meine Kollegen da vorne auf, die sind nicht so gut gelaunt wie ich [wave] HAHA
+David: Can you tell me, where I ended up?
+JohnathanSinners: You are in the United States of America, in the state of California!
+JohnathanSinners: My name is Johnathan Sinners, I am the chief commander of this air force base!
+David: Respect, Respect. Quite compact for your high rank.
+JohnathanSinners: Pardon? You german Bastard! You really want me to blow your head off?? I wanted to let you go!
+JohnathanSinners: My eye is twitching the whole day because of you and your damn bomb attack! I´d really like to!
+David: I take everything back, chief! I´m so sorry!
+JohnathanSinners: I´m too generous today. But you have to watch out for my friends around here. They are not as happy as I am[wave] HAHA
 $> set_angesprochen()
 => END

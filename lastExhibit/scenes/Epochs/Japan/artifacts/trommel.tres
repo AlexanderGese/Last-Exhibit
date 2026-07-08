@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_12r71")
 id = "trommel"
-name = "Trommel"
+name = "Drum"
 icon = ExtResource("1_sope1")
 value = 170
 origin = "japan"

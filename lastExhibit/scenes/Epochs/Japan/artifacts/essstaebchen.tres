@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_l1tq2")
 id = "essstaebchen"
-name = "Essstäbchen"
+name = "Chop Sticks"
 icon = ExtResource("1_l045f")
 stackable = true
 max_stack = 3

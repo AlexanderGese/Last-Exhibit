@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_70wko")
 id = "wappen"
-name = "Wappen"
+name = "Coat of Arms"
 icon = ExtResource("1_vb5s8")
 value = 165
 origin = "medieval"

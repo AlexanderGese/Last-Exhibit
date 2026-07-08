@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_3ktnc")
 id = "feldtelefon"
-name = "Feldtelefon"
+name = "Field-Telephone"
 icon = ExtResource("1_wkj6i")
 stackable = true
 max_stack = 3

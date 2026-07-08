@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_5lu4q")
 id = "muni"
-name = "Munitionsguertel"
+name = "Ammunitionbelt"
 icon = ExtResource("1_gap7c")
 stackable = true
 max_stack = 5

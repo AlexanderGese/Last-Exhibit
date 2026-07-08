@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_jugah")
 id = "kelch"
-name = "Goldkelch"
+name = "Golden Chalice"
 icon = ExtResource("1_wh4g2")
 stackable = true
 max_stack = 3

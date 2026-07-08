@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_8r80u")
 id = "helm"
-name = "Pilotenhelm"
+name = "Pilot Helmet"
 icon = ExtResource("1_vf0sk")
 value = 500
 metadata/_custom_type_script = "uid://d4c671jpgfict"

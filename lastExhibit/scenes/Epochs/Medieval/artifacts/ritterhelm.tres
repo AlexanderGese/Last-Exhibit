@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_xc8q6")
 id = "ritterhelm"
-name = "Ritterhelm"
+name = "Knight´s Helmet"
 icon = ExtResource("1_0rfl8")
 value = 500
 origin = "medieval"

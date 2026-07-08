@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_f3dng")
 id = "schwert"
-name = "Ritterschwert"
+name = "Knight´s Sword"
 icon = ExtResource("1_vlbi4")
 value = 500
 origin = "medieval"

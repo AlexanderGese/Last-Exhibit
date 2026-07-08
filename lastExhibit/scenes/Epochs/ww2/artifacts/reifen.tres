@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_ynwh3")
 id = "reifen"
-name = "Jeep-Reifen"
+name = "Jeep-Wheel"
 icon = ExtResource("1_fqkm8")
 stackable = true
 max_stack = 5

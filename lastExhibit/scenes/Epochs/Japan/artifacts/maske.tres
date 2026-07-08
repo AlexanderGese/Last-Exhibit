@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_yfjqe")
 id = "maske"
-name = "Samurai-Maske"
+name = "Samurai-Mask"
 icon = ExtResource("1_6pmpv")
 stackable = true
 max_stack = 3

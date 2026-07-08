@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_ruyml")
 id = "bibel"
-name = "Heilige Bibel"
+name = "Holy Bible"
 icon = ExtResource("1_kywxt")
 value = 170
 origin = "medieval"

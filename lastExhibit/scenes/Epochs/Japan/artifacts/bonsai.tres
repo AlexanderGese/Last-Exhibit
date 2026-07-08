@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_vmhtv")
 id = "bonsai"
-name = "Bonsai-Baum"
+name = "Bonsai-Tree"
 icon = ExtResource("1_gg7vg")
 stackable = true
 max_stack = 3

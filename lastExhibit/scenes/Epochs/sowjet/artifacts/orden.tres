@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_ljuck")
 id = "orden"
-name = "Orden des vaterländischen Krieges 1. Klasse"
+name = "Medal of the Great Patriotac War"
 icon = ExtResource("1_5vokm")
 value = 300
 origin = "soviet"

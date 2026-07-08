@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_j8h7l")
 id = "werkzeug"
-name = "Werkzeug"
+name = "Tools"
 icon = ExtResource("1_t4m2a")
 stackable = true
 max_stack = 3

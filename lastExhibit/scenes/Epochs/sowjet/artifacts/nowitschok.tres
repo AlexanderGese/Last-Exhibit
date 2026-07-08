@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_oqov1")
 id = "nowitschok"
-name = "Nowitschok-Gift"
+name = "Nowitschok-Poison"
 icon = ExtResource("1_p1e6j")
 stackable = true
 value = 310

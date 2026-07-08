@@ -1,70 +1,70 @@
 ~ start
 Dmitri: [wave]*Rmpf*[/wave]
-Dmitri: Wer bist du denn?
-David: Mein Name ist David!
-Dmitri: David? [wait=1] Komischer Name... [wait=1] Wo ich herkomme, Männer haben gescheite Namen
-David: Wo bist du denn her?
-Dmitri: Du stellst zu viele Fragen junger Mann! 
-Dmitri: Was treibt dich hierher?
+Dmitri: Who are you?
+David: My name is David! 
+Dmitri: David? [wait=1] Weird name... [wait=1] People have normal name where I come from from.
+David: So, from where are you?
+Dmitri: You asking too many question, young boy! 
+Dmitri: Why are you here?
 
-- Ich habe eine Zeitmaschine gefunden und bin damit hergekommen
+- I´ve found a time machine and it teleported me right here!
 	=> Alien
-- Ich bin zufällig hier vorbeigekommen, die Tür stand offen
+- I just came by at random, the door was wide open.
 	=> Tuer
 
 ~ Alien
 $> set_alien()
-Dmitri: Zeitmaschine? [wait=1] Bist du Außerirdischer?[wait=1] Damit möchte ich nichts zu tun haben!!
+Dmitri: Time machine? [wait=1] Are you alien?[wait=1] I don´t want to have contact!
 => END
 
 ~ Tuer
-Dmitri: Komisch[wait=1], Tür sollte zu sein.
-Dmitri: Gut, du siehst nicht gefährlich aus  für mich...
-Dmitri: Weißt du überhaupt wo du bist?
-David: Nein, sieht mir nach einem Bunker aus...
-Dmitri: Schlauer Junge!! [wait=1]Willst du Nobelpreis?
+Dmitri: Weird[wait=1], door should be closed.
+Dmitri: Okay, you don´t look dangerous to me.
+Dmitri: Do you even know where you standing?
+David: Not really, it looks like a bunker to me. 
+Dmitri: Clever boy!! [wait=1]You want Nobel Price?
 David: ...
-Dmitri: Nur Spaß, nur Spaß!
-Dmitri: Wir sind Kontrollstützpunkt der Sowjetunion! [wait=2] Ich bin hier einzige Kontrolle...
-Dmitri: ...heißt aber nicht, dass ich dich nicht im Auge behalte!
-David: Keine Sorge, ich werde nicht rumstöbern.
-David: Aber was machst du hier sonst so?
-Dmitri: Seit Vaterländische Krieg, ich werde nur eingesetzt als Opfer
-Dmitri: Hier seh 
+Dmitri: Just joking, just joking!
+Dmitri: We are control post of the Sovjet Union! [wait=2] Im here only patrol...
+Dmitri: doesn´t mean that I will forget about you!
+David: No worries, I won´t browse around.
+David: But what are you doing around here when you´re not patroling?
+Dmitri: Since Great Patriotic War, I´m just here as a useless...
+Dmitri: Look!
 $> set_orden()
-Dmitri: Ich war mal große Soldat, abber bin ich lange nicht mehr... 
+Dmitri: I was great soldier, but that is long time ago... 
 David: 
-- WOW, der sieht toll aus! 
+- WOW, this thing looks stunning! 
 	=> Behalt
-- Was soll ich mit dem Müll?
+- That´s looking like a piece of rubbish. 
 	=> Muell
 
 
 ~ Behalt
-Dmitri: Ja, aber ist wertlos jetzt. [wait=2] Behalt ihn einfach.
-David: Cool, vielen Dank!
-David: Kann ich mich noch ein bisschen umsehen?
-Dmitri: Wie gesagt, du siehst nicht aus wie Gefahr
-Dmitri: Aber du brauchst Waffe...[speed=0.5] nicht dass du hier noch [speed=0.1]stirbst
+Dmitri: Yes, but it is worthless now... [wait=2] Just keep it.
+David: Cool, thank you so much!
+David: Can I take a look around here?
+Dmitri: As I said, you don´t look like danger.
+Dmitri: But you need weapon...[speed=0.5] I don´t want you to [speed=0.1]die!
 David: Oh...
-David: Wo bekomme ich die her?
-Dmitri: Ich geb dir meine AK47... [wait=2] wenn du mich in Boxkampf besiegst!
+David: Where can I get one?
+Dmitri: I give you my AK47... [wait=2] if you beat my in boxfight!
 David: 
-- Schaff ich nicht, vergiss es
+- Forget it, I can´t do that!
 	=> Abgelehnt
 - Okay, lets go!
 	=> Angenommen
 ~ Muell
 $> set_beleidigt()
-Dmitri: Unverschämt! Verzieh dich!
+Dmitri: How rude! Piss off!
 => END
 
 ~ Abgelehnt
-Dmitri: Dann nicht, viel Glück ohne [speed=0.2] HAHAHA
+Dmitri: Okay, have fun without it...[speed=0.2] HAHAHA
 => END
 
 ~ Angenommen
-Dmitri: Komm her! 
+Dmitri: Come here! 
 $> set_kampf()
 => END
 

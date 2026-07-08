@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_laht0")
 id = "schreibmaschine"
-name = "Schreibmaschine"
+name = "Typewriter"
 icon = ExtResource("1_7jikr")
 stackable = true
 max_stack = 3

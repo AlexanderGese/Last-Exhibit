@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_85ybt")
 id = "soljanka"
-name = "Soljanka-Eintopf"
+name = "Soljanka-Stew"
 icon = ExtResource("1_wyidi")
 stackable = true
 max_stack = 3

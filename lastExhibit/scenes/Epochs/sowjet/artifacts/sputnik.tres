@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_mkh1j")
 id = "sputnik"
-name = "Sputnik-Satellit"
+name = "Sputnik-Satellite"
 icon = ExtResource("1_vb5i4")
 value = 420
 big_artifact = true

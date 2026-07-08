@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_pi8xo")
 id = "gasmaske"
-name = "Gasmaske"
+name = "Gasmask"
 icon = ExtResource("1_fl5ca")
 value = 250
 origin = "soviet"
