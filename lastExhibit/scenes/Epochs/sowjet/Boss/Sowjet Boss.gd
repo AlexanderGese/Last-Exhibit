@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var atem_scene : PackedScene
 @export var move_speed : float = 180.0
 @export var sprint_speed : float = 400.0
-@export var max_hp : int = 300
+@export var max_hp : int = 350
 @export var attack_cooldown : float = 3.0
 @export var knockback_resistance : float = 0.7   
 

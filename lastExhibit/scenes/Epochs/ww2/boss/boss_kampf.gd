@@ -5,7 +5,7 @@ extends Node2D
 @onready var helm: ItemPickup = $Helm
 @onready var purpleheart: ItemPickup = $PurpleHeart
 
-var boss_leben : int = 300
+var boss_leben : int = 400
 @onready var boss_flugzeug = $BossFlugzeug
 var boss_aktiv : bool = false
 

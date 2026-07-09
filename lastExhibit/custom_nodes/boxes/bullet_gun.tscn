@@ -10,7 +10,7 @@ size = Vector2(4, 4)
 collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_j5uti")
-damage = 25
+damage = 30
 knockback_force = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1891570224]

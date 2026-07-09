@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-var hp = 100
+var hp = 50
 @export var dialogue : DialogueResource
 @onready var balloon_scene = preload("res://dialogues/dummys/dummy1.tscn")
 var current_balloon = null
