@@ -42,6 +42,7 @@ const MAX_RESISTANCE := 0.9
 @onready var level_timer: Timer = $LevelTimer
 @onready var phone_ui = $PhoneUI
 @onready var zeitmaschine = $ZeitmaschinenUI
+@onready var durchgespielt: bool = false
 
 var save: PlayerSaveFile
 var facing_right := true
@@ -488,3 +489,9 @@ func _on_dialogue_started() -> void:
 	
 func _on_dialogue_ended() -> void:
 	is_in_dialogue  = false
+
+func setDurchgespielt() -> void:
+	durchgespielt=true
+
+func getDurchgespielt() -> bool:
+	return durchgespielt

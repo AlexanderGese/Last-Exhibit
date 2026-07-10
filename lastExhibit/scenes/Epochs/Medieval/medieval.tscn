@@ -41,6 +41,7 @@
 [ext_resource type="Resource" uid="uid://bnkscifvsyl0o" path="res://scenes/Epochs/Medieval/artifacts/signatur.tres" id="39_rpn4g"]
 [ext_resource type="PackedScene" uid="uid://8wy56gb2bo7r" path="res://scenes/Epochs/Medieval/TheDarkKnight/TheDarkKnight.tscn" id="40_b8gl2"]
 [ext_resource type="Resource" uid="uid://bsyrmohtx7dk5" path="res://dialogues/thedarkknightt.dialogue" id="41_of0or"]
+[ext_resource type="Script" uid="uid://sjo6q1swrbvk" path="res://scenes/Epochs/Medieval/credit_trigger.gd" id="42_3rsbm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lljqo"]
 texture = ExtResource("1_v1uj4")
@@ -1112,6 +1113,9 @@ size = Vector2(29, 95)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82gt7"]
 size = Vector2(672, 96)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of0or"]
+size = Vector2(157.5, 48)
+
 [node name="Medieval" type="Node2D" unique_id=625818030]
 
 [node name="Scenic1" type="TileMapLayer" parent="." unique_id=1899726484]
@@ -1261,7 +1265,7 @@ position = Vector2(4526, 1)
 
 [node name="Player" parent="." unique_id=229592850 instance=ExtResource("17_nklcl")]
 z_index = 1
-position = Vector2(-622, -35)
+position = Vector2(-990, -41)
 
 [node name="AnimatableBody2D" parent="." unique_id=1702367529 instance=ExtResource("19_pk5u7")]
 position = Vector2(3112, -7)
@@ -1888,6 +1892,13 @@ item = ExtResource("38_4chqw")
 position = Vector2(-767, -49)
 dialogue = ExtResource("41_of0or")
 
+[node name="CreditTrigger" type="Area2D" parent="." unique_id=1890367957]
+script = ExtResource("42_3rsbm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CreditTrigger" unique_id=1759109269]
+position = Vector2(5825.75, -39)
+shape = SubResource("RectangleShape2D_of0or")
+
 [connection signal="body_entered" from="Arena" to="Arena" method="_on_body_entered"]
 [connection signal="pause" from="Player" to="TheDarkKnight" method="_on_player_pause"]
 [connection signal="body_entered" from="Ladders/Ladder" to="Ladders/Ladder" method="_on_body_entered"]
@@ -2004,3 +2015,5 @@ dialogue = ExtResource("41_of0or")
 [connection signal="body_exited" from="Ladders/Ladder40" to="Ladders/Ladder40" method="_on_body_exited"]
 [connection signal="body_entered" from="Ladders/Ladder57" to="Ladders/Ladder57" method="_on_body_entered"]
 [connection signal="body_exited" from="Ladders/Ladder57" to="Ladders/Ladder57" method="_on_body_exited"]
+[connection signal="body_entered" from="CreditTrigger" to="CreditTrigger" method="_on_body_entered"]
+[connection signal="body_exited" from="CreditTrigger" to="CreditTrigger" method="_on_body_exited"]
