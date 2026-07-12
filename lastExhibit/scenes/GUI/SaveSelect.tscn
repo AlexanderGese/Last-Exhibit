@@ -2,6 +2,54 @@
 
 [ext_resource type="Script" uid="uid://y883sfb214pa" path="res://scenes/GUI/SaveSelect.gd" id="1"]
 [ext_resource type="Theme" uid="uid://ddkkrrnlp14pr" path="res://assets/ui/menu_theme.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://bp6hc7avdsawi" path="res://assets/sprites/GUI/Buttons_2small/button_00.png" id="3_dauji"]
+[ext_resource type="Texture2D" uid="uid://bu50oswy2l56q" path="res://assets/sprites/GUI/Buttons_1big/button_04.png" id="3_x376r"]
+[ext_resource type="Texture2D" uid="uid://b6pdjh0bxnx5v" path="res://assets/sprites/GUI/Buttons_2small/button_01.png" id="4_x376r"]
+[ext_resource type="Texture2D" uid="uid://4ttn2gaarieb" path="res://assets/sprites/GUI/Buttons_2small/button_03.png" id="5_u1xi1"]
+[ext_resource type="Texture2D" uid="uid://daj8i6jpyvjc5" path="res://assets/sprites/GUI/Buttons_2small/button_04.png" id="6_pca50"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1g4xl"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.92156863, 0.5921569, 0.34509805, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.09803922, 0.047058824, 0.047058824, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u1xi1"]
+texture = ExtResource("3_x376r")
+region_rect = Rect2(3, 11, 58, 11)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pca50"]
+texture = ExtResource("3_x376r")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rt6g6"]
+texture = ExtResource("3_dauji")
+region_rect = Rect2(11, 11, 11, 11)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gu067"]
+texture = ExtResource("4_x376r")
+region_rect = Rect2(12, 12, 11, 11)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dauji"]
+texture = ExtResource("3_dauji")
+region_rect = Rect2(11, 11, 11, 11)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlkst"]
+texture = ExtResource("5_u1xi1")
+region_rect = Rect2(0, 11, 31, 11)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_srbk5"]
+texture = ExtResource("6_pca50")
+region_rect = Rect2(1, 12, 31, 11)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x376r"]
+texture = ExtResource("5_u1xi1")
+region_rect = Rect2(0, 11, 31, 11)
 
 [node name="SaveSelect" type="Control" unique_id=820014635]
 layout_mode = 3
@@ -32,6 +80,7 @@ grow_vertical = 2
 
 [node name="Panel" type="PanelContainer" parent="Center" unique_id=1100169526]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1g4xl")
 
 [node name="VBox" type="VBoxContainer" parent="Center/Panel" unique_id=1409052529]
 layout_mode = 2
@@ -39,6 +88,7 @@ theme_override_constants/separation = 22
 
 [node name="Title" type="Label" parent="Center/Panel/VBox" unique_id=1347644335]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.30588236, 0.18039216, 0.11372549, 1)
 theme_override_font_sizes/font_size = 52
 text = "CHOOSE SAVE"
 horizontal_alignment = 1
@@ -47,44 +97,88 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_constants/separation = 14
 
-[node name="Play" type="Button" parent="Center/Panel/VBox/Slot1" unique_id=1237147871]
-custom_minimum_size = Vector2(520, 0)
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Center/Panel/VBox/Slot1" unique_id=58259344]
+custom_minimum_size = Vector2(338, 64)
+layout_mode = 2
+ratio = 5.2727
+
+[node name="Play" type="Button" parent="Center/Panel/VBox/Slot1/AspectRatioContainer" unique_id=1237147871]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Slot 1"
+theme_override_styles/normal = SubResource("StyleBoxTexture_u1xi1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pca50")
+action_mode = 0
 
-[node name="Delete" type="Button" parent="Center/Panel/VBox/Slot1" unique_id=630727361]
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="Center/Panel/VBox/Slot1" unique_id=899604098]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-text = "X"
+
+[node name="Delete" type="Button" parent="Center/Panel/VBox/Slot1/AspectRatioContainer2" unique_id=630727361]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_rt6g6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gu067")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dauji")
 
 [node name="Slot2" type="HBoxContainer" parent="Center/Panel/VBox" unique_id=1557610837]
 layout_mode = 2
 theme_override_constants/separation = 14
 
-[node name="Play" type="Button" parent="Center/Panel/VBox/Slot2" unique_id=1584717537]
-custom_minimum_size = Vector2(520, 0)
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Center/Panel/VBox/Slot2" unique_id=668799567]
+custom_minimum_size = Vector2(338, 64)
+layout_mode = 2
+ratio = 5.2727
+
+[node name="Play" type="Button" parent="Center/Panel/VBox/Slot2/AspectRatioContainer" unique_id=2041245013]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Slot 2"
+theme_override_styles/normal = SubResource("StyleBoxTexture_u1xi1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pca50")
+action_mode = 0
 
-[node name="Delete" type="Button" parent="Center/Panel/VBox/Slot2" unique_id=119746742]
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="Center/Panel/VBox/Slot2" unique_id=1673404563]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-text = "X"
+
+[node name="Delete" type="Button" parent="Center/Panel/VBox/Slot2/AspectRatioContainer2" unique_id=542628924]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_rt6g6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gu067")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dauji")
 
 [node name="Slot3" type="HBoxContainer" parent="Center/Panel/VBox" unique_id=338594030]
 layout_mode = 2
 theme_override_constants/separation = 14
 
-[node name="Play" type="Button" parent="Center/Panel/VBox/Slot3" unique_id=635450148]
-custom_minimum_size = Vector2(520, 0)
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Center/Panel/VBox/Slot3" unique_id=1574628397]
+custom_minimum_size = Vector2(338, 64)
+layout_mode = 2
+ratio = 5.2727
+
+[node name="Play" type="Button" parent="Center/Panel/VBox/Slot3/AspectRatioContainer" unique_id=1918012440]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Slot 3"
+theme_override_styles/normal = SubResource("StyleBoxTexture_u1xi1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pca50")
+action_mode = 0
 
-[node name="Delete" type="Button" parent="Center/Panel/VBox/Slot3" unique_id=375410174]
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="Center/Panel/VBox/Slot3" unique_id=2010316875]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-text = "X"
 
-[node name="Back" type="Button" parent="Center/Panel/VBox" unique_id=1325899857]
+[node name="Delete" type="Button" parent="Center/Panel/VBox/Slot3/AspectRatioContainer2" unique_id=1805594393]
 layout_mode = 2
-text = "Back"
+theme_override_styles/normal = SubResource("StyleBoxTexture_rt6g6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gu067")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dauji")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Center/Panel/VBox" unique_id=2085130298]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 3
+ratio = 2.8182
+
+[node name="Back" type="Button" parent="Center/Panel/VBox/AspectRatioContainer" unique_id=1325899857]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_nlkst")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_srbk5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x376r")
