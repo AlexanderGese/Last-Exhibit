@@ -33,7 +33,7 @@
 [ext_resource type="Script" uid="uid://dksfvtl3foppk" path="res://scenes/Epochs/Japan/arena.gd" id="31_lnht1"]
 [ext_resource type="PackedScene" uid="uid://cogpd7yopf1x" path="res://scenes/Epochs/Japan/Boss/Samurai Boss.tscn" id="32_1slg1"]
 [ext_resource type="PackedScene" uid="uid://bavtmbaebgab4" path="res://scenes/Epochs/Japan/HanaNakamura/HanaNakamura.tscn" id="33_1slg1"]
-[ext_resource type="Resource" uid="uid://c2t8hfe0348xx" path="res://dialogues/hananakamura.dialogue" id="34_kyhw3"]
+[ext_resource type="Resource" uid="uid://ctty4snpkrw4e" path="res://dialogues/hananakamura.dialogue" id="34_kyhw3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lljqo"]
 texture = ExtResource("1_qa2ky")

@@ -21,3 +21,5 @@ signal dialogue_started()
 signal dialogue_ended()
 
 var in_level := false
+
+signal credits()

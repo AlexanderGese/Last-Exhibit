@@ -105,6 +105,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	heal(100)
 	anim_locked_until = max(0.0, anim_locked_until - delta)
 	SaveManager.player.playertiner = level_timer.get_time_left()
 	if is_climbing:

@@ -3,12 +3,10 @@
 [ext_resource type="Script" uid="uid://btdbgsxle2d4s" path="res://scenes/GUI/Credits.gd" id="1_ui6u0"]
 [ext_resource type="FontFile" uid="uid://bafj0agrswp3j" path="res://assets/fonts/Pixuf.ttf" id="2_hsfgh"]
 
-[node name="Credits" type="Node2D" unique_id=979493865]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1115989622]
+[node name="Credits" type="CanvasLayer" unique_id=1115989622]
 script = ExtResource("1_ui6u0")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1672802102]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1672802102]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,12 +14,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.1452662, 0.1452662, 0.14526615, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1990466191]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1990466191]
 offset_right = 1920.0
 offset_bottom = 1081.0
 theme_override_constants/separation = 192
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=2139435896]
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=2139435896]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_hsfgh")
 theme_override_font_sizes/font_size = 64
@@ -30,65 +28,57 @@ Last-Exibit"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1953403871]
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1953403871]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_hsfgh")
 theme_override_font_sizes/font_size = 64
 text = "PROGRAMMING
-Alex
-Paul
-Johannes
-Fabian"
+Alexander Gese
+Johannes Schneider
+Fabian Wolf
+\"Paul Korn\""
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Label3" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1708160241]
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=1708160241]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_hsfgh")
 theme_override_font_sizes/font_size = 64
 text = "GAME DESIGN
-Alex
-Paul
-Johannes
-Fabian"
+Alexander Gese
+Paul Korn
+Johannes Schneider
+Fabian Wolf"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Label4" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1542989084]
+[node name="Label4" type="Label" parent="VBoxContainer" unique_id=1542989084]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_hsfgh")
 theme_override_font_sizes/font_size = 64
 text = "GRAPHICAL DISIGN
-Paul
-Johannes
-Fabian"
+Paul Korn
+Johannes Schneider
+Fabian Wolf"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Label5" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=727563252]
+[node name="Label5" type="Label" parent="VBoxContainer" unique_id=727563252]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_hsfgh")
 theme_override_font_sizes/font_size = 64
 text = "MUSIC AND SOUND DESIGN
-Alex"
+Alexander Gese"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Label6" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=2034997648]
+[node name="Label6" type="Label" parent="VBoxContainer" unique_id=55357001]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_hsfgh")
 theme_override_font_sizes/font_size = 64
-text = "TESTING 
-our Class"
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="Label7" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=55357001]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_hsfgh")
-theme_override_font_sizes/font_size = 64
-text = "SPACIAL THANKS 
+text = "SPECIAL THANKS 
 Prager
+Claude / Gemini
 You for playing"
 horizontal_alignment = 1
 vertical_alignment = 2

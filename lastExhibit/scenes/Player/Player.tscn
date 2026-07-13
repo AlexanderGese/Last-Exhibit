@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://b8wwatw3nwrhb" path="res://assets/sprites/character/character/player22.png" id="29_67i56"]
 [ext_resource type="Texture2D" uid="uid://bpvybhtl4oiwx" path="res://assets/sprites/character/character/player23.png" id="30_u6kol"]
 [ext_resource type="Texture2D" uid="uid://cyfvbky3dutwg" path="res://assets/sprites/character/character/player21.png" id="31_4to8d"]
+[ext_resource type="PackedScene" uid="uid://clgwvgbdhj3nb" path="res://scenes/GUI/Credits.tscn" id="32_i86ya"]
 [ext_resource type="Texture2D" uid="uid://b6atylxq8umk8" path="res://assets/sprites/character/character/player25.png" id="32_ksafi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h00vy"]
@@ -6431,6 +6432,9 @@ scale = Vector2(0.4, 0.4)
 [node name="PhoneUI" parent="." unique_id=661383744 instance=ExtResource("8_dqp0f")]
 visible = false
 
+[node name="Credits" parent="." unique_id=1115989622 instance=ExtResource("32_i86ya")]
+visible = false
+
 [node name="LevelTimer" type="Timer" parent="." unique_id=1086503190]
 one_shot = true
 
@@ -6450,7 +6454,6 @@ collision_layer = 8
 collision_mask = 0
 monitoring = false
 script = ExtResource("12_cd157")
-damage = 20
 knockback_force = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackPivot/MeleeHitbox" unique_id=1208803073]

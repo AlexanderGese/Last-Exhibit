@@ -5,7 +5,7 @@ extends SaveFile
 @export var game_minutes: int = 1320
 
 # -- Player-Stats -----------------------
-@export var hp: float = 100.0
+@export var hp: float = 1000.0
 @export var max_hp: float = 100.0
 @export var money: int = 0
 @export var time_shards: int = 0
@@ -26,9 +26,12 @@ extends SaveFile
 @export var playertiner: int = 0
 @export var seen_tutorials: Array[String] = []
 @export var collected_shards: Array[String] = []
+@export var finished_game: bool = false
+
+
 
 func _init() -> void:
-	hp = 100.0
+	hp = 1000.0
 	max_hp = 100.0
 	money = 0
 	time_shards = 0

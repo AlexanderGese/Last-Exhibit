@@ -235,3 +235,5 @@ func _die() -> void:
 	gate1.open()
 	var gate2 = get_node("../Doors/Gate2")
 	gate2.open()
+	await get_tree().create_timer(3.5).timeout
+	Events.credits.emit()
