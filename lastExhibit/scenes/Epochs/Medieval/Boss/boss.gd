@@ -1,5 +1,5 @@
-
 extends CharacterBody2D
+
 @export var walk_speed   : float = 180.0
 @export var run_speed    : float = 280.0
 @export var gravity      : float = 980.0
@@ -40,6 +40,7 @@ var hat_getroffen : bool = false
 var player : CharacterBody2D
 var facing_right : bool = true
 
+#wirt am anfang ausgeführt
 func _ready() -> void:
 	await get_tree().process_frame
 	var players = get_tree().get_nodes_in_group("player")
@@ -58,6 +59,7 @@ func _ready() -> void:
 func setup(x: float, y: float) -> void:
 	global_position = Vector2(x, y)
 
+#wird in regelmaessigen intervallen aufgerufen und steuert den Boss
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -68,16 +70,17 @@ func _physics_process(delta: float) -> void:
 	if is_attacking:
 		velocity.x = 0.0
 	elif dist_x <= hit_distanz and hit_timer <= 0.0:
-		_hit_start()
+		hit_start()
 	else:
 		_move_towards_player()
 	
 	if is_dashing:
-		_dash_update(delta)
-	_update_facing()
+		dash_update(delta)
+	update_facing()
 	move_and_slide()
 
-func _dash_start() -> void:
+#beginn des angriffes, bei dem der gegner durch eine durchsprintet
+func dash_start() -> void:
 	
 	is_attacking  = true
 	is_dashing    = true
@@ -85,7 +88,7 @@ func _dash_start() -> void:
 	dash_richtung = 1.0 if facing_right else -1.0
 	dash_distanz_verbleibend = dash_strecke_max
 	if is_dead:
-		_dash_ende()
+		dash_ende()
 		return
 	$AnimatedSprite2D.play("stab_start")
 	$Hitbox2.set_deferred("monitoring", true)
@@ -95,9 +98,10 @@ func _dash_start() -> void:
 		return
 	$AnimatedSprite2D.play("stab_middle")
 
-func _dash_update(delta: float) -> void:
+# fortführen dieser attacke, das wird regelmaessig ausgeführt
+func dash_update(delta: float) -> void:
 	if is_dead:
-		_dash_ende()
+		dash_ende()
 		return
 	$AnimatedSprite2D.play("stab_middle")
 	velocity.x = dash_richtung * dash_speed
@@ -106,23 +110,25 @@ func _dash_update(delta: float) -> void:
 		for area in $Hitbox2.get_overlapping_areas():
 			_on_hitbox_2_area_entered(area)
 	if dash_distanz_verbleibend <= 0.0:
-		_dash_ende()
+		dash_ende()
 
-func _dash_ende() -> void:
+#Ende des Angriffes
+func dash_ende() -> void:
 	is_dashing   = false
 	is_attacking = false
 	velocity.x   = 0.0
 	$Hitbox2.set_deferred("monitoring", false)
 	$Hitbox2/CollisionShape2D.set_deferred("disabled", true)
 	if is_dead:
-		_dash_ende()
+		dash_ende()
 		return
 	$AnimatedSprite2D.play("stab_end")
 	await $AnimatedSprite2D.animation_finished
 	if not is_dead:
 		$AnimatedSprite2D.play("idle")
 
-func _hit_start() -> void:
+#Beginn des Angriffes, waehlt zwischen verschiedenen
+func hit_start() -> void:
 	Tutorials.show_tutorial("first_boss")
 	AudioManager.play("medieval_boss")
 	is_attacking  = true
@@ -137,7 +143,7 @@ func _hit_start() -> void:
 			anim = "attack2"
 		$AnimatedSprite2D.play(anim)
 	else:
-		_dash_start()
+		dash_start()
 		return
 
 	await get_tree().create_timer(0.6).timeout
@@ -169,7 +175,7 @@ func _on_hitbox_2_area_entered(area: Area2D) -> void:
 		$Hitbox2.set_deferred("monitoring", false)
 		$Hitbox2/CollisionShape2D.set_deferred("disabled", true)
 
-
+#Boss läuft zum Spieler, schneller wenn die Distanz groesser ist
 func _move_towards_player() -> void:
 	var dist = global_position.distance_to(player.global_position)
 	var dir  = sign(player.global_position.x - global_position.x)
@@ -190,7 +196,8 @@ func _move_towards_player() -> void:
 		velocity.x = dir * walk_speed
 		$AnimatedSprite2D.play("walk")
 
-func _update_facing() -> void:
+# erneuert und ueberprueft, ob der Boss noch in die richtige Richtung schaut
+func update_facing() -> void:
 	if velocity.x > 5.0:
 		facing_right = true
 	elif velocity.x < -5.0:
@@ -200,6 +207,7 @@ func _update_facing() -> void:
 	$AnimatedSprite2D.flip_h = not facing_right
 	$AnimatedSprite2D.position.x = 30.0 if facing_right else -30.0
 
+#Funktion der hurtbox, wird ausgelöst,wenn der Boss Schaden bekommt
 func _on_hurt(damage: int, knockback: Vector2) -> void:
 	if is_dead:
 		return
@@ -211,7 +219,7 @@ func _on_hurt(damage: int, knockback: Vector2) -> void:
 	
 	if hp <= 0:
 		Events.sw_boss_dead.emit()
-		_die()
+		die()
 
 
 func _play_hurt_flash() -> void:
@@ -223,7 +231,8 @@ func _play_hurt_flash() -> void:
 	flash_tween.tween_interval(0.1)
 	flash_tween.tween_property(sprite, "modulate", ORIGINAL_MODULATE, 0.2)
 
-func _die() -> void:
+#beendete alle wichtigen Prozesse und Animationen, bevor das Objekt geloescht wird
+func die() -> void:
 	is_dead = true
 	SaveManager.collect_shard("boss_mittelalter", 5)
 	$AnimatedSprite2D.play("death")
