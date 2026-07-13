@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://djuq45va02yto"]
 
 [ext_resource type="Script" uid="uid://brmc8gtossxhd" path="res://scenes/GUI/MainGui.gd" id="1_q44kx"]
-[ext_resource type="Texture2D" uid="uid://bcglsjh1wnkrw" path="res://assets/images/wallpaper.png" id="4_s0s6x"]
+[ext_resource type="Texture2D" uid="uid://cfjqwm3q1q8i8" path="res://assets/sprites/GUI/BackgroundNew.png" id="4_8qd7l"]
 [ext_resource type="Texture2D" uid="uid://d3awhxwuwj1da" path="res://assets/sprites/GUI/Buttons_2small/button_08.png" id="5_40ucx"]
 [ext_resource type="PackedScene" uid="uid://ddmr2lqtsjkds" path="res://scenes/GUI/SaveSelect.tscn" id="5_save"]
 
@@ -53,6 +53,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q44kx")
 
+[node name="Wallpaper" type="Sprite2D" parent="." unique_id=1447966491]
+z_index = -1
+scale = Vector2(1.036, 1.036)
+texture = ExtResource("4_8qd7l")
+centered = false
+
 [node name="Play" type="Button" parent="." unique_id=382926049]
 layout_mode = 1
 anchors_preset = -1
@@ -60,10 +66,11 @@ anchor_left = 0.10300001
 anchor_top = 0.17400001
 anchor_right = 0.259
 anchor_bottom = 0.28300002
-offset_left = 0.34399414
-offset_top = 12.079987
-offset_right = 100.824005
-offset_bottom = 40.191986
+offset_left = 542.24
+offset_top = 212.07999
+offset_right = 642.72
+offset_bottom = 240.19202
+scale = Vector2(1.2, 1.2)
 theme_override_styles/normal = SubResource("StyleBoxTexture_hfuqv")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_pp6nm")
 theme_override_styles/hover = SubResource("StyleBoxTexture_40ucx")
@@ -75,21 +82,17 @@ anchor_left = 0.102000006
 anchor_top = 0.65900004
 anchor_right = 0.26200002
 anchor_bottom = 0.78000003
-offset_left = 2.2639923
-offset_top = -0.032043457
-offset_right = 95.063965
-offset_bottom = 15.119995
+offset_left = 544.16
+offset_top = -111.72003
+offset_right = 636.95996
+offset_bottom = -96.56799
+scale = Vector2(1.2, 1.2)
 theme_override_styles/normal = SubResource("StyleBoxTexture_qotsu")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_s0s6x")
 theme_override_styles/hover = SubResource("StyleBoxTexture_cxctt")
 
-[node name="Wallpaper" type="Sprite2D" parent="." unique_id=1021768607]
-z_index = -1
-position = Vector2(940.5, 497.49997)
-scale = Vector2(2.429314, 2.7513914)
-texture = ExtResource("4_s0s6x")
-
 [node name="SaveSelect" parent="." unique_id=150727993 instance=ExtResource("5_save")]
+visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
