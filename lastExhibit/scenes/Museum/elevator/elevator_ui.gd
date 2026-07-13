@@ -9,16 +9,19 @@ extends Control
 var current_elevator: Node2D = null
 
 const FLOOR_POSITIONS = {
-	"basement": Vector2(50.0, -242.0 -31),
-	"floor0":   Vector2(-9.0, -920.0 +-31),
-	"floor1":   Vector2(-115.0, -1582.0 -31),
-	"floor2":   Vector2(-115.0, -2255.0 -31),
+	"basement": Vector2(50.0, -243.0 -31),
+	"floor0":   Vector2(-9.0, -921.0 +-31),
+	"floor1":   Vector2(-115.0, -1584.0 -31),
+	"floor2":   Vector2(-115.0, -2256.0 -31),
 }
 
 func _ready() -> void:
 	hide()
 
 func _travel_to(floor_name: String, button: AnimatedSprite2D) -> void:
+	if current_elevator and current_elevator.floor_name == floor_name:
+		return
+	
 	player.set_physics_process(false)
 	button.play(floor_name)
 	await get_tree().create_timer(0.75).timeout
@@ -44,7 +47,8 @@ func _travel_to(floor_name: String, button: AnimatedSprite2D) -> void:
 	for elevator in elevators:
 		if elevator.floor_name == floor_name:
 			elevator.visible = true
-			#elevator.play_opening_animation()
+			elevator.get_node("Sprite2D").visible = false
+			elevator.get_node("AnimatedSprite2D").visible = false
 			break
 
 	await Fader.fade_in(0.5)

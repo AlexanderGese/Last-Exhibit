@@ -6354,6 +6354,7 @@ collision_mask = 255
 script = ExtResource("1_ky53y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=204673349]
+position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_h00vy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=491251229]
