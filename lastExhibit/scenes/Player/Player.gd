@@ -93,6 +93,7 @@ func _ready() -> void:
 	Events.weapon_changed.connect(weapon_change)
 	Events.dialogue_started.connect(_on_dialogue_started)
 	Events.dialogue_ended.connect(_on_dialogue_ended)
+	DialogueManager.dialogue_ended.connect(_on_dm_dialogue_ended)
 	add_child(escape_menu)
 	save = SaveManager.player
 	$Timer.start()
@@ -113,7 +114,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	heal(100)
 	anim_locked_until = max(0.0, anim_locked_until - delta)
 	_tick_effects(delta)
 	SaveManager.player.playertiner = level_timer.get_time_left()
@@ -507,6 +507,9 @@ func _on_dialogue_started() -> void:
 func _on_dialogue_ended() -> void:
 	is_in_dialogue  = false
 
+func _on_dm_dialogue_ended(_resource) -> void:
+	is_in_dialogue = false
+
 func setDurchgespielt() -> void:
 	durchgespielt=true
 
@@ -554,7 +557,9 @@ func extend_level_time(seconds: float) -> bool:
 func throw_molotov() -> bool:
 	var flasche = MOLOTOV_SCENE.instantiate()
 	flasche.fire_scene = FIRE_SCENE
+	flasche.collision_mask = flasche.collision_mask | 0b11
 	get_tree().current_scene.add_child(flasche)
+	flasche.add_collision_exception_with(self)
 	var start := global_position + Vector2(0, -20)
 	var target := global_position + Vector2(200 if facing_right else -200, 60)
 	flasche.setup(start, target)

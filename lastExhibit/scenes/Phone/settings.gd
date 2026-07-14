@@ -31,11 +31,64 @@ const DEFAULTS = {
 
 var listening_for_action: String = ""
 var listening_button: Button = null
+var _volume_sliders := {}
 
 
 func _ready() -> void:
 	reset_button.pressed.connect(_on_reset_pressed)
+	_build_audio_controls()
 	_build_keybind_list()
+
+
+func _build_audio_controls() -> void:
+	var vbox: VBoxContainer = $ScrollContainer/VBoxContainer
+	var section := VBoxContainer.new()
+	section.add_theme_constant_override("separation", 6)
+
+	var header := Label.new()
+	header.text = "Audio"
+	section.add_child(header)
+
+	for entry in [["Master", "Master"], ["Music", "Music"], ["SFX", "VFX"]]:
+		var row := HBoxContainer.new()
+		row.custom_minimum_size.y = 40
+
+		var label := Label.new()
+		label.text = entry[0]
+		label.custom_minimum_size.x = 150
+		row.add_child(label)
+
+		var slider := HSlider.new()
+		slider.min_value = 0.0
+		slider.max_value = 1.0
+		slider.step = 0.01
+		slider.custom_minimum_size.x = 200
+		slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		slider.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		slider.value = AudioManager.get_volume(entry[1])
+		slider.value_changed.connect(_on_volume_changed.bind(entry[1]))
+		row.add_child(slider)
+		_volume_sliders[entry[1]] = slider
+
+		section.add_child(row)
+
+	var reset_audio_btn := Button.new()
+	reset_audio_btn.text = "Reset Audio to Default"
+	reset_audio_btn.pressed.connect(_on_reset_audio_pressed)
+	section.add_child(reset_audio_btn)
+
+	vbox.add_child(section)
+	vbox.move_child(section, 0)
+
+
+func _on_volume_changed(value: float, bus: String) -> void:
+	AudioManager.set_volume(bus, value)
+
+
+func _on_reset_audio_pressed() -> void:
+	AudioManager.reset_audio()
+	for bus in _volume_sliders.keys():
+		_volume_sliders[bus].set_value_no_signal(AudioManager.get_volume(bus))
 
 
 func _build_keybind_list() -> void:

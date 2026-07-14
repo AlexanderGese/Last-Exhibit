@@ -45,6 +45,7 @@
 [ext_resource type="Resource" uid="uid://bgo84n3yyx3j3" path="res://inventory/items/rüstungs/top_green_2.tres" id="43_jc3gg"]
 [ext_resource type="Resource" uid="uid://bk1pio82r60u0" path="res://inventory/items/rüstungs/shoes_orange.tres" id="44_i56c1"]
 [ext_resource type="Resource" uid="uid://degywvnd4ricx" path="res://inventory/items/rüstungs/bottom_orange.tres" id="45_ywsgq"]
+[ext_resource type="Resource" uid="uid://2i6tg3hdbblu" path="res://resources/items/guns/ak47.tres" id="47_ywsgq"]
 [ext_resource type="PackedScene" uid="uid://cuq67isxwqn0h" path="res://custom_nodes/timeshard.tscn" id="ts_shard_res"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l0vm2"]
@@ -810,6 +811,9 @@ position = Vector2(-2431, 591)
 [node name="Ladder7" parent="Leitern" unique_id=1954630928 instance=ExtResource("19_qsbqj")]
 position = Vector2(-2431, 552)
 
+[node name="Ladder13" parent="Leitern" unique_id=1047544834 instance=ExtResource("19_qsbqj")]
+position = Vector2(-2571, 373)
+
 [node name="Ladder8" parent="Leitern" unique_id=908868326 instance=ExtResource("19_qsbqj")]
 position = Vector2(321, 991)
 
@@ -1014,6 +1018,10 @@ amount = 2
 position = Vector2(-1361, 1524)
 shard_id = "sowjet_ts_5"
 amount = 2
+
+[node name="ItemPickup7" parent="." unique_id=2052525732 instance=ExtResource("25_c2x4g")]
+position = Vector2(-2557, 210)
+item = ExtResource("47_ywsgq")
 
 [connection signal="body_entered" from="Bossraum/Arena" to="Bossraum/Arena" method="_on_body_entered"]
 [connection signal="pause" from="Player" to="Dmitri" method="_on_player_pause"]

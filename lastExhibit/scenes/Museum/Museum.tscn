@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://jvkbbr8xytdv" path="res://scenes/Museum/vending_machine.tscn" id="9_lfxre"]
 [ext_resource type="PackedScene" uid="uid://c2xp0jmnqddkc" path="res://custom_nodes/ItemPickUp/ItemPickup.tscn" id="10_d7ipc"]
 [ext_resource type="PackedScene" uid="uid://dkvceyxie2xb5" path="res://custom_nodes/showcase/showcase.tscn" id="11_l6y80"]
+[ext_resource type="Resource" uid="uid://bb5wyw273ekpq" path="res://resources/items/guns/walterp99.tres" id="12_h742d"]
 [ext_resource type="PackedScene" uid="uid://b465bo07tndvt" path="res://custom_nodes/boxes/packages.tscn" id="12_vcqe2"]
 [ext_resource type="Texture2D" uid="uid://67gjxlnkdn2" path="res://assets/theicons/pixel_art_small.png" id="13_1hd0j"]
 [ext_resource type="Resource" uid="uid://b6lmvke8rcnet" path="res://inventory/items/rüstungs/hat_brown.tres" id="13_h742d"]
@@ -347,7 +348,12 @@ showcaseroom = 5
 [node name="Packages" parent="." unique_id=286900212 instance=ExtResource("12_vcqe2")]
 position = Vector2(1632, -919)
 
-[node name="ItemPickup" parent="." unique_id=1858323732 instance=ExtResource("10_d7ipc")]
+[node name="ItemPickup2" parent="." unique_id=1858323732 instance=ExtResource("10_d7ipc")]
+position = Vector2(1859, -2264)
+item = ExtResource("12_h742d")
+once = true
+
+[node name="ItemPickup" parent="." unique_id=741303386 instance=ExtResource("10_d7ipc")]
 position = Vector2(144, -252)
 item = ExtResource("13_h742d")
 once = true

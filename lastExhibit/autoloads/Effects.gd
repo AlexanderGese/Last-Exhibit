@@ -14,6 +14,7 @@ var players: Dictionary = {}
 func _ready() -> void:
 	for name in SOUNDS:
 		var player = AudioStreamPlayer.new()
+		player.bus = "VFX"
 		player.stream = load(SOUNDS[name])
 		add_child(player)
 		players[name] = player

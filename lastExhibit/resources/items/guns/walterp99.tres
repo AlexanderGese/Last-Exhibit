@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://bb5wyw273ekpq"]
 
-[ext_resource type="Texture2D" uid="uid://bkg7r1umy8sup" path="res://assets/ui/phone/button_pressed.png" id="1_xs47e"]
+[ext_resource type="Texture2D" uid="uid://cvdbffk2gyo0l" path="res://assets/blackmarket/pistol.png" id="1_xs47e"]
 [ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="2_ibqe6"]
 
 [resource]
