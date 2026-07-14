@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Item" format=3]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://b2m8c48atmjxb"]
 
 [ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_item"]
-[ext_resource type="Texture2D" path="res://assets/sprites/armor/green_cap.png" id="2_icon"]
+[ext_resource type="Texture2D" uid="uid://b0it0acsg15b1" path="res://assets/sprites/armor/green_cap.png" id="2_icon"]
 
 [resource]
 script = ExtResource("1_item")
@@ -9,8 +9,6 @@ id = "ruestung_hat_green_2"
 name = "Hut Grün 2"
 icon = ExtResource("2_icon")
 type = 2
-stackable = false
-max_stack = 1
 value = 25
-resistance = 0.05
+resistance = 0.1
 metadata/_custom_type_script = "uid://d4c671jpgfict"

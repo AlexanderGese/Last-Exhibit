@@ -31,7 +31,11 @@
 [ext_resource type="Resource" uid="uid://qx02jnmk1je5" path="res://scenes/Epochs/ww2/artifacts/werkzeug.tres" id="26_nkm0m"]
 [ext_resource type="Resource" uid="uid://g377260xh74h" path="res://scenes/Epochs/ww2/artifacts/werkzeugkasten.tres" id="27_iiv8v"]
 [ext_resource type="PackedScene" uid="uid://dmjr1popugs7y" path="res://scenes/Epochs/ww2/JohnathanSinners/JohnathanSinners.tscn" id="31_f0qqm"]
-[ext_resource type="Resource" uid="uid://ek0joaksjtbc" path="res://dialogues/johnathansinners.dialogue" id="32_f0qqm"]
+[ext_resource type="Resource" uid="uid://biffp0jci11gw" path="res://dialogues/johnathansinners.dialogue" id="32_f0qqm"]
+[ext_resource type="Resource" uid="uid://wo1tw6tqt0a6" path="res://inventory/items/rüstungs/bottom_green_2.tres" id="33_6aaf6"]
+[ext_resource type="Resource" uid="uid://b2m8c48atmjxb" path="res://inventory/items/rüstungs/hat_green_2.tres" id="33_bvky7"]
+[ext_resource type="Resource" uid="uid://byft3mlbraeto" path="res://inventory/items/rüstungs/top_green.tres" id="33_j7k4x"]
+[ext_resource type="Resource" uid="uid://cm1j7kwbvm65h" path="res://inventory/items/rüstungs/shoes_green.tres" id="33_tw7ji"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ys555"]
 texture = ExtResource("2_r5ffj")
@@ -1127,5 +1131,30 @@ item = ExtResource("24_ux0pu")
 [node name="JohnathanSinners" parent="." unique_id=1254540900 instance=ExtResource("31_f0qqm")]
 position = Vector2(-249, -59)
 dialogue = ExtResource("32_f0qqm")
+
+[node name="ItemPickup" parent="." unique_id=163582158 instance=ExtResource("22_f8gdp")]
+position = Vector2(6838, -38)
+item = ExtResource("33_tw7ji")
+once = true
+
+[node name="ItemPickup2" parent="." unique_id=1461666440 instance=ExtResource("22_f8gdp")]
+position = Vector2(5511, -430)
+item = ExtResource("33_bvky7")
+once = true
+
+[node name="top_green" parent="." unique_id=1125942477 instance=ExtResource("22_f8gdp")]
+position = Vector2(3989, 370)
+item = ExtResource("33_j7k4x")
+once = true
+
+[node name="hat_green" parent="." unique_id=356930649 instance=ExtResource("22_f8gdp")]
+position = Vector2(3026, -42)
+item = ExtResource("33_bvky7")
+once = true
+
+[node name="bottom_green" parent="." unique_id=490606924 instance=ExtResource("22_f8gdp")]
+position = Vector2(749, -232)
+item = ExtResource("33_6aaf6")
+once = true
 
 [connection signal="pause" from="Player" to="JohnathanSinners" method="_on_player_pause"]

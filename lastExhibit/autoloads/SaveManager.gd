@@ -151,6 +151,14 @@ func buy(price: float, item: String, currency: String)-> bool:
 	save_all()
 	return this
 
+func is_pickup_collected(id: String) -> bool:
+	return id in player.collected_pickups
+
+func collect_pickup(id: String) -> void:
+	if id != "" and not id in player.collected_pickups:
+		player.collected_pickups.append(id)
+		save_all()
+
 func is_shard_collected(id: String) -> bool:
 	return id in player.collected_shards
 
@@ -262,6 +270,8 @@ func equip(index: int) -> void:
 
 
 func try_pickup(item: Item) -> bool:
+	if item == null:
+		return false
 	if item.type == Item.Type.ARTIFACT:
 		Tutorials.show_tutorial("first_artifact")
 	var key := inventory.equip_key(item.type)

@@ -40,8 +40,14 @@
 [ext_resource type="Resource" uid="uid://cwf0chypvn2bc" path="res://scenes/Epochs/Medieval/artifacts/verrostetes_schwert.tres" id="38_4chqw"]
 [ext_resource type="Resource" uid="uid://bnkscifvsyl0o" path="res://scenes/Epochs/Medieval/artifacts/signatur.tres" id="39_rpn4g"]
 [ext_resource type="PackedScene" uid="uid://8wy56gb2bo7r" path="res://scenes/Epochs/Medieval/TheDarkKnight/TheDarkKnight.tscn" id="40_b8gl2"]
-[ext_resource type="Resource" uid="uid://bsyrmohtx7dk5" path="res://dialogues/thedarkknightt.dialogue" id="41_of0or"]
+[ext_resource type="Resource" uid="uid://mgosphpv67oy" path="res://dialogues/thedarkknightt.dialogue" id="41_of0or"]
 [ext_resource type="Script" uid="uid://sjo6q1swrbvk" path="res://scenes/Epochs/Medieval/credit_trigger.gd" id="42_3rsbm"]
+[ext_resource type="Resource" uid="uid://3xo6qwvhveju" path="res://inventory/items/rüstungs/top_brown.tres" id="43_4chqw"]
+[ext_resource type="Resource" uid="uid://ckoj6xokvfrlg" path="res://inventory/items/rüstungs/bottom_gray.tres" id="43_n6jdv"]
+[ext_resource type="Resource" uid="uid://yaj4b7nwgqs0" path="res://inventory/items/rüstungs/shoes_brown.tres" id="43_nshsr"]
+[ext_resource type="Resource" uid="uid://qkguum1isn8n" path="res://inventory/items/rüstungs/bottom_brown.tres" id="43_vjya6"]
+[ext_resource type="Resource" uid="uid://dg87vi6cq4ocg" path="res://inventory/items/rüstungs/top_gray.tres" id="43_y41qd"]
+[ext_resource type="Resource" uid="uid://uk718k2awx6f" path="res://inventory/items/rüstungs/shoes_gray.tres" id="45_mbplr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lljqo"]
 texture = ExtResource("1_v1uj4")
@@ -523,7 +529,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gl2rr")
 }],
-"loop": 1,
+"loop": true,
 "name": &"burn",
 "speed": 5.0
 }]
@@ -573,7 +579,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_043ah")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
@@ -1064,7 +1070,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lotgg")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
@@ -1898,6 +1904,36 @@ script = ExtResource("42_3rsbm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CreditTrigger" unique_id=1759109269]
 position = Vector2(5825.75, -39)
 shape = SubResource("RectangleShape2D_of0or")
+
+[node name="top_grey" parent="." unique_id=1552392778 instance=ExtResource("30_6ivbq")]
+position = Vector2(5378, -302)
+item = ExtResource("43_y41qd")
+once = true
+
+[node name="bottom_grey" parent="." unique_id=168896558 instance=ExtResource("30_6ivbq")]
+position = Vector2(5076, -206)
+item = ExtResource("43_n6jdv")
+once = true
+
+[node name="shoes_grey" parent="." unique_id=1283397234 instance=ExtResource("30_6ivbq")]
+position = Vector2(4030, -142)
+item = ExtResource("45_mbplr")
+once = true
+
+[node name="shoes_brown" parent="." unique_id=1516115090 instance=ExtResource("30_6ivbq")]
+position = Vector2(1815, -10)
+item = ExtResource("43_nshsr")
+once = true
+
+[node name="top_brown" parent="." unique_id=45648234 instance=ExtResource("30_6ivbq")]
+position = Vector2(-1873, -10)
+item = ExtResource("43_4chqw")
+once = true
+
+[node name="bottom_brown" parent="." unique_id=726599306 instance=ExtResource("30_6ivbq")]
+position = Vector2(807, -110)
+item = ExtResource("43_vjya6")
+once = true
 
 [connection signal="body_entered" from="Arena" to="Arena" method="_on_body_entered"]
 [connection signal="pause" from="Player" to="TheDarkKnight" method="_on_player_pause"]

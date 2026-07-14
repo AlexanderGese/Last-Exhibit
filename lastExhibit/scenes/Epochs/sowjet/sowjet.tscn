@@ -36,9 +36,15 @@
 [ext_resource type="PackedScene" uid="uid://vy8boieivyjw" path="res://custom_nodes/return/return_machine.tscn" id="33_shqr1"]
 [ext_resource type="PackedScene" uid="uid://bx2cvc4w0jtlb" path="res://scenes/Epochs/ww2/enemy.tscn" id="34_vmuci"]
 [ext_resource type="PackedScene" uid="uid://yj0064l6d1f8" path="res://custom_nodes/boxes/test_dummy.tscn" id="36_b6iha"]
-[ext_resource type="Resource" uid="uid://4lnnwk2s0cpg" path="res://dialogues/dummys/dummy1.dialogue" id="37_moguq"]
-[ext_resource type="Resource" uid="uid://by30fbu07lmlr" path="res://dialogues/dummys/dummy2.dialogue" id="38_q2wuq"]
-[ext_resource type="Resource" uid="uid://becassvllmn7m" path="res://dialogues/dummys/dummy3.dialogue" id="39_wrpbf"]
+[ext_resource type="Resource" uid="uid://b4g11uknc0xpp" path="res://dialogues/dummys/dummy1.dialogue" id="37_moguq"]
+[ext_resource type="Resource" uid="uid://c42frr4u01g52" path="res://dialogues/dummys/dummy2.dialogue" id="38_q2wuq"]
+[ext_resource type="Resource" uid="uid://cigy8wtwynkc0" path="res://dialogues/dummys/dummy3.dialogue" id="39_wrpbf"]
+[ext_resource type="Resource" uid="uid://b2m8c48atmjxb" path="res://inventory/items/rüstungs/hat_green_2.tres" id="40_ieaqy"]
+[ext_resource type="Resource" uid="uid://skd0amaxrfhg" path="res://inventory/items/rüstungs/hat_green_4.tres" id="41_d3at7"]
+[ext_resource type="Resource" uid="uid://btyhu8fv0v2xa" path="res://inventory/items/rüstungs/top_orange.tres" id="42_71vde"]
+[ext_resource type="Resource" uid="uid://bgo84n3yyx3j3" path="res://inventory/items/rüstungs/top_green_2.tres" id="43_jc3gg"]
+[ext_resource type="Resource" uid="uid://bk1pio82r60u0" path="res://inventory/items/rüstungs/shoes_orange.tres" id="44_i56c1"]
+[ext_resource type="Resource" uid="uid://degywvnd4ricx" path="res://inventory/items/rüstungs/bottom_orange.tres" id="45_ywsgq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l0vm2"]
 texture = ExtResource("2_iyr3m")
@@ -958,6 +964,30 @@ dialogue = ExtResource("38_q2wuq")
 [node name="CharacterBody2D3" parent="." unique_id=712816340 instance=ExtResource("36_b6iha")]
 position = Vector2(-848, -21)
 dialogue = ExtResource("39_wrpbf")
+
+[node name="ItemPickup" parent="." unique_id=1072354030 instance=ExtResource("25_c2x4g")]
+item = ExtResource("40_ieaqy")
+once = true
+
+[node name="ItemPickup2" parent="." unique_id=838662834 instance=ExtResource("25_c2x4g")]
+item = ExtResource("41_d3at7")
+once = true
+
+[node name="ItemPickup3" parent="." unique_id=1304001049 instance=ExtResource("25_c2x4g")]
+item = ExtResource("42_71vde")
+once = true
+
+[node name="ItemPickup4" parent="." unique_id=1464071370 instance=ExtResource("25_c2x4g")]
+item = ExtResource("43_jc3gg")
+once = true
+
+[node name="ItemPickup5" parent="." unique_id=81679792 instance=ExtResource("25_c2x4g")]
+item = ExtResource("44_i56c1")
+once = true
+
+[node name="ItemPickup6" parent="." unique_id=673406509 instance=ExtResource("25_c2x4g")]
+item = ExtResource("45_ywsgq")
+once = true
 
 [connection signal="body_entered" from="Bossraum/Arena" to="Bossraum/Arena" method="_on_body_entered"]
 [connection signal="pause" from="Player" to="Dmitri" method="_on_player_pause"]

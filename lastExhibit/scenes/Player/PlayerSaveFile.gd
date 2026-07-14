@@ -26,6 +26,7 @@ extends SaveFile
 @export var playertiner: int = 0
 @export var seen_tutorials: Array[String] = []
 @export var collected_shards: Array[String] = []
+@export var collected_pickups: Array[String] = []
 @export var finished_game: bool = false
 
 
@@ -47,6 +48,7 @@ func _init() -> void:
 	past_five_transactions = ["/", "/", "/", "/", "/"]
 	seen_tutorials = []
 	collected_shards = []
+	collected_pickups = []
 
 func add_transcation(item: String, price: int, currency: String) -> void:
 	var item_label: String = item + " " + str(price) + " " + currency

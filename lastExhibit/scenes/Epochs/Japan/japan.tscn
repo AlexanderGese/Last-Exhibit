@@ -34,6 +34,10 @@
 [ext_resource type="PackedScene" uid="uid://cogpd7yopf1x" path="res://scenes/Epochs/Japan/Boss/Samurai Boss.tscn" id="32_1slg1"]
 [ext_resource type="PackedScene" uid="uid://bavtmbaebgab4" path="res://scenes/Epochs/Japan/HanaNakamura/HanaNakamura.tscn" id="33_1slg1"]
 [ext_resource type="Resource" uid="uid://ctty4snpkrw4e" path="res://dialogues/hananakamura.dialogue" id="34_kyhw3"]
+[ext_resource type="Resource" uid="uid://ifppm2oeomq3" path="res://inventory/items/rüstungs/shoes_blue.tres" id="35_k8ha5"]
+[ext_resource type="Resource" uid="uid://doch52cw70dbg" path="res://inventory/items/rüstungs/bottom_blue.tres" id="35_lk5i4"]
+[ext_resource type="Resource" uid="uid://d5uha710fg8j" path="res://inventory/items/rüstungs/hat_blue.tres" id="35_qcekm"]
+[ext_resource type="Resource" uid="uid://b54hj7f5lojs2" path="res://inventory/items/rüstungs/top_blue.tres" id="35_saxbf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lljqo"]
 texture = ExtResource("1_qa2ky")
@@ -789,7 +793,7 @@ position = Vector2(768, -214)
 item = ExtResource("22_w18ln")
 
 [node name="Ritualsteine 4" parent="Artifacts" unique_id=1932140285 instance=ExtResource("19_kgg2d")]
-position = Vector2(955, -303)
+position = Vector2(867, -344)
 item = ExtResource("24_0kbn0")
 
 [node name="Essstäbchen" parent="Artifacts" unique_id=2143832927 instance=ExtResource("19_kgg2d")]
@@ -895,6 +899,26 @@ shape = SubResource("RectangleShape2D_kyhw3")
 [node name="HanaNakamura" parent="." unique_id=137995595 instance=ExtResource("33_1slg1")]
 position = Vector2(-889, -21)
 dialogue = ExtResource("34_kyhw3")
+
+[node name="top_blue" parent="." unique_id=1891323374 instance=ExtResource("19_kgg2d")]
+position = Vector2(3294, -298)
+item = ExtResource("35_saxbf")
+once = true
+
+[node name="shoes_blue" parent="." unique_id=1370596425 instance=ExtResource("19_kgg2d")]
+position = Vector2(1763, -300)
+item = ExtResource("35_k8ha5")
+once = true
+
+[node name="bottom_blue" parent="." unique_id=1090425236 instance=ExtResource("19_kgg2d")]
+position = Vector2(591, -306)
+item = ExtResource("35_lk5i4")
+once = true
+
+[node name="hat_blue" parent="." unique_id=236913704 instance=ExtResource("19_kgg2d")]
+position = Vector2(-175, -119)
+item = ExtResource("35_qcekm")
+once = true
 
 [connection signal="body_entered" from="Ladders/Ladder" to="Ladders/Ladder" method="_on_body_entered"]
 [connection signal="body_exited" from="Ladders/Ladder" to="Ladders/Ladder" method="_on_body_exited"]
