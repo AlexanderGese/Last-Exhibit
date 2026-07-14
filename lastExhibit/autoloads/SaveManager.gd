@@ -217,26 +217,72 @@ func use_item(index: int) -> bool:
 	return false
 	
 func consumable(item: Item, slot, index: int) -> bool:
-	# Player_char immer frisch holen (Autoload startet vor Player)
-	if player_char == null or not is_instance_valid(player_char):
-		player_char = get_tree().get_first_node_in_group("player")
-	
-	if player_char == null or not player_char.has_method("heal"):
-		print("Kein Player gefunden zum Heilen")
+	if not _apply_effect(item):
 		return false
-	
-	if item.heal_amount <= 0:
-		return false
-	
-	var healed = player_char.heal(item.heal_amount)
-	if not healed:
-		return false
-	
 	slot.qty -= 1
 	if slot.qty <= 0:
 		inventory.slots[index] = null
 	inventory_changed.emit()
 	return true
+
+func _player_char():
+	if player_char == null or not is_instance_valid(player_char):
+		player_char = get_tree().get_first_node_in_group("player")
+	return player_char
+
+func _apply_effect(item: Item) -> bool:
+	var p = _player_char()
+	match item.effect:
+		"heal":
+			return p != null and p.heal(int(item.effect_amount))
+		"regen":
+			if p == null: return false
+			p.start_regen(item.effect_amount, item.effect_duration)
+			return true
+		"adrenaline":
+			if p == null: return false
+			p.adrenaline(item.effect_amount, item.effect_duration)
+			return true
+		"time_slow":
+			if p == null: return false
+			p.time_slow(item.effect_amount, item.effect_duration)
+			return true
+		"extend_timer":
+			return p != null and p.extend_level_time(item.effect_amount)
+		"molotov":
+			return p != null and p.throw_molotov()
+		"emp":
+			_emp(item.effect_duration)
+			return true
+		"overclock":
+			player.combo_bonus += int(item.effect_amount)
+			save_all()
+			return true
+		"second_wind":
+			return false
+		_:
+			return p != null and item.heal_amount > 0 and p.heal(int(item.heal_amount))
+
+func _emp(duration: float) -> void:
+	var enemies = get_tree().get_nodes_in_group("enemy")
+	for e in enemies:
+		if is_instance_valid(e):
+			e.set_physics_process(false)
+	await get_tree().create_timer(duration).timeout
+	for e in enemies:
+		if is_instance_valid(e):
+			e.set_physics_process(true)
+
+func consume_effect_item(effect: String) -> bool:
+	for i in inventory.slots.size():
+		var s = inventory.slots[i]
+		if s != null and s.item != null and s.item.effect == effect:
+			s.qty -= 1
+			if s.qty <= 0:
+				inventory.slots[i] = null
+			inventory_changed.emit()
+			return true
+	return false
 	
 	
 func artifact(item: Item, slot, index:int) -> bool:

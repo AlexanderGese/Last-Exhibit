@@ -36,6 +36,7 @@
 [ext_resource type="Resource" uid="uid://b2m8c48atmjxb" path="res://inventory/items/rüstungs/hat_green_2.tres" id="33_bvky7"]
 [ext_resource type="Resource" uid="uid://byft3mlbraeto" path="res://inventory/items/rüstungs/top_green.tres" id="33_j7k4x"]
 [ext_resource type="Resource" uid="uid://cm1j7kwbvm65h" path="res://inventory/items/rüstungs/shoes_green.tres" id="33_tw7ji"]
+[ext_resource type="PackedScene" uid="uid://cuq67isxwqn0h" path="res://custom_nodes/timeshard.tscn" id="ts_shard_res"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ys555"]
 texture = ExtResource("2_r5ffj")
@@ -1127,6 +1128,31 @@ item = ExtResource("24_ux0pu")
 [node name="JeepReifen4" parent="Artifacts" unique_id=1261141956 instance=ExtResource("22_f8gdp")]
 position = Vector2(2883, -49)
 item = ExtResource("24_ux0pu")
+
+[node name="Timeshard_ww2_ts_1" parent="Artifacts" unique_id=1059337636 instance=ExtResource("ts_shard_res")]
+position = Vector2(5749, -423)
+shard_id = "ww2_ts_1"
+amount = 4
+
+[node name="Timeshard_ww2_ts_2" parent="Artifacts" unique_id=183988746 instance=ExtResource("ts_shard_res")]
+position = Vector2(5297, -225)
+shard_id = "ww2_ts_2"
+amount = 4
+
+[node name="Timeshard_ww2_ts_3" parent="Artifacts" unique_id=1663023414 instance=ExtResource("ts_shard_res")]
+position = Vector2(4019, 186)
+shard_id = "ww2_ts_3"
+amount = 4
+
+[node name="Timeshard_ww2_ts_4" parent="Artifacts" unique_id=1325458522 instance=ExtResource("ts_shard_res")]
+position = Vector2(3460, -39)
+shard_id = "ww2_ts_4"
+amount = 4
+
+[node name="Timeshard_ww2_ts_5" parent="Artifacts" unique_id=1040111781 instance=ExtResource("ts_shard_res")]
+position = Vector2(870, -217)
+shard_id = "ww2_ts_5"
+amount = 4
 
 [node name="JohnathanSinners" parent="." unique_id=1254540900 instance=ExtResource("31_f0qqm")]
 position = Vector2(-249, -59)

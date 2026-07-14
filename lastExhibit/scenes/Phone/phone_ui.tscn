@@ -323,7 +323,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
-text = "WW2 Unlock           10TS"
+text = "WW2 Unlock           15TS"
 
 [node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label" unique_id=1155004095]
 custom_minimum_size = Vector2(60, 30)
@@ -341,7 +341,7 @@ flat = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
-text = "Middleage Unlock 25TS"
+text = "Middleage Unlock 40TS"
 
 [node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label2" unique_id=73738716]
 custom_minimum_size = Vector2(60, 30)
@@ -413,7 +413,7 @@ flat = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
-text = "Darknet  app          100$"
+text = "Darknet  app          500$"
 
 [node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label6" unique_id=282727784]
 custom_minimum_size = Vector2(60, 30)
@@ -431,7 +431,7 @@ flat = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
-text = "Flappybird app      100$"
+text = "Flappybird app      250$"
 
 [node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label7" unique_id=1949852387]
 custom_minimum_size = Vector2(60, 30)
@@ -449,7 +449,7 @@ flat = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
-text = "Japan Unlock          10TS"
+text = "Japan Unlock          25TS"
 
 [node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label8" unique_id=885941893]
 custom_minimum_size = Vector2(60, 30)

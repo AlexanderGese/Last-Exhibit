@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bkm2molo0tov"]
+
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_item"]
+[ext_resource type="Texture2D" uid="uid://cvu5g5u7gea86" path="res://assets/blackmarket/molotow.png" id="1_yrlws"]
+
+[resource]
+script = ExtResource("1_item")
+id = "molotov"
+name = "Molotov"
+icon = ExtResource("1_yrlws")
+type = 6
+stackable = true
+max_stack = 5
+effect = "molotov"
+metadata/_custom_type_script = "uid://d4c671jpgfict"

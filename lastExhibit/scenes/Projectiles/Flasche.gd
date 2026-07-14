@@ -2,6 +2,7 @@ extends RigidBody2D
 
 @export var fire_scene : PackedScene
 var ziel : Vector2
+var _burst := false
 
 
 func setup(start: Vector2, target: Vector2) -> void:
@@ -13,11 +14,23 @@ func setup(start: Vector2, target: Vector2) -> void:
 	var vx    = diff.x / time
 	var vy    = (diff.y - 0.5 * grav * time * time) / time
 	linear_velocity = Vector2(vx, vy)
+	_arm()
 
+
+func _arm() -> void:
+	await get_tree().create_timer(1.05).timeout
+	if is_instance_valid(self):
+		burst()
 
 
 func _on_body_entered(body: Node) -> void:
-	#ruft die Feuer-Szene auf und löscht sich
+	burst()
+
+
+func burst() -> void:
+	if _burst:
+		return
+	_burst = true
 	if fire_scene:
 		var fire = fire_scene.instantiate()
 		get_parent().add_child(fire)

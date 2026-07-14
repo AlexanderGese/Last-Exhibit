@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bkm6secn0wind"]
+
+[ext_resource type="Texture2D" uid="uid://cdpt5snvn62y8" path="res://assets/blackmarket/totem.png" id="1_cp0mq"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_item"]
+
+[resource]
+script = ExtResource("1_item")
+id = "second_wind"
+name = "Second Wind"
+icon = ExtResource("1_cp0mq")
+type = 6
+stackable = true
+max_stack = 3
+effect = "second_wind"
+metadata/_custom_type_script = "uid://d4c671jpgfict"

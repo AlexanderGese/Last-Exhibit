@@ -25,6 +25,7 @@ const ORIGINAL_MODULATE := Color.WHITE
 var player: Node2D = null
 
 func _ready():
+	add_to_group("enemy")
 	animated_sprite.animation_finished.connect(_on_animation_finished)
 	
 	if enemy_hurtbox:

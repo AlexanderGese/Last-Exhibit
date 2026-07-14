@@ -5,6 +5,8 @@ const ARROW_SCENE = preload("res://custom_nodes/boxes/arrow.tscn")
 const BUlLET_PISTOL_SCENE = preload("res://custom_nodes/boxes/bullet_pistol.tscn")
 const BULLET_GUN_SCENE = preload("res://custom_nodes/boxes/bullet_gun.tscn")
 const ESCAPEMENU_SCENE = preload("res://scenes/EscapeMenu/EscapeMenu.tscn")
+const MOLOTOV_SCENE = preload("res://scenes/Projectiles/Flasche.tscn")
+const FIRE_SCENE = preload("res://scenes/Projectiles/Fire.tscn")
 
 const RUN_SPEED = 350
 const ACCELERATION = 2500.0
@@ -77,6 +79,12 @@ var is_in_dialogue := false
 var flash_tween: Tween = null
 var is_invincible: bool = false
 
+var speed_mult := 1.0
+var adrenaline_left := 0.0
+var regen_left := 0.0
+var regen_rate := 0.0
+var regen_tick := 0.0
+
 
 signal pause
 
@@ -107,6 +115,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	heal(100)
 	anim_locked_until = max(0.0, anim_locked_until - delta)
+	_tick_effects(delta)
 	SaveManager.player.playertiner = level_timer.get_time_left()
 	if is_climbing:
 		_handle_climb(delta)
@@ -150,7 +159,7 @@ func _handle_movement(delta: float) -> void:
 	var mult := 1.0 if is_on_floor() else AIR_MULT
 	
 	if direction != 0:
-		velocity.x = move_toward(velocity.x, direction * RUN_SPEED, ACCELERATION * mult * delta)
+		velocity.x = move_toward(velocity.x, direction * RUN_SPEED * speed_mult, ACCELERATION * mult * delta)
 		facing_right = direction > 0
 		sprite.flip_h = not facing_right
 	else:
@@ -266,7 +275,7 @@ func _handle_attack(delta: float) -> void:
 	if Input.is_action_just_pressed("left_click"):
 		if not is_attacking:
 			_start_melee_attack()
-		elif combo_count < MAX_COMBO:
+		elif combo_count < MAX_COMBO + save.combo_bonus:
 			combo_queued = true
 	
 	if Input.is_action_just_pressed("right_click") and ranged_cooldown <= 0 and not is_attacking:
@@ -335,7 +344,7 @@ func _any_ui_open() -> bool:
 func _on_animation_finished() -> void:
 	if sprite.animation != "hit":
 		return
-	if combo_queued and combo_count < MAX_COMBO:
+	if combo_queued and combo_count < MAX_COMBO + save.combo_bonus:
 		_start_melee_attack()
 	else:
 		is_attacking = false
@@ -402,8 +411,15 @@ func _start_invincibility(duration: float) -> void:
 
 
 func _die() -> void:
+	if SaveManager.consume_effect_item("second_wind"):
+		save.hp = save.max_hp
+		if flash_tween and flash_tween.is_valid():
+			flash_tween.kill()
+		sprite.modulate = ORIGINAL_MODULATE
+		_start_invincibility(2.0)
+		return
 	print("Player ist gestorben")
-	
+
 	if flash_tween and flash_tween.is_valid():
 		flash_tween.kill()
 	sprite.modulate = ORIGINAL_MODULATE
@@ -496,3 +512,50 @@ func setDurchgespielt() -> void:
 
 func getDurchgespielt() -> bool:
 	return durchgespielt
+
+
+func _tick_effects(delta: float) -> void:
+	if adrenaline_left > 0.0:
+		adrenaline_left -= delta
+		if adrenaline_left <= 0.0:
+			speed_mult = 1.0
+	if regen_left > 0.0:
+		regen_left -= delta
+		regen_tick += delta
+		if regen_tick >= 1.0:
+			regen_tick -= 1.0
+			heal(int(regen_rate))
+
+
+func adrenaline(mult: float, duration: float) -> void:
+	speed_mult = mult
+	adrenaline_left = duration
+
+
+func start_regen(rate: float, duration: float) -> void:
+	regen_rate = rate
+	regen_left = duration
+	regen_tick = 0.0
+
+
+func time_slow(scale: float, duration: float) -> void:
+	Engine.time_scale = scale
+	await get_tree().create_timer(duration, true, false, true).timeout
+	Engine.time_scale = 1.0
+
+
+func extend_level_time(seconds: float) -> bool:
+	if not Events.in_level:
+		return false
+	level_timer.start(level_timer.get_time_left() + seconds)
+	return true
+
+
+func throw_molotov() -> bool:
+	var flasche = MOLOTOV_SCENE.instantiate()
+	flasche.fire_scene = FIRE_SCENE
+	get_tree().current_scene.add_child(flasche)
+	var start := global_position + Vector2(0, -20)
+	var target := global_position + Vector2(200 if facing_right else -200, 60)
+	flasche.setup(start, target)
+	return true

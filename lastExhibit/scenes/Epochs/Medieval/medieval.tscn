@@ -48,6 +48,7 @@
 [ext_resource type="Resource" uid="uid://qkguum1isn8n" path="res://inventory/items/rüstungs/bottom_brown.tres" id="43_vjya6"]
 [ext_resource type="Resource" uid="uid://dg87vi6cq4ocg" path="res://inventory/items/rüstungs/top_gray.tres" id="43_y41qd"]
 [ext_resource type="Resource" uid="uid://uk718k2awx6f" path="res://inventory/items/rüstungs/shoes_gray.tres" id="45_mbplr"]
+[ext_resource type="PackedScene" uid="uid://cuq67isxwqn0h" path="res://custom_nodes/timeshard.tscn" id="ts_shard_res"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lljqo"]
 texture = ExtResource("1_v1uj4")
@@ -1893,6 +1894,31 @@ item = ExtResource("39_rpn4g")
 [node name="Arschschwert2" parent="Artifacts" unique_id=2064523077 instance=ExtResource("30_6ivbq")]
 position = Vector2(-4269, -659)
 item = ExtResource("38_4chqw")
+
+[node name="Timeshard_medieval_ts_1" parent="Artifacts" unique_id=1632913662 instance=ExtResource("ts_shard_res")]
+position = Vector2(2598, -4)
+shard_id = "medieval_ts_1"
+amount = 2
+
+[node name="Timeshard_medieval_ts_2" parent="Artifacts" unique_id=1364748596 instance=ExtResource("ts_shard_res")]
+position = Vector2(5838, -294)
+shard_id = "medieval_ts_2"
+amount = 2
+
+[node name="Timeshard_medieval_ts_3" parent="Artifacts" unique_id=469914836 instance=ExtResource("ts_shard_res")]
+position = Vector2(-4751, 732)
+shard_id = "medieval_ts_3"
+amount = 2
+
+[node name="Timeshard_medieval_ts_4" parent="Artifacts" unique_id=125706797 instance=ExtResource("ts_shard_res")]
+position = Vector2(-3539, -870)
+shard_id = "medieval_ts_4"
+amount = 2
+
+[node name="Timeshard_medieval_ts_5" parent="Artifacts" unique_id=904024284 instance=ExtResource("ts_shard_res")]
+position = Vector2(5176, -199)
+shard_id = "medieval_ts_5"
+amount = 2
 
 [node name="TheDarkKnight" parent="." unique_id=365394180 instance=ExtResource("40_b8gl2")]
 position = Vector2(-767, -49)

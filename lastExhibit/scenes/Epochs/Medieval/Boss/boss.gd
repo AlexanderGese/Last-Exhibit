@@ -234,6 +234,7 @@ func _play_hurt_flash() -> void:
 #beendete alle wichtigen Prozesse und Animationen, bevor das Objekt geloescht wird
 func die() -> void:
 	is_dead = true
+	SaveManager.collect_shard("boss_mittelalter", 10)
 	$AnimatedSprite2D.play("death")
 	set_physics_process(false)
 	is_attacking = false

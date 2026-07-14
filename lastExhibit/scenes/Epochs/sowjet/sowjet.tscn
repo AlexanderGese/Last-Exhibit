@@ -45,6 +45,7 @@
 [ext_resource type="Resource" uid="uid://bgo84n3yyx3j3" path="res://inventory/items/rüstungs/top_green_2.tres" id="43_jc3gg"]
 [ext_resource type="Resource" uid="uid://bk1pio82r60u0" path="res://inventory/items/rüstungs/shoes_orange.tres" id="44_i56c1"]
 [ext_resource type="Resource" uid="uid://degywvnd4ricx" path="res://inventory/items/rüstungs/bottom_orange.tres" id="45_ywsgq"]
+[ext_resource type="PackedScene" uid="uid://cuq67isxwqn0h" path="res://custom_nodes/timeshard.tscn" id="ts_shard_res"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l0vm2"]
 texture = ExtResource("2_iyr3m")
@@ -988,6 +989,31 @@ once = true
 [node name="ItemPickup6" parent="." unique_id=673406509 instance=ExtResource("25_c2x4g")]
 item = ExtResource("45_ywsgq")
 once = true
+
+[node name="Timeshard_sowjet_ts_1" parent="." unique_id=1510847541 instance=ExtResource("ts_shard_res")]
+position = Vector2(-2455, 553)
+shard_id = "sowjet_ts_1"
+amount = 2
+
+[node name="Timeshard_sowjet_ts_2" parent="." unique_id=1888882834 instance=ExtResource("ts_shard_res")]
+position = Vector2(-1307, -5)
+shard_id = "sowjet_ts_2"
+amount = 2
+
+[node name="Timeshard_sowjet_ts_3" parent="." unique_id=2036191308 instance=ExtResource("ts_shard_res")]
+position = Vector2(373, 990)
+shard_id = "sowjet_ts_3"
+amount = 2
+
+[node name="Timeshard_sowjet_ts_4" parent="." unique_id=949788156 instance=ExtResource("ts_shard_res")]
+position = Vector2(-2619, 1320)
+shard_id = "sowjet_ts_4"
+amount = 2
+
+[node name="Timeshard_sowjet_ts_5" parent="." unique_id=56160666 instance=ExtResource("ts_shard_res")]
+position = Vector2(-1361, 1524)
+shard_id = "sowjet_ts_5"
+amount = 2
 
 [connection signal="body_entered" from="Bossraum/Arena" to="Bossraum/Arena" method="_on_body_entered"]
 [connection signal="pause" from="Player" to="Dmitri" method="_on_player_pause"]

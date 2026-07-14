@@ -38,6 +38,7 @@
 [ext_resource type="Resource" uid="uid://doch52cw70dbg" path="res://inventory/items/rüstungs/bottom_blue.tres" id="35_lk5i4"]
 [ext_resource type="Resource" uid="uid://d5uha710fg8j" path="res://inventory/items/rüstungs/hat_blue.tres" id="35_qcekm"]
 [ext_resource type="Resource" uid="uid://b54hj7f5lojs2" path="res://inventory/items/rüstungs/top_blue.tres" id="35_saxbf"]
+[ext_resource type="PackedScene" uid="uid://cuq67isxwqn0h" path="res://custom_nodes/timeshard.tscn" id="ts_shard_res"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lljqo"]
 texture = ExtResource("1_qa2ky")
@@ -848,6 +849,41 @@ item = ExtResource("24_0kbn0")
 [node name="Strohhut" parent="Artifacts" unique_id=463743080 instance=ExtResource("19_kgg2d")]
 position = Vector2(2782, -225)
 item = ExtResource("26_8uice")
+
+[node name="Timeshard_japan_ts_1" parent="Artifacts" unique_id=403335915 instance=ExtResource("ts_shard_res")]
+position = Vector2(-259, -100)
+shard_id = "japan_ts_1"
+amount = 5
+
+[node name="Timeshard_japan_ts_2" parent="Artifacts" unique_id=1975679787 instance=ExtResource("ts_shard_res")]
+position = Vector2(1806, -8)
+shard_id = "japan_ts_2"
+amount = 5
+
+[node name="Timeshard_japan_ts_3" parent="Artifacts" unique_id=2083079684 instance=ExtResource("ts_shard_res")]
+position = Vector2(591, -291)
+shard_id = "japan_ts_3"
+amount = 5
+
+[node name="Timeshard_japan_ts_4" parent="Artifacts" unique_id=2049115589 instance=ExtResource("ts_shard_res")]
+position = Vector2(3262, -292)
+shard_id = "japan_ts_4"
+amount = 5
+
+[node name="Timeshard_japan_ts_5" parent="Artifacts" unique_id=979064066 instance=ExtResource("ts_shard_res")]
+position = Vector2(3763, -3)
+shard_id = "japan_ts_5"
+amount = 5
+
+[node name="Timeshard_japan_ts_6" parent="Artifacts" unique_id=1251517813 instance=ExtResource("ts_shard_res")]
+position = Vector2(946, -294)
+shard_id = "japan_ts_6"
+amount = 5
+
+[node name="Timeshard_japan_ts_7" parent="Artifacts" unique_id=1180935389 instance=ExtResource("ts_shard_res")]
+position = Vector2(-823, -2)
+shard_id = "japan_ts_7"
+amount = 5
 
 [node name="Enemies" type="Node" parent="." unique_id=756319612]
 

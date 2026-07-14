@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bkm3time0serm"]
+
+[ext_resource type="Texture2D" uid="uid://6b2xr8j1qqou" path="res://assets/blackmarket/potion.png" id="1_hc1wm"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_item"]
+
+[resource]
+script = ExtResource("1_item")
+id = "time_serum"
+name = "Time Dilation Serum"
+icon = ExtResource("1_hc1wm")
+type = 6
+stackable = true
+max_stack = 3
+effect = "time_slow"
+effect_amount = 0.4
+effect_duration = 5.0
+metadata/_custom_type_script = "uid://d4c671jpgfict"

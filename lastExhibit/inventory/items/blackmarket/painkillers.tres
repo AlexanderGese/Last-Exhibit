@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bkm1pain0kill"]
+
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_item"]
+[ext_resource type="Texture2D" uid="uid://d47x5m2n146m" path="res://assets/blackmarket/painkillers.png" id="1_uxvsh"]
+
+[resource]
+script = ExtResource("1_item")
+id = "painkillers"
+name = "Painkillers"
+icon = ExtResource("1_uxvsh")
+type = 6
+stackable = true
+max_stack = 5
+effect = "regen"
+effect_amount = 2.0
+effect_duration = 20.0
+metadata/_custom_type_script = "uid://d4c671jpgfict"

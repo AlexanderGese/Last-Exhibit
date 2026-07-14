@@ -16,6 +16,9 @@ enum Type { ARTIFACT, WEAPON, HEAD, BODY, LEGS, FEET, CONSUMABLE, AMMO, KEY, CUR
 
 @export_group("Consumable")
 @export var heal_amount: float = 0.0
+@export var effect: String = ""
+@export var effect_amount: float = 0.0
+@export var effect_duration: float = 0.0
 
 @export_group("Artifact")
 @export var big_artifact: bool #true = big, false = small

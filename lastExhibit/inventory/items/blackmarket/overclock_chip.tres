@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bkm8over0clck"]
+
+[ext_resource type="Texture2D" uid="uid://qwg72lka78cm" path="res://assets/blackmarket/chip.png" id="1_fxhpt"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_item"]
+
+[resource]
+script = ExtResource("1_item")
+id = "overclock_chip"
+name = "Overclock Chip"
+icon = ExtResource("1_fxhpt")
+type = 6
+effect = "overclock"
+effect_amount = 1.0
+metadata/_custom_type_script = "uid://d4c671jpgfict"

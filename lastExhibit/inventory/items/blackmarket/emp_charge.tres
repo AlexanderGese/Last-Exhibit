@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bkm7emp00chrg"]
+
+[ext_resource type="Texture2D" uid="uid://bwxdfsb4yas73" path="res://assets/blackmarket/emp.png" id="1_dkoq1"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_item"]
+
+[resource]
+script = ExtResource("1_item")
+id = "emp_charge"
+name = "EMP Charge"
+icon = ExtResource("1_dkoq1")
+type = 6
+stackable = true
+max_stack = 5
+effect = "emp"
+effect_duration = 3.0
+metadata/_custom_type_script = "uid://d4c671jpgfict"

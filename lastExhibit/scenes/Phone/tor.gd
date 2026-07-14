@@ -11,6 +11,15 @@ const COL_BTN      := Color("2c2142")
 const COL_BTN_HOV  := Color("3b2b5a")
 
 const CATALOG: Array = [
+	{"path": "res://inventory/items/blackmarket/street_stim.tres", "price": 5},
+	{"path": "res://inventory/items/blackmarket/painkillers.tres", "price": 8},
+	{"path": "res://inventory/items/blackmarket/molotov.tres", "price": 10},
+	{"path": "res://inventory/items/blackmarket/adrenaline_shot.tres", "price": 12},
+	{"path": "res://inventory/items/blackmarket/temporal_anchor.tres", "price": 15},
+	{"path": "res://inventory/items/blackmarket/emp_charge.tres", "price": 20},
+	{"path": "res://inventory/items/blackmarket/time_serum.tres", "price": 25},
+	{"path": "res://inventory/items/blackmarket/second_wind.tres", "price": 60},
+	{"path": "res://inventory/items/blackmarket/overclock_chip.tres", "price": 250},
 ]
 
 var _btc_label: Label
@@ -150,8 +159,11 @@ func _on_sell(index: int) -> void:
 
 func _on_buy(entry) -> void:
 	var item: Item = load(entry.path)
-	if SaveManager.buy(entry.price, item.name, "btc"):
-		SaveManager.add_item(item)
+	if SaveManager.player.btc < entry.price:
+		return
+	if not SaveManager.add_item(item):
+		return
+	SaveManager.buy(entry.price, item.name, "btc")
 	_refresh()
 
 

@@ -14,7 +14,7 @@ func _refresh_labels() -> void:
 
 
 func button_1() -> void:
-	if SaveManager.buy(10, "WW2 unlock", "time_shards"):
+	if SaveManager.buy(15, "WW2 unlock", "time_shards"):
 		Events.upgrade_purchased.emit("WW2")
 		SaveManager.player.add_message("Pickup your Upgrade")
 		$VBoxContainer/Label.visible = false
@@ -54,7 +54,7 @@ func _has_epoch(epoch: String) -> bool:
 
 # Mittelalter freischalten
 func button_2() -> void:
-	if SaveManager.buy(35, "Mittelalter", "time_shards"):
+	if SaveManager.buy(40, "Mittelalter", "time_shards"):
 		Events.upgrade_purchased.emit("Mittelalter")
 		SaveManager.player.add_message("Pickup your Upgrade")
 		$VBoxContainer/Label2.visible = false
@@ -101,7 +101,7 @@ func button_7() -> void:
 
 
 func button_8() -> void:
-	if SaveManager.buy(20, "japan", "time_shards"):
+	if SaveManager.buy(25, "japan", "time_shards"):
 		Events.upgrade_purchased.emit("japan")
 		SaveManager.player.add_message("Pickup your Upgrade")
 		$VBoxContainer/Label8.visible = false
