@@ -54,7 +54,7 @@ func _has_epoch(epoch: String) -> bool:
 
 # Mittelalter freischalten
 func button_2() -> void:
-	if SaveManager.buy(25, "Mittelalter", "time_shards"):
+	if SaveManager.buy(35, "Mittelalter", "time_shards"):
 		Events.upgrade_purchased.emit("Mittelalter")
 		SaveManager.player.add_message("Pickup your Upgrade")
 		$VBoxContainer/Label2.visible = false
@@ -100,8 +100,8 @@ func button_7() -> void:
 		Events.purchase_großanzeigen.emit("flappy")
 
 
-func button_8() -> void: 
-	if SaveManager.buy(10, "japan", "time_shards"):
+func button_8() -> void:
+	if SaveManager.buy(20, "japan", "time_shards"):
 		Events.upgrade_purchased.emit("japan")
 		SaveManager.player.add_message("Pickup your Upgrade")
 		$VBoxContainer/Label8.visible = false

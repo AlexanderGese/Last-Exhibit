@@ -197,7 +197,7 @@ func _start_climbing() -> void:
 	climb_ladder = _nearest_ladder()
 	velocity = Vector2.ZERO
 	if climb_ladder:
-		global_position.x = climb_ladder.climb_x()
+		global_position.x = climb_ladder.climb_x(global_position.x)
 	sprite.play("climb")
 
 
@@ -223,7 +223,7 @@ func _handle_climb(_delta: float) -> void:
 	velocity.x = 0.0
 
 	if climb_ladder:
-		global_position.x = climb_ladder.climb_x()
+		global_position.x = climb_ladder.climb_x(global_position.x)
 
 	if is_on_floor() and v >= 0.0:
 		_stop_climbing()
@@ -233,7 +233,7 @@ func _nearest_ladder():
 	var best = null
 	var best_dist := INF
 	for l in ladders:
-		var d: float = absf(l.climb_x() - global_position.x)
+		var d: float = absf(l.climb_x(global_position.x) - global_position.x)
 		if d < best_dist:
 			best_dist = d
 			best = l

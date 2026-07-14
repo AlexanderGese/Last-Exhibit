@@ -156,6 +156,7 @@ func _play_hurt_flash() -> void:
 func die() -> void:
 	is_dead = true
 	SaveManager.collect_shard("boss_sowjet", 5)
+	SaveManager.collect_shard("level_sowjet", 10)
 	is_attacking = false
 	hurtbox.queue_free()
 	if is_instance_valid(current_atem):

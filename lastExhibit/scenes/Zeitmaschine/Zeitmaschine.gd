@@ -11,6 +11,7 @@ func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		player_collided = true
 		anim.play("open")
+		Tutorials.show_tutorial("time_machine")
 
 func _on_body_exited(body: Node) -> void:
 	if body.is_in_group("player"):

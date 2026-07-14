@@ -21,6 +21,7 @@ func _process(_delta: float) -> void:
 func add_upgrade(type: String) -> void:
 	types.append(type)
 	_refresh_visuals()
+	Tutorials.show_tutorial("collect_package")
 
 
 func _collect_all() -> void:

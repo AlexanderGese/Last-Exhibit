@@ -45,6 +45,11 @@ func do_hide() -> void:
 	get_parent().set_physics_process(true)
 	hide()
 
+func _input(event: InputEvent) -> void:
+	if visible and event.is_action_pressed("escape"):
+		do_hide()
+		get_viewport().set_input_as_handled()
+
 func _on_time_slider_value_changed(value: float) -> void:
 	_update_pins(value)
 

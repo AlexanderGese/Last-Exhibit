@@ -171,7 +171,8 @@ func _play_hurt_flash() -> void:
 
 func boss_besiegt():
 	ist_tot = true
-	SaveManager.collect_shard("boss_ww2", 5)
+	SaveManager.collect_shard("boss_ww2", 15)
+	SaveManager.collect_shard("level_ww2", 10)
 	absturz_nach_links = fliegt_nach_links
 	
 	if has_node("WrackLinks"):

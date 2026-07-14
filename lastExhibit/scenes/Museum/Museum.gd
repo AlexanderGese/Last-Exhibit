@@ -16,6 +16,7 @@ func _ready() -> void:
 		_on_night_started()
 	else:
 		_on_day_started()
+	Tutorials.show_tutorial("museum_welcome")
 
 
 func _on_day_started() -> void:

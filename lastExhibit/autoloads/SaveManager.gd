@@ -63,14 +63,20 @@ func load_keybinds() -> void:
 			InputMap.action_add_event(action, event)	
 	
 func install_upgrade(type: String):
-	if type == "WW2":
-		SaveManager.player.unlocked_epochs.append("ww2")
-	elif type == "Medieval":
-		SaveManager.player.unlocked_epochs.append("mittelalter")
-	elif type == "Time":
-		SaveManager.player.level_time += 30
-	elif type == "japan":
-		SaveManager.player.unlocked_epochs.append("japan")
+	match type:
+		"WW2":
+			_unlock_epoch("ww2")
+		"Mittelalter":
+			_unlock_epoch("mittelalter")
+		"japan":
+			_unlock_epoch("japan")
+		"Time":
+			player.level_time += 30
+	save_all()
+
+func _unlock_epoch(epoch: String) -> void:
+	if not epoch in player.unlocked_epochs:
+		player.unlocked_epochs.append(epoch)
 		
 		
 func _inventory_path(slot: int) -> String:

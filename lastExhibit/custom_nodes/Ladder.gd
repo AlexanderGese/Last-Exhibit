@@ -1,10 +1,17 @@
 class_name Ladder
 extends Area2D
 
-@onready var _shape: CollisionShape2D = $CollisionShape2D
-
-func climb_x() -> float:
-	return global_position.x + _shape.position.x
+func climb_x(from_x: float) -> float:
+	var best := global_position.x
+	var best_d := INF
+	for c in get_children():
+		if c is CollisionShape2D:
+			var x: float = global_position.x + c.position.x
+			var d: float = absf(x - from_x)
+			if d < best_d:
+				best_d = d
+				best = x
+	return best
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player") and body.has_method("enter_ladder"):

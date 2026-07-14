@@ -234,7 +234,6 @@ func _play_hurt_flash() -> void:
 #beendete alle wichtigen Prozesse und Animationen, bevor das Objekt geloescht wird
 func die() -> void:
 	is_dead = true
-	SaveManager.collect_shard("boss_mittelalter", 5)
 	$AnimatedSprite2D.play("death")
 	set_physics_process(false)
 	is_attacking = false
@@ -247,3 +246,5 @@ func die() -> void:
 	gate1.open()
 	var gate2 = get_node("../Doors/Gate2")
 	gate2.open()
+	await get_tree().create_timer(3.5).timeout
+	Events.credits.emit()

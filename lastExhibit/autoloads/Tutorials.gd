@@ -13,6 +13,9 @@ const TUTORIALS := {
 	"flappy": {"title": "Flappy", "body": "A small game to relax. Every 10 points you score gives you 1 coin."},
 	"first_artifact": {"title": "Artifacts", "body": "You grabbed an artifact! Take it back to your museum and place it in a showcase to draw visitors, or sell it on the Darknet for Bitcoin."},
 	"first_boss": {"title": "Boss Fight", "body": "This is a boss. It hits hard and has a lot of health. Dodge its attacks and keep hitting it. Beat it for a big reward."},
+	"museum_welcome": {"title": "Your Museum", "body": "Welcome. By day, visitors pay to see your artifacts and you earn money. Head down to the basement to find your time machine and start stealing history. Open your phone with F."},
+	"time_machine": {"title": "Time Machine", "body": "This is your time machine. Press interact (E) to open it, pick an unlocked time period, and jump in to raid it for artifacts and time-shards. Press Escape to close the menu."},
+	"collect_package": {"title": "Collect Your Upgrade", "body": "Nice buy! Your upgrade arrives as a package at the loading elevator in the basement. Walk to it and press interact (E) to collect it and activate the unlock."},
 }
 
 var _overlay
