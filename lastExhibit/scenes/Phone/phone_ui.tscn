@@ -29,7 +29,7 @@
 [ext_resource type="Script" uid="uid://bvikuwgfw78lu" path="res://scenes/Phone/revolut.gd" id="21_26ifj"]
 [ext_resource type="Script" uid="uid://c5eskgt6fq7fx" path="res://scenes/Phone/messages.gd" id="26_q3c8s"]
 [ext_resource type="Script" uid="uid://brr6vyxliftex" path="res://scenes/Phone/settings.gd" id="30_350wh"]
-[ext_resource type="Script" path="res://scenes/Phone/tor.gd" id="31_tor"]
+[ext_resource type="Script" uid="uid://dxjdurobtkrti" path="res://scenes/Phone/tor.gd" id="31_tor"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q3c8s"]
 texture = ExtResource("17_k6u4c")
@@ -514,7 +514,6 @@ text = "Großanzeigen"
 metadata/_edit_use_anchors_ = true
 
 [node name="Tor" type="TextureRect" parent="." unique_id=1653846611]
-script = ExtResource("31_tor")
 visible = false
 anchors_preset = -1
 anchor_left = 0.2625
@@ -528,6 +527,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("12_5rf7t")
+script = ExtResource("31_tor")
 metadata/_edit_use_anchors_ = true
 
 [node name="Name" type="Label" parent="Tor" unique_id=1016991360]
@@ -593,6 +593,7 @@ anchor_top = 0.32000047
 anchor_right = 0.50536585
 anchor_bottom = 0.78000045
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_26ifj")
 metadata/_edit_use_anchors_ = true
 
 [node name="Dailyvisitors" type="ColorRect" parent="Museum/Gui" unique_id=533090642]
@@ -619,6 +620,7 @@ anchor_top = 0.3280005
 anchor_right = 0.44878048
 anchor_bottom = 0.78800046
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_26ifj")
 metadata/_edit_use_anchors_ = true
 
 [node name="Reputation" type="ColorRect" parent="Museum/Gui" unique_id=1043450186]
@@ -647,6 +649,7 @@ anchor_right = 0.5580487
 anchor_bottom = 0.76400054
 offset_right = 1.5258789e-05
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_26ifj")
 metadata/_edit_use_anchors_ = true
 
 [node name="TicketPrice" type="ColorRect" parent="Museum/Gui" unique_id=1473588954]
@@ -673,6 +676,7 @@ anchor_top = 0.31200045
 anchor_right = 0.44487804
 anchor_bottom = 0.7720005
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_26ifj")
 metadata/_edit_use_anchors_ = true
 
 [node name="Name" type="Label" parent="Museum" unique_id=354780503]
@@ -965,7 +969,6 @@ theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 48
 
 [node name="Settings" type="TextureRect" parent="." unique_id=2075006464]
-visible = false
 anchors_preset = -1
 anchor_left = 0.2625
 anchor_top = 0.014814815
@@ -1010,6 +1013,7 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="Settings/ScrollContainer/VBoxContainer/KeybindsSection" unique_id=1609728249]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("16_26ifj")
 text = "Keybinds"
 
 [node name="KeybindList" type="VBoxContainer" parent="Settings/ScrollContainer/VBoxContainer/KeybindsSection" unique_id=1665256688]
@@ -1023,11 +1027,13 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="Settings/ScrollContainer/VBoxContainer/ResetSection" unique_id=489262554]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("16_26ifj")
 text = "GameData
 "
 
 [node name="Button" type="Button" parent="Settings/ScrollContainer/VBoxContainer/ResetSection" unique_id=541556097]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("16_26ifj")
 text = "Reset Game Data"
 
 [node name="HomeButton" type="Button" parent="." unique_id=404873099]

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dwud6mtkksroh" path="res://assets/sprites/zeitmaschine/Timelinerbar.png" id="2_csq5k"]
 [ext_resource type="Texture2D" uid="uid://dbcqmbchl6ckr" path="res://assets/sprites/zeitmaschine/GreyPin.png" id="2_ektvh"]
 [ext_resource type="Texture2D" uid="uid://df514bwg58axq" path="res://assets/sprites/zeitmaschine/timelinehandle.png" id="3_10gfm"]
+[ext_resource type="FontFile" uid="uid://bafj0agrswp3j" path="res://assets/fonts/Pixuf.ttf" id="4_npmn6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ektvh"]
 texture = ExtResource("2_csq5k")
@@ -104,6 +105,7 @@ offset_bottom = 173.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("4_npmn6")
 text = "###"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
