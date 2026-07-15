@@ -17,7 +17,13 @@ func _ready() -> void:
 	Events.artifact_place.connect(remove_item_from_inv)
 	player_char = get_tree().get_first_node_in_group("player")
 	Events.upgrade_collected.connect(install_upgrade)
+	Events.upgrade_purchased.connect(_on_upgrade_purchased)
 	load_keybinds()
+
+
+func _on_upgrade_purchased(type: String) -> void:
+	player.pending_upgrades.append(type)
+	save_all()
 
 
 func save_keybinds() -> void:
@@ -193,7 +199,7 @@ func collect_shard(id: String, amount: int) -> bool:
 
 
 const SELL_MIN_VALUE := 1
-const SELL_RATE := 0.1
+const SELL_RATE := 0.07
 
 
 func can_sell(item: Item) -> bool:

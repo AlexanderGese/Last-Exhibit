@@ -11,15 +11,15 @@ const COL_BTN := Color("2c2142")
 const COL_BTN_HOV := Color("3b2b5a")
 
 const CATALOG: Array = [
-	{"path": "res://inventory/items/blackmarket/street_stim.tres", "price": 5},
-	{"path": "res://inventory/items/blackmarket/painkillers.tres", "price": 8},
-	{"path": "res://inventory/items/blackmarket/molotov.tres", "price": 10},
-	{"path": "res://inventory/items/blackmarket/adrenaline_shot.tres", "price": 12},
-	{"path": "res://inventory/items/blackmarket/temporal_anchor.tres", "price": 15},
-	{"path": "res://inventory/items/blackmarket/emp_charge.tres", "price": 20},
-	{"path": "res://inventory/items/blackmarket/time_serum.tres", "price": 25},
-	{"path": "res://inventory/items/blackmarket/second_wind.tres", "price": 60},
-	{"path": "res://inventory/items/blackmarket/overclock_chip.tres", "price": 250},
+	{"path": "res://inventory/items/blackmarket/street_stim.tres", "price": 50},
+	{"path": "res://inventory/items/blackmarket/painkillers.tres", "price": 80},
+	{"path": "res://inventory/items/blackmarket/molotov.tres", "price": 100},
+	{"path": "res://inventory/items/blackmarket/adrenaline_shot.tres", "price": 120},
+	{"path": "res://inventory/items/blackmarket/temporal_anchor.tres", "price": 150},
+	{"path": "res://inventory/items/blackmarket/emp_charge.tres", "price": 200},
+	{"path": "res://inventory/items/blackmarket/time_serum.tres", "price": 250},
+	{"path": "res://inventory/items/blackmarket/second_wind.tres", "price": 600},
+	{"path": "res://inventory/items/blackmarket/overclock_chip.tres", "price": 2500},
 ]
 
 var _btc_label: Label

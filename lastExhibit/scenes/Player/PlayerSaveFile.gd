@@ -28,6 +28,7 @@ extends SaveFile
 @export var collected_shards: Array[String] = []
 @export var collected_pickups: Array[String] = []
 @export var combo_bonus: int = 0
+@export var pending_upgrades: Array[String] = []
 @export var finished_game: bool = false
 
 
@@ -50,6 +51,7 @@ func _init() -> void:
 	collected_shards = []
 	collected_pickups = []
 	combo_bonus = 0
+	pending_upgrades = []
 
 
 func add_transcation(item: String, price: int, currency: String) -> void:

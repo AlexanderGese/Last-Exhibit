@@ -5,11 +5,10 @@ extends Node2D
 @onready var medium_package: Sprite2D = $MediumPackage
 
 var in_area: bool = false
-var types: Array[String] = []
 
 
 func _ready() -> void:
-	Events.upgrade_purchased.connect(add_upgrade)
+	Events.upgrade_purchased.connect(_on_upgrade_purchased)
 	_refresh_visuals()
 
 
@@ -18,22 +17,25 @@ func _process(_delta: float) -> void:
 		_collect_all()
 
 
-func add_upgrade(type: String) -> void:
-	types.append(type)
+func _on_upgrade_purchased(_type: String) -> void:
 	_refresh_visuals()
 	Tutorials.show_tutorial("collect_package")
 
 
 func _collect_all() -> void:
-	for type in types:
+	var pending: Array[String] = SaveManager.player.pending_upgrades.duplicate()
+	if pending.is_empty():
+		return
+	for type in pending:
 		Events.upgrade_collected.emit(type)
-	types.clear()
+	SaveManager.player.pending_upgrades.clear()
+	SaveManager.save_all()
 	SaveManager.player.clear_messages()
 	_refresh_visuals()
 
 
 func _refresh_visuals() -> void:
-	var count = types.size()
+	var count := SaveManager.player.pending_upgrades.size()
 	small_package.visible = count >= 1
 	medium_package.visible = count >= 2
 	big_package.visible = count >= 3
