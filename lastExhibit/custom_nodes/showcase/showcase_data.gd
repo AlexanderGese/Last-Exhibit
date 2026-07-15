@@ -6,4 +6,4 @@ extends Resource
 @export var value: int = 0
 @export var big_artifact: bool = false
 @export var item: Item = null
-@export var qty: int = 0   
+@export var qty: int = 0

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://doch52cw70dbg"]
 
-[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_item"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://inventory/item.gd" id="1_item"]
 [ext_resource type="Texture2D" uid="uid://ceprj66spl70j" path="res://assets/sprites/armor/blue_pants.png" id="2_icon"]
 
 [resource]

@@ -12,9 +12,11 @@ extends NinePatchRect
 
 var item: ItemData = null
 
+
 func _ready() -> void:
 	price_label.visible = show_price
 	name_label.visible = show_name
+
 
 func set_item(data: ItemData) -> void:
 	item = data
@@ -30,6 +32,7 @@ func set_item(data: ItemData) -> void:
 		icon.visible = false
 		price_label.text = ""
 		name_label.text = ""
+
 
 func clear() -> void:
 	set_item(null)

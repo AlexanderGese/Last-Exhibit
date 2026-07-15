@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://4hwu7a4es644"]
 
 [ext_resource type="Texture2D" uid="uid://cr5trlgo8iyao" path="res://assets/sprites/artifacts/Ritualsteine_JapanArtefacts.png" id="1_bs8dm"]
-[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_siuo1"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://inventory/item.gd" id="1_siuo1"]
 
 [resource]
 script = ExtResource("1_siuo1")

@@ -4,6 +4,7 @@ extends TextureRect
 func _ready() -> void:
 	_refresh_labels()
 
+
 func _refresh_labels() -> void:
 	$VBoxContainer/Label.visible = not _has_epoch("ww2")
 	$VBoxContainer/Label2.visible = not _has_epoch("mittelalter")
@@ -24,32 +25,31 @@ func reset_all_upgrades() -> void:
 	# Epochen zurücksetzen (außer "sowjet" als Start-Epoche behalten)
 	SaveManager.player.unlocked_epochs.clear()
 	SaveManager.player.unlocked_epochs.append("sowjet")
-	
+
 	# Apps zurücksetzen
 	SaveManager.player.museum_app = false
 	SaveManager.player.tor_app = false
 	SaveManager.player.flappy_app = false
-	
+
 	# Time-Upgrades zurücksetzen (level_time auf Default)
-	SaveManager.player.level_time = 60   # oder was dein Default ist
-	
+	SaveManager.player.level_time = 60  # oder was dein Default ist
+
 	# Pending Upgrades im Lastenaufzug clearen
 	if "pending_upgrades" in SaveManager.player:
 		SaveManager.player.pending_upgrades.clear()
-	
+
 	# Save
 	SaveManager.save_all()
-	
+
 	# Phone aktualisieren (App-Icons verschwinden)
 	Events.purchase_großanzeigen.emit("reset")
-	
+
 	# Labels wieder sichtbar machen
 	_refresh_labels()
-	
+
 
 func _has_epoch(epoch: String) -> bool:
 	return SaveManager.player.unlocked_epochs.has(epoch)
-
 
 
 # Mittelalter freischalten
@@ -105,5 +105,11 @@ func button_8() -> void:
 		Events.upgrade_purchased.emit("japan")
 		SaveManager.player.add_message("Pickup your Upgrade")
 		$VBoxContainer/Label8.visible = false
-func button_9() -> void: pass
-func button_10() -> void: pass
+
+
+func button_9() -> void:
+	pass
+
+
+func button_10() -> void:
+	pass

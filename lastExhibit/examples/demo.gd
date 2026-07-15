@@ -8,13 +8,13 @@ extends Control
 
 func _ready():
 	for demo in demos:
-		var label = demo.resource_path.split('/')[-1].split('.')[0]
+		var label = demo.resource_path.split("/")[-1].split(".")[0]
 		$DemoSelector.add_item(label)
-	
+
 	dialogue_box.data = demos[0]
 
 
-func explode(_a=0):
+func explode(_a = 0):
 	particles.emitting = true
 
 
@@ -24,8 +24,9 @@ func _on_Button_pressed():
 
 
 func _on_dialogue_signal(value):
-	match(value):
-		'explode': explode()
+	match value:
+		"explode":
+			explode()
 
 
 func _on_demo_selected(index):
@@ -36,8 +37,7 @@ func _on_locale_selected(index):
 	match index:
 		0:
 			# English
-			TranslationServer.set_locale('en')
+			TranslationServer.set_locale("en")
 		1:
 			# Japanese
-			TranslationServer.set_locale('ja')
-			
+			TranslationServer.set_locale("ja")

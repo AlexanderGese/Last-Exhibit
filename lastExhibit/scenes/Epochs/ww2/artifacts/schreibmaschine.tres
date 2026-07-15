@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://d0saejbw5omes"]
 
 [ext_resource type="Texture2D" uid="uid://digvgg0riyy16" path="res://assets/sprites/artifacts/Schreibmaschine_WW2Artefacts.png" id="1_7jikr"]
-[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_laht0"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://inventory/item.gd" id="1_laht0"]
 
 [resource]
 script = ExtResource("1_laht0")

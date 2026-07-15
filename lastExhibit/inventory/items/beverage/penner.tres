@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://b85h0iv4c1n16"]
 
 [ext_resource type="Texture2D" uid="uid://dn2h0rr6bh0an" path="res://assets/sprites/museum/vendingmachine/penner.png" id="1_jfa3d"]
-[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_ww4ta"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://inventory/item.gd" id="1_ww4ta"]
 
 [resource]
 script = ExtResource("1_ww4ta")

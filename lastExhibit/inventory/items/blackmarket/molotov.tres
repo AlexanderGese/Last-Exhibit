@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://bkm2molo0tov"]
 
-[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_item"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://inventory/item.gd" id="1_item"]
 [ext_resource type="Texture2D" uid="uid://cvu5g5u7gea86" path="res://assets/blackmarket/molotow.png" id="1_yrlws"]
 
 [resource]

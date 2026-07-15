@@ -4,26 +4,27 @@ var current_player: AudioStreamPlayer
 var current_track: String = ""
 
 const TRACKS = {
-	"museum_day":    "res://assets/music/MuseumDay.ogg",
-	"museum_night":  "res://assets/music/MuseumNight.ogg",
-	"soviet":        "res://assets/music/SowjetLevel.ogg",
-	"soviet_boss":   "res://assets/music/SowjetBoss.ogg",
-	"ww2":           "res://assets/music/WW2Level.ogg",
-	"ww2_boss":      "res://assets/music/WW2Boss.ogg",
-	"medieval":      "res://assets/music/MedivalLevel.ogg",
+	"museum_day": "res://assets/music/MuseumDay.ogg",
+	"museum_night": "res://assets/music/MuseumNight.ogg",
+	"soviet": "res://assets/music/SowjetLevel.ogg",
+	"soviet_boss": "res://assets/music/SowjetBoss.ogg",
+	"ww2": "res://assets/music/WW2Level.ogg",
+	"ww2_boss": "res://assets/music/WW2Boss.ogg",
+	"medieval": "res://assets/music/MedivalLevel.ogg",
 	"medieval_boss": "res://assets/music/MedivalBoss.ogg",
-	"samurai":       "res://assets/music/JapanLevel.ogg",
-	"samurai_boss":  "res://assets/music/JapanBoss.ogg",
-	"inka":          "res://assets/music/InkaLevel.ogg",
-	"inka_boss":     "res://assets/music/InkaBoss.ogg",
-	"blackmarket":   "res://assets/music/BlackMarketMusic.ogg",
-	"trailer" :      "res://assets/music/TrailerMusic.ogg",
-	"final" :        "res://assets/music/final.ogg",
+	"samurai": "res://assets/music/JapanLevel.ogg",
+	"samurai_boss": "res://assets/music/JapanBoss.ogg",
+	"inka": "res://assets/music/InkaLevel.ogg",
+	"inka_boss": "res://assets/music/InkaBoss.ogg",
+	"blackmarket": "res://assets/music/BlackMarketMusic.ogg",
+	"trailer": "res://assets/music/TrailerMusic.ogg",
+	"final": "res://assets/music/final.ogg",
 }
 
 const AUDIO_PATH = "user://audio.dat"
 
 var _default_volumes := {}
+
 
 func _ready() -> void:
 	for b in ["Master", "Music", "VFX"]:
@@ -34,6 +35,7 @@ func _ready() -> void:
 	current_player.bus = "Music"
 	add_child(current_player)
 	_load_audio()
+
 
 func play(track_name: String, crossfade: float = 2.0) -> void:
 	if not TRACKS.has(track_name):
@@ -62,6 +64,7 @@ func play(track_name: String, crossfade: float = 2.0) -> void:
 	# Alten entfernen
 	current_player.queue_free()
 	current_player = new_player
+
 
 func play_sfx(path: String) -> void:
 	var sfx = AudioStreamPlayer.new()

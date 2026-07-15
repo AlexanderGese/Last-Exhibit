@@ -13,6 +13,7 @@ extends HBoxContainer
 		if is_node_ready():
 			$ValueLabel.text = str(v)
 
+
 func _ready() -> void:
 	$Icon.texture = icon_texture
 	$ValueLabel.text = str(value)

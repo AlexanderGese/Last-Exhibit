@@ -3,9 +3,11 @@ extends Area2D
 var player_collided: bool = false
 @onready var anim = $AnimatedSprite2D
 
+
 func _ready() -> void:
 	add_to_group("zeitmaschine")
 	anim.play("default")
+
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
@@ -13,10 +15,12 @@ func _on_body_entered(body: Node) -> void:
 		anim.play("open")
 		Tutorials.show_tutorial("time_machine")
 
+
 func _on_body_exited(body: Node) -> void:
 	if body.is_in_group("player"):
 		player_collided = false
 		anim.play("close")
+
 
 func _process(_delta: float) -> void:
 	if player_collided and Input.is_action_just_pressed("interact"):

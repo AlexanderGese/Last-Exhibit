@@ -1,18 +1,18 @@
 extends CharacterBody2D
- 
-@export var flasche_scene : PackedScene
-@export var bullet_scene : PackedScene
-@export var granate_scene : PackedScene
-@export var atem_scene : PackedScene
-@export var move_speed : float = 180.0
-@export var sprint_speed : float = 400.0
-@export var max_hp : int = 350
-@export var attack_cooldown : float = 3.0
-@export var knockback_resistance : float = 0.7   
 
-@export var tuer1 : AnimatedSprite2D
-@export var tuer2 : AnimatedSprite2D
-@export var tuer3 : AnimatedSprite2D
+@export var flasche_scene: PackedScene
+@export var bullet_scene: PackedScene
+@export var granate_scene: PackedScene
+@export var atem_scene: PackedScene
+@export var move_speed: float = 180.0
+@export var sprint_speed: float = 400.0
+@export var max_hp: int = 350
+@export var attack_cooldown: float = 3.0
+@export var knockback_resistance: float = 0.7
+
+@export var tuer1: AnimatedSprite2D
+@export var tuer2: AnimatedSprite2D
+@export var tuer3: AnimatedSprite2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hurtbox: Hurtbox = $Hurtbox
@@ -20,20 +20,20 @@ extends CharacterBody2D
 const ORIGINAL_MODULATE := Color.WHITE
 const FLASH_COLOR := Color(2.5, 0.3, 0.3, 1)
 
-var attack_timer : float = 0.0
-var player : CharacterBody2D
-var is_cornered : bool = false
-var is_sprinting : bool = false
-var sprint_ziel_x : float = 0.0
-var player_collided : bool = false
+var attack_timer: float = 0.0
+var player: CharacterBody2D
+var is_cornered: bool = false
+var is_sprinting: bool = false
+var sprint_ziel_x: float = 0.0
+var player_collided: bool = false
 enum State { WALK, SPRINT, SPRINT2 }
-var state : State = State.WALK
-var facing_right : bool = true
-var old_facing_right : bool = true
-var hp : int 
-var current_atem : Node = null
-var is_attacking : bool = false
-var is_dead : bool = false
+var state: State = State.WALK
+var facing_right: bool = true
+var old_facing_right: bool = true
+var hp: int
+var current_atem: Node = null
+var is_attacking: bool = false
+var is_dead: bool = false
 var flash_tween: Tween = null
 
 
@@ -46,7 +46,7 @@ func _ready() -> void:
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
-	
+
 	hurtbox.hurt.connect(_on_hurt)
 	sprite.play("idle")
 
@@ -54,18 +54,18 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if player == null or is_dead:
 		return
-	
+
 	attack_timer -= delta
-	
+
 	if state == State.WALK:
 		if attack_timer <= 0.0 and not is_attacking:
 			pick_attack()
 			attack_timer = attack_cooldown
-		
+
 		velocity.x = move_toward(velocity.x, 0.0, 20.0)
 		var dist = distx()
 		var dir = sign(player.global_position.x - global_position.x)
-		
+
 		var too_close = distx() < 100.0
 		if too_close and state != State.SPRINT:
 			state = State.SPRINT
@@ -75,32 +75,32 @@ func _physics_process(delta: float) -> void:
 			velocity.x = -dir * move_speed
 		else:
 			velocity.x = 0.0
-		
+
 		velocity.x = 0.0 if global_position.x <= -690.0 and velocity.x < 0.0 else velocity.x
 		velocity.x = 0.0 if global_position.x >= 245.0 and velocity.x > 0.0 else velocity.x
-	
+
 	if state == State.SPRINT:
 		var richtung_ziel = sign(sprint_ziel_x - global_position.x)
 		velocity.x = richtung_ziel * sprint_speed
 		if abs(global_position.x - sprint_ziel_x) < 10.0:
 			state = State.WALK
-	
+
 	if state == State.SPRINT2:
 		var richtung_ziel = sign(sprint_ziel_x - global_position.x)
 		velocity.x = richtung_ziel * sprint_speed
-		
+
 		if current_atem == null:
 			current_atem = atem_scene.instantiate()
 			add_child(current_atem)
 			current_atem.position = Vector2(8.0 if facing_right else -8.0, -25)
 			current_atem.start(facing_right)
-		
+
 		if abs(global_position.x - sprint_ziel_x) < 10.0:
 			if is_instance_valid(current_atem):
 				current_atem.ende()
 			current_atem = null
 			state = State.WALK
-		
+
 	move_and_slide()
 	#regelt die Richtung des Bosses
 	if velocity.x > 5:
@@ -110,14 +110,15 @@ func _physics_process(delta: float) -> void:
 	elif abs(velocity.x) < 1.0:
 		facing_right = player.global_position.x > global_position.x
 	sprite.flip_h = not facing_right
-	
+
 	_update_animation()
+
 
 #setzt die animation der sprit richtig
 func _update_animation() -> void:
 	if is_attacking or is_dead:
 		return
-	
+
 	if state == State.SPRINT or state == State.SPRINT2:
 		if sprite.animation != "walk":
 			sprite.play("walk")
@@ -142,15 +143,17 @@ func _on_hurt(damage: int, knockback: Vector2) -> void:
 		Events.sw_boss_dead.emit()
 		die()
 
+
 #rotes overlay als Schadens indikator
 func _play_hurt_flash() -> void:
 	if flash_tween and flash_tween.is_valid():
 		flash_tween.kill()
-	
+
 	sprite.modulate = FLASH_COLOR
 	flash_tween = create_tween()
 	flash_tween.tween_interval(0.1)
 	flash_tween.tween_property(sprite, "modulate", ORIGINAL_MODULATE, 0.2)
+
 
 #wenn der boss stirbt, werden alle wichtigen unter-Szenen beendet
 func die() -> void:
@@ -160,19 +163,20 @@ func die() -> void:
 	hurtbox.queue_free()
 	if is_instance_valid(current_atem):
 		current_atem.queue_free()
-	
+
 	if flash_tween and flash_tween.is_valid():
 		flash_tween.kill()
 	sprite.modulate = ORIGINAL_MODULATE
-	
+
 	velocity = Vector2.ZERO
 	sprite.speed_scale = 1.0
 	sprite.play("dead")
 	await sprite.animation_finished
-	
+
 	var tween = create_tween()
 	tween.tween_property(sprite, "modulate:a", 0.0, 0.8)
 	tween.tween_callback(queue_free)
+
 
 func distx() -> float:
 	if player == null:
@@ -182,6 +186,7 @@ func distx() -> float:
 
 func get_spawn(offset_x: float, offset_y: float) -> Vector2:
 	return global_position + Vector2(offset_x if facing_right else -offset_x, offset_y)
+
 
 #wählt die nächste Attacke
 func pick_attack() -> void:
@@ -195,28 +200,30 @@ func pick_attack() -> void:
 	else:
 		atk_granate()
 
+
 #wirft eine Molotov, welcher den Boden entzündet
 func atk_molotov() -> void:
 	is_attacking = true
 	sprite.speed_scale = 1.0
 	sprite.play("throw")
 	await sprite.animation_finished
-	
+
 	if is_dead:
 		is_attacking = false
 		return
-	
+
 	var flasche = flasche_scene.instantiate()
 	get_parent().add_child(flasche)
 	flasche.setup(get_spawn(15, -20), player.global_position)
 	is_attacking = false
+
 
 # schiesst eine Salve
 func atk_AK47() -> void:
 	is_attacking = true
 	sprite.speed_scale = 1.0
 	sprite.play("shot")
-	
+
 	# 2 Bullets während der Animation
 	for i in range(2):
 		await get_tree().create_timer(0.15).timeout
@@ -226,13 +233,14 @@ func atk_AK47() -> void:
 		var bullet = bullet_scene.instantiate()
 		get_parent().add_child(bullet)
 		bullet.setup(get_spawn(15, -15), Vector2(1.0 if facing_right else -1.0, 0.0))
-	
+
 	# Safety-Timeout falls animation_finished nicht feuert
 	var timeout = get_tree().create_timer(0.5)
 	while sprite.animation == "shot" and sprite.is_playing() and not timeout.time_left <= 0:
 		await get_tree().process_frame
-	
+
 	is_attacking = false
+
 
 #wirft eine Granate, welche explodiert
 func atk_granate() -> void:
@@ -240,11 +248,11 @@ func atk_granate() -> void:
 	sprite.speed_scale = 1.0
 	sprite.play("throw")
 	await sprite.animation_finished
-	
+
 	if is_dead:
 		is_attacking = false
 		return
-	
+
 	var granate = granate_scene.instantiate()
 	get_parent().add_child(granate)
 	granate.setup(get_spawn(15, -20), player.global_position)

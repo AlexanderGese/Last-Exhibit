@@ -3,6 +3,7 @@ extends Area2D
 var in_main: bool = false
 #@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
+
 func _process(delta: float) -> void:
 	if in_main and Input.is_action_just_pressed("interact"):
 		Events.in_level = false
@@ -16,7 +17,6 @@ func _process(delta: float) -> void:
 				get_tree().change_scene_to_file("res://scenes/Museum/Museum.tscn")
 		else:
 			get_tree().change_scene_to_file("res://scenes/Museum/Museum.tscn")
-
 
 
 func _on_body_entered(body: Node2D) -> void:

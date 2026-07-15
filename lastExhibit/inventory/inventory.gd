@@ -57,9 +57,14 @@ func equip(index: int) -> void:
 
 func equip_key(type: int) -> String:
 	match type:
-		Item.Type.HEAD: return "head"
-		Item.Type.BODY: return "body"
-		Item.Type.LEGS: return "legs"
-		Item.Type.FEET: return "feet"
-		Item.Type.WEAPON: return "weapon"
+		Item.Type.HEAD:
+			return "head"
+		Item.Type.BODY:
+			return "body"
+		Item.Type.LEGS:
+			return "legs"
+		Item.Type.FEET:
+			return "feet"
+		Item.Type.WEAPON:
+			return "weapon"
 	return ""

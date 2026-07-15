@@ -1,30 +1,30 @@
 extends CharacterBody2D
 
-@export var walk_speed   : float = 180.0
-@export var run_speed    : float = 280.0
-@export var gravity      : float = 980.0
-@export var min_x        : float = 4160.0
-@export var max_x        : float = 4830.0
-@export var kampf_dist   : float = 50.0
-@export var run_distanz  : float = 100.0
-@export var hit_cooldown : float = 3.0
-@export var hit_distanz  : float = 70.0
-@export var max_hp : int = 1200
+@export var walk_speed: float = 180.0
+@export var run_speed: float = 280.0
+@export var gravity: float = 980.0
+@export var min_x: float = 4160.0
+@export var max_x: float = 4830.0
+@export var kampf_dist: float = 50.0
+@export var run_distanz: float = 100.0
+@export var hit_cooldown: float = 3.0
+@export var hit_distanz: float = 70.0
+@export var max_hp: int = 1200
 
-@export var dash_speed     : float = 450.0
-@export var dash_strecke_max : float = 100.0
-@export var dash_damage    : int = 20
+@export var dash_speed: float = 450.0
+@export var dash_strecke_max: float = 100.0
+@export var dash_damage: int = 20
 
-var dash_timer    : float = 0.0
-var is_dashing    : bool  = false
-var dash_richtung : float = 0.0
-var dash_distanz_verbleibend : float = 0.0
+var dash_timer: float = 0.0
+var is_dashing: bool = false
+var dash_richtung: float = 0.0
+var dash_distanz_verbleibend: float = 0.0
 
-var hp : int = max_hp
-var hat_verloren : bool = false
-var is_dead : bool = false
+var hp: int = max_hp
+var hat_verloren: bool = false
+var is_dead: bool = false
 var flash_tween: Tween = null
-@export var knockback_resistance : float = 0.7   
+@export var knockback_resistance: float = 0.7
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 const ORIGINAL_MODULATE := Color.WHITE
@@ -34,11 +34,12 @@ const FLASH_COLOR := Color(2.5, 0.3, 0.3, 1)
 @onready var schwert: ItemPickup = $Schwert
 @onready var helm: ItemPickup = $Ritterhelm
 
-var hit_timer    : float = 0.0
-var is_attacking : bool  = false
-var hat_getroffen : bool = false
-var player : CharacterBody2D
-var facing_right : bool = true
+var hit_timer: float = 0.0
+var is_attacking: bool = false
+var hat_getroffen: bool = false
+var player: CharacterBody2D
+var facing_right: bool = true
+
 
 #wirt am anfang ausgeführt
 func _ready() -> void:
@@ -59,6 +60,7 @@ func _ready() -> void:
 func setup(x: float, y: float) -> void:
 	global_position = Vector2(x, y)
 
+
 #wird in regelmaessigen intervallen aufgerufen und steuert den Boss
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -73,17 +75,17 @@ func _physics_process(delta: float) -> void:
 		hit_start()
 	else:
 		_move_towards_player()
-	
+
 	if is_dashing:
 		dash_update(delta)
 	update_facing()
 	move_and_slide()
 
+
 #beginn des angriffes, bei dem der gegner durch eine durchsprintet
 func dash_start() -> void:
-	
-	is_attacking  = true
-	is_dashing    = true
+	is_attacking = true
+	is_dashing = true
 	hat_getroffen = false
 	dash_richtung = 1.0 if facing_right else -1.0
 	dash_distanz_verbleibend = dash_strecke_max
@@ -97,6 +99,7 @@ func dash_start() -> void:
 	if is_dead:
 		return
 	$AnimatedSprite2D.play("stab_middle")
+
 
 # fortführen dieser attacke, das wird regelmaessig ausgeführt
 func dash_update(delta: float) -> void:
@@ -112,11 +115,12 @@ func dash_update(delta: float) -> void:
 	if dash_distanz_verbleibend <= 0.0:
 		dash_ende()
 
+
 #Ende des Angriffes
 func dash_ende() -> void:
-	is_dashing   = false
+	is_dashing = false
 	is_attacking = false
-	velocity.x   = 0.0
+	velocity.x = 0.0
 	$Hitbox2.set_deferred("monitoring", false)
 	$Hitbox2/CollisionShape2D.set_deferred("disabled", true)
 	if is_dead:
@@ -127,15 +131,16 @@ func dash_ende() -> void:
 	if not is_dead:
 		$AnimatedSprite2D.play("idle")
 
+
 #Beginn des Angriffes, waehlt zwischen verschiedenen
 func hit_start() -> void:
 	Tutorials.show_tutorial("first_boss")
 	AudioManager.play("medieval_boss")
-	is_attacking  = true
+	is_attacking = true
 	hat_getroffen = false
-	hit_timer     = hit_cooldown
-	velocity.x    = 0.0
-	var anim : String
+	hit_timer = hit_cooldown
+	velocity.x = 0.0
+	var anim: String
 	if randf() < 0.7:
 		if randf() < 0.35:
 			anim = "attack1"
@@ -159,6 +164,7 @@ func hit_start() -> void:
 	$AnimatedSprite2D.play("idle")
 	is_attacking = false
 
+
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if hat_getroffen:
 		return
@@ -166,6 +172,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		hat_getroffen = true
 		$Hitbox.set_deferred("monitoring", false)
 		$Hitbox/CollisionShape2D.set_deferred("disabled", true)
+
 
 func _on_hitbox_2_area_entered(area: Area2D) -> void:
 	if hat_getroffen:
@@ -175,10 +182,11 @@ func _on_hitbox_2_area_entered(area: Area2D) -> void:
 		$Hitbox2.set_deferred("monitoring", false)
 		$Hitbox2/CollisionShape2D.set_deferred("disabled", true)
 
+
 #Boss läuft zum Spieler, schneller wenn die Distanz groesser ist
 func _move_towards_player() -> void:
 	var dist = global_position.distance_to(player.global_position)
-	var dir  = sign(player.global_position.x - global_position.x)
+	var dir = sign(player.global_position.x - global_position.x)
 	if global_position.x <= min_x and dir < 0:
 		velocity.x = 0.0
 		return
@@ -196,6 +204,7 @@ func _move_towards_player() -> void:
 		velocity.x = dir * walk_speed
 		$AnimatedSprite2D.play("walk")
 
+
 # erneuert und ueberprueft, ob der Boss noch in die richtige Richtung schaut
 func update_facing() -> void:
 	if velocity.x > 5.0:
@@ -207,16 +216,17 @@ func update_facing() -> void:
 	$AnimatedSprite2D.flip_h = not facing_right
 	$AnimatedSprite2D.position.x = 30.0 if facing_right else -30.0
 
+
 #Funktion der hurtbox, wird ausgelöst,wenn der Boss Schaden bekommt
 func _on_hurt(damage: int, knockback: Vector2) -> void:
 	if is_dead:
 		return
-	
+
 	hp -= damage
 	velocity += knockback * (1.0 - knockback_resistance)
-	
+
 	_play_hurt_flash()
-	
+
 	if hp <= 0:
 		Events.sw_boss_dead.emit()
 		die()
@@ -225,11 +235,12 @@ func _on_hurt(damage: int, knockback: Vector2) -> void:
 func _play_hurt_flash() -> void:
 	if flash_tween and flash_tween.is_valid():
 		flash_tween.kill()
-	
+
 	sprite.modulate = FLASH_COLOR
 	flash_tween = create_tween()
 	flash_tween.tween_interval(0.1)
 	flash_tween.tween_property(sprite, "modulate", ORIGINAL_MODULATE, 0.2)
+
 
 #beendete alle wichtigen Prozesse und Animationen, bevor das Objekt geloescht wird
 func die() -> void:

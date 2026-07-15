@@ -1,18 +1,18 @@
 extends RigidBody2D
 
-@export var fire_scene : PackedScene
-var ziel : Vector2
+@export var fire_scene: PackedScene
+var ziel: Vector2
 var _burst := false
 
 
 func setup(start: Vector2, target: Vector2) -> void:
 	global_position = start
 	ziel = target
-	var diff  = target - start
-	var time  = 1.0
-	var grav  = ProjectSettings.get_setting("physics/2d/default_gravity")
-	var vx    = diff.x / time
-	var vy    = (diff.y - 0.5 * grav * time * time) / time
+	var diff = target - start
+	var time = 1.0
+	var grav = ProjectSettings.get_setting("physics/2d/default_gravity")
+	var vx = diff.x / time
+	var vy = (diff.y - 0.5 * grav * time * time) / time
 	linear_velocity = Vector2(vx, vy)
 	_arm()
 

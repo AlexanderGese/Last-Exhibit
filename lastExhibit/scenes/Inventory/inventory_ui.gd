@@ -37,6 +37,6 @@ func _input(event: InputEvent) -> void:
 			if slot.item.type == Item.Type.CONSUMABLE:
 				SaveManager.use_item(i)
 			elif slot.item.type == Item.Type.ARTIFACT:
-				SaveManager.use_item(i)	
+				SaveManager.use_item(i)
 			else:
 				SaveManager.equip(i)

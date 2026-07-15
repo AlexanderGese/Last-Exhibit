@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://dgjk4knl7wtbb"]
 
-[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_5oteh"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://inventory/item.gd" id="1_5oteh"]
 [ext_resource type="Texture2D" uid="uid://dgxcv7ku6ogs6" path="res://assets/sprites/artifacts/Bild_WW2Artefacts.png" id="1_j7dfi"]
 
 [resource]

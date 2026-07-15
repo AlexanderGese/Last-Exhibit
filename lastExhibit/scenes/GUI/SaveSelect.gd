@@ -32,6 +32,7 @@ const BUTTON_DATA = [
 	}
 ]
 
+
 func _ready() -> void:
 	visible = false
 	$Center/Panel/VBox/AspectRatioContainer/Back.pressed.connect(close)
@@ -53,31 +54,32 @@ func _refresh() -> void:
 	for i in 3:
 		var exists: bool = SaveManager.has_save(i)
 		var data = BUTTON_DATA[i]
-		
+
 		_slot_btns[i].text = ""
-		
+
 		var current_stylebox = _slot_btns[i].get_theme_stylebox("normal") as StyleBoxTexture
-		
+
 		if current_stylebox:
 			var new_stylebox = current_stylebox.duplicate() as StyleBoxTexture
-			
+
 			if exists:
 				new_stylebox.texture = data["texture_continue"]
 				new_stylebox.region_rect = data["region_continue"]
 			else:
 				new_stylebox.texture = data["texture_new"]
 				new_stylebox.region_rect = data["region_new"]
-				
+
 			_slot_btns[i].add_theme_stylebox_override("normal", new_stylebox)
 			_slot_btns[i].add_theme_stylebox_override("hover", new_stylebox)
 			_slot_btns[i].add_theme_stylebox_override("pressed", current_stylebox)
-		
+
 		_del_btns[i].visible = exists
 
 
 #func _start(slot: int) -> void:
-	#SaveManager.load_game(slot)
-	#get_tree().change_scene_to_file("res://scenes/Museum/Museum.tscn")
+#SaveManager.load_game(slot)
+#get_tree().change_scene_to_file("res://scenes/Museum/Museum.tscn")
+
 
 func _start(slot: int) -> void:
 	var is_new_game: bool = not SaveManager.has_save(slot)
@@ -86,6 +88,7 @@ func _start(slot: int) -> void:
 		get_tree().change_scene_to_file("res://scenes/GUI/Intro1.tscn")
 	else:
 		get_tree().change_scene_to_file("res://scenes/Museum/Museum.tscn")
+
 
 func _delete(slot: int) -> void:
 	SaveManager.reset_slot(slot)

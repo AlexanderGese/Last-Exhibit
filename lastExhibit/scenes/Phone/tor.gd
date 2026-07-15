@@ -2,13 +2,13 @@ extends TextureRect
 
 const FONT = preload("res://assets/fonts/Pixuf.ttf")
 
-const COL_INK      := Color("f5f1ff")
-const COL_MUTED    := Color("b3a9cf")
-const COL_PURPLE   := Color("b98cff")
-const COL_BTC      := Color("ffab2e")
-const COL_PANEL    := Color("1a1428")
-const COL_BTN      := Color("2c2142")
-const COL_BTN_HOV  := Color("3b2b5a")
+const COL_INK := Color("f5f1ff")
+const COL_MUTED := Color("b3a9cf")
+const COL_PURPLE := Color("b98cff")
+const COL_BTC := Color("ffab2e")
+const COL_PANEL := Color("1a1428")
+const COL_BTN := Color("2c2142")
+const COL_BTN_HOV := Color("3b2b5a")
 
 const CATALOG: Array = [
 	{"path": "res://inventory/items/blackmarket/street_stim.tres", "price": 5},

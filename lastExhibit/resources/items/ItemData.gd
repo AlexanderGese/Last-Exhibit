@@ -1,7 +1,6 @@
 class_name ArtifactData
 extends ItemData
 
-
 @export var epoch: String = ""
 @export var reputation_value: int = 0
 @export var set_id: String = ""

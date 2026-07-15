@@ -8,50 +8,56 @@ const PIN_SELECTED = preload("res://assets/sprites/zeitmaschine/RedPin.png")
 @onready var time_label = $NinePatchRect/TimeLabel
 
 @onready var pins = {
-	"inka":        $NinePatchRect/MapTexture/Pin_Inka,
+	"inka": $NinePatchRect/MapTexture/Pin_Inka,
 	"mittelalter": $NinePatchRect/MapTexture/Pin_Mittelalter,
-	"japan":     $NinePatchRect/MapTexture/Pin_Samurai,
-	"ww2":         $NinePatchRect/MapTexture/Pin_WW2,
-	"sowjet":      $NinePatchRect/MapTexture/Pin_Sowjet,
+	"japan": $NinePatchRect/MapTexture/Pin_Samurai,
+	"ww2": $NinePatchRect/MapTexture/Pin_WW2,
+	"sowjet": $NinePatchRect/MapTexture/Pin_Sowjet,
 }
 
 const EPOCH_RANGES = {
-	"inka":        [0, 20],
+	"inka": [0, 20],
 	"mittelalter": [20, 40],
-	"japan":     [40, 60],
-	"ww2":         [60, 80],
-	"sowjet":      [80, 100],
+	"japan": [40, 60],
+	"ww2": [60, 80],
+	"sowjet": [80, 100],
 }
 
 const EPOCH_YEARS = {
-	"inka":        "1530",
+	"inka": "1530",
 	"mittelalter": "~1200",
-	"japan":     "1600",
-	"ww2":         "1943",
-	"sowjet":      "1965",
+	"japan": "1600",
+	"ww2": "1943",
+	"sowjet": "1965",
 }
 
 var selected_epoch: String = ""
+
 
 func _ready() -> void:
 	hide()
 	_update_pins(time_slider.value)
 
+
 func do_show() -> void:
 	get_parent().set_physics_process(false)
 	show()
 
+
 func do_hide() -> void:
 	get_parent().set_physics_process(true)
 	hide()
+
 
 func _input(event: InputEvent) -> void:
 	if visible and event.is_action_pressed("escape"):
 		do_hide()
 		get_viewport().set_input_as_handled()
 
+
 func _on_time_slider_value_changed(value: float) -> void:
 	_update_pins(value)
+
 
 func _update_pins(value: float) -> void:
 	var unlocked = SaveManager.player.unlocked_epochs
@@ -69,6 +75,8 @@ func _update_pins(value: float) -> void:
 				pin.texture = PIN_LOCKED
 		else:
 			pin.visible = false
+
+
 func _on_pin_clicked(epoch: String) -> void:
 	var unlocked = SaveManager.player.unlocked_epochs
 	if not epoch in unlocked:
@@ -94,25 +102,28 @@ func _on_pin_clicked(epoch: String) -> void:
 			get_tree().change_scene_to_file("res://scenes/Epochs/Medieval/medieval.tscn")
 		_:
 			push_warning("Keine Scene für Epoche: %s" % epoch)
-			
-			
-			
+
+
 func _on_pin_sowjet_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		_on_pin_clicked("sowjet")
+
 
 func _on_pin_ww2_gui_input(event: InputEvent) -> void:
 	print("WW2 input received: ", event)
 	if event is InputEventMouseButton and event.pressed:
 		_on_pin_clicked("ww2")
 
+
 func _on_pin_mittelalter_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		_on_pin_clicked("mittelalter")
 
+
 func _on_pin_samurai_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		_on_pin_clicked("japan")
+
 
 func _on_pin_inka_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:

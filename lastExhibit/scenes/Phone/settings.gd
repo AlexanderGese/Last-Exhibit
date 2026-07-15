@@ -94,27 +94,27 @@ func _on_reset_audio_pressed() -> void:
 func _build_keybind_list() -> void:
 	for child in keybind_list.get_children():
 		child.queue_free()
-	
+
 	for action in REBINDABLE_ACTIONS:
 		var row = HBoxContainer.new()
 		row.custom_minimum_size.y = 40
-		
+
 		var label = Label.new()
 		label.text = action.capitalize()
 		label.custom_minimum_size.x = 150
 		row.add_child(label)
-		
+
 		var button = Button.new()
 		button.text = _get_action_display(action)
 		button.custom_minimum_size.x = 150
 		button.pressed.connect(_start_listening.bind(action, button))
 		row.add_child(button)
-		
+
 		var reset_btn = Button.new()
 		reset_btn.text = "↺"
 		reset_btn.pressed.connect(_reset_keybind.bind(action, button))
 		row.add_child(reset_btn)
-		
+
 		keybind_list.add_child(row)
 
 
@@ -128,17 +128,21 @@ func _get_action_display(action: String) -> String:
 		return OS.get_keycode_string(key)
 	elif event is InputEventMouseButton:
 		match event.button_index:
-			MOUSE_BUTTON_LEFT: return "LMB"
-			MOUSE_BUTTON_RIGHT: return "RMB"
-			MOUSE_BUTTON_MIDDLE: return "MMB"
-			_: return "Mouse %d" % event.button_index
+			MOUSE_BUTTON_LEFT:
+				return "LMB"
+			MOUSE_BUTTON_RIGHT:
+				return "RMB"
+			MOUSE_BUTTON_MIDDLE:
+				return "MMB"
+			_:
+				return "Mouse %d" % event.button_index
 	return str(event)
 
 
 func _start_listening(action: String, button: Button) -> void:
 	if listening_button:
 		listening_button.text = _get_action_display(listening_for_action)
-	
+
 	listening_for_action = action
 	listening_button = button
 	button.text = "Drücke Taste..."
@@ -149,7 +153,7 @@ func _input(event: InputEvent) -> void:
 		return
 	if not visible:
 		return
-	
+
 	if event is InputEventKey and event.pressed:
 		_bind_event(event)
 		accept_event()
@@ -161,11 +165,11 @@ func _input(event: InputEvent) -> void:
 func _bind_event(event: InputEvent) -> void:
 	InputMap.action_erase_events(listening_for_action)
 	InputMap.action_add_event(listening_for_action, event)
-	
+
 	listening_button.text = _get_action_display(listening_for_action)
 	listening_for_action = ""
 	listening_button = null
-	
+
 	if SaveManager.has_method("save_keybinds"):
 		SaveManager.save_keybinds()
 
@@ -173,10 +177,10 @@ func _bind_event(event: InputEvent) -> void:
 func _reset_keybind(action: String, button: Button) -> void:
 	if not DEFAULTS.has(action):
 		return
-	
+
 	InputMap.action_erase_events(action)
 	var entry = DEFAULTS[action]
-	
+
 	if entry.type == "key":
 		var event = InputEventKey.new()
 		event.physical_keycode = entry.value
@@ -185,9 +189,9 @@ func _reset_keybind(action: String, button: Button) -> void:
 		var event = InputEventMouseButton.new()
 		event.button_index = entry.value
 		InputMap.action_add_event(action, event)
-	
+
 	button.text = _get_action_display(action)
-	
+
 	if SaveManager.has_method("save_keybinds"):
 		SaveManager.save_keybinds()
 
@@ -207,21 +211,21 @@ func _perform_reset() -> void:
 				dir.remove(file_name)
 			file_name = dir.get_next()
 		dir.list_dir_end()
-	
+
 	if SaveManager.inventory:
 		for i in range(SaveManager.inventory.slots.size()):
 			SaveManager.inventory.slots[i] = null
 		if "equipped" in SaveManager.inventory:
 			for key in SaveManager.inventory.equipped.keys():
 				SaveManager.inventory.equipped[key] = null
-	
+
 	SaveManager.player = PlayerSaveFile.new()
 	SaveManager.museum = MuseumsSaveFile.new()
 	if SaveManager.has_method("_ensure_showcases"):
 		SaveManager._ensure_showcases()
-	
+
 	SaveManager.save_all()
-	
+
 	reset_button.text = "Reset durchgeführt — Spiel wird neu geladen..."
 	await get_tree().create_timer(2.0).timeout
 	get_tree().reload_current_scene()

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://cbvjfb3xf7q8u"]
 
-[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_item"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://inventory/item.gd" id="1_item"]
 [ext_resource type="Texture2D" uid="uid://iyqsk84sxebg" path="res://assets/sprites/armor/light_green_hat.png" id="2_icon"]
 
 [resource]

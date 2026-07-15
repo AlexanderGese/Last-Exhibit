@@ -1,7 +1,9 @@
 class_name Item
 extends Resource
 
-enum Type { ARTIFACT, WEAPON, HEAD, BODY, LEGS, FEET, CONSUMABLE, AMMO, KEY, CURRENCY, TOOL, DOCUMENT }
+enum Type {
+	ARTIFACT, WEAPON, HEAD, BODY, LEGS, FEET, CONSUMABLE, AMMO, KEY, CURRENCY, TOOL, DOCUMENT
+}
 
 @export var id: String
 @export var name: String
@@ -21,5 +23,5 @@ enum Type { ARTIFACT, WEAPON, HEAD, BODY, LEGS, FEET, CONSUMABLE, AMMO, KEY, CUR
 @export var effect_duration: float = 0.0
 
 @export_group("Artifact")
-@export var big_artifact: bool #true = big, false = small
+@export var big_artifact: bool  #true = big, false = small
 @export var origin: String

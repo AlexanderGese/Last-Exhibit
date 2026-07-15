@@ -1,9 +1,11 @@
 extends Node2D
 
-var in_main:bool = false
+var in_main: bool = false
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+
+
 func _ready() -> void:
-	pass # Replace with function body.
+	pass  # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -11,7 +13,6 @@ func _process(delta: float) -> void:
 	if in_main and Input.is_action_just_pressed("interact"):
 		Events.in_level = false
 		get_tree().change_scene_to_file("res://scenes/Museum/Museum.tscn")
-	
 
 
 func _on_main_body_entered(body: Node2D) -> void:

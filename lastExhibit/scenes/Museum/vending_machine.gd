@@ -1,12 +1,11 @@
 extends Node2D
 
-
 const HOLD_THRESHOLD := 0.5
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 var hold_start := 0.0
 var is_holding := false
 var hold_completed := false
-var current:= 0
+var current := 0
 
 const COLA = preload("res://inventory/items/beverage/cola.tres")
 const PENNER = preload("res://inventory/items/beverage/penner.tres")
@@ -15,12 +14,14 @@ const SPEZI = preload("res://inventory/items/beverage/spezi.tres")
 const WHITEMONSTER = preload("res://inventory/items/beverage/whitemonster.tres")
 const WATER = preload("res://inventory/items/beverage/water.tres")
 
-var items = [WATER,COLA,SPEZI,REDBULL,WHITEMONSTER,PENNER]
+var items = [WATER, COLA, SPEZI, REDBULL, WHITEMONSTER, PENNER]
 var item_names = ["Water", "Cola", "Spezi", "Redbull", "Monster", "Penner"]
-var price = [10, 10, 15 , 20, 25, 50]
+var price = [10, 10, 15, 20, 25, 50]
+
 
 func _ready() -> void:
 	$VendingMachinePrompt.visible = false
+
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
@@ -39,6 +40,7 @@ func _process(_delta: float) -> void:
 			_scrollen()
 		is_holding = false
 
+
 func _scrollen() -> void:
 	if current >= 6:
 		current = 0
@@ -47,12 +49,12 @@ func _scrollen() -> void:
 	current += 1
 	sprite.play(str(current))
 	return
-	
+
 
 func _kaufen() -> void:
-	var ok = SaveManager.buy(price[current -1], item_names[current -1], "coins")
+	var ok = SaveManager.buy(price[current - 1], item_names[current - 1], "coins")
 	if ok:
-		SaveManager.add_item(items[current -1],1)
+		SaveManager.add_item(items[current - 1], 1)
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

@@ -1,11 +1,10 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 var hp = 50
-@export var dialogue : DialogueResource
+@export var dialogue: DialogueResource
 @onready var balloon_scene = preload("res://dialogues/dummys/dummy1.tscn")
 var current_balloon = null
 
@@ -13,6 +12,7 @@ var current_balloon = null
 func _on_hurtbox_hurt(damage: int, knockback: Vector2) -> void:
 	$Label.text = str(hp - damage)
 	hp -= damage
+
 
 func _process(delta: float) -> void:
 	if hp <= 0:
@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 		print("dead")
 		set_collision_layer_value(1, false)
 
+
 func _on_respawn_timer_timeout() -> void:
 	print("respawn")
 	$Sprite2D.visible = true
@@ -31,28 +32,32 @@ func _on_respawn_timer_timeout() -> void:
 	$Label.visible = true
 	set_collision_layer_value(1, true)
 
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"): 
+	if body.is_in_group("player"):
 		zeige_balloon()
 
-func signal_started(): 
+
+func signal_started():
 	Events.dialogue_started.emit()
-	
-	
+
+
 func signal_ended():
 	Events.dialogue_ended.emit()
-	
-	
-func zeige_balloon(): 
+
+
+func zeige_balloon():
 	signal_started()
 	current_balloon = balloon_scene.instantiate()
 	get_tree().current_scene.add_child(current_balloon)
 	current_balloon.start(dialogue, "start", [self])
 
+
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		abort_dialogue()
-		
+
+
 func abort_dialogue():
 	if current_balloon:
 		signal_ended()

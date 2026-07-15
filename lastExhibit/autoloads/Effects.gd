@@ -3,9 +3,9 @@ extends Node
 const SOUNDS = {
 	"hit": "res://assets/audio/sfx/player/Hitenemy.wav",
 	"jump": "res://assets/audio/sfx/player/Jump.wav",
-	"shoot_pistol" : "res://assets/audio/sfx/player/Pistol.wav",
-	"shoot_gun" : "res://assets/audio/sfx/player/Rifle.mp3",
-	"interact" : "res://assets/audio/sfx/player/place.wav"
+	"shoot_pistol": "res://assets/audio/sfx/player/Pistol.wav",
+	"shoot_gun": "res://assets/audio/sfx/player/Rifle.mp3",
+	"interact": "res://assets/audio/sfx/player/place.wav"
 }
 
 var players: Dictionary = {}

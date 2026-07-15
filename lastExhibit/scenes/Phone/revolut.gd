@@ -1,6 +1,5 @@
 extends TextureRect
 
-
 @onready var _1: Label = $"gui/Grey/VBoxContainer/1"
 @onready var _2: Label = $"gui/Grey/VBoxContainer/2"
 @onready var _3: Label = $"gui/Grey/VBoxContainer/3"
@@ -10,6 +9,7 @@ extends TextureRect
 @onready var timeshards: Label = $gui/HBoxContainer/timeshards/timeshards
 @onready var bitcoin: Label = $gui/HBoxContainer/bitcoin/bitcoin
 @onready var coins: Label = $gui/HBoxContainer/coins/coins
+
 
 func _ready() -> void:
 	for lbl in [_1, _2, _3, _4, _5]:

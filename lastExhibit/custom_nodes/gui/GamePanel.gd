@@ -5,6 +5,7 @@ extends NinePatchRect
 
 @onready var content = $MarginContainer/Content
 
+
 func _ready() -> void:
 	var margin = $MarginContainer
 	margin.add_theme_constant_override("margin_left", padding)

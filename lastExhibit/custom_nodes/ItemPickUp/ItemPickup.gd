@@ -12,6 +12,7 @@ var can_pickup: bool = true
 @onready var info: Sprite2D = $Info
 @onready var beschreibung: Label = $Info/Label
 
+
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
@@ -47,6 +48,7 @@ func _on_body_entered(body: Node) -> void:
 			info.visible = true
 			beschreibung.text = item.name
 
+
 func _on_body_exited(body: Node) -> void:
 	if body.is_in_group("player"):
 		player_nearby = false
@@ -54,7 +56,13 @@ func _on_body_exited(body: Node) -> void:
 
 
 func _process(_delta: float) -> void:
-	if player_nearby and can_pickup and item != null and Input.is_action_just_pressed("interact") and self.visible == true:
+	if (
+		player_nearby
+		and can_pickup
+		and item != null
+		and Input.is_action_just_pressed("interact")
+		and self.visible == true
+	):
 		if SaveManager.try_pickup(item):
 			if once:
 				SaveManager.collect_pickup(_pickup_id())

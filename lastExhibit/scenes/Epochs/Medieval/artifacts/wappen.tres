@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://d1y2pgovt83dn"]
 
-[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_70wko"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://inventory/item.gd" id="1_70wko"]
 [ext_resource type="Texture2D" uid="uid://bl74vfr4e8h12" path="res://assets/sprites/artifacts/Wappen_MedievalArtefacts.png" id="1_vb5s8"]
 
 [resource]

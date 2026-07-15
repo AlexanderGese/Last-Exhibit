@@ -1,9 +1,11 @@
 extends Area2D
 
-@export var damage : float = 40.0
+@export var damage: float = 40.0
+
 
 func _ready() -> void:
 	pass
+
 
 func explode() -> void:
 	$AnimatedSprite2D.play("explosion")
@@ -11,6 +13,7 @@ func explode() -> void:
 	_deal_damage()
 	await $AnimatedSprite2D.animation_finished
 	queue_free()
+
 
 func _deal_damage() -> void:
 	for body in get_overlapping_bodies():

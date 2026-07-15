@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://3kravj1b3fru"]
 
-[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_oqov1"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://inventory/item.gd" id="1_oqov1"]
 [ext_resource type="Texture2D" uid="uid://cfsuipkaihey7" path="res://assets/sprites/artifacts/Nowitschok.png" id="1_p1e6j"]
 
 [resource]

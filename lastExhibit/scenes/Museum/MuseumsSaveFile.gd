@@ -10,11 +10,12 @@ extends SaveFile
 @export var first_used: bool = true
 @export var second_used: bool = true
 @export var showcases: Array[Showcase] = []
-@export var showroom: Array[String] =  ["", "", "", "", ""]
+@export var showroom: Array[String] = ["", "", "", "", ""]
 @export var last_income_day: int = 0
 
 const BASE_VISITORS: int = 10
 const BASE_TICKET_PRICE: int = 5
+
 
 func _init() -> void:
 	number = 0

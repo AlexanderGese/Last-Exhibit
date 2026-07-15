@@ -45,22 +45,22 @@ func _load_or_create_data() -> void:
 	var idx = number - 1
 	if idx < 0 or idx >= SaveManager.museum.showcases.size():
 		return
-	
+
 	if SaveManager.museum.showcases[idx] == null:
 		var new_data = Showcase.new()
 		new_data.is_empty = true
 		SaveManager.museum.showcases[idx] = new_data
-	
+
 	data = SaveManager.museum.showcases[idx]
 
 
 func _refresh_visuals() -> void:
 	big_showcase.visible = false
 	small_showcase.visible = false
-	
+
 	if data == null or data.is_empty:
 		return
-	
+
 	if data.big_artifact:
 		big_showcase.visible = true
 		big_item.texture = data.icon
@@ -85,18 +85,26 @@ func placeshowcase(item: Item, index: int) -> void:
 		return
 	if data == null:
 		return
-	
+
 	# Showroom-Check: wenn Raum schon eine Origin hat, muss Item passen
 	var room_idx = showcaseroom - 1
 	if room_idx < 0 or room_idx >= SaveManager.museum.showroom.size():
 		push_warning("[Showcase #%d] Ungültiger showroom-Index: %d" % [number, showcaseroom])
 		return
-	
+
 	var current_origin = SaveManager.museum.showroom[room_idx]
 	if current_origin != null and current_origin != "" and current_origin != item.origin:
-		print("[Showcase #", number, "] Raum ist '", current_origin, "', Item ist '", item.origin, "' → blockiert")
+		print(
+			"[Showcase #",
+			number,
+			"] Raum ist '",
+			current_origin,
+			"', Item ist '",
+			item.origin,
+			"' → blockiert"
+		)
 		return
-	
+
 	# Placement
 	if data.is_empty:
 		data.is_empty = false
@@ -109,7 +117,7 @@ func placeshowcase(item: Item, index: int) -> void:
 		data.qty += 1
 	else:
 		return
-	
+
 	# Showroom-Origin merken
 	SaveManager.museum.showroom[room_idx] = item.origin
 	Events.new_floor.emit(item.origin, showcaseroom)
@@ -125,19 +133,19 @@ func pickup_artifact() -> void:
 		return
 	if data.item == null:
 		return
-	
+
 	var picked_item = data.item
-	
+
 	if not SaveManager.try_pickup(data.item):
 		return
-	
+
 	data.qty -= 1
 	if data.qty <= 0:
 		_reset_showcase()
 	else:
 		_refresh_visuals()
 		SaveManager.save_all()
-	
+
 	_on_item_removed(picked_item)
 
 
@@ -159,7 +167,7 @@ func _maybe_clear_showroom() -> void:
 	var room_idx = showcaseroom - 1
 	if room_idx < 0 or room_idx >= SaveManager.museum.showroom.size():
 		return
-	
+
 	# Check ob in diesem Raum noch andere Showcases mit Items existieren
 	# Das müsstest du irgendwie tracken — z.B. über alle Showcase-Nodes iterieren
 	# Für jetzt: einfach leer lassen, Raum nimmt nächstes Item beliebiger Origin an

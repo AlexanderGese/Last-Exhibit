@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://d1tyei1arrqql" path="res://scenes/Phone/phone_frame.gd" id="2_3swiv"]
 [ext_resource type="Texture2D" uid="uid://dq6gm2srva4u6" path="res://assets/kenney_ui/Panel/panel-014.png" id="2_q0gno"]
 [ext_resource type="Texture2D" uid="uid://ckkaxpowkjn6i" path="res://assets/ui/phone/new_icon/App_1.png" id="5_350wh"]
-[ext_resource type="Script" uid="uid://cvrpd6gcvi327" path="res://shader_apply.gd" id="6_11xny"]
+[ext_resource type="Script" uid="uid://cvrpd6gcvi327" path="res://shaders/shader_apply.gd" id="6_11xny"]
 [ext_resource type="Texture2D" uid="uid://7dg0qgjo8f8o" path="res://assets/ui/phone/new_icon/App_6.png" id="7_e1uvk"]
 [ext_resource type="Texture2D" uid="uid://beqquyuojemj0" path="res://assets/ui/phone/new_icon/App_4.png" id="8_nxg1n"]
 [ext_resource type="Texture2D" uid="uid://cpbbbe5oooy5" path="res://assets/ui/phone/phoneversions/großanzeigen.png" id="10_dptkc"]

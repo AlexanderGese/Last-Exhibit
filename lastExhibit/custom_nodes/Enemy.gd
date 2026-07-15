@@ -1,4 +1,4 @@
-var health:int = 100
+var health: int = 100
 
 
 func _ready():

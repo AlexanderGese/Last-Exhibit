@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://cfiu1pgt5kg7p"]
 
-[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_5xl2w"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://inventory/item.gd" id="1_5xl2w"]
 [ext_resource type="Texture2D" uid="uid://codjom3hsyqxl" path="res://assets/sprites/museum/vendingmachine/water.png" id="1_frnmm"]
 
 [resource]

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://bhj2wewuc1ncx"]
 
 [ext_resource type="Texture2D" uid="uid://d2ypuue2j3avq" path="res://assets/sprites/artifacts/PurpleHeart_WW2Artefacts.png" id="1_ol2m7"]
-[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_thdp1"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://inventory/item.gd" id="1_thdp1"]
 
 [resource]
 script = ExtResource("1_thdp1")

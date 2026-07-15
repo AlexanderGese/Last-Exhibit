@@ -19,17 +19,16 @@ extends SaveFile
 @export var level_time = 60
 # -- Inventory ---------------
 @export var equipped: Dictionary = {}
-@export var messages: Array[String] = ["/","/","/","/","/","/","/","/","/"]
+@export var messages: Array[String] = ["/", "/", "/", "/", "/", "/", "/", "/", "/"]
 
 # -- DAta -------
-@export var past_five_transactions: Array[String] = ["/", "/", "/","/","/"]
+@export var past_five_transactions: Array[String] = ["/", "/", "/", "/", "/"]
 @export var playertiner: int = 0
 @export var seen_tutorials: Array[String] = []
 @export var collected_shards: Array[String] = []
 @export var collected_pickups: Array[String] = []
 @export var combo_bonus: int = 0
 @export var finished_game: bool = false
-
 
 
 func _init() -> void:
@@ -52,18 +51,20 @@ func _init() -> void:
 	collected_pickups = []
 	combo_bonus = 0
 
+
 func add_transcation(item: String, price: int, currency: String) -> void:
 	var item_label: String = item + " " + str(price) + " " + currency
 	past_five_transactions.push_back(item_label)
 	if past_five_transactions.size() > 5:
-		past_five_transactions.pop_front() 
+		past_five_transactions.pop_front()
 
-func add_message(text: String)-> void:
+
+func add_message(text: String) -> void:
 	messages.push_back(text)
 	if messages.size() > 9:
 		messages.pop_front()
-		
-		
+
+
 func clear_messages():
 	for i in range(8):
 		add_message("")
@@ -78,7 +79,7 @@ func buy(price: int, item: String, currency: String) -> bool:
 	elif currency == "time_shards":
 		if time_shards >= price:
 			time_shards -= price
-			add_transcation(item,price,currency)
+			add_transcation(item, price, currency)
 			return true
 	elif currency == "btc":
 		if btc >= price:
@@ -87,9 +88,11 @@ func buy(price: int, item: String, currency: String) -> bool:
 			return true
 	return false
 
+
 func save(slot: int) -> void:
 	DirAccess.make_dir_absolute(SAVE_DIR)
 	ResourceSaver.save(self, SAVE_DIR + "slot_%d_PlayerSaveFile" % slot + EXT)
+
 
 func unlock(epoch: String) -> bool:
 	unlocked_epochs.append(epoch)

@@ -1,6 +1,7 @@
 class_name Ladder
 extends Area2D
 
+
 func climb_x(from_x: float) -> float:
 	var best := global_position.x
 	var best_d := INF
@@ -13,9 +14,11 @@ func climb_x(from_x: float) -> float:
 				best = x
 	return best
 
+
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player") and body.has_method("enter_ladder"):
 		body.enter_ladder(self)
+
 
 func _on_body_exited(body: Node) -> void:
 	if body.is_in_group("player") and body.has_method("exit_ladder"):

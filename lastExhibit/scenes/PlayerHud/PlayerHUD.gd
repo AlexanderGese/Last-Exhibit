@@ -11,11 +11,13 @@ extends Control
 
 var save: PlayerSaveFile
 
+
 func _ready() -> void:
 	save = SaveManager.player
 	GameClock.time_changed.connect(_on_time_changed)
 	time_label.text = GameClock.get_formatted_time()
 	refresh()
+
 
 func refresh() -> void:
 	var health_percent = save.hp / save.max_hp
@@ -24,8 +26,10 @@ func refresh() -> void:
 	money_label.text = str(save.money)
 	shards_label.text = str(save.time_shards)
 
+
 func _on_time_changed(formatted: String) -> void:
 	time_label.text = formatted
+
 
 func _process(_delta: float) -> void:
 	level_timer.text = str(SaveManager.player.playertiner)

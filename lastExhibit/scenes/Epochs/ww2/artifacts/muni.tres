@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://w44s55tpssep"]
 
-[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://item.gd" id="1_5lu4q"]
+[ext_resource type="Script" uid="uid://d4c671jpgfict" path="res://inventory/item.gd" id="1_5lu4q"]
 [ext_resource type="Texture2D" uid="uid://br3w48k7nttpw" path="res://assets/sprites/artifacts/Munitionsguertel_WW2Artefacts.png" id="1_gap7c"]
 
 [resource]

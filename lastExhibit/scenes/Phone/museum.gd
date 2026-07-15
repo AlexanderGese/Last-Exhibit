@@ -17,7 +17,7 @@ func _ready() -> void:
 func _refresh() -> void:
 	if SaveManager.museum == null:
 		return
-	
+
 	visitor_label.text = "%d" % SaveManager.museum.get_daily_visitors()
 	price_label.text = "%d€" % SaveManager.museum.get_ticket_price()
 	money_label.text = "%d€" % SaveManager.museum.calculate_daily_income()
