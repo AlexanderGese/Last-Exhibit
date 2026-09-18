@@ -1,0 +1,9 @@
+# Game binaries and the web export are produced by lastExhibit/build.sh and
+# copied in by scripts/sync-builds.sh. They do not belong in the repository.
+downloads/*
+!downloads/.gitkeep
+
+game/*
+!game/.gitkeep
+
+.DS_Store

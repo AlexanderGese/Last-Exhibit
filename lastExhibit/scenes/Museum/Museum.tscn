@@ -8,12 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dkvceyxie2xb5" path="res://custom_nodes/showcase/showcase.tscn" id="11_l6y80"]
 [ext_resource type="Resource" uid="uid://bb5wyw273ekpq" path="res://resources/items/guns/walterp99.tres" id="12_h742d"]
 [ext_resource type="PackedScene" uid="uid://b465bo07tndvt" path="res://custom_nodes/boxes/packages.tscn" id="12_vcqe2"]
-[ext_resource type="Texture2D" uid="uid://67gjxlnkdn2" path="res://assets/theicons/pixel_art_small.png" id="13_1hd0j"]
 [ext_resource type="Resource" uid="uid://b6lmvke8rcnet" path="res://inventory/items/rüstungs/hat_brown.tres" id="13_h742d"]
-[ext_resource type="FontFile" uid="uid://bafj0agrswp3j" path="res://assets/fonts/Pixuf.ttf" id="14_doo3g"]
-[ext_resource type="Texture2D" uid="uid://c0qi8aorj3x61" path="res://assets/theicons/pixel_art_small (1).png" id="14_vrpa3"]
-[ext_resource type="Texture2D" uid="uid://cqbjye8mb0ysq" path="res://assets/theicons/pixel_art_small (3).png" id="15_pdmdt"]
-[ext_resource type="Texture2D" uid="uid://d04ir47p3bsv3" path="res://assets/theicons/pixel_art_small (2).png" id="16_doo3g"]
 [ext_resource type="PackedScene" uid="uid://c6ltpf5bt0im1" path="res://scenes/Museum/basement/basement.tscn" id="84_nwe6r"]
 [ext_resource type="PackedScene" uid="uid://cu8hje1itntum" path="res://scenes/Museum/floor0/floor0.tscn" id="85_5p4s7"]
 [ext_resource type="PackedScene" uid="uid://3pkqx4vhy7r" path="res://scenes/Museum/floor1/floor1.tscn" id="86_02od8"]
@@ -359,71 +354,3 @@ item = ExtResource("13_h742d")
 once = true
 
 [node name="TheIcons" type="Node2D" parent="." unique_id=578312414]
-
-[node name="Paul" type="TextureRect" parent="TheIcons" unique_id=457886463]
-offset_left = -1053.0
-offset_top = -343.0
-offset_right = -961.0
-offset_bottom = -275.0
-texture = ExtResource("13_1hd0j")
-
-[node name="Name" type="Label" parent="TheIcons/Paul" unique_id=820001758]
-layout_mode = 0
-offset_left = -2.0
-offset_top = 70.0
-offset_right = 94.0
-offset_bottom = 93.0
-theme_override_fonts/font = ExtResource("14_doo3g")
-text = "Paulus"
-horizontal_alignment = 1
-
-[node name="Alex" type="TextureRect" parent="TheIcons" unique_id=666188125]
-offset_left = -669.0
-offset_top = -343.0
-offset_right = -577.0
-offset_bottom = -275.0
-texture = ExtResource("14_vrpa3")
-
-[node name="Name" type="Label" parent="TheIcons/Alex" unique_id=759939572]
-layout_mode = 0
-offset_left = -2.0
-offset_top = 70.0
-offset_right = 93.0
-offset_bottom = 93.0
-theme_override_fonts/font = ExtResource("14_doo3g")
-text = "Alex"
-horizontal_alignment = 1
-
-[node name="Johannes" type="TextureRect" parent="TheIcons" unique_id=1071262798]
-offset_left = -925.0
-offset_top = -343.0
-offset_right = -833.0
-offset_bottom = -275.0
-texture = ExtResource("15_pdmdt")
-
-[node name="Name" type="Label" parent="TheIcons/Johannes" unique_id=1158762080]
-layout_mode = 0
-offset_left = -2.0
-offset_top = 70.0
-offset_right = 94.0
-offset_bottom = 93.0
-theme_override_fonts/font = ExtResource("14_doo3g")
-text = "JJ"
-horizontal_alignment = 1
-
-[node name="Fabian" type="TextureRect" parent="TheIcons" unique_id=398258441]
-offset_left = -797.0
-offset_top = -343.0
-offset_right = -705.0
-offset_bottom = -275.0
-texture = ExtResource("16_doo3g")
-
-[node name="Name" type="Label" parent="TheIcons/Fabian" unique_id=529273253]
-layout_mode = 0
-offset_left = -2.0
-offset_top = 70.0
-offset_right = 94.0
-offset_bottom = 93.0
-theme_override_fonts/font = ExtResource("14_doo3g")
-text = "Fabian"
-horizontal_alignment = 1
