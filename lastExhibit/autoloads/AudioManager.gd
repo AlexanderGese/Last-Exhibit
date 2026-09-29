@@ -18,7 +18,6 @@ const TRACKS = {
 	"inka_boss": "res://assets/music/InkaBoss.ogg",
 	"blackmarket": "res://assets/music/BlackMarketMusic.ogg",
 	"trailer": "res://assets/music/TrailerMusic.ogg",
-	"final": "res://assets/music/final.ogg",
 }
 
 const AUDIO_PATH = "user://audio.dat"

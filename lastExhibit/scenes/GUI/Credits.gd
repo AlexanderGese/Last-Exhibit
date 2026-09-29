@@ -15,7 +15,7 @@ func _ready() -> void:
 func go():
 	visible = true
 	run = true
-	AudioManager.play("final")
+	AudioManager.play("trailer")
 	SaveManager.player.finished_game = true
 	finished_game = true
 
