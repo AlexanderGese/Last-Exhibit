@@ -74,6 +74,11 @@ WEB_AVAILABLE=false
 if [ -f "$BUILD_DIR/web/index.html" ]; then
   find "$WEB" -mindepth 1 ! -name .gitkeep -delete
   cp -R "$BUILD_DIR/web/." "$WEB/"
+  # Vercel serves /game/index.html under the address /game (cleanUrls), so
+  # relative paths would resolve against the site root. A fixed base fixes it.
+  if ! grep -q '<base href="/game/">' "$WEB/index.html"; then
+    sed -i 's|<head>|<head>\n\t<base href="/game/">|' "$WEB/index.html"
+  fi
   WEB_AVAILABLE=true
 fi
 
