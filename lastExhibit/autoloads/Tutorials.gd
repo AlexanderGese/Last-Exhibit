@@ -65,13 +65,13 @@ const TUTORIALS := {
 	{
 		"title": "Your Museum",
 		"body":
-		"Welcome. By day, visitors pay to see your artifacts and you earn money. Head down to the basement to find your time machine and start stealing history. Open your phone with F."
+		"Welcome. By day, visitors pay to see your artifacts and you earn money. Head down to the basement to find your time machine and start stealing history. Open your phone with P."
 	},
 	"time_machine":
 	{
 		"title": "Time Machine",
 		"body":
-		"This is your time machine. Press interact (E) to open it, pick an unlocked time period, and jump in to raid it for artifacts and time-shards. Press Escape to close the menu."
+		"This is your time machine. Press interact (E) to open it, pick an unlocked time period, and jump in to raid it for artifacts and time-shards. Press E to close the map."
 	},
 	"collect_package":
 	{

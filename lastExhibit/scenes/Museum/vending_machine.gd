@@ -15,7 +15,7 @@ const WHITEMONSTER = preload("res://inventory/items/beverage/whitemonster.tres")
 const WATER = preload("res://inventory/items/beverage/water.tres")
 
 var items = [WATER, COLA, SPEZI, REDBULL, WHITEMONSTER, PENNER]
-var item_names = ["Water", "Cola", "Spezi", "Redbull", "Monster", "Penner"]
+var item_names = ["Water", "Cola", "Spezi", "Redbull", "Monster", "Dumpster Brew"]
 var price = [10, 10, 15, 20, 25, 50]
 
 

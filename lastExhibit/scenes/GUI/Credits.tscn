@@ -23,8 +23,8 @@ theme_override_constants/separation = 192
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_hsfgh")
 theme_override_font_sizes/font_size = 64
-text = "Schulprojekt
-Last-Exibit"
+text = "School project
+Last Exhibit"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -56,7 +56,7 @@ vertical_alignment = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_hsfgh")
 theme_override_font_sizes/font_size = 64
-text = "GRAPHICAL DISIGN
+text = "GRAPHIC DESIGN
 Paul Korn
 Johannes Schneider
 Fabian Wolf"

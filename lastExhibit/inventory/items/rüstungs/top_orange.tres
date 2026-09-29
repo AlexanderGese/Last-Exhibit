@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_item")
 id = "ruestung_top_orange"
-name = "Oberteil Orange"
+name = "Orange Shirt"
 icon = ExtResource("2_icon")
 type = 3
 value = 25

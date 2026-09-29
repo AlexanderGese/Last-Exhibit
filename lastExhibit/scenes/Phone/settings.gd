@@ -18,7 +18,7 @@ const DEFAULTS = {
 	"right": {"type": "key", "value": KEY_D},
 	"jump": {"type": "key", "value": KEY_SPACE},
 	"interact": {"type": "key", "value": KEY_E},
-	"phone": {"type": "key", "value": KEY_F},
+	"phone": {"type": "key", "value": KEY_P},
 	"escape": {"type": "key", "value": KEY_ESCAPE},
 	"up": {"type": "key", "value": KEY_W},
 	"down": {"type": "key", "value": KEY_S},
@@ -145,7 +145,7 @@ func _start_listening(action: String, button: Button) -> void:
 
 	listening_for_action = action
 	listening_button = button
-	button.text = "Drücke Taste..."
+	button.text = "Press a key..."
 
 
 func _input(event: InputEvent) -> void:
@@ -226,6 +226,6 @@ func _perform_reset() -> void:
 
 	SaveManager.save_all()
 
-	reset_button.text = "Reset durchgeführt — Spiel wird neu geladen..."
+	reset_button.text = "Reset done, reloading the game..."
 	await get_tree().create_timer(2.0).timeout
 	get_tree().reload_current_scene()

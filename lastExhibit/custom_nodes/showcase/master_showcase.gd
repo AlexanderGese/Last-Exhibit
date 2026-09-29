@@ -89,7 +89,7 @@ func placeshowcase(item: Item, index: int) -> void:
 	# Showroom-Check: wenn Raum schon eine Origin hat, muss Item passen
 	var room_idx = showcaseroom - 1
 	if room_idx < 0 or room_idx >= SaveManager.museum.showroom.size():
-		push_warning("[Showcase #%d] Ungültiger showroom-Index: %d" % [number, showcaseroom])
+		push_warning("[Showcase #%d] Invalid showroom index: %d" % [number, showcaseroom])
 		return
 
 	var current_origin = SaveManager.museum.showroom[room_idx]

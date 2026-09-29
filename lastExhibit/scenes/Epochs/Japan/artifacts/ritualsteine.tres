@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_siuo1")
 id = "ritualsteine"
-name = "Ritualstones"
+name = "Ritual Stones"
 icon = ExtResource("1_bs8dm")
 stackable = true
 max_stack = 5

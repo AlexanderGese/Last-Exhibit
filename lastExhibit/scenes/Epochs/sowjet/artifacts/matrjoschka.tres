@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_ltbyj")
 id = "matrjoschka"
-name = "Matrjoschka"
+name = "Matryoshka"
 icon = ExtResource("1_wjo7j")
 value = 110
 origin = "soviet"

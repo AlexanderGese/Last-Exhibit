@@ -237,7 +237,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "HUT"
+text = "HAT"
 
 [node name="BodySlot" type="PanelContainer" parent="EquipmentPanel/VBoxContainer" unique_id=1889273093]
 custom_minimum_size = Vector2(80, 80)
@@ -251,7 +251,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "JCK"
+text = "TOP"
 
 [node name="LegsSlot" type="PanelContainer" parent="EquipmentPanel/VBoxContainer" unique_id=252250948]
 custom_minimum_size = Vector2(80, 80)
@@ -265,7 +265,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "HSE"
+text = "LEG"
 
 [node name="FeetSlot" type="PanelContainer" parent="EquipmentPanel/VBoxContainer" unique_id=862080965]
 custom_minimum_size = Vector2(80, 80)
@@ -279,7 +279,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "STF"
+text = "SHO"
 
 [node name="HSeparator" type="HSeparator" parent="EquipmentPanel/VBoxContainer" unique_id=126459695]
 layout_mode = 2
@@ -296,4 +296,4 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "WAFFE"
+text = "WEAPON"

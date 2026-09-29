@@ -293,7 +293,7 @@ theme_override_font_sizes/font_size = 70
 text = "Flappybird"
 metadata/_edit_use_anchors_ = true
 
-[node name="Großanzeigen" type="TextureRect" parent="." unique_id=929139565]
+[node name="Classifieds" type="TextureRect" parent="." unique_id=929139565]
 visible = false
 anchors_preset = -1
 anchor_left = 0.2625
@@ -310,7 +310,7 @@ texture = ExtResource("10_dptkc")
 script = ExtResource("16_j73o0")
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Großanzeigen" unique_id=1013552329]
+[node name="VBoxContainer" type="VBoxContainer" parent="Classifieds" unique_id=1013552329]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.19117644
@@ -319,13 +319,13 @@ anchor_right = 0.80392146
 anchor_bottom = 0.7175573
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=993775881]
+[node name="Label" type="Label" parent="Classifieds/VBoxContainer" unique_id=993775881]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
 text = "WW2 Unlock           15TS"
 
-[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label" unique_id=1155004095]
+[node name="Button" type="Button" parent="Classifieds/VBoxContainer/Label" unique_id=1155004095]
 custom_minimum_size = Vector2(60, 30)
 layout_mode = 0
 offset_left = 345.59998
@@ -337,13 +337,13 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_cacfq")
 icon = ExtResource("17_k6u4c")
 flat = true
 
-[node name="Label2" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=2018676573]
+[node name="Label2" type="Label" parent="Classifieds/VBoxContainer" unique_id=2018676573]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
 text = "Middleage Unlock 40TS"
 
-[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label2" unique_id=73738716]
+[node name="Button" type="Button" parent="Classifieds/VBoxContainer/Label2" unique_id=73738716]
 custom_minimum_size = Vector2(60, 30)
 layout_mode = 0
 offset_left = 345.59998
@@ -355,13 +355,13 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_cacfq")
 icon = ExtResource("17_k6u4c")
 flat = true
 
-[node name="Label3" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=1479849202]
+[node name="Label3" type="Label" parent="Classifieds/VBoxContainer" unique_id=1479849202]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
 text = "Extend Leveltime 250$"
 
-[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label3" unique_id=696019784]
+[node name="Button" type="Button" parent="Classifieds/VBoxContainer/Label3" unique_id=696019784]
 custom_minimum_size = Vector2(60, 30)
 layout_mode = 0
 offset_left = 345.59998
@@ -373,13 +373,13 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_cacfq")
 icon = ExtResource("17_k6u4c")
 flat = true
 
-[node name="Label4" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=439696550]
+[node name="Label4" type="Label" parent="Classifieds/VBoxContainer" unique_id=439696550]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
 text = "Extend Leveltime 250$"
 
-[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label4" unique_id=1761536252]
+[node name="Button" type="Button" parent="Classifieds/VBoxContainer/Label4" unique_id=1761536252]
 custom_minimum_size = Vector2(60, 30)
 layout_mode = 0
 offset_left = 345.59998
@@ -391,13 +391,13 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_cacfq")
 icon = ExtResource("17_k6u4c")
 flat = true
 
-[node name="Label5" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=1206361604]
+[node name="Label5" type="Label" parent="Classifieds/VBoxContainer" unique_id=1206361604]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
 text = "Museum app          100$"
 
-[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label5" unique_id=1093662990]
+[node name="Button" type="Button" parent="Classifieds/VBoxContainer/Label5" unique_id=1093662990]
 custom_minimum_size = Vector2(60, 30)
 layout_mode = 0
 offset_left = 345.59998
@@ -409,13 +409,13 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_cacfq")
 icon = ExtResource("17_k6u4c")
 flat = true
 
-[node name="Label6" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=848545475]
+[node name="Label6" type="Label" parent="Classifieds/VBoxContainer" unique_id=848545475]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
 text = "Darknet  app          500$"
 
-[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label6" unique_id=282727784]
+[node name="Button" type="Button" parent="Classifieds/VBoxContainer/Label6" unique_id=282727784]
 custom_minimum_size = Vector2(60, 30)
 layout_mode = 0
 offset_left = 345.59998
@@ -427,13 +427,13 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_cacfq")
 icon = ExtResource("17_k6u4c")
 flat = true
 
-[node name="Label7" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=1431744656]
+[node name="Label7" type="Label" parent="Classifieds/VBoxContainer" unique_id=1431744656]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
 text = "Flappybird app      250$"
 
-[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label7" unique_id=1949852387]
+[node name="Button" type="Button" parent="Classifieds/VBoxContainer/Label7" unique_id=1949852387]
 custom_minimum_size = Vector2(60, 30)
 layout_mode = 0
 offset_left = 345.59998
@@ -445,13 +445,13 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_cacfq")
 icon = ExtResource("17_k6u4c")
 flat = true
 
-[node name="Label8" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=103372381]
+[node name="Label8" type="Label" parent="Classifieds/VBoxContainer" unique_id=103372381]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
 text = "Japan Unlock          25TS"
 
-[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label8" unique_id=885941893]
+[node name="Button" type="Button" parent="Classifieds/VBoxContainer/Label8" unique_id=885941893]
 custom_minimum_size = Vector2(60, 30)
 layout_mode = 0
 offset_left = 345.59998
@@ -463,14 +463,14 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_cacfq")
 icon = ExtResource("17_k6u4c")
 flat = true
 
-[node name="Label9" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=1841289547]
+[node name="Label9" type="Label" parent="Classifieds/VBoxContainer" unique_id=1841289547]
 visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
-text = "Update Preis =  10000€"
+text = "Update price =  10000EUR"
 
-[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label9" unique_id=68033109]
+[node name="Button" type="Button" parent="Classifieds/VBoxContainer/Label9" unique_id=68033109]
 custom_minimum_size = Vector2(60, 30)
 layout_mode = 0
 offset_left = 345.59998
@@ -482,14 +482,14 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_cacfq")
 icon = ExtResource("17_k6u4c")
 flat = true
 
-[node name="Label10" type="Label" parent="Großanzeigen/VBoxContainer" unique_id=1350805026]
+[node name="Label10" type="Label" parent="Classifieds/VBoxContainer" unique_id=1350805026]
 visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 35
-text = "Update Preis =  10000€"
+text = "Update price =  10000EUR"
 
-[node name="Button" type="Button" parent="Großanzeigen/VBoxContainer/Label10" unique_id=104726846]
+[node name="Button" type="Button" parent="Classifieds/VBoxContainer/Label10" unique_id=104726846]
 custom_minimum_size = Vector2(60, 30)
 layout_mode = 0
 offset_left = 345.59998
@@ -501,7 +501,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_cacfq")
 icon = ExtResource("17_k6u4c")
 flat = true
 
-[node name="Name" type="Label" parent="Großanzeigen" unique_id=148584952]
+[node name="Name" type="Label" parent="Classifieds" unique_id=148584952]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.21200976
@@ -510,7 +510,7 @@ anchor_right = 0.79718125
 anchor_bottom = 0.1917939
 theme_override_fonts/font = ExtResource("16_26ifj")
 theme_override_font_sizes/font_size = 65
-text = "Großanzeigen"
+text = "Classifieds"
 metadata/_edit_use_anchors_ = true
 
 [node name="Tor" type="TextureRect" parent="." unique_id=1653846611]
@@ -1056,14 +1056,14 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="PhoneFrame/HomeScreen/VBoxContainer/SecondRow/Tor/Button" to="PhoneFrame" method="button"]
 [connection signal="pressed" from="PhoneFrame/HomeScreen/VBoxContainer/SecondRow/Museum/Button" to="PhoneFrame" method="museum"]
 [connection signal="pressed" from="PhoneFrame/HomeScreen/VBoxContainer/ThirdRow/Flappy/Button" to="PhoneFrame" method="flappy"]
-[connection signal="pressed" from="Großanzeigen/VBoxContainer/Label/Button" to="Großanzeigen" method="button_1"]
-[connection signal="pressed" from="Großanzeigen/VBoxContainer/Label2/Button" to="Großanzeigen" method="button_2"]
-[connection signal="pressed" from="Großanzeigen/VBoxContainer/Label3/Button" to="Großanzeigen" method="button_3"]
-[connection signal="pressed" from="Großanzeigen/VBoxContainer/Label4/Button" to="Großanzeigen" method="button_4"]
-[connection signal="pressed" from="Großanzeigen/VBoxContainer/Label5/Button" to="Großanzeigen" method="button_5"]
-[connection signal="pressed" from="Großanzeigen/VBoxContainer/Label6/Button" to="Großanzeigen" method="button_6"]
-[connection signal="pressed" from="Großanzeigen/VBoxContainer/Label7/Button" to="Großanzeigen" method="button_7"]
-[connection signal="pressed" from="Großanzeigen/VBoxContainer/Label8/Button" to="Großanzeigen" method="button_8"]
-[connection signal="pressed" from="Großanzeigen/VBoxContainer/Label9/Button" to="Großanzeigen" method="button_9"]
-[connection signal="pressed" from="Großanzeigen/VBoxContainer/Label10/Button" to="Großanzeigen" method="button_10"]
+[connection signal="pressed" from="Classifieds/VBoxContainer/Label/Button" to="Classifieds" method="button_1"]
+[connection signal="pressed" from="Classifieds/VBoxContainer/Label2/Button" to="Classifieds" method="button_2"]
+[connection signal="pressed" from="Classifieds/VBoxContainer/Label3/Button" to="Classifieds" method="button_3"]
+[connection signal="pressed" from="Classifieds/VBoxContainer/Label4/Button" to="Classifieds" method="button_4"]
+[connection signal="pressed" from="Classifieds/VBoxContainer/Label5/Button" to="Classifieds" method="button_5"]
+[connection signal="pressed" from="Classifieds/VBoxContainer/Label6/Button" to="Classifieds" method="button_6"]
+[connection signal="pressed" from="Classifieds/VBoxContainer/Label7/Button" to="Classifieds" method="button_7"]
+[connection signal="pressed" from="Classifieds/VBoxContainer/Label8/Button" to="Classifieds" method="button_8"]
+[connection signal="pressed" from="Classifieds/VBoxContainer/Label9/Button" to="Classifieds" method="button_9"]
+[connection signal="pressed" from="Classifieds/VBoxContainer/Label10/Button" to="Classifieds" method="button_10"]
 [connection signal="pressed" from="HomeButton" to="." method="_on_home_button_pressed"]

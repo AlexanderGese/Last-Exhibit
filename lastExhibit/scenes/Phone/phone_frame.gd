@@ -1,7 +1,7 @@
 extends TextureRect
 
 # App-Screens (die ganze App-Oberflächen die sich öffnen)
-@onready var großanzeige: TextureRect = $"../Großanzeigen"
+@onready var classifieds: TextureRect = $"../Classifieds"
 @onready var to: TextureRect = $"../Tor"
 @onready var flappybird: TextureRect = $"../Flappybird"
 @onready var museu: TextureRect = $"../Museum"
@@ -32,7 +32,7 @@ func _update_all_apps() -> void:
 
 # App-Screens öffnen
 func großanzeigen() -> void:
-	großanzeige.visible = true
+	classifieds.visible = true
 	Tutorials.show_tutorial("grossanzeigen")
 
 

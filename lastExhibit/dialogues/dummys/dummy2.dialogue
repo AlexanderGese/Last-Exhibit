@@ -1,5 +1,5 @@
 ~ start
-Dummy: Drücke E, um Objekte aufzuheben
-Dummy: Sie erscheinen dann in deinem Inventar
+Dummy: Press E to pick things up
+Dummy: They show up in your inventory
 $> abort_dialogue()
 => END

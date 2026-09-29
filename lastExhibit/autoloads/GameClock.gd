@@ -18,7 +18,7 @@ signal night_started
 func _process(delta: float) -> void:
 	if not _loaded:
 		if SaveManager.player != null:
-			print("Lade game_minutes: ", SaveManager.player.game_minutes)
+			print("Loading game_minutes: ", SaveManager.player.game_minutes)
 			game_minutes = SaveManager.player.game_minutes
 			_loaded = true
 			# Phase initial korrekt setzen ohne Signal zu spammen

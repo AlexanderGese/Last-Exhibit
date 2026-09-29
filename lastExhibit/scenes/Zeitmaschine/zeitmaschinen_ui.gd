@@ -50,7 +50,7 @@ func do_hide() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if visible and event.is_action_pressed("escape"):
+	if visible and (event.is_action_pressed("interact") or event.is_action_pressed("escape")):
 		do_hide()
 		get_viewport().set_input_as_handled()
 
@@ -101,7 +101,7 @@ func _on_pin_clicked(epoch: String) -> void:
 			AudioManager.play("medieval")
 			get_tree().change_scene_to_file("res://scenes/Epochs/Medieval/medieval.tscn")
 		_:
-			push_warning("Keine Scene für Epoche: %s" % epoch)
+			push_warning("No scene for epoch: %s" % epoch)
 
 
 func _on_pin_sowjet_gui_input(event: InputEvent) -> void:
