@@ -42,19 +42,14 @@ sha256() {
   else shasum -a 256 "$1" | cut -d' ' -f1; fi
 }
 
-# zip_pair <dir> <program> <out-name> -> echoes "file|bytes|sha" or nothing
-zip_pair() {
+# zip_dir <dir> <program> <out-name> -> echoes "file|bytes|sha" or nothing
+# Packs the whole export folder: the program, its .pck and any native
+# libraries (GDExtension .so/.dll). The program alone will not start.
+zip_dir() {
   local dir="$1" program="$2" out="$3"
   [ -f "$dir/$program" ] || return 0
-  local pck="${program%.*}.pck"
-  local files=("$program")
-  if [ -f "$dir/$pck" ]; then
-    files+=("$pck")
-  else
-    echo "  warning: $dir/$pck missing — the zip will not run unless the pck is embedded" >&2
-  fi
   rm -f "$DOWNLOADS/$out"
-  ( cd "$dir" && zip -q -X "$DOWNLOADS/$out" "${files[@]}" )
+  ( cd "$dir" && zip -q -r -X "$DOWNLOADS/$out" . -x '*.import' )
   echo "$out|$(filesize "$DOWNLOADS/$out")|$(sha256 "$DOWNLOADS/$out")"
 }
 
@@ -71,8 +66,8 @@ echo "==> Reading $BUILD_DIR"
 # Clear out old packages so the manifest never points at a stale file
 find "$DOWNLOADS" -maxdepth 1 -type f ! -name .gitkeep -delete
 
-WIN="$(zip_pair "$BUILD_DIR/windows" "LastExhibit.exe"    "LastExhibit-windows-x86_64.zip")"
-LIN="$(zip_pair "$BUILD_DIR/linux"   "LastExhibit.x86_64" "LastExhibit-linux-x86_64.zip")"
+WIN="$(zip_dir "$BUILD_DIR/windows" "LastExhibit.exe"    "LastExhibit-windows-x86_64.zip")"
+LIN="$(zip_dir "$BUILD_DIR/linux"   "LastExhibit.x86_64" "LastExhibit-linux-x86_64.zip")"
 MAC="$(copy_one "$BUILD_DIR/macos/LastExhibit.zip"        "LastExhibit-macos-universal.zip")"
 
 WEB_AVAILABLE=false
@@ -82,12 +77,17 @@ if [ -f "$BUILD_DIR/web/index.html" ]; then
   WEB_AVAILABLE=true
 fi
 
+# RELEASE_URL: wenn gesetzt, verlinkt die Website auf die Dateien im
+# GitHub-Release statt auf downloads/ (z.B.
+# RELEASE_URL=https://github.com/AlexanderGese/Last-Exhibit/releases/download/v1.0.0)
 emit() {
   local key="$1" data="$2"
   if [ -n "$data" ]; then
     IFS='|' read -r file bytes sha <<<"$data"
-    printf '    %s: { available: true, file: "%s", bytes: %s, sha256: "%s", added: "%s" }' \
-      "$key" "$file" "$bytes" "$sha" "$TODAY"
+    local url=""
+    [ -n "${RELEASE_URL:-}" ] && url=", url: \"$RELEASE_URL/$file\""
+    printf '    %s: { available: true, file: "%s", bytes: %s, sha256: "%s", added: "%s"%s }' \
+      "$key" "$file" "$bytes" "$sha" "$TODAY" "$url"
   else
     printf '    %s: { available: false, file: null, bytes: 0, sha256: null, added: null }' "$key"
   fi

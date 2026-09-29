@@ -1,9 +1,7 @@
-# Placeholder binaries and the (empty) web export stay local.
-# Once real builds exist, remove the two lines below and redeploy.
+# Die Desktop-Pakete liegen im GitHub-Release, nicht auf dem Webspace.
+# Die Browser-Version in game/ wird mit deployt.
 downloads/*
-game/*
 !downloads/.gitkeep
-!game/.gitkeep
 
 # Local tooling
 serve.py

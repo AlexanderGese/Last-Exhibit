@@ -62,7 +62,9 @@
   function build(key) {
     if (key === "web") return manifest.web && manifest.web.available ? { href: "play.html", web: true } : null;
     var b = (manifest.platforms || {})[key];
-    return b && b.available && b.file ? { href: "downloads/" + b.file, bytes: b.bytes, sha256: b.sha256, added: b.added } : null;
+    if (!b || !b.available || !b.file) return null;
+    // url: die Datei liegt in einem GitHub-Release; sonst im Ordner downloads/
+    return { href: b.url || "downloads/" + b.file, bytes: b.bytes, sha256: b.sha256, added: b.added, external: !!b.url };
   }
 
   function size(bytes) {
@@ -79,7 +81,7 @@
       p.classList.toggle("is-detected", key === home());
       if (b) {
         p.href = b.href;
-        if (!b.web) p.setAttribute("download", "");
+        if (!b.web && !b.external) p.setAttribute("download", "");
         p.removeAttribute("aria-disabled");
         p.removeAttribute("tabindex");
         p.removeAttribute("role");
@@ -378,7 +380,7 @@
     }
     var a = document.createElement("a");
     a.href = b.href;
-    a.setAttribute("download", "");
+    if (!b.external) a.setAttribute("download", "");
     a.style.display = "none";
     document.body.appendChild(a);
     a.click();
