@@ -1,0 +1,17 @@
+# Placeholder binaries and the (empty) web export stay local.
+# Once real builds exist, remove the two lines below and redeploy.
+downloads/*
+game/*
+!downloads/.gitkeep
+!game/.gitkeep
+
+# Local tooling
+serve.py
+__pycache__
+scripts
+README.md
+.DS_Store
+
+# Local secrets
+.env*
+.vercel

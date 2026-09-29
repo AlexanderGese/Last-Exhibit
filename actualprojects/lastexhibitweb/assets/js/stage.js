@@ -92,7 +92,7 @@
         p.tabIndex = 0;
         meta.textContent = t("stage.metaSoon");
       }
-      p.setAttribute("aria-label", (key === "web" ? t("stage.webName") : NAME[key]) + " — " + (b ? (b.web ? t("stage.metaPlay") : t("stage.download") + ", " + size(b.bytes)) : t("stage.metaSoon")));
+      p.setAttribute("aria-label", (key === "web" ? t("stage.webName") : NAME[key]) + ": " + (b ? (b.web ? t("stage.metaPlay") : t("stage.download") + ", " + size(b.bytes)) : t("stage.metaSoon")));
     });
 
     // The line under the floor: version, size and checksum for your build
@@ -405,7 +405,11 @@
           act(p);
           return;
         }
-        if (s.busy) return;
+        if (s.busy) {
+          // Changed his mind: finish the current step, then head for this one
+          s.queue = [doThen(function () { s.busy = false; climb(p); })];
+          return;
+        }
         climb(p);
       });
 

@@ -7,3 +7,5 @@ game/*
 !game/.gitkeep
 
 .DS_Store
+.vercel
+.env*

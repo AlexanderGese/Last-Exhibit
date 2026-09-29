@@ -19,12 +19,7 @@
     playable.hidden = !ready;
     unavailable.hidden = ready;
 
-    if (!ready) {
-      // Let the closed portal flicker open once, for something to look at
-      var portal = unavailable.querySelector(".portal");
-      setTimeout(function () { portal.classList.add("is-humming"); }, 600);
-      return;
-    }
+    if (!ready) return;
 
     frame.src = "game/index.html";
     frame.addEventListener("load", function () {

@@ -1,73 +1,68 @@
 # Last Exhibit — website
 
-The download and play-in-browser site. Static HTML, CSS and vanilla JS: no
-build step, no dependencies. `index.html` opens straight from disk.
+The download site. Static HTML, CSS and vanilla JS: no build step, no
+dependencies. The only font is Pixuf, the game's own; music and art are local too.
+
+The first screen is the download. Four museum plinths stand on the floor, one
+per platform. David, the player sprite from the game, walks to the one for
+your computer. Click any plinth and he jumps on it; when he lands, the
+download starts.
 
 ## Publishing a new build
 
 ```bash
 cd ../../lastExhibit
-./build.sh                      # or: ./build.sh web windows
+./build.sh                          # needs Godot 4.6 export templates
 
 cd ../actualprojects/lastexhibitweb
-./scripts/sync-builds.sh
+VERSION=1.0 ./scripts/sync-builds.sh
 ```
 
-`sync-builds.sh` copies the exports out of `lastExhibit/build/` into
-`downloads/` and `game/`, then rewrites `assets/js/builds.js` with the real
-filenames, byte sizes and date. The page reads that manifest at load: a
-platform with a build lights its display case, a platform without one leaves
-the case empty and its button disabled. Nothing else needs editing.
+`sync-builds.sh` packages the exports into `downloads/` and `game/`, then
+rewrites `assets/js/builds.js` with filenames, sizes, dates and SHA-256
+checksums. Windows and Linux export the program and its `.pck` separately, so
+both go into one zip — the program alone won't start. A platform without an
+export shows an empty plinth.
 
-Binaries are gitignored — the site ships the pages, the release ships the files.
+Binaries are gitignored. Add `?demo` to the URL to see every plinth filled
+before real builds exist (the links go nowhere).
 
 ## Local preview
 
 ```bash
-./serve.py                      # http://localhost:8070
+./serve.py                          # http://localhost:8070
 ```
-
-The browser build needs `Cross-Origin-Opener-Policy` and
-`Cross-Origin-Embedder-Policy` headers, which `serve.py` sets. Opening
-`index.html` by double-clicking works for everything except the embedded game.
 
 ## Deploying
 
-`vercel.json` sets the same headers on Vercel; `_headers` does it on Netlify
-and Cloudflare Pages. Any host works as long as those two headers are present
-on `/game/*`, otherwise the WebAssembly build refuses to start.
+`vercel.json` (Vercel) and `_headers` (Netlify, Cloudflare Pages) set the
+cross-origin isolation headers. Everything is self-hosted because those
+headers block most third-party files.
+
+## Where things live
+
+```
+index.html              downloads · what is this · levels · artifacts · phone · music · install help
+play.html               the browser build, or a notice when there isn't one
+assets/css/site.css     all styles; buttons and boxes use the game's UI sprites
+assets/img/ui/          button, dialogue box and item tablet from the game
+assets/js/data.js       game facts: artifacts, eras, bosses, darknet items, tracks
+assets/js/i18n.js       German copy (English is in the HTML) and the language switch
+assets/js/stage.js      the plinths and David
+assets/js/audio.js      music and the synthesised jump/land sounds
+assets/js/main.js       collection, soundtrack list, install tabs, copy buttons
+assets/js/eras.js       the time machine map
+assets/js/phone.js      the phone apps and playable Flappy
+assets/js/builds.js     generated manifest — don't edit
+assets/audio/           the game's 15 music tracks, as 80 kbps MP3
+assets/img/             sprites and art copied from lastExhibit/assets
+```
+
+Everything in `data.js` is read from the Godot project (artifact `.tres`
+files, boss scripts, dialogue files, the time machine UI). If the game
+changes, update it there.
 
 ## Editing text
 
-All copy lives in `assets/js/i18n.js` as two dictionaries, English and German.
-Markup carries `data-i18n="key"` and the script swaps text on toggle, storing
-the choice in `localStorage`. Attributes are translated too, via
-`data-i18n-alt`, `data-i18n-title`, `data-i18n-aria-label` and
-`data-i18n-content`.
-
-English is the source of truth. A key missing from the German dictionary falls
-back to English rather than rendering blank.
-
-## Layout
-
-```
-index.html            hero · premise · the note · eras · downloads · record · community
-play.html             the browser build, or a notice when there isn't one
-assets/css/site.css   all styles
-assets/js/i18n.js     EN/DE dictionaries and the language toggle
-assets/js/builds.js   generated manifest — do not edit by hand
-assets/js/main.js     download cases, platform detection, scroll reveals
-assets/js/play.js     iframe wiring for the browser build
-assets/img/           art copied from the game (key art, artifacts)
-assets/fonts/         Pixuf.ttf, the game's UI typeface
-scripts/sync-builds.sh
-serve.py              local server with the isolation headers
-```
-
-## Notes
-
-Art and `Pixuf.ttf` are copied from `lastExhibit/assets/`. If the game's key
-art changes, re-copy it — nothing links across directories at runtime.
-
-The reference images in `Epochen/` are third-party mood boards and are
-deliberately not used here.
+English lives in `index.html`. German lives in `assets/js/i18n.js` under the
+same `data-i18n` key. A key missing from the German dictionary stays English.

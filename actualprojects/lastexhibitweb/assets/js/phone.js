@@ -231,7 +231,7 @@
       ctx.strokeText(String(s.score), W / 2, 44);
       ctx.fillText(String(s.score), W / 2, 44);
 
-      ctx.font = "11px 'Chivo Mono', monospace";
+      ctx.font = "10px Pixuf, monospace";
       if (!s.playing) {
         ctx.fillStyle = "#123";
         ctx.fillText(t("phone.flappyStart"), W / 2, H * 0.62);
@@ -244,7 +244,7 @@
         ctx.fillStyle = "#fff";
         ctx.font = "16px Pixuf, monospace";
         ctx.fillText(t("phone.flappyOver") + s.score, W / 2, H * 0.36 + 34);
-        ctx.font = "11px 'Chivo Mono', monospace";
+        ctx.font = "10px Pixuf, monospace";
         ctx.fillText("+" + Math.floor(s.score / 10), W / 2 + 8, H * 0.36 + 62);
         if (coin.complete) ctx.drawImage(coin, W / 2 - 26, H * 0.36 + 50, 16, 16);
         ctx.fillText(t("phone.flappyBest") + best, W / 2, H * 0.36 + 82);

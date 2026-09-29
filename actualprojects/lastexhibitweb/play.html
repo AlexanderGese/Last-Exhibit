@@ -1,55 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title data-i18n="play.metaTitle">Play Last Exhibit in your browser</title>
-<meta name="description" data-i18n-content="play.metaDescription" content="Play Last Exhibit in your browser. Nothing to install.">
-<meta name="theme-color" content="#0a0b0e">
+<title data-i18n="play.metaTitle">Last Exhibit im Browser spielen</title>
+<meta name="description" data-i18n-content="play.metaDescription" content="Spiel Last Exhibit direkt im Browser. Nichts zu installieren.">
+<meta name="theme-color" content="#120d0a">
 <meta name="color-scheme" content="dark">
 
 <link rel="icon" type="image/png" href="assets/img/art/key-art.png">
-<link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/site.css">
 </head>
 
 <body>
-<a class="skip-link" href="#stage" data-i18n="play.skip">Skip to the game</a>
+<a class="skip-link" href="#stage" data-i18n="play.skip">Direkt zum Spiel</a>
 
 <div class="play-shell">
-  <header class="hud is-scrolled">
+  <header class="hud is-scrolled is-past-stage">
     <a class="wordmark" href="index.html">LAST EXHIBIT</a>
     <div class="hud__right">
-      <a class="btn hud__play" href="index.html#downloads" data-i18n="play.downloads">Downloads</a>
-      <div class="lang" role="group" aria-label="Language" data-i18n-aria-label="hud.lang">
-        <button type="button" data-lang="en" aria-pressed="true">EN</button>
-        <button type="button" data-lang="de" aria-pressed="false">DE</button>
+      <a class="btn hud__play" href="index.html" data-i18n="play.downloads">Download</a>
+      <div class="lang" role="group" aria-label="Sprache" data-i18n-aria-label="hud.lang">
+        <button class="btn btn--small" type="button" data-lang="de" aria-pressed="true">DE</button>
+        <button class="btn btn--small" type="button" data-lang="en" aria-pressed="false">EN</button>
       </div>
     </div>
   </header>
 
   <main class="play-stage" id="stage">
 
-    <!-- Shown when a web export has been copied into game/ -->
+    <!-- Sichtbar, sobald ein Web-Export in game/ liegt -->
     <div id="playable" hidden style="display:grid;gap:1rem;justify-items:center;width:100%">
       <div class="play-frame" id="play-frame">
-        <iframe id="game-frame" title="Last Exhibit, running in the browser" data-i18n-title="play.frameTitle"
+        <iframe id="game-frame" title="Last Exhibit, im Browser" data-i18n-title="play.frameTitle"
                 allow="autoplay; fullscreen; gamepad; cross-origin-isolated" allowfullscreen></iframe>
       </div>
       <div class="play-bar">
-        <button class="btn btn--amber" type="button" id="go-fullscreen" data-i18n="play.fullscreen">Fullscreen</button>
-        <a class="btn" href="index.html#downloads" data-i18n="play.getDesktop">Get the desktop version</a>
+        <button class="btn" type="button" id="go-fullscreen" data-i18n="play.fullscreen">Vollbild</button>
+        <a class="btn" href="index.html" data-i18n="play.getDesktop">Version für den Computer</a>
       </div>
-      <p class="play-note" data-i18n="play.note">Click the game once so it can hear your keyboard. A · D to move, Space to jump, left click to fight, P for the phone.</p>
+      <p class="play-note" data-i18n="play.note">Klick einmal ins Spiel, damit es deine Tastatur bekommt. A und D zum Laufen, Leertaste zum Springen, Linksklick zum Schlagen, P fürs Handy.</p>
     </div>
 
-    <!-- Shown until then -->
+    <!-- Bis dahin -->
     <div class="play-empty" id="unavailable" hidden>
       <div class="portal" aria-hidden="true"><div class="portal__sprite"></div></div>
-      <h1 data-i18n="play.emptyTitle">The machine is closed for tonight.</h1>
-      <p class="muted" data-i18n="play.emptyBody">The browser version hasn't been added to this site yet. Take a desktop build instead, or come back later.</p>
-      <a class="btn btn--amber" href="index.html#downloads" data-i18n="play.emptyAction">See the downloads</a>
+      <h1 data-i18n="play.emptyTitle">Noch nicht da</h1>
+      <p class="small" data-i18n="play.emptyBody">Die Browser-Version haben wir noch nicht hochgeladen. Lad dir das Spiel für deinen Computer runter oder schau später nochmal vorbei.</p>
+      <a class="btn" href="index.html" data-i18n="play.emptyAction">Zurück zum Download</a>
     </div>
+
+    <p class="legal-links">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </p>
 
   </main>
 </div>
@@ -57,22 +61,21 @@
 <script src="assets/js/builds.js"></script>
 <script src="assets/js/i18n.js"></script>
 <script>
-  /* German for this page only; English is in the markup above. */
+  /* Englisch nur für diese Seite; Deutsch steht oben im HTML. */
   (function () {
-    var extra = {
-      "play.metaTitle": "Last Exhibit im Browser spielen",
-      "play.metaDescription": "Spiel Last Exhibit im Browser. Nichts zu installieren.",
-      "play.skip": "Direkt zum Spiel",
-      "play.downloads": "Downloads",
-      "play.frameTitle": "Last Exhibit, im Browser",
-      "play.fullscreen": "Vollbild",
-      "play.getDesktop": "Desktop-Version holen",
-      "play.note": "Klick einmal ins Spiel, damit es deine Tastatur hört. A · D zum Laufen, Leertaste zum Springen, Linksklick zum Kämpfen, P fürs Handy.",
-      "play.emptyTitle": "Die Maschine ist heute Nacht geschlossen.",
-      "play.emptyBody": "Die Browser-Version ist noch nicht auf dieser Seite. Nimm einen Desktop-Build oder schau später wieder vorbei.",
-      "play.emptyAction": "Zu den Downloads"
-    };
-    window.LE_I18N.extend(extra);
+    window.LE_I18N.extend({
+      "play.metaTitle": "Play Last Exhibit in your browser",
+      "play.metaDescription": "Play Last Exhibit in your browser. Nothing to install.",
+      "play.skip": "Skip to the game",
+      "play.downloads": "Download",
+      "play.frameTitle": "Last Exhibit, in the browser",
+      "play.fullscreen": "Fullscreen",
+      "play.getDesktop": "Version for your computer",
+      "play.note": "Click into the game once so it gets your keyboard. A and D to walk, Space to jump, left click to hit, P for the phone.",
+      "play.emptyTitle": "Not here yet",
+      "play.emptyBody": "We haven't uploaded the browser version yet. Download it for your computer instead, or check back later.",
+      "play.emptyAction": "Back to the download"
+    });
   })();
 </script>
 <script src="assets/js/play.js"></script>

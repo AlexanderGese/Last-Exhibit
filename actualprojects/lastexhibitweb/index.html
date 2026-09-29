@@ -1,72 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title data-i18n="meta.title">Last Exhibit — free download</title>
-<meta name="description" data-i18n-content="meta.description" content="Last Exhibit is a free 2D pixel-art game: rob 1965, 1943, 1600 and 1200 at night, fill your museum by day. Download for Windows, macOS and Linux, or play in the browser.">
-<meta name="theme-color" content="#0a0b0e">
+<title data-i18n="meta.title">Last Exhibit - kostenlos herunterladen</title>
+<meta name="description" data-i18n-content="meta.description" content="Last Exhibit ist ein kostenloses Pixel-Spiel aus einem Schulprojekt. Du führst ein Museum und füllst es mit Sachen, die du aus der Vergangenheit klaust. Für Windows, macOS, Linux und den Browser.">
+<meta name="theme-color" content="#120d0a">
 <meta name="color-scheme" content="dark">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Last Exhibit — free download">
-<meta property="og:description" content="Rob history at night. Run a museum by day. Free for Windows, macOS, Linux and the browser.">
+<meta property="og:title" content="Last Exhibit">
+<meta property="og:description" content="Ein kostenloses Pixel-Spiel aus der Schule. Museum führen, Vergangenheit ausrauben.">
 <meta property="og:image" content="assets/img/art/hero-museum.png">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" type="image/png" href="assets/img/art/key-art.png">
 <link rel="preload" as="font" type="font/ttf" href="assets/fonts/Pixuf.ttf" crossorigin>
 <link rel="preload" as="image" href="assets/img/sprites/david.png">
-<link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/site.css">
 </head>
 
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <symbol id="i-play" viewBox="0 0 16 16"><path fill="currentColor" d="M4 2.5v11l9-5.5z"/></symbol>
-  <symbol id="i-pause" viewBox="0 0 16 16"><path fill="currentColor" d="M4 2.5h3v11H4zm5 0h3v11H9z"/></symbol>
-  <symbol id="i-down" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M8 2v9m-4-4 4 4 4-4M2.5 14h11"/></symbol>
-  <symbol id="i-close" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-width="1.6" d="m3.5 3.5 9 9m0-9-9 9"/></symbol>
   <symbol id="i-windows" viewBox="0 0 24 24"><path fill="currentColor" d="M3 5.2 10.2 4v7.3H3zm8.2-1.4L21 2.4v8.9h-9.8zM3 12.7h7.2V20L3 18.8zm8.2 0H21v8.9l-9.8-1.4z"/></symbol>
-  <symbol id="i-macos" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M4.5 5.5h15v10h-15zM2 18.5h20M9 18.5l1-3h4l1 3"/></symbol>
-  <symbol id="i-linux" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M3 4.5h18v15H3zM6.5 9l3 3-3 3M12 15h5"/></symbol>
-  <symbol id="i-web" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-9 9h18M12 3c2.6 2.4 3.8 5.4 3.8 9s-1.2 6.6-3.8 9c-2.6-2.4-3.8-5.4-3.8-9S9.4 5.4 12 3z"/></symbol>
+  <symbol id="i-macos" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M4.5 5.5h15v10h-15zM2 18.5h20M9 18.5l1-3h4l1 3"/></symbol>
+  <symbol id="i-linux" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M3 4.5h18v15H3zM6.5 9l3 3-3 3M12 15h5"/></symbol>
+  <symbol id="i-web" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-9 9h18M12 3c2.6 2.4 3.8 5.4 3.8 9s-1.2 6.6-3.8 9c-2.6-2.4-3.8-5.4-3.8-9S9.4 5.4 12 3z"/></symbol>
 </svg>
 
-<a class="skip-link" href="#platforms" data-i18n="nav.skip">Skip to the downloads</a>
+<a class="skip-link" href="#platforms" data-i18n="nav.skip">Direkt zum Download</a>
 
 <header class="hud" id="hud">
   <a class="wordmark" href="#top">LAST EXHIBIT</a>
   <div class="hud__right">
-    <a class="btn btn--amber hud__play" href="#top" data-i18n="hud.get">Download</a>
-    <button class="toggle" type="button" id="sound-toggle" aria-pressed="false">
-      <span class="meter" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-      <span data-i18n="hud.sound">Sound</span>
+    <a class="btn hud__play" href="#top" data-i18n="hud.get">Download</a>
+    <button class="btn btn--small toggle" type="button" id="sound-toggle" aria-pressed="false">
+      <span class="meter" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span data-i18n="hud.sound">Musik</span>
     </button>
-    <div class="lang" role="group" aria-label="Language" data-i18n-aria-label="hud.lang">
-      <button type="button" data-lang="en" aria-pressed="true">EN</button>
-      <button type="button" data-lang="de" aria-pressed="false">DE</button>
+    <div class="lang" role="group" aria-label="Sprache" data-i18n-aria-label="hud.lang">
+      <button class="btn btn--small" type="button" data-lang="de" aria-pressed="true">DE</button>
+      <button class="btn btn--small" type="button" data-lang="en" aria-pressed="false">EN</button>
     </div>
   </div>
 </header>
 
-<div class="now-playing" id="now-playing" aria-live="polite">
-  <span class="meter" aria-hidden="true" style="color:var(--amber)"><i></i><i></i><i></i><i></i></span>
-  <b id="now-playing-title">—</b>
+<div class="now-playing box" id="now-playing" aria-live="polite">
+  <span class="meter" aria-hidden="true"><i></i><i></i><i></i></span>
+  <b id="now-playing-title">-</b>
 </div>
 
 <main id="main">
 
-  <!-- ====================================================================
-       Download stage
-       ==================================================================== -->
+  <!-- Download: David läuft zu deiner Plattform und springt beim Klick drauf -->
   <section class="stage" id="top">
     <div class="stage__art" aria-hidden="true"></div>
-    <div class="stage__veil" aria-hidden="true"></div>
 
     <div class="stage__head">
-      <h1 class="stage__title">LAST E<span>X</span>HIBIT</h1>
-      <p class="stage__line" data-i18n="stage.line">Rob history at night. Run a museum by day. Free, for every computer.</p>
+      <h1 class="stage__title">LAST EXHIBIT</h1>
+      <p class="stage__line box" data-i18n="stage.line">Du führst ein Museum und füllst es mit Sachen, die du aus der Vergangenheit klaust.</p>
     </div>
 
     <div class="stage__floor">
@@ -76,7 +68,7 @@
           <span class="plinth__body">
             <svg aria-hidden="true"><use href="#i-windows"/></svg>
             <span class="plinth__name">Windows</span>
-            <span class="plinth__meta" data-slot="meta">—</span>
+            <span class="plinth__meta" data-slot="meta">-</span>
           </span>
         </a>
         <a class="plinth" data-platform="macos" aria-disabled="true">
@@ -84,7 +76,7 @@
           <span class="plinth__body">
             <svg aria-hidden="true"><use href="#i-macos"/></svg>
             <span class="plinth__name">macOS</span>
-            <span class="plinth__meta" data-slot="meta">—</span>
+            <span class="plinth__meta" data-slot="meta">-</span>
           </span>
         </a>
         <a class="plinth" data-platform="linux" aria-disabled="true">
@@ -92,7 +84,7 @@
           <span class="plinth__body">
             <svg aria-hidden="true"><use href="#i-linux"/></svg>
             <span class="plinth__name">Linux</span>
-            <span class="plinth__meta" data-slot="meta">—</span>
+            <span class="plinth__meta" data-slot="meta">-</span>
           </span>
         </a>
         <a class="plinth" data-platform="web" aria-disabled="true">
@@ -100,7 +92,7 @@
           <span class="plinth__body">
             <svg aria-hidden="true"><use href="#i-web"/></svg>
             <span class="plinth__name" data-i18n="stage.web">Browser</span>
-            <span class="plinth__meta" data-slot="meta">—</span>
+            <span class="plinth__meta" data-slot="meta">-</span>
           </span>
         </a>
 
@@ -111,327 +103,148 @@
     </div>
 
     <p class="stage__info" id="stage-info">
-      <span id="info-build" data-i18n="stage.noBuild">No builds uploaded yet</span>
+      <span id="info-build" data-i18n="stage.noBuild">Noch keine Builds hochgeladen</span>
       <span id="info-hash" hidden></span>
-      <a href="#help" data-i18n="stage.help">Help with the first launch</a>
+      <a href="#hilfe" data-i18n="stage.help">Startet nicht?</a>
     </p>
   </section>
 
-  <!-- ====================================================================
-       How it plays
-       ==================================================================== -->
-  <section class="floor" id="how">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <h2 class="h-section" data-i18n="how.title">How it plays</h2>
-        <p class="lede muted" data-i18n="how.lede">David A. buys a bankrupt museum and finds a time machine in the basement. The rest is up to you.</p>
-      </div>
-      <ol class="loop reveal">
-        <li>
-          <img src="assets/img/machine/portal-open.png" width="64" height="64" alt="">
-          <div>
-            <h3 data-i18n="how.t1">Night</h3>
-            <p data-i18n="how.p1">Take the lift to the basement and pick a year on the machine's map.</p>
-          </div>
-        </li>
-        <li>
-          <img src="assets/img/artifacts/samurai.png" width="64" height="64" alt="">
-          <div>
-            <h3 data-i18n="how.t2">60 seconds</h3>
-            <p data-i18n="how.p2">Grab artifacts and time shards, fight the boss, get out before the timer hits zero. Die and your bag stays behind.</p>
-          </div>
-        </li>
-        <li>
-          <img src="assets/img/phone/App_0.png" width="64" height="64" alt="">
-          <div>
-            <h3 data-i18n="how.t3">Day</h3>
-            <p data-i18n="how.p3">Put the loot in showcases. Visitors pay to see it. Spend the money on new eras and upgrades.</p>
-          </div>
-        </li>
-      </ol>
+  <section class="section" id="worum">
+    <div class="wrap narrow">
+      <h2 data-i18n="how.title">Worum geht's?</h2>
+      <p data-i18n="how.p1">Du bist David. Du hast ein altes Museum gekauft, das kurz vor der Pleite steht, und hinter einer Wand im Keller steht eine Zeitmaschine.</p>
+      <p data-i18n="how.p2">Nachts springst du in die Vergangenheit, nach 1965, 1943, 1600 oder so um 1200. Du nimmst mit, was du tragen kannst, und bist wieder weg, bevor deine 60 Sekunden um sind. Wenn du dort stirbst, ist alles weg, was du in der Nacht eingesammelt hast.</p>
+      <p data-i18n="how.p3">Tagsüber stellst du die Beute in die Vitrinen und Besucher zahlen dafür. Mit dem Geld schaltest du weitere Jahre frei. Irgendwann wartet in einer Burg ein Ritter, der dich da echt nicht haben will.</p>
+      <p class="small" data-i18n="how.p4">Vier Level, vier Bosse, vier Stunden Musik und ein Handy mit Flappy Bird drauf. Das Spiel selbst ist auf Englisch.</p>
     </div>
   </section>
 
-  <!-- ====================================================================
-       Eras — the machine's map
-       ==================================================================== -->
-  <section class="floor eras" id="eras" data-era="soviet">
-    <canvas class="eras__weather" id="weather" aria-hidden="true"></canvas>
+  <section class="section" id="handy">
     <div class="wrap">
-      <div class="section-head">
-        <h2 class="h-section" data-i18n="eras.title">Four eras, four bosses</h2>
-        <p class="lede muted" data-i18n="eras.lede">This is the time machine's map from the game. Pick a pin.</p>
-      </div>
-
-      <div class="console reveal">
-        <div class="chart">
-          <div class="chart__map" id="chart-map" role="group" aria-label="World map" data-i18n-aria-label="eras.map"></div>
-          <div class="timeline" aria-hidden="true">
-            <div class="timeline__bar"></div>
-            <span class="timeline__handle" id="tl-handle"></span>
-            <span class="timeline__years" id="tl-years">1965</span>
-          </div>
-          <div class="chart__keys" id="era-keys" role="group" aria-label="Choose an era" data-i18n-aria-label="eras.choose"></div>
-          <p class="chart__status"><span><span data-i18n="eras.status">Destination</span> <b id="era-status">1965</b></span><span><span data-i18n="eras.stay">Time allowed</span> <b>60 s</b></span></p>
-          <div class="chart__more">
-            <blockquote class="quote" id="ro-quote" hidden>
-              <p id="ro-quote-text"></p>
-              <footer id="ro-quote-who"></footer>
-            </blockquote>
-            <div>
-              <p class="label" style="margin-bottom:.5rem" data-i18n="eras.loot">Artifacts here</p>
-              <div class="loot" id="ro-loot"></div>
-            </div>
-            <div class="readout__audio">
-              <button class="tape-btn" type="button" data-tape="level" aria-pressed="false"><svg aria-hidden="true"><use href="#i-play"/></svg><span data-i18n="eras.levelTrack">Level music</span></button>
-              <button class="tape-btn" type="button" data-tape="boss" aria-pressed="false"><svg aria-hidden="true"><use href="#i-play"/></svg><span data-i18n="eras.bossTrack">Boss music</span></button>
-            </div>
-          </div>
-        </div>
-
-        <article class="readout" id="readout" aria-live="polite">
-          <div class="readout__stage">
-            <span class="readout__year" id="ro-year">1965</span>
-            <span class="readout__bosslabel" data-i18n="eras.bossLabel">Boss</span>
-            <div class="sprite" id="ro-sprite" role="img"></div>
-          </div>
-          <div class="readout__body">
-            <h3 class="readout__name" id="ro-name">Soviet Union</h3>
-            <p class="readout__mood" id="ro-mood"></p>
-            <dl class="readout__facts" id="ro-facts"></dl>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====================================================================
-       The collection
-       ==================================================================== -->
-  <section class="floor" id="collection">
-    <div class="wrap">
-      <div class="collection__head">
-        <div class="section-head" style="margin-bottom:0">
-          <h2 class="h-section" data-i18n="coll.title">35 things to steal</h2>
-          <p class="lede muted" data-i18n="coll.lede">Every artifact in the game and what the museum thinks it's worth. Click one.</p>
-        </div>
-        <div class="chips" role="group" aria-label="Filter by era" data-i18n-aria-label="coll.filter" id="coll-filter">
-          <button class="chip" type="button" data-era="all" aria-pressed="true"><span data-i18n="coll.all">All</span><small>35</small></button>
-        </div>
-      </div>
-      <div class="cases" id="cases"></div>
-    </div>
-  </section>
-
-  <div class="inspect" id="inspect" role="dialog" aria-modal="true" aria-labelledby="inspect-name" hidden>
-    <div class="inspect__card">
-      <button class="inspect__close" type="button" id="inspect-close" aria-label="Close" data-i18n-aria-label="ui.close"><svg width="16" height="16" aria-hidden="true"><use href="#i-close"/></svg></button>
-      <div class="inspect__view"><img id="inspect-img" src="" alt=""></div>
-      <div class="inspect__body">
-        <p class="label" id="inspect-acc">LE.01</p>
-        <h3 id="inspect-name">—</h3>
-        <p id="inspect-note" class="muted"></p>
-        <dl class="record" id="inspect-record"></dl>
-      </div>
-    </div>
-  </div>
-
-  <!-- ====================================================================
-       The phone
-       ==================================================================== -->
-  <section class="floor kammer" id="phone-section">
-    <div class="wrap">
-      <div class="kammer__intro">
-        <div class="section-head" style="margin-bottom:0">
-          <h2 class="h-section" data-i18n="dark.title">Everything else is on your phone</h2>
-          <p class="lede muted" data-i18n="dark.lede">The shop, the bank, your museum's numbers, a darknet app for selling what you shouldn't have, and Flappy Bird. It's the real app list from the game, and it works.</p>
+      <div class="phone-row">
+        <div>
+          <h2 data-i18n="dark.title">Dein Handy</h2>
+          <p data-i18n="dark.lede">Im Spiel öffnest du es mit P. Da drauf sind der Shop, in dem du neue Level freischaltest, deine Bank, die Zahlen von deinem Museum, eine Darknet-App und Flappy Bird. Auf dem hier kannst du auch rumklicken.</p>
+          <p data-i18n="dark.lede2">Die Darknet-App kostet im Spiel 500 Münzen. Da verkaufst du Artefakte für Bitcoin und kaufst Zeug, mit dem du die nächste Nacht überlebst:</p>
+          <ul class="ledger__goods" id="ledger"></ul>
         </div>
 
         <div class="phone" id="phone">
           <div class="phone__screen">
-            <div class="phone__status" aria-hidden="true"><span id="phone-time">22:00</span><span>▮▮▮ 61%</span></div>
+            <div class="phone__status" aria-hidden="true"><span id="phone-time">22:00</span><span>61%</span></div>
             <div class="phone__apps" id="phone-apps">
               <button class="app" type="button" data-app="shop"><img src="assets/img/phone/App_1.png" width="54" height="54" alt=""><span>Großanzeigen</span></button>
-              <button class="app" type="button" data-app="messages"><img src="assets/img/phone/App_6.png" width="54" height="54" alt=""><span data-i18n="phone.messages">Messages</span></button>
+              <button class="app" type="button" data-app="messages"><img src="assets/img/phone/App_6.png" width="54" height="54" alt=""><span data-i18n="phone.messages">Nachrichten</span></button>
               <button class="app" type="button" data-app="bank"><img src="assets/img/phone/App_4.png" width="54" height="54" alt=""><span>Revolut</span></button>
-              <button class="app" type="button" data-app="settings"><img src="assets/img/phone/App_5.png" width="54" height="54" alt=""><span data-i18n="phone.settings">Settings</span></button>
-              <button class="app app--tor" type="button" data-app="tor"><img src="assets/img/phone/App_2.png" width="54" height="54" alt=""><span>Tor</span></button>
+              <button class="app" type="button" data-app="settings"><img src="assets/img/phone/App_5.png" width="54" height="54" alt=""><span data-i18n="phone.settings">Einstellungen</span></button>
+              <button class="app" type="button" data-app="tor"><img src="assets/img/phone/App_2.png" width="54" height="54" alt=""><span>Tor</span></button>
               <button class="app" type="button" data-app="museum"><img src="assets/img/phone/App_0.png" width="54" height="54" alt=""><span>Museum</span></button>
               <button class="app" type="button" data-app="flappy"><img src="assets/img/phone/App_3.png" width="54" height="54" alt=""><span>Flappy</span></button>
             </div>
             <div class="phone__view" id="phone-view" aria-live="polite">
               <div class="phone__bar">
-                <button class="phone__back" type="button" id="phone-back" data-i18n="phone.back">‹ Home</button>
-                <span id="phone-title">—</span>
+                <button class="phone__back" type="button" id="phone-back" data-i18n="phone.back">‹ Zurück</button>
+                <span id="phone-title">-</span>
               </div>
               <div class="phone__content" id="phone-content"></div>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="ledger reveal">
-        <div class="ledger__who">
-          <p class="label">Tor · // BUY</p>
-          <h3 data-i18n="dark.ledgerTitle">The darknet</h3>
-          <p class="role" data-i18n="dark.ledgerRole">Sell artifacts for bitcoin (7% of their value) and buy things that help you survive the next night.</p>
-        </div>
-        <ul class="ledger__goods" id="ledger"></ul>
-      </div>
     </div>
   </section>
 
-  <!-- ====================================================================
-       Soundtrack
-       ==================================================================== -->
-  <section class="floor listening" id="listening">
-    <div class="wrap listening__grid">
-      <div class="listening__head">
-        <h2 class="h-section" data-i18n="listen.title">Soundtrack</h2>
-        <p class="lede muted" data-i18n="listen.lede">15 tracks by Alexander Gese, straight from the game files. Each era has a level track and a boss track.</p>
-        <div class="reel" aria-hidden="true"><i></i><i></i></div>
-      </div>
-      <ol class="tracks" id="tracks"></ol>
-    </div>
-  </section>
-
-  <!-- ====================================================================
-       Help
-       ==================================================================== -->
-  <section class="floor dawn" id="help">
+  <section class="section help" id="hilfe">
     <div class="wrap">
-      <div class="section-head">
-        <h2 class="h-section" data-i18n="help.title">Installing</h2>
-        <p class="lede" data-i18n="inst.lede">The builds aren't signed, so your system will ask once whether you trust them.</p>
-      </div>
+      <h2 data-i18n="help.title">Installieren</h2>
+      <p class="intro" data-i18n="inst.lede">Wir haben kein Geld für Code-Signing ausgegeben, deshalb warnen Windows und macOS beim ersten Öffnen. Das ist normal.</p>
 
-      <div class="install" style="margin-top:0">
-        <div>
-          <div class="tabs" role="tablist" aria-label="Operating system" data-i18n-aria-label="inst.os">
-            <button role="tab" type="button" id="tab-windows" aria-controls="panel-windows" aria-selected="true">Windows</button>
-            <button role="tab" type="button" id="tab-macos" aria-controls="panel-macos" aria-selected="false" tabindex="-1">macOS</button>
-            <button role="tab" type="button" id="tab-linux" aria-controls="panel-linux" aria-selected="false" tabindex="-1">Linux</button>
+      <div class="help__grid">
+        <div class="box pad">
+          <div class="tabs" role="tablist" aria-label="Betriebssystem" data-i18n-aria-label="inst.os">
+            <button class="btn btn--small" role="tab" type="button" id="tab-windows" aria-controls="panel-windows" aria-selected="true">Windows</button>
+            <button class="btn btn--small" role="tab" type="button" id="tab-macos" aria-controls="panel-macos" aria-selected="false" tabindex="-1">macOS</button>
+            <button class="btn btn--small" role="tab" type="button" id="tab-linux" aria-controls="panel-linux" aria-selected="false" tabindex="-1">Linux</button>
           </div>
 
           <div role="tabpanel" id="panel-windows" aria-labelledby="tab-windows">
             <ol class="steps">
-              <li><span data-i18n="inst.w1">Unzip the download. Keep <code>LastExhibit.exe</code> and <code>LastExhibit.pck</code> in the same folder.</span></li>
-              <li><span data-i18n="inst.w2">Open <code>LastExhibit.exe</code>. If SmartScreen says “Windows protected your PC”, click <b>More info</b>, then <b>Run anyway</b>.</span></li>
-              <li><span data-i18n="inst.w3">It starts in fullscreen. Press <kbd>Esc</kbd> for the menu.</span></li>
+              <li><span data-i18n="inst.w1">Entpacken. <code>LastExhibit.exe</code> und <code>LastExhibit.pck</code> müssen im selben Ordner bleiben.</span></li>
+              <li><span data-i18n="inst.w2"><code>LastExhibit.exe</code> öffnen. Wenn ein blaues Fenster „Der Computer wurde durch Windows geschützt“ kommt, auf <b>Weitere Informationen</b> und dann <b>Trotzdem ausführen</b> klicken.</span></li>
             </ol>
           </div>
           <div role="tabpanel" id="panel-macos" aria-labelledby="tab-macos" hidden>
             <ol class="steps">
-              <li><span data-i18n="inst.m1">Unzip the download and drag <code>Last Exhibit.app</code> into Applications.</span></li>
-              <li><span data-i18n="inst.m2">Right-click the app and choose <b>Open</b>, then <b>Open</b> again. On macOS 15 and later, go to <b>System Settings → Privacy &amp; Security</b> and click <b>Open Anyway</b>.</span></li>
-              <li><span data-i18n="inst.m3">If macOS says the app is damaged, run this once in Terminal:</span>
-                <div class="cmd"><code>xattr -dr com.apple.quarantine "/Applications/Last Exhibit.app"</code><button type="button" data-copy data-i18n="ui.copy">Copy</button></div>
+              <li><span data-i18n="inst.m1">Entpacken und <code>Last Exhibit.app</code> in den Programme-Ordner ziehen.</span></li>
+              <li><span data-i18n="inst.m2">Rechtsklick auf die App, <b>Öffnen</b>, dann nochmal <b>Öffnen</b>. Bei neueren macOS-Versionen unter <b>Systemeinstellungen → Datenschutz &amp; Sicherheit</b> auf <b>Trotzdem öffnen</b> klicken.</span></li>
+              <li><span data-i18n="inst.m3">Wenn da steht, die App sei beschädigt, das hier einmal ins Terminal kopieren:</span>
+                <div class="cmd"><code>xattr -dr com.apple.quarantine "/Applications/Last Exhibit.app"</code><button class="linkish" type="button" data-copy data-i18n="ui.copy">Kopieren</button></div>
               </li>
             </ol>
           </div>
           <div role="tabpanel" id="panel-linux" aria-labelledby="tab-linux" hidden>
             <ol class="steps">
-              <li><span data-i18n="inst.l1">Unzip the download. Keep <code>LastExhibit.x86_64</code> and <code>LastExhibit.pck</code> together.</span></li>
-              <li><span data-i18n="inst.l2">Make it executable and run it:</span>
-                <div class="cmd"><code>chmod +x LastExhibit.x86_64 &amp;&amp; ./LastExhibit.x86_64</code><button type="button" data-copy data-i18n="ui.copy">Copy</button></div>
-              </li>
-              <li><span data-i18n="inst.l3">To check the file, compare its checksum with the one on this page:</span>
-                <div class="cmd"><code>sha256sum LastExhibit-linux-x86_64.zip</code><button type="button" data-copy data-i18n="ui.copy">Copy</button></div>
+              <li><span data-i18n="inst.l1">Entpacken. <code>LastExhibit.x86_64</code> und <code>LastExhibit.pck</code> müssen zusammen bleiben.</span></li>
+              <li><span data-i18n="inst.l2">Dann:</span>
+                <div class="cmd"><code>chmod +x LastExhibit.x86_64 &amp;&amp; ./LastExhibit.x86_64</code><button class="linkish" type="button" data-copy data-i18n="ui.copy">Kopieren</button></div>
               </li>
             </ol>
           </div>
         </div>
 
-        <div class="controls">
-          <h3 data-i18n="ctrl.title">Controls</h3>
+        <div class="box pad">
+          <h3 data-i18n="ctrl.title">Steuerung</h3>
           <dl class="keys">
-            <div><dt data-i18n="ctrl.move">Move</dt><dd><kbd>A</kbd><kbd>D</kbd></dd></div>
-            <div><dt data-i18n="ctrl.jump">Jump</dt><dd><kbd data-i18n="ctrl.space">Space</kbd></dd></div>
-            <div><dt data-i18n="ctrl.melee">Fight</dt><dd><kbd data-i18n="ctrl.lmb">Left click</kbd></dd></div>
-            <div><dt data-i18n="ctrl.shoot">Shoot</dt><dd><kbd data-i18n="ctrl.rmb">Right click</kbd></dd></div>
-            <div><dt data-i18n="ctrl.interact">Interact</dt><dd><kbd>E</kbd></dd></div>
-            <div><dt data-i18n="ctrl.climb">Climb</dt><dd><kbd>W</kbd><kbd>S</kbd></dd></div>
-            <div><dt data-i18n="ctrl.phone">Phone</dt><dd><kbd>P</kbd></dd></div>
-            <div><dt data-i18n="ctrl.items">Items</dt><dd><kbd>1</kbd>–<kbd>7</kbd></dd></div>
-            <div><dt data-i18n="ctrl.menu">Menu</dt><dd><kbd>Esc</kbd></dd></div>
+            <div><dt data-i18n="ctrl.move">Laufen</dt><dd><kbd>A</kbd> <kbd>D</kbd></dd></div>
+            <div><dt data-i18n="ctrl.jump">Springen</dt><dd><kbd data-i18n="ctrl.space">Leertaste</kbd></dd></div>
+            <div><dt data-i18n="ctrl.melee">Schlagen</dt><dd><kbd data-i18n="ctrl.lmb">Linksklick</kbd></dd></div>
+            <div><dt data-i18n="ctrl.shoot">Schießen</dt><dd><kbd data-i18n="ctrl.rmb">Rechtsklick</kbd></dd></div>
+            <div><dt data-i18n="ctrl.interact">Aufheben</dt><dd><kbd>E</kbd></dd></div>
+            <div><dt data-i18n="ctrl.climb">Leitern</dt><dd><kbd>W</kbd> <kbd>S</kbd></dd></div>
+            <div><dt data-i18n="ctrl.phone">Handy</dt><dd><kbd>P</kbd></dd></div>
+            <div><dt data-i18n="ctrl.items">Items</dt><dd><kbd>1</kbd>-<kbd>7</kbd></dd></div>
+            <div><dt data-i18n="ctrl.menu">Pause</dt><dd><kbd>Esc</kbd></dd></div>
           </dl>
-          <p class="muted" style="margin-top:1rem;font-size:.9rem" data-i18n="ctrl.lede">Keyboard and mouse only. Keys can be changed in the phone's settings.</p>
-        </div>
-      </div>
-
-      <div class="dawn__grid">
-        <div class="reqs">
-          <h3 data-i18n="req.title">Requirements</h3>
-          <table>
-            <thead><tr><th scope="col"></th><th scope="col" data-i18n="req.system">System</th><th scope="col" data-i18n="req.graphics">Graphics</th></tr></thead>
-            <tbody>
-              <tr><td>Windows</td><td data-i18n="req.win">Windows 10 or 11, 64-bit</td><td>OpenGL 3.3</td></tr>
-              <tr><td>macOS</td><td data-i18n="req.mac">A recent macOS, Intel or Apple silicon</td><td>OpenGL 3.3</td></tr>
-              <tr><td>Linux</td><td data-i18n="req.linux">A current 64-bit distribution</td><td>OpenGL 3.3</td></tr>
-              <tr><td data-i18n="stage.web">Browser</td><td data-i18n="req.web">Recent Chrome, Edge, Firefox or Safari on a computer</td><td>WebGL 2</td></tr>
-            </tbody>
-          </table>
+          <p class="small" data-i18n="ctrl.lede">Controller gehen noch nicht. Die Tasten kannst du in den Handy-Einstellungen ändern.</p>
         </div>
 
-        <div class="faq" style="margin-top:0">
-          <h3 data-i18n="faq.title">FAQ</h3>
-          <details>
-            <summary data-i18n="faq.q1">Is it free?</summary>
-            <p data-i18n="faq.a1">Yes. It's a school project by four students. Nothing to buy.</p>
-          </details>
-          <details>
-            <summary data-i18n="faq.q3">Controller?</summary>
-            <p data-i18n="faq.a3">Not yet. Keyboard and mouse only.</p>
-          </details>
-          <details>
-            <summary data-i18n="faq.q4">Phone or tablet?</summary>
-            <p data-i18n="faq.a4">The browser version needs a keyboard, so use a computer.</p>
-          </details>
-          <details>
-            <summary data-i18n="faq.q5">German?</summary>
-            <p data-i18n="faq.a5">The game is in English. This page is in both.</p>
-          </details>
-          <details>
-            <summary data-i18n="faq.q6">It doesn't start.</summary>
-            <p data-i18n="faq.a6">Check that the <code>.pck</code> file is next to the program, then ask in the <a href="https://discord.gg/DU29ufhM8F" rel="noopener">Discord</a> and say which system you're on.</p>
-          </details>
+        <div class="box pad">
+          <h3 data-i18n="faq.title">Sonst noch Fragen</h3>
+          <dl class="faq">
+            <div><dt data-i18n="faq.q1">Kostet das was?</dt>
+            <dd data-i18n="faq.a1">Nein. Ist ein Schulprojekt.</dd></div>
+            <div><dt data-i18n="faq.q2">Läuft das auf meinem Laptop?</dt>
+            <dd data-i18n="faq.a2">Wahrscheinlich. Es nutzt Godots einfachen Renderer, also sollte alles mit OpenGL 3.3 gehen. Die Browser-Version braucht WebGL 2.</dd></div>
+            <div><dt data-i18n="faq.q3">Ab welchem Alter?</dt>
+            <dd data-i18n="faq.a3">Keine offizielle USK-Prüfung. Im Spiel wird mit Schwertern und Waffen gekämpft, in Pixeln und ohne Blut.</dd></div>
+            <div><dt data-i18n="faq.q4">Handy?</dt>
+            <dd data-i18n="faq.a4">Nein, du brauchst eine Tastatur.</dd></div>
+            <div><dt data-i18n="faq.q6">Startet immer noch nicht?</dt>
+            <dd data-i18n="faq.a6">Frag in unserem <a href="https://discord.gg/DU29ufhM8F" rel="noopener">Discord</a> und sag dazu, welches System du hast.</dd></div>
+          </dl>
         </div>
       </div>
     </div>
   </section>
 
   <footer class="credits" id="credits">
-    <div class="wrap credits__roll">
-      <div class="credits__group">
-        <h4 data-i18n="cred.programming">Programming</h4>
-        <p>Alexander Gese · Johannes Schneider · Fabian Wolf · Paul Korn</p>
-      </div>
-      <div class="credits__group">
-        <h4 data-i18n="cred.design">Game design</h4>
-        <p>Alexander Gese · Paul Korn · Johannes Schneider · Fabian Wolf</p>
-      </div>
-      <div class="credits__group">
-        <h4 data-i18n="cred.art">Graphic design</h4>
-        <p>Paul Korn · Johannes Schneider · Fabian Wolf</p>
-      </div>
-      <div class="credits__group">
-        <h4 data-i18n="cred.music">Music and sound design</h4>
-        <p>Alexander Gese</p>
-      </div>
-      <div class="credits__group">
-        <h4 data-i18n="cred.thanks">Special thanks</h4>
-        <p><span>Prager</span> · <span>Claude / Gemini</span> · <span data-i18n="cred.you">You, for playing</span></p>
-      </div>
-
-      <div class="credits__links">
-        <a class="btn btn--amber" href="#top" data-i18n="hud.get">Download</a>
+    <div class="wrap narrow">
+      <h2 data-i18n="cred.title">Gemacht von</h2>
+      <ul class="team">
+        <li><b>Alexander Gese</b> <span data-i18n="cred.alex">Code, Game Design, die ganze Musik</span></li>
+        <li><b>Paul Korn</b> <span data-i18n="cred.paul">Code, Game Design, Grafik</span></li>
+        <li><b>Johannes Schneider</b> <span data-i18n="cred.johannes">Code, Game Design, Grafik</span></li>
+        <li><b>Fabian Wolf</b> <span data-i18n="cred.fabian">Code, Game Design, Grafik</span></li>
+      </ul>
+      <p class="small" data-i18n="cred.thanks">Danke an Prager, Claude / Gemini und dich fürs Spielen. Ein paar Sprites sind kostenlose Pakete von CraftPix und GandalfHardcore.</p>
+      <p class="credits__links">
+        <a class="btn" href="#top" data-i18n="hud.get">Download</a>
         <a class="btn" href="https://discord.gg/DU29ufhM8F" rel="noopener">Discord</a>
         <a class="btn" href="https://github.com/alexandergese/last-exhibit" rel="noopener">GitHub</a>
-      </div>
-
-      <p class="credits__fine">
-        <span data-i18n="cred.fine1">Pixel art, music and the Pixuf typeface are from the game. Some sprites use free packs from CraftPix and GandalfHardcore.</span><br>
-        <span data-i18n="cred.fine2">A school project. Website code under the MIT licence.</span>
+      </p>
+      <p class="legal-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html" data-i18n="legal.privacy">Datenschutz</a>
       </p>
     </div>
   </footer>
@@ -444,7 +257,6 @@
 <script src="assets/js/audio.js"></script>
 <script src="assets/js/stage.js"></script>
 <script src="assets/js/main.js"></script>
-<script src="assets/js/eras.js"></script>
 <script src="assets/js/phone.js"></script>
 </body>
 </html>
