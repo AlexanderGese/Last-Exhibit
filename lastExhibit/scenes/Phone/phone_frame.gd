@@ -5,7 +5,7 @@ extends TextureRect
 @onready var to: TextureRect = $"../Tor"
 @onready var flappybird: TextureRect = $"../Flappybird"
 @onready var museu: TextureRect = $"../Museum"
-@onready var revospar_panel: TextureRect = $"../Revospar"
+@onready var revocash_panel: TextureRect = $"../RevoCash"
 @onready var message: TextureRect = $"../Messages"
 @onready var setting: TextureRect = $"../Settings"
 
@@ -51,9 +51,9 @@ func museum() -> void:
 	Tutorials.show_tutorial("museum")
 
 
-func revospar() -> void:
-	revospar_panel.visible = true
-	Tutorials.show_tutorial("revospar")
+func revocash() -> void:
+	revocash_panel.visible = true
+	Tutorials.show_tutorial("revocash")
 
 
 func messages() -> void:

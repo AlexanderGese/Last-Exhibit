@@ -1,7 +1,7 @@
 /* ==========================================================================
    Last Exhibit — David's phone and the darknet listings
 
-   The apps mirror scenes/Phone/*.gd: Classifieds (shop), Messages, Revospar,
+   The apps mirror scenes/Phone/*.gd: Classifieds (shop), Messages, Revo Cash,
    Settings, Tor (darknet), Museum, Flappy. Flappy is playable, with the
    game's own constants: gravity 1200, jump −400, pipes at 200 px/s, gap 190.
    ========================================================================== */
@@ -51,7 +51,7 @@
     },
 
     bank: {
-      title: function () { return "Revospar"; },
+      title: function () { return "Revo Cash"; },
       render: function () {
         return "<p><b style=\"font-weight:400\">" + t("phone.account") + "</b></p>" +
           row(t("phone.coins"), "1 240") + row(t("phone.shards"), "37") + row(t("phone.btc"), "58") +

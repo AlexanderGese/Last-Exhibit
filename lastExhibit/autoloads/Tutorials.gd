@@ -21,7 +21,7 @@ const TUTORIALS := {
 		"body":
 		"Your text messages show up here. The game sends you hints and reminders. Check them after something big happens."
 	},
-	"revospar":
+	"revocash":
 	{
 		"title": "Bank",
 		"body":
