@@ -8,8 +8,8 @@ window.LE_BUILDS = {
   version: "1.0.0",
   web: { available: true, added: "2026-09-30" },
   platforms: {
-    windows: { available: true, file: "LastExhibit-windows-x86_64.zip", bytes: 98173378, sha256: "de8d6bf457f8f86b1e2d97aff59e247920719728c98757f1a8de0c05ac7b9965", added: "2026-09-30", url: "https://github.com/AlexanderGese/Last-Exhibit/releases/download/v1.0.0/LastExhibit-windows-x86_64.zip" },
-    macos: { available: true, file: "LastExhibit-macos-universal.zip", bytes: 121220985, sha256: "c4f3879754e8d120d154aa80bea4cc90db67a4b97e78e6694a9d6e7a8543df0d", added: "2026-09-30", url: "https://github.com/AlexanderGese/Last-Exhibit/releases/download/v1.0.0/LastExhibit-macos-universal.zip" },
-    linux: { available: true, file: "LastExhibit-linux-x86_64.zip", bytes: 88604965, sha256: "fd6a96630faa52681de47749add557a7239dc56eaf019751fbe64be8b5b41197", added: "2026-09-30", url: "https://github.com/AlexanderGese/Last-Exhibit/releases/download/v1.0.0/LastExhibit-linux-x86_64.zip" }
+    windows: { available: true, file: "LastExhibit-windows-x86_64.zip", bytes: 98173363, sha256: "46b6272c3b47cabdf6dffe8d8911018534fe186bde27333d3aa2dc52cf5c5bfe", added: "2026-09-30", url: "https://github.com/AlexanderGese/Last-Exhibit/releases/download/v1.0.0/LastExhibit-windows-x86_64.zip" },
+    macos: { available: true, file: "LastExhibit-macos-universal.zip", bytes: 121220963, sha256: "39cfc5b93b68f67545b88702858155773c1c666a1331c2190471a183d98aec89", added: "2026-09-30", url: "https://github.com/AlexanderGese/Last-Exhibit/releases/download/v1.0.0/LastExhibit-macos-universal.zip" },
+    linux: { available: true, file: "LastExhibit-linux-x86_64.zip", bytes: 88604950, sha256: "a406a66c52054b585b886a94db6e064dce4b1066fe8310084c75a701149690f4", added: "2026-09-30", url: "https://github.com/AlexanderGese/Last-Exhibit/releases/download/v1.0.0/LastExhibit-linux-x86_64.zip" }
   }
 };

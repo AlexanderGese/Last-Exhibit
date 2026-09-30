@@ -170,8 +170,8 @@
     "faq.a6": "Ask in our <a href=\"https://discord.gg/DU29ufhM8F\" rel=\"noopener\">Discord</a> and tell us which system you're on.",
 
     "cred.title": "Made by",
-    "cred.alex": "code, game design, all the music",
-    "cred.paul": "code, game design, graphics",
+    "cred.alex": "code, game design, audio",
+    "cred.paul": "code, graphics",
     "cred.johannes": "code, game design, graphics",
     "cred.fabian": "code, game design, graphics",
     "cred.thanks": "Thanks to Prager, Claude / Gemini and you for playing. Some sprites are free packs from CraftPix and GandalfHardcore.",
