@@ -15,7 +15,7 @@ extends SaveFile
 @export var unlocked_epochs: Array[String] = ["sowjet"]
 @export var tor_app: bool = false
 @export var museum_app: bool = false
-@export var flappy_app: bool = false
+@export var flapbird_app: bool = false
 @export var level_time = 60
 # -- Inventory ---------------
 @export var equipped: Dictionary = {}
@@ -43,7 +43,7 @@ func _init() -> void:
 	unlocked_epochs = ["sowjet"]
 	tor_app = false
 	museum_app = false
-	flappy_app = false
+	flapbird_app = false
 	equipped = {}
 	messages = ["/", "/", "/", "/", "/", "/", "/", "/", "/"]
 	past_five_transactions = ["/", "/", "/", "/", "/"]

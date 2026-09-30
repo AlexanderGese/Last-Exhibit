@@ -6,7 +6,7 @@
      chosen   a track the visitor started by hand; it wins until it ends
               or they stop it
    Tracks crossfade over two <audio> elements. Short effects (David's jump
-   and landing, the Flappy flap) are synthesised with Web Audio, so there
+   and landing, the Flapbird flap) are synthesised with Web Audio, so there
    are no extra files to load.
 
    Events on document:

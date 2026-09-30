@@ -2,7 +2,7 @@
    Last Exhibit — David's phone and the darknet listings
 
    The apps mirror scenes/Phone/*.gd: Classifieds (shop), Messages, Revospar,
-   Settings, Tor (darknet), Museum, Flappy. Flappy is playable, with the
+   Settings, Tor (darknet), Museum, Flapbird. Flapbird is playable, with the
    game's own constants: gravity 1200, jump −400, pipes at 200 px/s, gap 190.
    ========================================================================== */
 
@@ -17,7 +17,7 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
-  var view, content, title, openApp = null, flappy = null;
+  var view, content, title, openApp = null, flapbird = null;
 
   /* ---------------------------------------------------------------------
      App screens
@@ -35,7 +35,7 @@
           ["Extend Leveltime", "250 $"],
           ["Museum app", "100 $"],
           ["Darknet app", "500 $"],
-          ["Flappybird app", "250 $"]
+          ["Flapbird app", "250 $"]
         ];
         return "<p>" + t("phone.shopHint") + "</p>" + rows.map(function (r) {
           return '<p class="bubble" style="display:flex;justify-content:space-between;gap:.5rem;max-width:none"><span>' + r[0] + "</span><b style=\"color:#8fe07f;font-weight:400\">" + r[1] + "</b></p>";
@@ -97,13 +97,13 @@
       }
     },
 
-    flappy: {
-      title: function () { return "Flappybird"; },
+    flapbird: {
+      title: function () { return "Flapbird"; },
       render: function () {
-        return '<canvas class="flappy" id="flappy" width="240" height="400" aria-label="Flappy Bird"></canvas>';
+        return '<canvas class="flapbird" id="flapbird" width="240" height="400" aria-label="Flapbird"></canvas>';
       },
-      after: function () { flappy = Flappy($("#flappy")); },
-      close: function () { if (flappy) { flappy.stop(); flappy = null; } }
+      after: function () { flapbird = Flapbird($("#flapbird")); },
+      close: function () { if (flapbird) { flapbird.stop(); flapbird = null; } }
     }
   };
 
@@ -117,7 +117,7 @@
     if (openApp && APPS[openApp].close) APPS[openApp].close();
     openApp = name;
     title.textContent = app.title();
-    content.style.padding = name === "flappy" ? "0" : "";
+    content.style.padding = name === "flapbird" ? "0" : "";
     content.innerHTML = app.render();
     if (app.after) app.after();
     view.classList.add("is-open");
@@ -135,10 +135,10 @@
   }
 
   /* ---------------------------------------------------------------------
-     Flappy — a small canvas port of scenes/Phone/flappybird.gd
+     Flapbird — a small canvas port of scenes/Phone/flapbird.gd
      --------------------------------------------------------------------- */
 
-  function Flappy(canvas) {
+  function Flapbird(canvas) {
     var ctx = canvas.getContext("2d");
     // Match the phone screen's shape so nothing is stretched
     var W = 240;
@@ -155,7 +155,7 @@
     coin.src = "assets/img/phone/coin.png";
 
     var best = 0;
-    try { best = parseInt(localStorage.getItem("lastexhibit.flappy") || "0", 10) || 0; } catch (e) { /* ignore */ }
+    try { best = parseInt(localStorage.getItem("lastexhibit.flapbird") || "0", 10) || 0; } catch (e) { /* ignore */ }
 
     var s = reset();
     var raf = 0, last = 0, alive = true;
@@ -197,7 +197,7 @@
       s.dead = true;
       if (s.score > best) {
         best = s.score;
-        try { localStorage.setItem("lastexhibit.flappy", String(best)); } catch (e) { /* ignore */ }
+        try { localStorage.setItem("lastexhibit.flapbird", String(best)); } catch (e) { /* ignore */ }
       }
     }
 
@@ -234,20 +234,20 @@
       ctx.font = "10px Pixuf, monospace";
       if (!s.playing) {
         ctx.fillStyle = "#123";
-        ctx.fillText(t("phone.flappyStart"), W / 2, H * 0.62);
-        ctx.fillText(t("phone.flappyBest") + best, W / 2, H * 0.62 + 16);
-        wrap(t("phone.flappyHint"), W / 2, H * 0.78, W - 30, 14);
+        ctx.fillText(t("phone.flapbirdStart"), W / 2, H * 0.62);
+        ctx.fillText(t("phone.flapbirdBest") + best, W / 2, H * 0.62 + 16);
+        wrap(t("phone.flapbirdHint"), W / 2, H * 0.78, W - 30, 14);
       }
       if (s.dead) {
         ctx.fillStyle = "rgba(0,0,0,.55)";
         ctx.fillRect(0, H * 0.36, W, 92);
         ctx.fillStyle = "#fff";
         ctx.font = "16px Pixuf, monospace";
-        ctx.fillText(t("phone.flappyOver") + s.score, W / 2, H * 0.36 + 34);
+        ctx.fillText(t("phone.flapbirdOver") + s.score, W / 2, H * 0.36 + 34);
         ctx.font = "10px Pixuf, monospace";
         ctx.fillText("+" + Math.floor(s.score / 10), W / 2 + 8, H * 0.36 + 62);
         if (coin.complete) ctx.drawImage(coin, W / 2 - 26, H * 0.36 + 50, 16, 16);
-        ctx.fillText(t("phone.flappyBest") + best, W / 2, H * 0.36 + 82);
+        ctx.fillText(t("phone.flapbirdBest") + best, W / 2, H * 0.36 + 82);
       }
     }
 
@@ -329,7 +329,7 @@
       if (e.key === "Escape") close();
     });
     document.addEventListener("langchange", function () {
-      if (openApp && openApp !== "flappy") open(openApp);
+      if (openApp && openApp !== "flapbird") open(openApp);
     });
 
 

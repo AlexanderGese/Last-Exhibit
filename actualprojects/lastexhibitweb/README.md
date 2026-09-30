@@ -52,7 +52,7 @@ assets/js/stage.js      the plinths and David
 assets/js/audio.js      music and the synthesised jump/land sounds
 assets/js/main.js       collection, soundtrack list, install tabs, copy buttons
 assets/js/eras.js       the time machine map
-assets/js/phone.js      the phone apps and playable Flappy
+assets/js/phone.js      the phone apps and playable Flapbird
 assets/js/builds.js     generated manifest — don't edit
 assets/audio/           the game's 15 music tracks, as 80 kbps MP3
 assets/img/             sprites and art copied from lastExhibit/assets

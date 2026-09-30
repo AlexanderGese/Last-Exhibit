@@ -44,9 +44,9 @@ const TUTORIALS := {
 		"body":
 		"This shows how your museum is doing: visitors per day, your reputation, the ticket price, and the money you make each day."
 	},
-	"flappy":
+	"flapbird":
 	{
-		"title": "Flappy",
+		"title": "Flapbird",
 		"body": "A small game to relax. Every 10 points you score gives you 1 coin."
 	},
 	"first_artifact":

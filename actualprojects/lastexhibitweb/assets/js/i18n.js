@@ -54,10 +54,10 @@
       "phone.torBuy": "// KAUFEN",
       "phone.torSellEmpty": "Keine verkaufbaren Artefakte in der Tasche.",
       "phone.torSee": "Alle Angebote stehen neben dem Handy.",
-      "phone.flappyHint": "Tippen oder Leertaste. Alle 10 Punkte gibt es im Spiel 1 Münze.",
-      "phone.flappyStart": "Tippen zum Starten",
-      "phone.flappyOver": "Game Over! Punkte: ",
-      "phone.flappyBest": "Rekord: "
+      "phone.flapbirdHint": "Tippen oder Leertaste. Alle 10 Punkte gibt es im Spiel 1 Münze.",
+      "phone.flapbirdStart": "Tippen zum Starten",
+      "phone.flapbirdOver": "Game Over! Punkte: ",
+      "phone.flapbirdBest": "Rekord: "
     },
     en: {
       "stage.download": "Download",
@@ -94,10 +94,10 @@
       "phone.torBuy": "// BUY",
       "phone.torSellEmpty": "No sellable artifacts in your bag.",
       "phone.torSee": "The full list is next to the phone.",
-      "phone.flappyHint": "Tap or press Space. Every 10 points is 1 coin in the game.",
-      "phone.flappyStart": "Tap to start",
-      "phone.flappyOver": "Game Over! Score: ",
-      "phone.flappyBest": "Best: "
+      "phone.flapbirdHint": "Tap or press Space. Every 10 points is 1 coin in the game.",
+      "phone.flapbirdStart": "Tap to start",
+      "phone.flapbirdOver": "Game Over! Score: ",
+      "phone.flapbirdBest": "Best: "
     }
   };
 
@@ -122,10 +122,10 @@
     "how.p1": "You're David. You bought an old museum that's about to go bankrupt, and behind a wall in the basement there's a time machine.",
     "how.p2": "At night you jump into the past, to 1965, 1943, 1600 or around 1200. You take whatever you can carry and get out before your 60 seconds run out. If you die there, everything you collected that night is gone.",
     "how.p3": "During the day you put the loot in the showcases and visitors pay to see it. With the money you unlock more years. At some point there's a knight in a castle who really doesn't want you there.",
-    "how.p4": "Four levels, four bosses, four hours of music and a phone with Flappy Bird on it. The game itself is in English.",
+    "how.p4": "Four levels, four bosses, four hours of music and a phone with Flapbird on it. The game itself is in English.",
 
     "dark.title": "Your phone",
-    "dark.lede": "In the game you open it with P. It has the shop where you unlock new levels, your bank, your museum's numbers, a darknet app and Flappy Bird. You can click around on this one too.",
+    "dark.lede": "In the game you open it with P. It has the shop where you unlock new levels, your bank, your museum's numbers, a darknet app and Flapbird. You can click around on this one too.",
     "dark.lede2": "The darknet app costs 500 coins in the game. You sell artifacts there for bitcoin and buy stuff that helps you survive the next night:",
     "phone.messages": "Messages",
     "phone.settings": "Settings",

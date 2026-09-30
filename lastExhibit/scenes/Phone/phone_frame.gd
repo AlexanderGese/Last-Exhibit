@@ -3,7 +3,7 @@ extends TextureRect
 # App-Screens (die ganze App-Oberflächen die sich öffnen)
 @onready var classifieds: TextureRect = $"../Classifieds"
 @onready var to: TextureRect = $"../Tor"
-@onready var flappybird: TextureRect = $"../Flappybird"
+@onready var flapbird_panel: TextureRect = $"../Flapbird"
 @onready var museu: TextureRect = $"../Museum"
 @onready var revospar_panel: TextureRect = $"../Revospar"
 @onready var message: TextureRect = $"../Messages"
@@ -12,7 +12,7 @@ extends TextureRect
 # App-Icons auf dem Homescreen (die freigeschaltet werden können)
 @onready var tor_icon = $HomeScreen/VBoxContainer/SecondRow/Tor
 @onready var museum_icon = $HomeScreen/VBoxContainer/SecondRow/Museum
-@onready var flappy_icon = $HomeScreen/VBoxContainer/ThirdRow/Flappy
+@onready var flapbird_icon = $HomeScreen/VBoxContainer/ThirdRow/Flapbird
 
 
 func _ready() -> void:
@@ -27,7 +27,7 @@ func _on_app_purchased(_type: String) -> void:
 func _update_all_apps() -> void:
 	tor_icon.visible = SaveManager.player.tor_app
 	museum_icon.visible = SaveManager.player.museum_app
-	flappy_icon.visible = SaveManager.player.flappy_app
+	flapbird_icon.visible = SaveManager.player.flapbird_app
 
 
 # App-Screens öffnen
@@ -36,9 +36,9 @@ func großanzeigen() -> void:
 	Tutorials.show_tutorial("grossanzeigen")
 
 
-func flappy() -> void:
-	flappybird.visible = true
-	Tutorials.show_tutorial("flappy")
+func flapbird() -> void:
+	flapbird_panel.visible = true
+	Tutorials.show_tutorial("flapbird")
 
 
 func button() -> void:

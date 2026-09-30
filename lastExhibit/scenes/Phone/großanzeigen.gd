@@ -11,7 +11,7 @@ func _refresh_labels() -> void:
 	$VBoxContainer/Label8.visible = not _has_epoch("japan")
 	$VBoxContainer/Label5.visible = not SaveManager.player.museum_app
 	$VBoxContainer/Label6.visible = not SaveManager.player.tor_app
-	$VBoxContainer/Label7.visible = not SaveManager.player.flappy_app
+	$VBoxContainer/Label7.visible = not SaveManager.player.flapbird_app
 
 
 func button_1() -> void:
@@ -29,7 +29,7 @@ func reset_all_upgrades() -> void:
 	# Apps zurücksetzen
 	SaveManager.player.museum_app = false
 	SaveManager.player.tor_app = false
-	SaveManager.player.flappy_app = false
+	SaveManager.player.flapbird_app = false
 
 	# Time-Upgrades zurücksetzen (level_time auf Default)
 	SaveManager.player.level_time = 60  # oder was dein Default ist
@@ -92,12 +92,12 @@ func button_6() -> void:
 		Events.purchase_großanzeigen.emit("tor")
 
 
-# Flappy-App freischalten
+# Flapbird-App freischalten
 func button_7() -> void:
-	if SaveManager.buy(250, "flappy", "coins"):
-		SaveManager.player.flappy_app = true
+	if SaveManager.buy(250, "Flapbird", "coins"):
+		SaveManager.player.flapbird_app = true
 		$VBoxContainer/Label7.visible = false
-		Events.purchase_großanzeigen.emit("flappy")
+		Events.purchase_großanzeigen.emit("flapbird")
 
 
 func button_8() -> void:
